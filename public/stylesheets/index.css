@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  background-color: rebeccapurple;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  text-transform: capitalize;
+  font-family: "Fira Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
+}
+
+footer {
+  font-size: 80%;
+  display: none;
+  color: red;
+}
+
+/*# sourceMappingURL=index.css.map */
