@@ -3,7 +3,6 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: rebeccapurple;
 }
 
 html,
@@ -14,12 +13,67 @@ body {
   font-family: "Nunito", sans-serif;
   font-family: "Poppins", sans-serif;
   font-family: "Raleway", sans-serif;
+  font-size: 16px;
+}
+
+.d-desktop,
+.d-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .d-mobile {
+    display: block;
+  }
+}
+@media screen and (min-width: 600px) {
+  .d-desktop {
+    display: block;
+  }
+}
+body {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px auto 40px;
+  min-height: 80vh;
+  column-gap: 1.2px;
+}
+
+body > * {
+  padding: 7.5px;
+}
+
+header {
+  grid-column: 1/-1;
+  background-color: red;
 }
 
 footer {
+  grid-column: 1/-1;
+  background-color: ghostwhite;
+}
+
+main {
+  grid-column: 2/-1;
+  background-color: blue;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    grid-column: 1/-1;
+  }
+
+  nav {
+    display: none;
+  }
+}
+footer {
   font-size: 80%;
-  display: none;
-  color: red;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=index.css.map */

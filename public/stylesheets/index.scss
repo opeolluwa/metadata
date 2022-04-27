@@ -8,7 +8,6 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-color: rebeccapurple;
 }
 
 html,
@@ -19,7 +18,62 @@ body {
   font-family: "Nunito", sans-serif;
   font-family: "Poppins", sans-serif;
   font-family: "Raleway", sans-serif;
+  font-size: 16px;
 }
 
+//classes
+.d-desktop,
+.d-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .d-mobile {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .d-desktop {
+    display: block;
+  }
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 40px auto 40px;
+  min-height: 80vh;
+  column-gap: 1.2px;
+}
+body > * {
+  padding: $padding;
+}
+
+header {
+  grid-column: 1/-1;
+  background-color: red;
+}
+
+footer {
+  grid-column: 1/-1;
+  background-color: ghostwhite;
+}
+
+main {
+  grid-column: 2/-1;
+  background-color: blue;
+}
+
+//mobile layout
+@media screen and (max-width: 600px) {
+  main {
+    grid-column: 1/-1;
+  }
+  nav {
+    display: none;
+  }
+}
 //components
+@import "./components/main";
 @import "./components/footer";

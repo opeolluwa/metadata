@@ -1,5 +1,8 @@
-footer{
-font-size: $small-font;
-display: none;
-color: red;
-}
+footer {
+  font-size: $small-font;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+ }
