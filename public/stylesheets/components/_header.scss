@@ -1,7 +1,12 @@
 header {
-  & span {
-    width: 10px;
-    height: 2px;
-    background-color: $black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a,
+  a:hover,
+  a:visited,
+  a:link {
+    @include anchor-regular;
   }
 }

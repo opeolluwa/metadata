@@ -2,9 +2,9 @@
   "version": "1.0.0",
   "description": "A collection of web games ",
   "scripts": {
-    "start": "ts-node app.ts",
-    "dev": "concurrently \"nodemon app.ts\" \"sass public/stylesheets/index.scss public/stylesheets/index.css --watch\"",
+    "start": "ts-node app.ts",   
     "dev:server": "nodemon app.ts",
+    "sass":"sass public/stylesheets/index.scss public/stylesheets/index.css --watch",
     "make": "bash install.sh"
   },
   "dependencies": {

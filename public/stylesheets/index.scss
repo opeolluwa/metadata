@@ -52,17 +52,16 @@ body > * {
 
 header {
   grid-column: 1/-1;
-  background-color: red;
+  @include gradient;
+  color: $white;
 }
 
 footer {
   grid-column: 1/-1;
-  background-color: ghostwhite;
 }
 
 main {
   grid-column: 2/-1;
-  background-color: blue;
 }
 
 //mobile layout
@@ -75,5 +74,6 @@ main {
   }
 }
 //components
+@import "./components/header";
 @import "./components/main";
 @import "./components/footer";

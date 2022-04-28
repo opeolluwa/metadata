@@ -45,17 +45,17 @@ body > * {
 
 header {
   grid-column: 1/-1;
-  background-color: red;
+  background-color: #4158d0;
+  background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+  color: #f2f2f2;
 }
 
 footer {
   grid-column: 1/-1;
-  background-color: ghostwhite;
 }
 
 main {
   grid-column: 2/-1;
-  background-color: blue;
 }
 
 @media screen and (max-width: 600px) {
@@ -67,6 +67,19 @@ main {
     display: none;
   }
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header a,
+header a:hover,
+header a:visited,
+header a:link {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
 footer {
   font-size: 80%;
   position: relative;
