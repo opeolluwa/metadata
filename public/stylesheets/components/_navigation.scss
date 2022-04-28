@@ -8,9 +8,10 @@ nav {
   align-items: center;
   min-height: 5rem;
   @include fade-overlay(0, 0, 0, 0.15);
-  border-radius: 0 0  7px 7px;
+  border-radius: 0 0 7px 7px;
   a#logo {
     @include anchor-regular($weight: 600);
+    border: 1px solid red;
   }
   //navigation item
   ul {
@@ -26,14 +27,25 @@ nav {
   a:hover,
   a:visited,
   a:link {
-    @include anchor-regular($weight: 600);
+    @include anchor-regular($weight: 400);
+    padding: 0;
+    border: none;
   }
 }
 
-@media screen and (min-width: 600px) {
-  header {
-    ul {
-      display: none;
+@media screen and (max-width: 600px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 3rem;
+
+    svg#navigation-toggle {
+      padding:  3px 5px;
+      box-sizing: content-box;
+      border-radius: 4px;
+      font-size: 25px;
+      @include fade-overlay(255, 255, 255, 0.1);
     }
   }
 }

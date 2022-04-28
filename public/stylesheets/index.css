@@ -13,7 +13,7 @@ body {
   font-family: "Nunito", sans-serif;
   font-family: "Poppins", sans-serif;
   font-family: "Raleway", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .d-desktop,
@@ -37,7 +37,7 @@ h1 {
 
 @media screen and (max-width: 600px) {
   .d-mobile {
-    display: block;
+    display: unset;
   }
 }
 @media screen and (min-width: 600px) {
@@ -94,6 +94,7 @@ nav a#logo {
   color: #f2f2f2;
   text-decoration: none;
   font-weight: 600;
+  border: 1px solid red;
 }
 nav ul {
   list-style: none;
@@ -109,12 +110,24 @@ nav a:visited,
 nav a:link {
   color: #f2f2f2;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 400;
+  padding: 0;
+  border: none;
 }
 
-@media screen and (min-width: 600px) {
-  header ul {
-    display: none;
+@media screen and (max-width: 600px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 3rem;
+  }
+  nav svg#navigation-toggle {
+    padding: 3px 5px;
+    box-sizing: content-box;
+    border-radius: 4px;
+    font-size: 25px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
   }
 }
 header {
@@ -143,12 +156,15 @@ header p {
   justify-content: center;
   text-align: center;
 }
-header div {
+header p::first-letter {
+  text-transform: capitalize !important;
+}
+header div#call-to-action {
   margin-bottom: 3rem;
   display: flex;
   justify-content: space-evenly;
 }
-header div a {
+header div#call-to-action a {
   border: 1px solid #f2f2f2;
   border-radius: 4px;
   padding: 10px 5px;
@@ -165,6 +181,83 @@ header > * {
   padding: 0 3.5rem;
 }
 
+@media screen and (max-width: 600px) {
+  header {
+    grid-template-rows: 5px calc(90vh - 9rem - 10px);
+  }
+  header > * {
+    padding: 0 1.5rem;
+  }
+  header #hero p {
+    max-width: unset;
+    font-size: 105%;
+    line-height: 25px;
+  }
+}
+@media screen and (min-width: 600px) {
+  header ul {
+    display: none;
+  }
+}
+main {
+  padding: 0 3.5rem;
+}
+main form {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: center;
+  align-items: center;
+  margin: 3.5rem 0;
+}
+main form > * {
+  border: 1px solid #4d63d3;
+  border-radius: 0;
+  padding: 10px 5px;
+  min-width: 7rem;
+  text-align: center;
+  text-transform: capitalize;
+  text-align: unset;
+}
+main form input {
+  grid-column: 4/8;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  text-align: center;
+}
+main form input:hover,
+main form input:focus {
+  outline: none;
+}
+main form input::placeholder {
+  font-family: monospace;
+  color: #7d7d7d;
+}
+main form button[type=submit] {
+  grid-column: 8/9;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  text-align: center;
+  color: #f2f2f2;
+  background: #4158d0;
+  font-weight: 500;
+}
+@media screen and (max-width: 600px) {
+  main form input {
+    grid-column: 1/11;
+  }
+  main form button[type=submit] {
+    grid-column: 11/-1;
+  }
+  main form button[type=submit] svg {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: 0 1.5rem;
+  }
+}
 footer {
   font-size: 80%;
   position: relative;

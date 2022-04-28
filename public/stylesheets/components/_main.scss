@@ -1,3 +1,10 @@
 main {
-//   min-height: calc(100vh - 5rem);
+  @import "./../components/search-form";
+  padding: $desktop-view-padding;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: $mobile-view-padding;
+  }
 }
