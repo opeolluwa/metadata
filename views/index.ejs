@@ -4,8 +4,10 @@
     <%- include('./partials/head'); %>
   </head>
   <body>
-    <header><%- include('./partials/header'); %></header>
-    <nav><%- include("./partials/navigation");%></nav>
+    <header>
+      <nav><%- include("./partials/navigation");%></nav>
+      <%- include('./partials/header'); %>
+    </header>
     <main>hello</main>
     <footer><%- include("./partials/footer"); %></footer>
   </body>

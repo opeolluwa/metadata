@@ -1,3 +1,39 @@
-nav{
-    
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5rem;
+  @include fade-overlay(0, 0, 0, 0.15);
+  border-radius: 0 0  7px 7px;
+  a#logo {
+    @include anchor-regular($weight: 600);
+  }
+  //navigation item
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+    li {
+      margin: 0 $spacing;
+    }
+  }
+  a,
+  a:hover,
+  a:visited,
+  a:link {
+    @include anchor-regular($weight: 600);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    ul {
+      display: none;
+    }
+  }
 }

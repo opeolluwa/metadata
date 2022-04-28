@@ -1,12 +1,46 @@
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 10px  calc(90vh - 9rem - 10px);
+  padding: 0 !important;
+  min-height: calc(90vh - 5rem);
+  align-content: space-between;
+  @include gradient;
+  color: $white;
 
-  a,
-  a:hover,
-  a:visited,
-  a:link {
-    @include anchor-regular;
+  #hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
+
+  h1 {
+
+    text-align: center;
+  }
+
+  p {
+    margin: 1.75rem 0;
+    max-width: 40vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  //call to action
+  div {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    a {
+      @include base-button($border-color: $white);
+      @include fade-overlay(255, 255, 255, 0.1);
+      display: block;
+      margin: 0 0.75rem;
+      cursor: pointer;
+    }
+  }
+}
+
+header > * {
+  padding: 0 3.5rem;
 }
