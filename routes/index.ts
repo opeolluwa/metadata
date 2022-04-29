@@ -1,5 +1,8 @@
 import { Application } from "express";
-import AuthenticationRouters from "./auth"
+import AuthenticationRoutes from "./auth"
+import ResourceRoutes from "./auth"
+
 export default (app: Application) => {
-    AuthenticationRouters(app);
+    AuthenticationRoutes(app);
+    ResourceRoutes(app)
 }
