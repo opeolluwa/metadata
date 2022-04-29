@@ -38,10 +38,17 @@ form {
 @media screen and (max-width: 600px) {
   form {
     input {
-      grid-column: 1 / 11;
+      grid-column: 1 / -1;
+      border: 1px solid $grey;
+      border-radius: 4px;
+    }
+
+    input::placeholder {
+      content: "Search here";
     }
     button[type="submit"] {
-      grid-column: 11 / -1;
+      grid-column: 12 / -1;
+      display: none;
       svg {
         font-size: 10px;
       }

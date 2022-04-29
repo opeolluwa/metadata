@@ -24,6 +24,7 @@ header {
     display: flex;
     justify-content: center;
     text-align: center;
+    color: darken($white, 3%);
   }
 
   p::first-letter {
@@ -55,7 +56,7 @@ header > * {
     & > * {
       padding: 0 1.5rem;
     }
-    & #hero{
+    & #hero {
       p {
         max-width: unset;
         font-size: 105%;
