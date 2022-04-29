@@ -252,6 +252,23 @@ main form button[type=submit] {
     font-size: 10px;
   }
 }
+main ul li {
+  margin: 7.5px 0;
+  list-style-type: disc;
+}
+main ul li a {
+  color: #101010;
+  text-decoration: none;
+  font-weight: 300;
+}
+main ul li ul li {
+  margin-left: 22.5px;
+}
+main ul li ul li a {
+  color: #4158d0;
+  text-decoration: none;
+  font-weight: 300;
+}
 
 @media screen and (max-width: 600px) {
   main {
@@ -265,6 +282,7 @@ footer {
   left: 0;
   display: flex;
   justify-content: center;
+  background-color: ghostwhite;
 }
 
 /*# sourceMappingURL=index.css.map */
