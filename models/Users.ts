@@ -1,39 +1,49 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-// const sequelize = new Sequelize('sqlite::memory:');
-import { databaseConnection } from "./../config/database"
+const { DataTypes, Model } = require('sequelize');
+import { sequelize } from "./../config/database"
+import sequelizeBcrypt from "sequelize-bcrypt";
+import { sequelizeJoi, Joi } from "sequelize-joi";
 
-class User extends Model { }
-
+export class User extends Model { }
 User.init({
+    // Model attributes are defined here
     user_id: {
         type: DataTypes.UUID,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
     },
     // Model attributes are defined here
-    firstName: {
+    first_name: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    lastName: {
+    last_name: {
         type: DataTypes.STRING
         // allowNull defaults to true
     },
-    email: {
+    username: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        schema: Joi.string().trim().alphanum().min(6).max(30),
     },
     password: {
         type: DataTypes.STRING,
+        schema: Joi.string().trim().required().min(8),
         allowNull: false
     }
 }, {
     // Other model options go here
-    databaseConnection, // We need to pass the connection instance
-    modelName: 'user_information' // We need to choose the model name
+    sequelize, // We need to pass the connection instance
+    modelName: 'User', // We need to choose the model name
+    tableName: "user_information"
 });
 
-// the defined model is the class itself
-console.log(User === databaseConnection.models.User); // true
 
-export { User }
+sequelizeBcrypt(User, {
+    field: 'password', // secret field to hash, default: 'password'
+    rounds: 12, // used to generate bcrypt salt, default: 12
+    compare: 'authenticate', // method used to compare secrets, default: 'authenticate'
+})
+
+// the defined model is the class itself
+console.log(User === sequelize.models.User); // true

@@ -1,15 +1,13 @@
-const { Sequelize } = require('sequelize');
-export const databaseConnection = new Sequelize({
+import path from "path";
+import { Sequelize, } from "sequelize";
+
+export const sequelize = new Sequelize({
     dialect: 'sqlite',
-    storage: './../database/meta-data.sqlite'
+    storage: path.join(__dirname, './../database/database.db')
 });
 
-async function testDatabaseConnection() {
-    try {
-        await databaseConnection.authenticate();
-        console.log('Connection has been established successfully.');
-    } catch (error) {
-        console.error('Unable to connect to the database:', error);
-    }
-}
-testDatabaseConnection()
+
+// export const sequelize = new Sequelize('meta_data', 'sillicone', '', {
+//     host: 'localhost',
+//     dialect: "mysql"
+//   });
