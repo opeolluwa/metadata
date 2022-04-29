@@ -6,6 +6,8 @@ footer {
   display: flex;
   justify-content: center;
   background-color: ghostwhite;
+  color: darken($grey, 40%);
+  padding: $spacing;
   img {
     display: inline-block;
     margin: 0 3px;

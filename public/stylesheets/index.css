@@ -155,6 +155,7 @@ header p {
   display: flex;
   justify-content: center;
   text-align: center;
+  color: #eaeaea;
 }
 header p::first-letter {
   text-transform: capitalize !important;
@@ -201,6 +202,7 @@ header > * {
 }
 main {
   padding: 0 3.5rem;
+  margin: 3rem 0;
 }
 main form {
   display: grid;
@@ -243,10 +245,16 @@ main form button[type=submit] {
 }
 @media screen and (max-width: 600px) {
   main form input {
-    grid-column: 1/11;
+    grid-column: 1/-1;
+    border: 1px solid #7d7d7d;
+    border-radius: 4px;
+  }
+  main form input::placeholder {
+    content: "Search here";
   }
   main form button[type=submit] {
-    grid-column: 11/-1;
+    grid-column: 12/-1;
+    display: none;
   }
   main form button[type=submit] svg {
     font-size: 10px;
@@ -259,20 +267,16 @@ main ul li {
 main ul li a {
   color: #101010;
   text-decoration: none;
-  font-weight: 300;
-}
-main ul li ul li {
-  margin-left: 22.5px;
-}
-main ul li ul li a {
-  color: #4158d0;
-  text-decoration: none;
-  font-weight: 300;
+  font-weight: 400;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 600px) {
   main {
-    padding: 0 1.5rem;
+    margin: 3rem 0;
+  }
+  main > * {
+    padding: 0 0.15rem;
   }
 }
 footer {
@@ -283,6 +287,8 @@ footer {
   display: flex;
   justify-content: center;
   background-color: ghostwhite;
+  color: #171717;
+  padding: 7.5px;
 }
 footer img {
   display: inline-block;
