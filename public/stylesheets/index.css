@@ -86,7 +86,7 @@ nav {
   grid-template-columns: repeat(12, 1fr);
   justify-content: space-between;
   align-items: center;
-  min-height: 5rem;
+  min-height: 3rem;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
   border-radius: 0 0 7px 7px;
 }
@@ -134,7 +134,7 @@ header {
   display: grid;
   grid-template-rows: 10px calc(90vh - 9rem - 10px);
   padding: 0 !important;
-  min-height: calc(90vh - 5rem);
+  min-height: calc(100vh - 5rem);
   align-content: space-between;
   background-color: #4158d0;
   background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
