@@ -2,8 +2,7 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import { sequelize } from "./config/database";
-import { User } from "./models/Users";
-import { Resource } from "./models/Resource";
+import routes from './routes';
 
 
 dotenv.config();
@@ -18,6 +17,8 @@ app.use('/scripts', express.static(path.join(__dirname, "public/scripts")));
 app.use('/icons', express.static(path.join(__dirname, "public/icons")));
 app.use('/images', express.static(path.join(__dirname, "public/images")));
 app.set('view engine', 'ejs');
+ // Register all app routes.
+ routes(app);
 
 
 

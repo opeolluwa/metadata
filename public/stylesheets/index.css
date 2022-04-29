@@ -284,5 +284,9 @@ footer {
   justify-content: center;
   background-color: ghostwhite;
 }
+footer img {
+  display: inline-block;
+  margin: 0 3px;
+}
 
 /*# sourceMappingURL=index.css.map */
