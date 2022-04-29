@@ -1,3 +1,27 @@
 main {
-//   min-height: calc(100vh - 5rem);
+  @import "./../components/search-form";
+  padding: $desktop-view-padding;
+  ul {
+    li {
+      margin: $spacing 0;
+      list-style-type: disc;
+      a {
+        @include anchor-regular($black);
+      }
+      & ul {
+        li {
+          margin-left: $spacing * 3;
+          a {
+            @include anchor-regular($blue);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: $mobile-view-padding;
+  }
 }

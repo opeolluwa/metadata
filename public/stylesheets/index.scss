@@ -18,18 +18,30 @@ body {
   font-family: "Nunito", sans-serif;
   font-family: "Poppins", sans-serif;
   font-family: "Raleway", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 //classes
 .d-desktop,
-.d-mobile {
+.d-mobile,
+.d-desktop-flex {
   display: none;
 }
+.sub-hero-text {
+  font-size: 125%;
+  line-height: 24px;
+  font-weight: 400;
+  text-transform: lowercase;
+  font-weight: 500;
+}
 
+h1 {
+  line-height: 36px;
+  font-size: 275%;
+}
 @media screen and (max-width: 600px) {
   .d-mobile {
-    display: block;
+    display: unset;
   }
 }
 
@@ -37,12 +49,15 @@ body {
   .d-desktop {
     display: block;
   }
+  .d-desktop-flex {
+    display: flex;
+  }
 }
 
 body {
-  display: grid;
+  /*  display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 40px auto 40px;
+  grid-template-rows: 40px auto 40px; */
   min-height: 80vh;
   column-gap: 1.2px;
 }
@@ -50,19 +65,12 @@ body > * {
   padding: $padding;
 }
 
-header {
-  grid-column: 1/-1;
-  background-color: red;
-}
-
 footer {
   grid-column: 1/-1;
-  background-color: ghostwhite;
 }
 
 main {
   grid-column: 2/-1;
-  background-color: blue;
 }
 
 //mobile layout
@@ -75,5 +83,7 @@ main {
   }
 }
 //components
+@import "./components/navigation";
+@import "./components/header";
 @import "./components/main";
 @import "./components/footer";

@@ -151,3 +151,4 @@ sandbox.twig
 sandbox.ts
 sandbox.scss
 index.html
+database/meta-data.sqlite
