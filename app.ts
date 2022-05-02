@@ -17,8 +17,8 @@ app.use('/scripts', express.static(path.join(__dirname, "public/scripts")));
 app.use('/icons', express.static(path.join(__dirname, "public/icons")));
 app.use('/images', express.static(path.join(__dirname, "public/images")));
 app.set('view engine', 'ejs');
- // Register all app routes.
- routes(app);
+// Register all app routes.
+
 
 
 
@@ -26,14 +26,17 @@ app.listen(port, () => {
   console.log(`⚡️ignition started on http://127.0.0.1:${port}`)
 })
 
-app.get('/', function (req, res) {
+app.get('/', function (req: Request, res: Response) {
   res.render('index', { title: "Web games - collection of JavaScript Games" });
 });
 
 
 
 
+
+
 (async function testDatabaseConnection() {
+  routes(app);
   try {
     await sequelize.authenticate();
     console.log('Database Connection has been successfully established.');
