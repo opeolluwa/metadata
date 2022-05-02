@@ -8,7 +8,7 @@ export default class ResourceControllers {
     }
 
     static async addResource(req: Request, res: Response) {
-
+        res.send({ message: "successful" })
     }
 
     static async likeResource(req: Request, res: Response) {
