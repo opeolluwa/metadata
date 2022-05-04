@@ -32,7 +32,7 @@ app.get("/register", (req: Request, res: Response) => {
     res.render("pages/sign-up", { title: "create account" });
 })
 app.get("/login", (req: Request, res: Response) => {
-    res.render("pages/sign-in", { title: "create account" });
+    res.render("pages/sign-in", { title: "login to dashboard" });
 })
 
 
