@@ -1,0 +1,65 @@
+#sign-up {
+  @include auth-layout;
+  & .container {
+    h1 {
+      font-size: 1.75rem;
+      text-align: center;
+    }
+    .sub-hero-text {
+      font-size: 1rem;
+      margin: 1.25rem 0;
+      text-align: center;
+    }
+    div#icons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: $spacing * 3;
+      text-align: center;
+      button {
+        @include base-icon(
+          $background: transparent,
+          $border-color: lighten($blue, 10%)
+        );
+      }
+    }
+
+    form {
+      display: block;
+      width: 100%;
+      .form-feed > *,
+      .form-feed {
+        display: block;
+        width: 100%;
+      }
+      .form-feed {
+        border-color: transparent;
+        label {
+          margin-bottom: 0.25rem;
+          color: $black;
+          font-weight: 500;
+        }
+        input,
+        button {
+          padding: 10px;
+          border-radius: 3px;
+          border: 1px solid gray;
+          width: 100%;
+        }
+        input {
+          text-align: unset;
+        }
+
+        & input[type="checkbox"] {
+          display: inline !important;
+        }
+      }
+
+      .form-control {
+        border: transparent;
+        text-transform: lowercase;
+        font-size: 90%;
+        color: $grey;
+      }
+    }
+  }
+}

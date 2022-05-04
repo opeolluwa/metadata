@@ -1,0 +1,1 @@
+//copy views directory content to dist directory

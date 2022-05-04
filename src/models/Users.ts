@@ -1,7 +1,7 @@
 const { DataTypes, Model } = require('sequelize');
 import { sequelize } from "./../config/database"
-import sequelizeBcrypt from "sequelize-bcrypt";
-import { sequelizeJoi, Joi } from "sequelize-joi";
+// import sequelizeBcrypt from "sequelize-bcrypt";
+// import { sequelizeJoi, Joi } from "sequelize-joi";
 
 export class User extends Model { }
 User.init({
@@ -24,11 +24,9 @@ User.init({
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        schema: Joi.string().trim().alphanum().min(6).max(30),
     },
     password: {
         type: DataTypes.STRING,
-        schema: Joi.string().trim().required().min(8),
         allowNull: false
     }
 }, {
@@ -39,11 +37,11 @@ User.init({
 });
 
 
-sequelizeBcrypt(User, {
-    field: 'password', // secret field to hash, default: 'password'
-    rounds: 12, // used to generate bcrypt salt, default: 12
-    compare: 'authenticate', // method used to compare secrets, default: 'authenticate'
-})
+// sequelizeBcrypt(User, {
+//     field: 'password', // secret field to hash, default: 'password'
+//     rounds: 12, // used to generate bcrypt salt, default: 12
+//     compare: 'authenticate', // method used to compare secrets, default: 'authenticate'
+// })
 
 // the defined model is the class itself
 console.log(User === sequelize.models.User); // true

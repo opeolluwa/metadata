@@ -12,8 +12,6 @@
 
 html,
 body {
-  overflow-x: hidden;
-  text-transform: capitalize;
   font-family: "Fira Sans", sans-serif;
   font-family: "Nunito", sans-serif;
   font-family: "Poppins", sans-serif;
@@ -28,16 +26,18 @@ body {
   display: none;
 }
 .sub-hero-text {
-  font-size: 125%;
+  font-size: 1.25rem;
   line-height: 24px;
   font-weight: 400;
   text-transform: lowercase;
   font-weight: 500;
 }
-
+.d-block{
+  display: block;
+}
 h1 {
   line-height: 36px;
-  font-size: 275%;
+  font-size: 2.75rem;
 }
 @media screen and (max-width: 600px) {
   .d-mobile {
@@ -54,26 +54,6 @@ h1 {
   }
 }
 
-body {
-  /*  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 40px auto 40px; */
-  min-height: 80vh;
-  column-gap: 1.2px;
-}
-body > * {
-  padding: $padding;
-}
-
-footer {
-  grid-column: 1/-1;
-}
-
-main {
-  grid-column: 2/-1;
-}
-
-//mobile layout
 @media screen and (max-width: 600px) {
   main {
     grid-column: 1/-1;
@@ -87,3 +67,4 @@ main {
 @import "./components/header";
 @import "./components/main";
 @import "./components/footer";
+@import "./pages/sign-up";

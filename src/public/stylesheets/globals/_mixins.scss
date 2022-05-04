@@ -31,3 +31,30 @@
     rgba($red, $green, $blue, $transparency)
   );
 }
+
+//for user account login logout and password reset
+@mixin auth-layout {
+  display: grid;
+  min-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3.5rem;
+  background-color: $white;
+  grid-template-columns: repeat(12, 1fr);
+  & .container {
+    grid-column-start: 5;
+    grid-column-end: 9;
+    background-color: #fff;
+    border-radius: $border-radius;
+    padding: inherit;
+  }
+}
+
+
+@mixin base-icon($border-color, $background) {
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background-color: $background;
+  padding: 10px 5px;
+  text-align: center;
+}

@@ -7,8 +7,6 @@
 
 html,
 body {
-  overflow-x: hidden;
-  text-transform: capitalize;
   font-family: "Fira Sans", sans-serif;
   font-family: "Nunito", sans-serif;
   font-family: "Poppins", sans-serif;
@@ -23,16 +21,20 @@ body {
 }
 
 .sub-hero-text {
-  font-size: 125%;
+  font-size: 1.25rem;
   line-height: 24px;
   font-weight: 400;
   text-transform: lowercase;
   font-weight: 500;
 }
 
+.d-block {
+  display: block;
+}
+
 h1 {
   line-height: 36px;
-  font-size: 275%;
+  font-size: 2.75rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -49,26 +51,6 @@ h1 {
     display: flex;
   }
 }
-body {
-  /*  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 40px auto 40px; */
-  min-height: 80vh;
-  column-gap: 1.2px;
-}
-
-body > * {
-  padding: 7.5px;
-}
-
-footer {
-  grid-column: 1/-1;
-}
-
-main {
-  grid-column: 2/-1;
-}
-
 @media screen and (max-width: 600px) {
   main {
     grid-column: 1/-1;
@@ -204,62 +186,6 @@ main {
   padding: 0 3.5rem;
   margin: 3rem 0;
 }
-main form {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  justify-content: center;
-  align-items: center;
-  margin: 3.5rem 0;
-}
-main form > * {
-  border: 1px solid #4d63d3;
-  border-radius: 0;
-  padding: 10px 5px;
-  min-width: 7rem;
-  text-align: center;
-  text-transform: capitalize;
-  text-align: unset;
-}
-main form input {
-  grid-column: 4/8;
-  border-right: none;
-  border-radius: 4px 0 0 4px;
-  text-align: center;
-}
-main form input:hover,
-main form input:focus {
-  outline: none;
-}
-main form input::placeholder {
-  font-family: monospace;
-  color: #7d7d7d;
-}
-main form button[type=submit] {
-  grid-column: 8/9;
-  border-left: none;
-  border-radius: 0 4px 4px 0;
-  text-align: center;
-  color: #f2f2f2;
-  background: #4158d0;
-  font-weight: 500;
-}
-@media screen and (max-width: 600px) {
-  main form input {
-    grid-column: 1/-1;
-    border: 1px solid #7d7d7d;
-    border-radius: 4px;
-  }
-  main form input::placeholder {
-    content: "Search here";
-  }
-  main form button[type=submit] {
-    grid-column: 12/-1;
-    display: none;
-  }
-  main form button[type=submit] svg {
-    font-size: 10px;
-  }
-}
 main ul li {
   margin: 7.5px 0;
   list-style-type: disc;
@@ -293,6 +219,81 @@ footer {
 footer img {
   display: inline-block;
   margin: 0 3px;
+}
+
+#sign-up {
+  display: grid;
+  min-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 3.5rem;
+  background-color: #f2f2f2;
+  grid-template-columns: repeat(12, 1fr);
+}
+#sign-up .container {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: inherit;
+}
+#sign-up .container h1 {
+  font-size: 1.75rem;
+  text-align: center;
+}
+#sign-up .container .sub-hero-text {
+  font-size: 1rem;
+  margin: 1.25rem 0;
+  text-align: center;
+}
+#sign-up .container div#icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 22.5px;
+  text-align: center;
+}
+#sign-up .container div#icons button {
+  border: 1px solid #6a7cda;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 10px 5px;
+  text-align: center;
+}
+#sign-up .container form {
+  display: block;
+  width: 100%;
+}
+#sign-up .container form .form-feed > *,
+#sign-up .container form .form-feed {
+  display: block;
+  width: 100%;
+}
+#sign-up .container form .form-feed {
+  border-color: transparent;
+}
+#sign-up .container form .form-feed label {
+  margin-bottom: 0.25rem;
+  color: #101010;
+  font-weight: 500;
+}
+#sign-up .container form .form-feed input,
+#sign-up .container form .form-feed button {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  width: 100%;
+}
+#sign-up .container form .form-feed input {
+  text-align: unset;
+}
+#sign-up .container form .form-feed input[type=checkbox] {
+  display: inline !important;
+}
+#sign-up .container form .form-control {
+  border: transparent;
+  text-transform: lowercase;
+  font-size: 90%;
+  color: #7d7d7d;
 }
 
 /*# sourceMappingURL=index.css.map */

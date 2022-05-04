@@ -9,7 +9,7 @@
     "serve": "node dist/index.js",
     "start": "npm run serve",
     "watch-node": "nodemon src/index.ts",
-    "watch-sass": "sass --watch src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
+    "watch-sass": "sass --watch src/public/stylesheets/index.scss src/public/stylesheets/index.css",
     "watch-ts": "tsc -w",
     "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\"",
     "make": "bash install.sh"
@@ -21,6 +21,7 @@
     "ejs": "^3.1.7",
     "express": "^4.18.0",
     "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^6.14.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "reflect-metadata": "^0.1.13",
