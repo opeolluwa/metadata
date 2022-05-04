@@ -1,0 +1,10 @@
+{
+  "projectName": "meta-assets",
+  "meta": {
+    "type": "backend"
+  },
+  "backend": {
+    "platform": "node16"
+  },
+  "hash": "454de7fe"
+}

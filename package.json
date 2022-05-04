@@ -42,9 +42,6 @@
   },
   "keywords": [],
   "license": "MIT",
-  "bugs": {
-    "url": ""
-  },
   "homepage": "",
   "devDependencies": {
     "@types/express": "^4.17.13",
@@ -55,6 +52,8 @@
   },
   "engines": {
     "node": "18.0.0"
-  }
-  
+  },
+  "name": "meta-data",
+  "main": "index.js",
+  "author": "Adeoye Adefemi Opeoluwa <adefemiadeoye@yahoo.com>"
 }
