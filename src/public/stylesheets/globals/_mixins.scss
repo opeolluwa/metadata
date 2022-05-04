@@ -48,8 +48,19 @@
     border-radius: $border-radius;
     padding: inherit;
   }
-}
 
+  @media screen and (max-width: 600px) {
+    & {
+      display: block;
+      background-color: #fff;
+      padding: 0;
+      margin: 0;
+      .container {
+        padding:  3rem;
+      }
+    }
+  }
+}
 
 @mixin base-icon($border-color, $background) {
   border: 1px solid $border-color;

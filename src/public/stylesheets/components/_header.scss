@@ -35,13 +35,19 @@ header {
     margin-bottom: 3rem;
     display: flex;
     justify-content: space-evenly;
-    a {
+    a,
+    a:link,
+    a:hover,
+    a:visited {
       @include base-button($border-color: $white);
       @include fade-overlay(255, 255, 255, 0.1);
+      text-decoration: none;
+      color: $white;
       display: block;
       margin: 0 0.75rem;
       cursor: pointer;
     }
+  
   }
 }
 

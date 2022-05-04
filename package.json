@@ -15,7 +15,10 @@
     "make": "bash install.sh"
   },
   "dependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/shelljs": "^0.8.11",
     "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
     "concurrently": "^7.1.0",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.7",
@@ -28,6 +31,7 @@
     "sequelize": "^6.19.0",
     "sequelize-bcrypt": "^1.1.0",
     "sequelize-joi": "^2.0.1",
+    "shelljs": "^0.8.5",
     "sqlite3": "^5.0.6",
     "typeorm": "^0.3.6"
   },

@@ -152,3 +152,4 @@ sandbox.ts
 sandbox.scss
 index.html
 database/meta-data.sqlite
+dist/public/scripts/src

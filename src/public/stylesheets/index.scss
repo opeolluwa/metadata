@@ -32,7 +32,7 @@ body {
   text-transform: lowercase;
   font-weight: 500;
 }
-.d-block{
+.d-block {
   display: block;
 }
 h1 {
@@ -67,4 +67,4 @@ h1 {
 @import "./components/header";
 @import "./components/main";
 @import "./components/footer";
-@import "./pages/sign-up";
+@import "./pages/account";

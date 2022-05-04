@@ -1,29 +1,27 @@
-<div id="sign-up">
+<div id="account">
   <div class="container">
     <h1>Sign Up</h1>
-    <p class="sub-hero-text">Choose a social account to begin</p>
-    <div id="icons">
-      <button>ff</button> <button>ff</button> <button>ff</button>
-    </div>
-    <form action="" method="post">
+    <p class="sub-hero-text">Create account to begin</p>
+
+    <form action="/auth/users/sign-up" method="post">
       <div class="form-feed">
         <label for="username">Username</label>
-        <input type="text" placeholder="username" />
+        <input type="text" placeholder="enter username" id="username" />
       </div>
 
       <div class="form-feed">
         <label for="password">Password</label>
-        <input type="password" placeholder="password" />
-      </div>
-
-      <div class="form-control">
-       <input type="checkbox" name="" id="">   I agree to <a href="#">terms of service</a> and
-          <a href="#">privacy policy</a></label>
+        <input type="password" placeholder="enter password" id="password" />
       </div>
 
       <div class="form-feed">
-        <button type="submit">Sign Up</button>
+        <button type="submit">Create account</button>
       </div>
     </form>
+    <div data-guide="login">
+      Already have an account? <a href="/login">Login</a>
+    </div>
   </div>
 </div>
+
+<script src="scripts/sign-up.js"></script>

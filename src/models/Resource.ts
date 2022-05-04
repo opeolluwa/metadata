@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 // const sequelize = new Sequelize('sqlite::memory:');
-import { sequelize } from "./../config/database"
+import { sequelize } from "../config/database.config"
 
 export class Resource extends Model { }
 Resource.init({
