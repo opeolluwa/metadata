@@ -153,3 +153,4 @@ sandbox.scss
 index.html
 database/meta-data.sqlite
 dist/public/scripts/src
+src/database/database.sqlite

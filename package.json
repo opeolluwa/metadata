@@ -6,6 +6,7 @@
     "build-ts": "tsc",
     "build": "npm run build-sass && npm run build-ts && npm run copy-static-assets",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
+    "deploy": "git push heroku master",
     "serve": "node dist/index.js",
     "start": "npm run serve",
     "watch-node": "nodemon src/index.ts",
