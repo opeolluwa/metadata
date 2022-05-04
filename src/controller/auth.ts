@@ -1,15 +1,25 @@
 import { Request, Response } from "express"
+import { sequelize } from "../config/database.config";
 import { User } from "../models/Users";
+import bcrypt from "bcrypt"
+
+
 
 export default class AuthenticationControllers {
     static async signup(req: Request, res: Response) {
-       /*  const { first_name, last_name, password, email, username } = req.body;
+        const { username, password } = req.body;
+        console.log(username, password)
+
         try {
-            const user = await User.create({ first_name, last_name, email, username, password });
-            user.save()
+            // Store hash in your password DB.
+            const salt = bcrypt.genSaltSync(10);
+            const hash = bcrypt.hashSync(password, salt);
+            const user = await User.create({ username, password: hash })
+            return res.send({ username, password, user })
+
         } catch (error) {
-            console.log(error.message)
-        } */
+            console.log(error)
+        }
     }
 
 

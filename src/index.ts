@@ -4,10 +4,8 @@ import path from "path";
 import expressLayouts from "express-ejs-layouts";
 
 import { sequelize } from "./config/database.config";
-import { User } from "./models/Users";
-sequelize.sync().then(() => {
-    console.log("connected to database")
-})
+import AuthenticationControllers from "./controller/auth";
+
 
 dotenv.config();
 const app: Express = express();
@@ -18,7 +16,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(expressLayouts)
 app.use("/stylesheets", express.static(path.join(__dirname, "./public/stylesheets")));
-app.use("/scripts", express.static(path.join(__dirname, "./public/scripts")));
+app.use("/scripts", express.static(path.join(__dirname, "./public/scripts/src")));
 app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.set("view engine", "ejs");
@@ -39,23 +37,11 @@ app.get("/login", (req: Request, res: Response) => {
 
 
 //register /auth/user/register
-app.post("/auth/users/sign-up", async (req: Request, res: Response) => {
-    const { username, password } = req.body;
-    console.log(username, password)
+app.post("/auth/users/sign-up", AuthenticationControllers.signup)//mount the page rendering to HTTP GET action
 
-    try {
-        const user = await User.create({ username, password })
-        return res.send({ username, password, user })
-
-    } catch (error) {
-        console.log(error)
-    }
-
-
-
-})//mount the page rendering to HTTP GET action
-
-
+sequelize.sync().then(() => {
+    console.log("connected to database")
+})
 app.listen(port, () => {
     console.log(`⚡️ignition started on http://127.0.0.1:${port}`)
 })
