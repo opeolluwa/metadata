@@ -2,11 +2,17 @@
   "version": "1.0.0",
   "description": "A collection of web games ",
   "scripts": {
-    "start": "node dist/app.js",
-    "dev": "nodemon app.ts",
-    "watch-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css --watch",
-    "make": "bash install.sh",
-    "build":"tsc"
+    "build-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
+    "build-ts": "tsc",
+    "build": "npm run build-sass && npm run build-ts && npm run copy-static-assets",
+    "copy-static-assets": "npx ts-node copy-static-assets.ts",
+    "serve": "node dist/app.js",
+    "start": "npm run serve",
+    "watch-node":"nodemon src/app.ts",
+    "watch-sass": "sass --watch src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
+    "watch-ts": "tsc -w",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "make": "bash install.sh"
   },
   "dependencies": {
     "axios": "^0.27.2",
