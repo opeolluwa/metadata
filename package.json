@@ -2,10 +2,11 @@
   "version": "1.0.0",
   "description": "A collection of web games ",
   "scripts": {
-    "start": "ts-node app.ts",
-    "dev:server": "nodemon app.ts",
-    "sass": "sass public/stylesheets/index.scss public/stylesheets/index.css --watch",
-    "make": "bash install.sh"
+    "start": "node dist/app.js",
+    "dev": "nodemon app.ts",
+    "watch-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css --watch",
+    "make": "bash install.sh",
+    "build":"tsc"
   },
   "dependencies": {
     "axios": "^0.27.2",
