@@ -39,7 +39,6 @@
   min-height: 100vh;
   margin: 0;
   padding: 3.5rem;
-  background-color: $white;
   grid-template-columns: repeat(12, 1fr);
   & .container {
     grid-column-start: 5;
@@ -53,13 +52,14 @@
     & {
       display: block;
       background-color: #fff;
-      padding: 0;
-      margin: 0;
+     
       .container {
-        padding:  3rem;
+        padding:  2rem;
       }
     }
   }
+
+
 }
 
 @mixin base-icon($border-color, $background) {

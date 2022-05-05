@@ -315,8 +315,9 @@ footer a#opeolluwa {
   min-height: 100vh;
   margin: 0;
   padding: 3.5rem;
-  background-color: #f2f2f2;
   grid-template-columns: repeat(12, 1fr);
+  background-color: #4158d0;
+  background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
 }
 #account .container {
   grid-column-start: 5;
@@ -329,35 +330,21 @@ footer a#opeolluwa {
   #account {
     display: block;
     background-color: #fff;
-    padding: 0;
-    margin: 0;
   }
   #account .container {
-    padding: 3rem;
+    padding: 2rem;
   }
 }
 #account .container h1 {
   font-size: 1.75rem;
   text-align: center;
+  font-weight: 300;
 }
 #account .container .sub-hero-text {
   font-size: 1.25rem;
   margin: 0.25rem 0;
   text-align: center;
   color: #7d7d7d;
-}
-#account .container div#icons {
-  display: flex;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 22.5px;
-  text-align: center;
-  margin: 1.2rem 0;
-  justify-content: space-around;
-}
-#account .container div#icons img {
-  max-width: 25%;
-  min-width: 25px;
-  cursor: pointer;
 }
 #account .container form {
   margin-top: 3rem;
@@ -401,7 +388,7 @@ footer a#opeolluwa {
   width: 100%;
 }
 #account .container form button[type=submit] {
-  background-color: #4158d0;
+  background-color: #3149c6;
   color: #f2f2f2;
 }
 #account .container [data-guide=login] {
@@ -418,6 +405,60 @@ footer a#opeolluwa {
 }
 #account .container ::placeholder {
   text-transform: capitalize;
+}
+@media screen and (max-width: 600px) {
+  #account .container h1 {
+    font-size: 1.25rem;
+  }
+  #account .container p.sub-hero-text {
+    font-size: 90%;
+    margin: 0 0;
+  }
+  #account .container form {
+    margin-top: 2rem;
+    display: block;
+    width: 100%;
+  }
+  #account .container form .form-feed {
+    border-color: transparent;
+    margin: 1.75rem 0;
+  }
+  #account .container form .form-feed label {
+    margin-bottom: 0.1rem;
+    color: #101010;
+    font-weight: 600;
+    line-height: 26px;
+    text-transform: uppercase;
+    font-size: 70%;
+  }
+  #account .container form .form-feed input,
+#account .container form .form-feed button {
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  #account .container form .form-feed input {
+    text-align: unset;
+  }
+  #account .container form .form-feed input[type=checkbox] {
+    display: inline !important;
+  }
+  #account .container form .form-control {
+    border: transparent;
+    font-size: 90%;
+    width: 100%;
+  }
+  #account .container form button[type=submit] {
+    background-color: #3149c6;
+    color: #f2f2f2;
+  }
+  #account .container input,
+#account .container button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
