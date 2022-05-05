@@ -311,7 +311,7 @@ footer a#opeolluwa {
   margin: 0;
   padding: 3.5rem;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto 20px;
+  grid-template-rows: auto auto 10px;
   row-gap: 1.75rem;
   background-color: #4158d0;
   background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
@@ -353,16 +353,19 @@ footer a#opeolluwa {
   bottom: -5px;
 }
 #account [data-guide=footer] ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 3px;
+  display: block;
+  margin: 1rem 0;
 }
-#account [data-guide=footer] ul li:first-child {
+#account [data-guide=footer] ul li:first-child, #account [data-guide=footer] ul li {
   list-style: none;
+  margin: 0.25rem 0;
+  text-align: center;
+}
+#account [data-guide=footer] ul li:first-child ::before {
+  display: none;
 }
 #account [data-guide=footer] ul li:nth-child(2) {
-  margin: 0 20.5px;
+  margin: unset;
 }
 #account [data-guide=footer] a, #account [data-guide=footer] span, #account [data-guide=footer] ul li a {
   text-decoration: none;
@@ -378,37 +381,11 @@ footer a#opeolluwa {
   #account .container {
     padding: 2rem;
   }
-  #account [data-guide=footer] ul {
-    display: block;
-    margin: 1rem 0;
-  }
-  #account [data-guide=footer] ul li:first-child, #account [data-guide=footer] ul li {
-    list-style: none;
-    margin: 0.25rem 0;
-    text-align: center;
-  }
-  #account [data-guide=footer] ul li:first-child ::before {
-    display: none;
-  }
-  #account [data-guide=footer] ul li:nth-child(2) {
-    margin: unset;
-  }
-  #account [data-guide=footer] a, #account [data-guide=footer] span, #account [data-guide=footer] ul li a {
-    text-decoration: none;
-    color: #f2f2f2;
-    text-transform: capitalize;
-  }
   #account [data-guide=footer] hr {
     width: 90%;
     height: 1px;
     margin: 5px auto;
   }
-}
-#account .container {
-  /* & [data-guide="login"] > span{
-    display: block;
-    margin: 0.25rem 0;
-  } */
 }
 #account .container h1 {
   font-size: 1.75rem;
@@ -416,10 +393,11 @@ footer a#opeolluwa {
   font-weight: 300;
 }
 #account .container .sub-hero-text {
-  font-size: 1.25rem;
+  font-size: 1rem;
   margin: 0.25rem 0;
   text-align: center;
   color: #7d7d7d;
+  text-transform: capitalize;
 }
 #account .container form {
   margin-top: 3rem;
@@ -444,7 +422,6 @@ footer a#opeolluwa {
 #account .container form .form-feed label {
   margin-bottom: 0.25rem;
   color: #101010;
-  font-weight: 600;
   line-height: 24px;
   text-transform: uppercase;
   font-size: 70%;
@@ -460,6 +437,10 @@ footer a#opeolluwa {
 #account .container form .form-feed input {
   text-align: unset;
 }
+#account .container form .form-feed input:focus, #account .container form .form-feed input:hover {
+  outline: 1px solid #4158d0;
+  transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 #account .container form .form-feed input[type=checkbox] {
   display: inline !important;
 }
@@ -472,7 +453,15 @@ footer a#opeolluwa {
   background-color: #3149c6;
   color: #f2f2f2;
 }
+#account .container [data-guide=sign-up] {
+  font-size: 80%;
+  text-align: center;
+}
 #account .container [data-guide=login] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   text-align: center;
   font-size: 80%;
   margin: 2rem 0 0;
@@ -485,7 +474,13 @@ footer a#opeolluwa {
   margin: 1px 0;
 }
 #account .container ::placeholder {
-  text-transform: capitalize;
+  text-transform: lowercase;
+  font-size: 80%;
+  color: #7d7d7d;
+}
+#account .container [data-guide=login] > span {
+  display: block;
+  margin: 0.25rem 0;
 }
 #account .container [data-guide=login] {
   display: flex;
@@ -511,7 +506,7 @@ footer a#opeolluwa {
     font-weight: 400;
   }
   #account .container p.sub-hero-text {
-    font-size: 90%;
+    font-size: 85%;
     margin: 0 0;
   }
   #account .container form {
@@ -521,12 +516,11 @@ footer a#opeolluwa {
   }
   #account .container form .form-feed {
     border-color: transparent;
-    margin: 1.75rem 0;
+    margin: 1.5rem 0;
   }
   #account .container form .form-feed label {
-    margin-bottom: 0.1rem;
+    margin-bottom: 0;
     color: #101010;
-    font-weight: 600;
     line-height: 26px;
     text-transform: uppercase;
     font-size: 70%;

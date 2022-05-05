@@ -8,10 +8,11 @@
       font-weight: 300;
     }
     .sub-hero-text {
-      font-size: 1.25rem;
+      font-size: 1rem;
       margin: 0.25rem 0;
       text-align: center;
       color: $grey;
+      text-transform: capitalize;
     }
 
     form {
@@ -34,7 +35,6 @@
         label {
           margin-bottom: 0.25rem;
           color: $black;
-          font-weight: 600;
           line-height: 24px;
           text-transform: uppercase;
           font-size: 70%;
@@ -47,8 +47,14 @@
           width: 100%;
           font-size: 1rem;
         }
-        input {
+        & input {
           text-align: unset;
+        }
+
+        & input:focus,
+        & input:hover {
+          outline: 1px solid $blue;
+          transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1) ;
         }
 
         & input[type="checkbox"] {
@@ -67,7 +73,15 @@
         color: $white;
       }
     }
+    [data-guide="sign-up"] {
+      font-size: 80%;
+      text-align: center;
+    }
     [data-guide="login"] {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
       text-align: center;
       font-size: 80%;
       margin: 2rem 0 0;
@@ -80,13 +94,15 @@
       margin: 1px 0;
     }
     ::placeholder {
-      text-transform: capitalize;
+      text-transform: lowercase;
+      font-size: 80%;
+      color: $grey;
     }
 
-    /* & [data-guide="login"] > span{
+    & [data-guide="login"] > span {
       display: block;
       margin: 0.25rem 0;
-    } */
+    }
 
     & [data-guide="login"] {
       display: flex;
@@ -100,7 +116,7 @@
     }
     & .container {
       padding: inherit;
-      & [data-guide="login"]{
+      & [data-guide="login"] {
         display: block;
         text-align: unset;
       }
@@ -113,7 +129,7 @@
         font-weight: 400;
       }
       p.sub-hero-text {
-        font-size: 90%;
+        font-size: 85%;
         margin: 0 0;
       }
 
@@ -124,11 +140,10 @@
 
         .form-feed {
           border-color: transparent;
-          margin: 1.75rem 0;
+          margin: 1.5rem 0;
           label {
-            margin-bottom: 0.1rem;
+            margin-bottom: 0;
             color: $black;
-            font-weight: 600;
             line-height: 26px;
             text-transform: uppercase;
             font-size: 70%;
