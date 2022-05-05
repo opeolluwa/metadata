@@ -409,6 +409,7 @@ footer a#opeolluwa {
 @media screen and (max-width: 600px) {
   #account .container h1 {
     font-size: 1.25rem;
+    font-weight: 400;
   }
   #account .container p.sub-hero-text {
     font-size: 90%;
@@ -435,7 +436,7 @@ footer a#opeolluwa {
 #account .container form .form-feed button {
     padding: 10px;
     border-radius: 3px;
-    border: 1px solid gray;
+    border: 1px solid #828282;
     width: 100%;
     font-size: 0.9rem;
   }
@@ -453,11 +454,6 @@ footer a#opeolluwa {
   #account .container form button[type=submit] {
     background-color: #3149c6;
     color: #f2f2f2;
-  }
-  #account .container input,
-#account .container button {
-    padding: 10px;
-    font-size: 0.9rem;
   }
 }
 

@@ -83,6 +83,7 @@
     & .container {
       h1 {
         font-size: 1.25rem;
+        font-weight: 400;
       }
       p.sub-hero-text {
         font-size: 90%;
@@ -110,7 +111,7 @@
           button {
             padding: 10px;
             border-radius: 3px;
-            border: 1px solid gray;
+            border: 1px solid lighten($grey, 2%);
             width: 100%;
             font-size: .9rem;
           }
@@ -135,11 +136,7 @@
         }
       }
 
-      input,
-      button {
-        padding: 10px;
-        font-size: 0.9rem;
-      }
+      
     }
   }
 }
