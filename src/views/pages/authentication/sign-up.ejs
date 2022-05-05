@@ -3,15 +3,29 @@
     <h1>Sign Up</h1>
     <p class="sub-hero-text">Create account to begin</p>
 
-    <form action="/auth/users/sign-up" method="post">
+    <form novalidate>
       <div class="form-feed">
         <label for="username">Username</label>
-        <input type="text" placeholder="enter username" id="username" />
+        <input
+          type="text"
+          placeholder="enter username"
+          id="username"
+          required
+          pattern="\w{3,15}"
+        />
+        <span class="error"></span>
       </div>
 
       <div class="form-feed">
         <label for="password">Password</label>
-        <input type="password" placeholder="enter password" id="password" />
+        <input
+          type="password"
+          placeholder="enter password"
+          id="password"
+          required
+          pattern="\S{8,}"
+        />
+        <span class="error"></span>
       </div>
 
       <div class="form-feed">
@@ -19,10 +33,11 @@
         <input
           type="text"
           name=""
-          id="sequrityQuestion"
+          id="securityQuestion"
           placeholder="Set a Security question for account recovery"
+          required
         />
-        <span></span>
+        <span class="error"></span>
       </div>
 
       <div class="form-feed">
@@ -30,10 +45,11 @@
         <input
           type="text"
           name=""
-          id="sequrityQuestionAnswer"
+          id="securityQuestionAnswer"
           placeholder="Provide answer to the security question"
+          required
         />
-        <span></span>
+        <span class="error"></span>
       </div>
 
       <div class="form-control">
@@ -54,5 +70,6 @@
   </div>
   <%- include('./../../partials/account-footer'); %>
 </div>
+
 
 <script src="scripts/sign-up.js"></script>

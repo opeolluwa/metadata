@@ -53,13 +53,18 @@
 
         & input:focus,
         & input:hover {
-          outline: 1px solid $blue;
-          transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1) ;
+          outline: 1px solid transparent;
+          transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
         }
 
         & input[type="checkbox"] {
           display: inline !important;
         }
+
+      /*   & input:invalid,
+        & input:invalid:required {
+          border: 1px solid $red;
+        } */
       }
 
       .form-control {
@@ -71,6 +76,7 @@
       button[type="submit"] {
         background-color: darken($blue, 5%);
         color: $white;
+        cursor: pointer;
       }
     }
     [data-guide="sign-up"] {
