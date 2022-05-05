@@ -189,6 +189,34 @@ header > * {
     display: none;
   }
 }
+.custom-shape-divider-bottom-1651743515 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1651743515 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 27px;
+}
+
+.custom-shape-divider-bottom-1651743515 .shape-fill {
+  fill: #FFFFFF;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-bottom-1651743515 svg {
+    width: calc(165% + 1.3px);
+    height: 44px;
+  }
+}
 main {
   padding: 0 3.5rem;
   margin: 3rem 0;
