@@ -1,0 +1,48 @@
+<div id="account">
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p class="sub-hero-text">Create account to begin</p>
+
+    <form action="/auth/users/sign-up" method="post">
+      <div class="form-feed">
+        <label for="username">Username</label>
+        <input type="text" placeholder="enter username" id="username" />
+      </div>
+
+      <div class="form-feed">
+        <label for="password">Password</label>
+        <input type="password" placeholder="enter password" id="password" />
+      </div>
+
+      <div class="form-feed">
+        <label for="password">Security Question</label>
+        <input type="text" name="" id="sequrityQuestion" />
+        <span>Set a Security question for account recovery</span>
+      </div>
+
+      <div class="form-feed">
+        <label for="password">Answer to Security Question </label>
+        <input type="text" name="" id="sequrityQuestionAnswer" />
+        <span>Provide answer to the security question</span>
+      </div>
+
+      <div class="form-control">
+        <input type="checkbox" />
+        <span
+          >I agree to <a href="terms-of-service">Terms of Service</a> and
+          <a href="privacy-policy">Privacy Policy</a></span
+        >
+      </div>
+
+      <div class="form-feed">
+        <button type="submit">Sign Up</button>
+      </div>
+    </form>
+    <div data-guide="login">
+      Already have an account? <a href="/login">Login</a>
+    </div>
+  </div>
+  <%- include('./../../partials/account-footer'); %>
+</div>
+
+<script src="scripts/sign-up.js"></script>

@@ -22,6 +22,11 @@
       .form-feed {
         display: block;
         width: 100%;
+        span {
+          font-size: 80%;
+          color: $grey;
+          margin-top: 1px;
+        }
       }
       .form-feed {
         border-color: transparent;
@@ -80,7 +85,7 @@
   }
 
   @media screen and (max-width: 600px) {
-    &{
+    & {
       padding: 3rem 1.25rem;
     }
     & .container {
@@ -94,12 +99,11 @@
         margin: 0 0;
       }
 
-
       form {
         margin-top: 2rem;
         display: block;
         width: 100%;
-       
+
         .form-feed {
           border-color: transparent;
           margin: 1.75rem 0;
@@ -111,36 +115,35 @@
             text-transform: uppercase;
             font-size: 70%;
           }
+
           input,
           button {
             padding: 10px;
             border-radius: 3px;
             border: 1px solid lighten($grey, 2%);
             width: 100%;
-            font-size: .9rem;
+            font-size: 0.9rem;
           }
           input {
             text-align: unset;
           }
-  
+
           & input[type="checkbox"] {
             display: inline !important;
           }
         }
-  
+
         .form-control {
           border: transparent;
           font-size: 90%;
           width: 100%;
         }
-  
+
         button[type="submit"] {
           background-color: darken($blue, 5%);
           color: $white;
         }
       }
-
-      
     }
   }
 }

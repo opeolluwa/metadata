@@ -5,6 +5,7 @@ import expressLayouts from "express-ejs-layouts";
 
 import { sequelize } from "./config/database.config";
 import AuthenticationControllers from "./controller/auth";
+import { AuthenticationViewsRenderer, GeneralPagesViewsRenderer } from "./controller/views";
 
 
 dotenv.config();
@@ -25,19 +26,16 @@ app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"))
 
 
 // Register all app routes.
-app.get("/", function (req: Request, res: Response) {
-    res.render("index", { title: "Web games - collection of JavaScript Games" });
-});
-app.get("/register", (req: Request, res: Response) => {
-    res.render("pages/sign-up", { title: "create account", layout:"./layouts/user-account-layout" });
-})
-app.get("/login", (req: Request, res: Response) => {
-    res.render("pages/sign-in", { title: "login to dashboard", layout:"./layouts/user-account-layout" });
-})
+app.get("/", GeneralPagesViewsRenderer.indexPage);
+app.get("/register", AuthenticationViewsRenderer.signUp)
+app.get("/login", AuthenticationViewsRenderer.login)
+app.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 
 
 //register /auth/user/register
-app.post("/auth/users/sign-up", AuthenticationControllers.signup)//mount the page rendering to HTTP GET action
+app.post("/auth/users/sign-up", AuthenticationControllers.signup)
+
+//mount the page rendering to HTTP GET action
 
 sequelize.sync().then(() => {
     console.log("connected to database")
