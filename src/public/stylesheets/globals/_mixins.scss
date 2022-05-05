@@ -40,6 +40,8 @@
   margin: 0;
   padding: 3.5rem;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 20px;
+  row-gap: 1.75rem;
   & .container {
     grid-column-start: 5;
     grid-column-end: 9;
@@ -48,18 +50,90 @@
     padding: inherit;
   }
 
-  @media screen and (max-width: 600px) {
-    & {
-      display: block;
-      background-color: #fff;
-     
-      .container {
-        padding:  2rem;
+  & [data-guide="footer"] {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: -3;
+    background: transparent;
+    font-size: 80%;
+    color: $white;
+    & > div {
+      text-align: center;
+      margin-top: 0.25rem;
+      color: darken($white, 10%);
+
+      a#opeolluwa {
+        text-decoration: underline;
       }
+      img {
+        max-width: 16px;
+        position: relative;
+        bottom: -5px;
+      }
+    }
+    & ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 3px;
+    }
+
+    & ul li:first-child {
+      list-style: none;
+    }
+
+    & ul li:nth-child(2) {
+      margin: 0 20.5px;
+    }
+
+    & a,
+    & span,
+    & ul li a {
+      text-decoration: none;
+      color: $white;
+      text-transform: capitalize;
     }
   }
 
+  //mobile devices
+  @media screen and (max-width: 600px) {
+    & {
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      .container {
+        padding: 2rem;
+      }
+      [data-guide="footer"] {
+        & ul li:first-child,
+        & ul li {
+          list-style: none;
+        }
 
+        & ul li ::before {
+          content: " | ";
+          display: inline-block;
+          margin: 0 3px;
+          color: $white;
+        }
+        & ul li:first-child ::before {
+          display: none;
+        }
+        & ul li:nth-child(2) {
+          margin: unset;
+        }
+
+        & a,
+        & span,
+        & ul li a {
+          text-decoration: none;
+          color: $white;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
 }
 
 @mixin base-icon($border-color, $background) {

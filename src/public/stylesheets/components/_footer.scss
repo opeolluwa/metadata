@@ -15,28 +15,6 @@ footer {
     margin: 0 3px;
   }
 
-  & ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 3px;
-  }
-
-  & ul li:first-child {
-    list-style: none;
-  }
-
-  & ul li:nth-child(2) {
-    margin: 0 20.5px;
-  }
-
-  & a,
-  & span,
-  & ul li a {
-    text-decoration: none;
-    color: $black;
-    text-transform: capitalize;
-  }
   & a#opeolluwa {
     color: $black;
     text-decoration: underline;

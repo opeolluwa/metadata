@@ -80,7 +80,11 @@
   }
 
   @media screen and (max-width: 600px) {
+    &{
+      padding: 3rem 1.25rem;
+    }
     & .container {
+      padding: inherit;
       h1 {
         font-size: 1.25rem;
         font-weight: 400;

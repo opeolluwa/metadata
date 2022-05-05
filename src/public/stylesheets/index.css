@@ -122,6 +122,7 @@ header {
   background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
   color: #f2f2f2;
   position: relative;
+  border: 1px solid red;
 }
 header #hero {
   display: flex;
@@ -187,34 +188,6 @@ header > * {
 @media screen and (min-width: 600px) {
   header ul {
     display: none;
-  }
-}
-.custom-shape-divider-bottom-1651743515 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1651743515 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 27px;
-}
-
-.custom-shape-divider-bottom-1651743515 .shape-fill {
-  fill: #FFFFFF;
-}
-
-/** For mobile devices **/
-@media (max-width: 767px) {
-  .custom-shape-divider-bottom-1651743515 svg {
-    width: calc(165% + 1.3px);
-    height: 44px;
   }
 }
 main {
@@ -315,23 +288,6 @@ footer a {
   display: inline-block;
   margin: 0 3px;
 }
-footer ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 3px;
-}
-footer ul li:first-child {
-  list-style: none;
-}
-footer ul li:nth-child(2) {
-  margin: 0 20.5px;
-}
-footer a, footer span, footer ul li a {
-  text-decoration: none;
-  color: #101010;
-  text-transform: capitalize;
-}
 footer a#opeolluwa {
   color: #101010;
   text-decoration: underline;
@@ -344,6 +300,8 @@ footer a#opeolluwa {
   margin: 0;
   padding: 3.5rem;
   grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 20px;
+  row-gap: 1.75rem;
   background-color: #4158d0;
   background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
 }
@@ -354,13 +312,73 @@ footer a#opeolluwa {
   border-radius: 5px;
   padding: inherit;
 }
+#account [data-guide=footer] {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: -3;
+  background: transparent;
+  font-size: 80%;
+  color: #f2f2f2;
+}
+#account [data-guide=footer] > div {
+  text-align: center;
+  margin-top: 0.25rem;
+  color: #d9d9d9;
+}
+#account [data-guide=footer] > div a#opeolluwa {
+  text-decoration: underline;
+}
+#account [data-guide=footer] > div img {
+  max-width: 16px;
+  position: relative;
+  bottom: -5px;
+}
+#account [data-guide=footer] ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3px;
+}
+#account [data-guide=footer] ul li:first-child {
+  list-style: none;
+}
+#account [data-guide=footer] ul li:nth-child(2) {
+  margin: 0 20.5px;
+}
+#account [data-guide=footer] a, #account [data-guide=footer] span, #account [data-guide=footer] ul li a {
+  text-decoration: none;
+  color: #f2f2f2;
+  text-transform: capitalize;
+}
 @media screen and (max-width: 600px) {
   #account {
-    display: block;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
   }
   #account .container {
     padding: 2rem;
+  }
+  #account [data-guide=footer] ul li:first-child, #account [data-guide=footer] ul li {
+    list-style: none;
+  }
+  #account [data-guide=footer] ul li ::before {
+    content: " | ";
+    display: inline-block;
+    margin: 0 3px;
+    color: #f2f2f2;
+  }
+  #account [data-guide=footer] ul li:first-child ::before {
+    display: none;
+  }
+  #account [data-guide=footer] ul li:nth-child(2) {
+    margin: unset;
+  }
+  #account [data-guide=footer] a, #account [data-guide=footer] span, #account [data-guide=footer] ul li a {
+    text-decoration: none;
+    color: #f2f2f2;
+    text-transform: capitalize;
   }
 }
 #account .container h1 {
@@ -435,6 +453,12 @@ footer a#opeolluwa {
   text-transform: capitalize;
 }
 @media screen and (max-width: 600px) {
+  #account {
+    padding: 3rem 1.25rem;
+  }
+  #account .container {
+    padding: inherit;
+  }
   #account .container h1 {
     font-size: 1.25rem;
     font-weight: 400;
