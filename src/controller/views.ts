@@ -27,6 +27,6 @@ export class GeneralPagesViewsRenderer {
 export class ContentCategoriesViewsRenderer {
     //fetch the content and pass it here
     static animation(req: Request, res: Response) {
-        res.render("pages/sign-up", { title: "animation", layout: "./layouts/base-layout", content: {} });
+        res.render("pages/resource/animation", { title: "animation", layout: "./layouts/resource-layout", content: "animation", pageTitle:"animation" });
     }
 }

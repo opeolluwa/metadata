@@ -5,7 +5,7 @@ import expressLayouts from "express-ejs-layouts";
 
 import { sequelize } from "./config/database.config";
 import AuthenticationControllers from "./controller/auth";
-import { AuthenticationViewsRenderer, GeneralPagesViewsRenderer } from "./controller/views";
+import { AuthenticationViewsRenderer, ContentCategoriesViewsRenderer, GeneralPagesViewsRenderer } from "./controller/views";
 
 
 dotenv.config();
@@ -31,6 +31,7 @@ app.get("/register", AuthenticationViewsRenderer.signUp)
 app.get("/login", AuthenticationViewsRenderer.login)
 app.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 
+app.get("/animations", ContentCategoriesViewsRenderer.animation)
 
 //register /auth/user/register
 app.post("/auth/users/sign-up", AuthenticationControllers.signup)

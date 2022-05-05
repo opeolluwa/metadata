@@ -123,6 +123,9 @@ header {
   color: #f2f2f2;
   position: relative;
 }
+header#resource-header {
+  min-height: 50vh;
+}
 header #hero {
   display: flex;
   justify-content: center;
@@ -175,8 +178,17 @@ header > * {
   header {
     grid-template-rows: 5px calc(90vh - 9rem - 10px);
   }
+  header#resource-header {
+    max-height: 50vh;
+  }
   header > * {
     padding: 0 1.5rem;
+  }
+  header #hero {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-transform: capitalize;
   }
   header #hero p {
     max-width: unset;
