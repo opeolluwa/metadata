@@ -21,7 +21,7 @@ app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
-// app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"))
+app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"))
 
 
 // Register all app routes.
@@ -29,10 +29,10 @@ app.get("/", function (req: Request, res: Response) {
     res.render("index", { title: "Web games - collection of JavaScript Games" });
 });
 app.get("/register", (req: Request, res: Response) => {
-    res.render("pages/sign-up", { title: "create account" });
+    res.render("pages/sign-up", { title: "create account", layout:"./layouts/user-account-layout" });
 })
 app.get("/login", (req: Request, res: Response) => {
-    res.render("pages/sign-in", { title: "login to dashboard" });
+    res.render("pages/sign-in", { title: "login to dashboard", layout:"./layouts/user-account-layout" });
 })
 
 

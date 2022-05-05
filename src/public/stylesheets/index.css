@@ -114,7 +114,7 @@ nav a:link {
 }
 header {
   display: grid;
-  grid-template-rows: 10px calc(90vh - 9rem - 10px);
+  grid-template-rows: 10px auto auto;
   padding: 0 !important;
   min-height: calc(100vh - 5rem);
   align-content: space-between;
@@ -127,6 +127,7 @@ header #hero {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 header h1 {
   text-align: center;
@@ -212,6 +213,7 @@ main form input {
   border-right: none;
   border-radius: 4px 0 0 4px;
   text-align: center;
+  padding: 12px;
 }
 main form input:hover,
 main form input:focus {
@@ -229,6 +231,7 @@ main form button[type=submit] {
   color: #f2f2f2;
   background: #4158d0;
   font-weight: 500;
+  padding: 12px;
 }
 @media screen and (max-width: 600px) {
   main form input {
@@ -278,9 +281,31 @@ footer {
   padding: 7.5px;
   padding: 2rem 0;
 }
-footer img {
+footer img,
+footer a {
   display: inline-block;
   margin: 0 3px;
+}
+footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 3px;
+}
+footer ul li:first-child {
+  list-style: none;
+}
+footer ul li:nth-child(2) {
+  margin: 0 20.5px;
+}
+footer a, footer span, footer ul li a {
+  text-decoration: none;
+  color: #101010;
+  text-transform: capitalize;
+}
+footer a#opeolluwa {
+  color: #101010;
+  text-decoration: underline;
 }
 
 #account {

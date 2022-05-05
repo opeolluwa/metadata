@@ -1,17 +1,19 @@
 header {
   display: grid;
-  grid-template-rows: 10px calc(90vh - 9rem - 10px);
+  grid-template-rows: 10px auto auto;
   padding: 0 !important;
   min-height: calc(100vh - 5rem);
   align-content: space-between;
   @include gradient;
   color: $white;
 
+  
   #hero {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
   }
 
   h1 {
@@ -47,7 +49,6 @@ header {
       margin: 0 0.75rem;
       cursor: pointer;
     }
-  
   }
 }
 
