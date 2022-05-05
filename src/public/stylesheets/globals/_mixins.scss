@@ -58,11 +58,18 @@
     background: transparent;
     font-size: 80%;
     color: $white;
+    & hr{
+     color: lighten($white, 50%);
+      width: 50%;
+      display: flex;
+      opacity: .5;
+      margin: .75rem auto;
+    }
     & > div {
       text-align: center;
       margin-top: 0.25rem;
       color: darken($white, 10%);
-
+      
       a#opeolluwa {
         text-decoration: underline;
       }
@@ -106,16 +113,15 @@
         padding: 2rem;
       }
       [data-guide="footer"] {
+        & ul {
+         display: block;
+         margin: 1rem 0;
+        }
         & ul li:first-child,
         & ul li {
           list-style: none;
-        }
-
-        & ul li ::before {
-          content: " | ";
-          display: inline-block;
-          margin: 0 3px;
-          color: $white;
+          margin: .25rem 0;
+          text-align: center;
         }
         & ul li:first-child ::before {
           display: none;
@@ -130,6 +136,11 @@
           text-decoration: none;
           color: $white;
           text-transform: capitalize;
+        }
+        &  hr{
+          width: 90%;
+          height: 1px;
+          margin: 5px auto;
         }
       }
     }

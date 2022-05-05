@@ -82,6 +82,16 @@
     ::placeholder {
       text-transform: capitalize;
     }
+
+    /* & [data-guide="login"] > span{
+      display: block;
+      margin: 0.25rem 0;
+    } */
+
+    & [data-guide="login"] {
+      display: flex;
+      justify-content: space-around;
+    }
   }
 
   @media screen and (max-width: 600px) {
@@ -90,6 +100,14 @@
     }
     & .container {
       padding: inherit;
+      & [data-guide="login"]{
+        display: block;
+        text-align: unset;
+      }
+      & [data-guide="login"] > span {
+        display: block;
+        margin: 0.45rem 0;
+      }
       h1 {
         font-size: 1.25rem;
         font-weight: 400;

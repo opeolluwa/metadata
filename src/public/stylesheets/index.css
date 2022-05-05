@@ -320,6 +320,13 @@ footer a#opeolluwa {
   font-size: 80%;
   color: #f2f2f2;
 }
+#account [data-guide=footer] hr {
+  color: white;
+  width: 50%;
+  display: flex;
+  opacity: 0.5;
+  margin: 0.75rem auto;
+}
 #account [data-guide=footer] > div {
   text-align: center;
   margin-top: 0.25rem;
@@ -359,14 +366,14 @@ footer a#opeolluwa {
   #account .container {
     padding: 2rem;
   }
+  #account [data-guide=footer] ul {
+    display: block;
+    margin: 1rem 0;
+  }
   #account [data-guide=footer] ul li:first-child, #account [data-guide=footer] ul li {
     list-style: none;
-  }
-  #account [data-guide=footer] ul li ::before {
-    content: " | ";
-    display: inline-block;
-    margin: 0 3px;
-    color: #f2f2f2;
+    margin: 0.25rem 0;
+    text-align: center;
   }
   #account [data-guide=footer] ul li:first-child ::before {
     display: none;
@@ -379,6 +386,17 @@ footer a#opeolluwa {
     color: #f2f2f2;
     text-transform: capitalize;
   }
+  #account [data-guide=footer] hr {
+    width: 90%;
+    height: 1px;
+    margin: 5px auto;
+  }
+}
+#account .container {
+  /* & [data-guide="login"] > span{
+    display: block;
+    margin: 0.25rem 0;
+  } */
 }
 #account .container h1 {
   font-size: 1.75rem;
@@ -457,12 +475,24 @@ footer a#opeolluwa {
 #account .container ::placeholder {
   text-transform: capitalize;
 }
+#account .container [data-guide=login] {
+  display: flex;
+  justify-content: space-around;
+}
 @media screen and (max-width: 600px) {
   #account {
     padding: 3rem 1.25rem;
   }
   #account .container {
     padding: inherit;
+  }
+  #account .container [data-guide=login] {
+    display: block;
+    text-align: unset;
+  }
+  #account .container [data-guide=login] > span {
+    display: block;
+    margin: 0.45rem 0;
   }
   #account .container h1 {
     font-size: 1.25rem;
