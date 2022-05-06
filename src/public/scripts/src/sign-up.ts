@@ -8,10 +8,10 @@ const submitButton = (<HTMLButtonElement>document.querySelector("button[type='su
 
 //parse the value
 type input = string | undefined;
-const username: input = usernameFeed?.value;
-const password: input = passwordFeed?.value;
-const securityQuestion: input = securityQuestionFeed?.value
-const securityQuestionAnswer: input = securityQuestionAnswerFeed?.value
+const username: input = usernameFeed?.value.trim();
+const password: input = passwordFeed?.value.trim();
+const securityQuestion: input = securityQuestionFeed?.value.trim()
+const securityQuestionAnswer: input = securityQuestionAnswerFeed?.value.trim()
 let errorCount: number = 0;
 
 
@@ -21,6 +21,8 @@ submitButton.addEventListener("click", () => {
 
 registrationForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    validateUserInput()
+
     /*   const response = await fetch("/auth/users/sign-up", {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin
