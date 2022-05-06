@@ -32,6 +32,10 @@ body {
   display: block;
 }
 
+.d-none {
+  display: none;
+}
+
 *[class*=error] {
   color: rgba(233, 41, 41, 0.9450980392) !important;
 }
@@ -315,7 +319,7 @@ footer a#opeolluwa {
   margin: 0;
   padding: 3.5rem;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto auto 10px;
+  grid-template-rows: minmax(100px 35vh) minmax(100px 35vh) 10px;
   row-gap: 1.75rem;
   background-color: #4158d0;
   background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
@@ -423,9 +427,9 @@ footer a#opeolluwa {
   border-color: transparent;
   margin: 1.5rem 0;
   /*   & input:invalid,
-    & input:invalid:required {
-      border: 1px solid $red;
-    } */
+  & input:invalid:required {
+    border: 1px solid $red;
+  } */
 }
 #account .container form .form-feed label {
   margin-bottom: 0.25rem;
@@ -454,7 +458,7 @@ footer a#opeolluwa {
 }
 #account .container form .form-control {
   border: transparent;
-  font-size: 90%;
+  font-size: 80%;
   width: 100%;
 }
 #account .container form button[type=submit] {
@@ -484,7 +488,7 @@ footer a#opeolluwa {
 }
 #account .container ::placeholder {
   text-transform: lowercase;
-  font-size: 80%;
+  font-size: 75%;
   color: #7d7d7d;
 }
 #account .container [data-guide=login] > span {
@@ -550,7 +554,7 @@ footer a#opeolluwa {
   }
   #account .container form .form-control {
     border: transparent;
-    font-size: 90%;
+    font-size: 70%;
     width: 100%;
   }
   #account .container form button[type=submit] {

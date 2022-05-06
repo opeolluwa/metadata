@@ -36,6 +36,10 @@ body {
   display: block;
 }
 
+.d-none{
+  display: none;
+}
+
 *[class*="error"] {
   color: $red!important;
 }

@@ -12,24 +12,15 @@ const username: input = usernameFeed?.value;
 const password: input = passwordFeed?.value;
 const securityQuestion: input = securityQuestionFeed?.value
 const securityQuestionAnswer: input = securityQuestionAnswerFeed?.value
+let errorCount: number = 0;
 
 
+submitButton.addEventListener("click", () => {
+    validateUserInput()
+})
 
-
-registrationForm.noValidate = true
 registrationForm.addEventListener("submit", (event) => {
-    const dataIsValid = registrationForm.reportValidity()
-    console.log(dataIsValid)
     event.preventDefault();
-    const visited: Element[] = []
-    //first check if any of the feed is missing
-    for (const field of registrationForm.elements) {
-        field.addEventListener("invalid", () => {
-            field.setAttribute("aria-invalid", "true")
-        })
-
-
-    }
     /*   const response = await fetch("/auth/users/sign-up", {
           method: 'POST', // *GET, POST, PUT, DELETE, etc.
           mode: 'cors', // no-cors, *cors, same-origin
@@ -66,7 +57,53 @@ function addErrorMessage(elementSelector: string, errorMessage: string) {
     errorFeedBackElement.textContent = errorMessage
 }
 
+// function removeErrorMessage(elementSelector: string) {
+
+// }
 
 // checkInputError(password, ".password-error", "please provide a password of minimum of 8 characters")
 // checkInputError(securityQuestion, ".security-question-error", "security question is required")
 // checkInputError(securityQuestionAnswer, ".security-answer-error", "please provide answer to your security question")
+
+
+function validateUserInput() {
+    if (username === "") {
+        addErrorMessage("#username + span.error", "username is required")
+        errorCount++
+    }
+    else {
+        addErrorMessage("#username + span.error", "")
+        errorCount--
+        // document.querySelector("#username + span.error").classList.add("d-none")
+    }
+
+
+    if (password === "" || password.length < 8) {
+        addErrorMessage("#password + span.error", "password may only be at least 8 characters")
+        errorCount++
+    }
+    else {
+        addErrorMessage("#password + span.error", "")
+        errorCount--
+    }
+
+    if (!securityQuestion) {
+        addErrorMessage("#securityQuestion + span.error", "security question is required")
+        errorCount++
+    }
+
+    else {
+        addErrorMessage("#securityQuestion + span.error", "")
+        errorCount--
+    }
+
+    if (!securityQuestionAnswer) {
+        addErrorMessage("#securityQuestionAnswer + span.error", "security answer is required")
+        errorCount++
+    }
+
+    else {
+        addErrorMessage("#securityQuestion + span.error", "")
+        errorCount--
+    }
+}

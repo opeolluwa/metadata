@@ -61,15 +61,18 @@
           display: inline !important;
         }
 
-      /*   & input:invalid,
-        & input:invalid:required {
+        & input.input-error {
           border: 1px solid $red;
-        } */
+        }
+
+        & input.no-input-error {
+          border: 1px solid $green;
+        }
       }
 
       .form-control {
         border: transparent;
-        font-size: 90%;
+        font-size: 80%;
         width: 100%;
       }
 
@@ -101,7 +104,7 @@
     }
     ::placeholder {
       text-transform: lowercase;
-      font-size: 80%;
+      font-size: 75%;
       color: $grey;
     }
 
@@ -174,7 +177,7 @@
 
         .form-control {
           border: transparent;
-          font-size: 90%;
+          font-size: 70%;
           width: 100%;
         }
 

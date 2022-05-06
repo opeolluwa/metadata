@@ -6,25 +6,13 @@
     <form novalidate>
       <div class="form-feed">
         <label for="username">Username</label>
-        <input
-          type="text"
-          placeholder="enter username"
-          id="username"
-          required
-          pattern="\w{3,15}"
-        />
+        <input type="text" placeholder="enter username" id="username" />
         <span class="error"></span>
       </div>
 
       <div class="form-feed">
         <label for="password">Password</label>
-        <input
-          type="password"
-          placeholder="enter password"
-          id="password"
-          required
-          pattern="\S{8,}"
-        />
+        <input type="password" placeholder="enter password" id="password" />
         <span class="error"></span>
       </div>
 
@@ -35,7 +23,6 @@
           name=""
           id="securityQuestion"
           placeholder="Set a Security question for account recovery"
-          required
         />
         <span class="error"></span>
       </div>
@@ -47,7 +34,6 @@
           name=""
           id="securityQuestionAnswer"
           placeholder="Provide answer to the security question"
-          required
         />
         <span class="error"></span>
       </div>
@@ -70,6 +56,5 @@
   </div>
   <%- include('./../../partials/account-footer'); %>
 </div>
-
 
 <script src="scripts/sign-up.js"></script>
