@@ -15,29 +15,26 @@ const securityQuestionAnswer: input = securityQuestionAnswerFeed?.value.trim()
 let errorCount: number = 0;
 
 
-submitButton.addEventListener("click", () => {
-    validateUserInput()
-})
 
-registrationForm.addEventListener("submit", (event) => {
+
+registrationForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     validateUserInput()
-
-    /*   const response = await fetch("/auth/users/sign-up", {
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
-          mode: 'cors', // no-cors, *cors, same-origin
-          cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: 'same-origin', // include, *same-origin, omit
-          headers: {
-              'Content-Type': 'application/json'
-              // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          redirect: 'follow', // manual, *follow, error
-          referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-          body: JSON.stringify({ username, password }) // body data type must match "Content-Type" header
-      }); */
-    // console.log({ username, password, securityQuestion, securityQuestionAnswer })
-    /* console.log(response); */
+    const response = await fetch("/auth/users/sign-up", {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'Content-Type': 'application/json'
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify({ username, password }) // body data type must match "Content-Type" header
+    });
+    console.log({ username, password, securityQuestion, securityQuestionAnswer })
+    console.log(response);
 })
 
 
