@@ -24,9 +24,9 @@ export default class AuthenticationControllers {
         }
 
         //validate the data from the client
-        const user = User.findOne({ where: { username: req.body.username.trim() } });
-        error.username = (user) ? "username already exist" : error.username;
-        error.username = (!req.body.username) ? "username is required" : error.username;
+        const user = await User.findOne({ where: { username: req.body.username.trim() } });
+        error.username = (!req.body.username) ? "username is required" :
+            (user) ? "username already exist" : "";
         error.password = (!req.body.password || req.body.password.length < 8) ? "password must be at least 8 characters" : error.password;
         error.security_question = (!req.body.security_question) ? "security question is required" : error.security_question;
         error.security_answer = (!req.body.security_answer) ? "security answer is required" : error.security_answer;
@@ -49,7 +49,6 @@ export default class AuthenticationControllers {
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(password.trim(), salt);
                 const user = await User.create({ username: username.trim(), password: hash, security_question: security_question.trim(), security_answer: security_answer.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
-                console.log(user)
 
                 //send in status report on completion
                 return res.render("pages/authentication/sign-up-success", { title: "create account", layout: "./layouts/user-account-layout", username });
