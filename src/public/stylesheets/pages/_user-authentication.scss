@@ -123,6 +123,10 @@
       color: $grey;
     }
 
+    select,
+    option {
+      color: $black;
+    }
     & [data-guide="login"] > span {
       display: block;
       margin: 0.25rem 0;
@@ -193,6 +197,10 @@
             border: 1px solid lighten($grey, 2%);
             width: 100%;
             font-size: 0.9rem;
+          }
+          select, option{
+            font-size: 85%;
+
           }
           input {
             text-align: unset;

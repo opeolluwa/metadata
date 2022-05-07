@@ -29,6 +29,7 @@ app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"))
 // Register all user authentication routes
 app.get("/", GeneralPagesViewsRenderer.indexPage);
 app.get("/register", AuthenticationViewsRenderer.signUp)
+    .post("/register", AuthenticationControllers.signup)
 app.get("/login", AuthenticationViewsRenderer.login)
 app.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 app.get("/set-new-password", AuthenticationViewsRenderer.setNewPassword)

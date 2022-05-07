@@ -40,7 +40,7 @@ export default class AuthenticationControllers {
 
         //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
-            return res.render("pages/authentication/sign-up-error", { title: "create account", layout: "./layouts/user-account-layout", error, value });
+            return res.render("pages/authentication/sign-up-error", { title: "create account", layout: "./layouts/user-authentication-layout", error, value });
         }
 
         //else create the user
@@ -50,7 +50,7 @@ export default class AuthenticationControllers {
                 const hash = bcrypt.hashSync(password.trim(), salt);
                 const user = await User.create({ username: username.trim(), password: hash, security_question: security_question.trim(), security_answer: security_answer.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
                 //send in status report on completion
-                return res.render("pages/authentication/sign-up-success", { title: "create account", layout: "./layouts/user-account-layout", username });
+                return res.render("pages/authentication/sign-up-success", { title: "create account", layout: "./layouts/user-authentication-layout", username });
             } catch (error) {
             }
         }
