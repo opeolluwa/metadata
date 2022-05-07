@@ -36,12 +36,15 @@ body {
   display: block;
 }
 
-.d-none{
+.d-none {
   display: none;
 }
 
+.text-center {
+  text-align: center!important;
+}
 *[class*="error"] {
-  color: $red!important;
+  color: $red !important;
 }
 h1 {
   line-height: 36px;

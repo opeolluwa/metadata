@@ -41,7 +41,7 @@ app.get("/images", ContentCategoriesViewsRenderer.images)
 app.get("/svg", ContentCategoriesViewsRenderer.svg)
 
 //register /auth/user/register
-app.post("/auth/users/sign-up", AuthenticationControllers.signup)
+app.post("/register", AuthenticationControllers.signup)
 
 //mount the page rendering to HTTP GET action
 

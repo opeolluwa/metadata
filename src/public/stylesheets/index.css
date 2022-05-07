@@ -36,6 +36,10 @@ body {
   display: none;
 }
 
+.text-center {
+  text-align: center !important;
+}
+
 *[class*=error] {
   color: rgba(233, 41, 41, 0.9450980392) !important;
 }
@@ -398,6 +402,13 @@ footer a#opeolluwa {
     margin: 5px auto;
   }
 }
+#account .success-icon {
+  min-width: 100px;
+  max-width: 70%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+}
 #account .container h1 {
   font-size: 1.75rem;
   text-align: center;
@@ -495,7 +506,8 @@ footer a#opeolluwa {
   margin: 1px 0;
 }
 #account .container ::placeholder,
-#account .container option, #account .container select {
+#account .container option,
+#account .container select {
   text-transform: lowercase;
   font-size: 75%;
   color: #7d7d7d;
@@ -509,6 +521,13 @@ footer a#opeolluwa {
   justify-content: space-around;
 }
 @media screen and (max-width: 600px) {
+  #account .success-icon {
+    min-width: 100px;
+    max-width: 50%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+  }
   #account {
     padding: 3rem 1.25rem;
   }

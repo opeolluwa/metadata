@@ -1,6 +1,15 @@
 #account {
   @include auth-layout;
   @include gradient;
+
+  //for successful registration icon
+  & .success-icon {
+    min-width: 100px;
+    max-width: 70%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+  }
   & .container {
     h1 {
       font-size: 1.75rem;
@@ -106,7 +115,8 @@
       margin: 1px 0;
     }
     ::placeholder,
-    option, select {
+    option,
+    select {
       text-transform: lowercase;
       font-size: 75%;
       color: $grey;
@@ -124,6 +134,15 @@
   }
 
   @media screen and (max-width: 600px) {
+    //for successful registration icon
+    & .success-icon {
+      min-width: 100px;
+      max-width: 50%;
+      margin: 1rem auto;
+      display: flex;
+      justify-content: center;
+    }
+
     & {
       padding: 3rem 1.25rem;
     }

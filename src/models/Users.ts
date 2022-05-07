@@ -10,6 +10,7 @@ User.init({
         allowNull: false,
         primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
+        unique: true
     },
     // Model attributes are defined here
     username: {
@@ -24,9 +25,14 @@ User.init({
         type: DataTypes.STRING,
         allowNUll: false
     },
-    sequrity_question_answer: {
+    security_answer: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    privacy_policy_agreement: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false
+
     }
 
 }, {
