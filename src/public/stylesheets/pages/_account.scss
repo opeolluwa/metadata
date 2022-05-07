@@ -1,7 +1,6 @@
 #account {
   @include auth-layout;
   @include gradient;
-
   //for successful registration icon
   & .success-icon {
     min-width: 100px;
@@ -11,6 +10,8 @@
     justify-content: center;
   }
   & .container {
+    @include box-shadow;
+
     h1 {
       font-size: 1.75rem;
       text-align: center;
@@ -125,11 +126,13 @@
     & [data-guide="login"] > span {
       display: block;
       margin: 0.25rem 0;
+      text-align: center;
     }
 
     & [data-guide="login"] {
       display: flex;
       justify-content: space-around;
+      text-align: center;
     }
   }
 

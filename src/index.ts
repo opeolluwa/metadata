@@ -5,7 +5,7 @@ import expressLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
 import { sequelize } from "./config/database.config";
 import AuthenticationControllers from "./controller/auth";
-import { AuthenticationViewsRenderer, ContentCategoriesViewsRenderer, GeneralPagesViewsRenderer } from "./controller/views";
+import { AuthenticationViewsRenderer, ContentCategoriesViewsRenderer, GeneralPagesViewsRenderer, UserAccountContentRenderer } from "./controller/views";
 
 
 dotenv.config();
@@ -26,13 +26,14 @@ app.set("views", path.join(__dirname, "views"))
 app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"))
 
 
-// Register all app routes.
+// Register all user authentication routes
 app.get("/", GeneralPagesViewsRenderer.indexPage);
 app.get("/register", AuthenticationViewsRenderer.signUp)
 app.get("/login", AuthenticationViewsRenderer.login)
 app.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 app.get("/set-new-password", AuthenticationViewsRenderer.setNewPassword)
 
+//resister all resource route
 app.get("/animation", ContentCategoriesViewsRenderer.animation)
 app.get("/icon", ContentCategoriesViewsRenderer.icons)
 app.get("/illustrations", ContentCategoriesViewsRenderer.illustrations)
@@ -40,8 +41,8 @@ app.get("/code-snippets", ContentCategoriesViewsRenderer.codeSnippets)
 app.get("/images", ContentCategoriesViewsRenderer.images)
 app.get("/svg", ContentCategoriesViewsRenderer.svg)
 
-//register /auth/user/register
-app.post("/register", AuthenticationControllers.signup)
+//register all user account route
+app.get("/accounts", UserAccountContentRenderer.dashboard)
 
 //mount the page rendering to HTTP GET action
 

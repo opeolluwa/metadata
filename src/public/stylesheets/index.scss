@@ -41,7 +41,7 @@ body {
 }
 
 .text-center {
-  text-align: center!important;
+  text-align: center !important;
 }
 *[class*="error"] {
   color: $red !important;
@@ -79,3 +79,4 @@ h1 {
 @import "./components/main";
 @import "./components/footer";
 @import "./pages/account";
+@import "./pages/dashboard";

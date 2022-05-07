@@ -3,7 +3,15 @@
   <head>
     <%- include('./../partials/head'); %>
   </head>
-  <body>
-    <%- body %>
+  <body id="user-account">
+    <nav>
+      <%- include('./../partials/user-account-navbar'); %>
+    </nav>
+    <main>
+      <%- body %>
+    </main>
+    <aside>
+      <%- include('./../partials/user-account-sidebar'); %>
+    </aside>
   </body>
 </html>

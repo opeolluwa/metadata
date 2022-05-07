@@ -409,6 +409,11 @@ footer a#opeolluwa {
   display: flex;
   justify-content: center;
 }
+#account .container {
+  box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+}
 #account .container h1 {
   font-size: 1.75rem;
   text-align: center;
@@ -515,10 +520,12 @@ footer a#opeolluwa {
 #account .container [data-guide=login] > span {
   display: block;
   margin: 0.25rem 0;
+  text-align: center;
 }
 #account .container [data-guide=login] {
   display: flex;
   justify-content: space-around;
+  text-align: center;
 }
 @media screen and (max-width: 600px) {
   #account .success-icon {
@@ -591,6 +598,43 @@ footer a#opeolluwa {
     background-color: #3149c6;
     color: #f2f2f2;
   }
+}
+
+#user-account {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100vh;
+}
+#user-account > * {
+  margin: 0;
+  padding: 0;
+}
+#user-account nav {
+  grid-column: 1/3;
+  background-color: #7d7d7d;
+  border-radius: 0;
+  display: unset;
+  text-align: unset;
+  border-right: 1px solid gray;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+}
+#user-account nav ul li {
+  list-style: none;
+  margin: 0.75rem;
+}
+#user-account nav ul li a {
+  color: grey;
+  text-decoration: none;
+  font-weight: 300;
+}
+#user-account main {
+  grid-column: 3/11;
+}
+#user-account aside {
+  background-color: #979797;
+  border-left: 1px solid gray;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+  grid-column: 11/13;
 }
 
 /*# sourceMappingURL=index.css.map */

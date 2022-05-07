@@ -57,3 +57,13 @@ export class ContentCategoriesViewsRenderer {
         res.render("pages/resource/svg", { title: "meta data svg generators", layout: "./layouts/resource-layout", content: "animation", pageTitle: "SVG shapes and background generators" });
     }
 }
+
+
+
+export class UserAccountContentRenderer {
+    static dashboard(req: Request, res: Response) {
+        //TODO:hh== get the current logged in user
+        // req.params.user ="drizzle"
+        res.render("pages/account/dashboard", { title: "user account", layout: "./layouts/user-account-layout" });
+    }
+}

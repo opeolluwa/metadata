@@ -1,0 +1,14 @@
+#user-account {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: min(100vh);
+  & > * {
+    margin: 0;
+    padding: 0;
+  }
+  & {
+    @import "./../partials/user-account-navigation";
+    @import "./../partials/user-account-main";
+    @import "./../partials/user-account-aside";
+  }
+}

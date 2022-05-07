@@ -1,0 +1,18 @@
+nav {
+  grid-column: 1 / 3;
+  background-color: $grey;
+  border-radius: 0;
+  display: unset;
+  text-align: unset;
+  border-right: 1px solid gray;
+  @include fade-overlay(255, 255, 255, .9);
+  ul {
+    li {
+      list-style: none;
+      margin: 0.75rem;
+    }
+    & li a {
+      @include anchor-regular($color: grey);
+    }
+  }
+}

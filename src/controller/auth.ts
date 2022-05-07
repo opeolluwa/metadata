@@ -49,11 +49,9 @@ export default class AuthenticationControllers {
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(password.trim(), salt);
                 const user = await User.create({ username: username.trim(), password: hash, security_question: security_question.trim(), security_answer: security_answer.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
-
                 //send in status report on completion
                 return res.render("pages/authentication/sign-up-success", { title: "create account", layout: "./layouts/user-account-layout", username });
             } catch (error) {
-                console.log(error)
             }
         }
 

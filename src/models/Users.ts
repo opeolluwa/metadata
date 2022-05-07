@@ -2,9 +2,20 @@ const { DataTypes, Model } = require('sequelize');
 import { sequelize } from "../config/database.config"
 
 
-export class User extends Model { }
+export class User extends Model {
+    toJSON() {
+        //dont return the password and id when returning the user object
+        return { ...this.get(), password: undefined, id: undefined };
+    };
+
+}
 User.init({
     // Model attributes are defined here
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: false,
+        autoIncrement: true
+    },
     user_id: {
         type: DataTypes.UUID,
         allowNull: false,
