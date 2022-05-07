@@ -3,22 +3,20 @@ import { Request, Response } from "express";
 export class AuthenticationViewsRenderer {
     //signup view engine
     static signUp(req: Request, res: Response) {
-        res.render("pages/authentication/sign-up", { title: "create account", layout: "./layouts/user-account-layout", script: "sign-up" });
+        res.render("pages/authentication/sign-up", { title: "create account", layout: "./layouts/user-authentication-layout", script: "sign-up" });
     }
     static login(req: Request, res: Response) {
-        res.render("pages/authentication/login", { title: "login to dashboard", layout: "./layouts/user-account-layout" });
+        res.render("pages/authentication/login", { title: "login to dashboard", layout: "./layouts/user-authentication-layout" });
     }
     static passwordReset(req: Request, res: Response) {
-        res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm username and security answer", layout: "./layouts/user-account-layout" });
+        res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm username and security answer", layout: "./layouts/user-authentication-layout" });
     }
 
     static setNewPassword(req: Request, res: Response) {
-        res.render("pages/authentication/set-new-password", { title: "account recovery - set new password", layout: "./layouts/user-account-layout" });
+        res.render("pages/authentication/set-new-password", { title: "account recovery - set new password", layout: "./layouts/user-authentication-layout" });
     }
 
-    static dashboard(req: Request, res: Response) {
-        res.render("pages/authentication/authentication/sign-up", { title: "create account", layout: "./layouts/user-account-layout" });
-    }
+  
 }
 
 
