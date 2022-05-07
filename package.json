@@ -17,9 +17,11 @@
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/body-parser": "^1.19.2",
     "@types/shelljs": "^0.8.11",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
     "concurrently": "^7.1.0",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.7",

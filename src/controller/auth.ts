@@ -7,19 +7,18 @@ import bcrypt from "bcrypt"
 
 export default class AuthenticationControllers {
     static async signup(req: Request, res: Response) {
-        const { username, password } = req.body;
-        console.log(username, password)
-
-        try {
-            // Store hash in your password DB.
-            const salt = bcrypt.genSaltSync(10);
-            const hash = bcrypt.hashSync(password, salt);
-            const user = await User.create({ username, password: hash })
-            return res.send({ username, password, user })
-
-        } catch (error) {
-            console.log(error)
-        }
+        const { username, password, security_question, security_answer, privacy_policy_agreement } = req.body;
+        console.log({username, password, security_question, security_answer, privacy_policy_agreement})
+        /*  try {
+             // Store hash in your password DB.
+             const salt = bcrypt.genSaltSync(10);
+             const hash = bcrypt.hashSync(password, salt);
+             const user = await User.create({ username, password: hash })
+             return res.send({ username, password, user })
+ 
+         } catch (error) {
+             console.log(error)
+         } */
     }
 
 

@@ -10,6 +10,9 @@ header {
 
   &#resource-header {
     min-height: 50vh;
+    h1 {
+      text-transform: capitalize;
+    }
   }
   #hero {
     display: flex;
@@ -65,7 +68,6 @@ header > * {
     grid-template-rows: 5px calc(90vh - 9rem - 10px);
     &#resource-header {
       max-height: 50vh;
-     
     }
     & > * {
       padding: 0 1.5rem;

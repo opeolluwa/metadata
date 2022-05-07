@@ -20,11 +20,10 @@
 
 
 //get the elements from the dom
-const navigationButton = (document.getElementById("navigation-button"));
+const navigationButton = document.getElementById("navigation-button");
 const navigation = (<HTMLInputElement>document.getElementById("navigation"));
 navigationButton.addEventListener("click", () => {
     // navigation.classList.toggle("navigation-active");
     alert("hey fool")
 })
 
-console.log("hey fool")

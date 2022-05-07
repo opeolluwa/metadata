@@ -40,12 +40,15 @@
           font-size: 70%;
         }
         input,
-        button {
+        button,
+        select,
+        option {
           padding: 12px;
           border-radius: 3px;
           border: 1px solid gray;
           width: 100%;
           font-size: 1rem;
+          background-color: transparent;
         }
         & input {
           text-align: unset;
@@ -102,7 +105,8 @@
       font-size: 80%;
       margin: 1px 0;
     }
-    ::placeholder {
+    ::placeholder,
+    option, select {
       text-transform: lowercase;
       font-size: 75%;
       color: $grey;
@@ -159,7 +163,9 @@
           }
 
           input,
-          button {
+          button,
+          select,
+          option {
             padding: 10px;
             border-radius: 3px;
             border: 1px solid lighten($grey, 2%);

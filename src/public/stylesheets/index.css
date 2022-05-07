@@ -134,6 +134,9 @@ header {
 header#resource-header {
   min-height: 50vh;
 }
+header#resource-header h1 {
+  text-transform: capitalize;
+}
 header #hero {
   display: flex;
   justify-content: center;
@@ -272,7 +275,7 @@ main form button[type=submit] {
   }
 }
 main ul li {
-  margin: 7.5px 0;
+  margin: 1rem 0;
   list-style-type: disc;
 }
 main ul li a {
@@ -426,10 +429,6 @@ footer a#opeolluwa {
 #account .container form .form-feed {
   border-color: transparent;
   margin: 1.5rem 0;
-  /*   & input:invalid,
-  & input:invalid:required {
-    border: 1px solid $red;
-  } */
 }
 #account .container form .form-feed label {
   margin-bottom: 0.25rem;
@@ -439,12 +438,15 @@ footer a#opeolluwa {
   font-size: 70%;
 }
 #account .container form .form-feed input,
-#account .container form .form-feed button {
+#account .container form .form-feed button,
+#account .container form .form-feed select,
+#account .container form .form-feed option {
   padding: 12px;
   border-radius: 3px;
   border: 1px solid gray;
   width: 100%;
   font-size: 1rem;
+  background-color: transparent;
 }
 #account .container form .form-feed input {
   text-align: unset;
@@ -455,6 +457,12 @@ footer a#opeolluwa {
 }
 #account .container form .form-feed input[type=checkbox] {
   display: inline !important;
+}
+#account .container form .form-feed input.input-error {
+  border: 1px solid rgba(233, 41, 41, 0.9450980392);
+}
+#account .container form .form-feed input.no-input-error {
+  border: 1px solid rgb(46, 136, 46);
 }
 #account .container form .form-control {
   border: transparent;
@@ -486,7 +494,8 @@ footer a#opeolluwa {
   font-size: 80%;
   margin: 1px 0;
 }
-#account .container ::placeholder {
+#account .container ::placeholder,
+#account .container option, #account .container select {
   text-transform: lowercase;
   font-size: 75%;
   color: #7d7d7d;
@@ -539,7 +548,9 @@ footer a#opeolluwa {
     font-size: 70%;
   }
   #account .container form .form-feed input,
-#account .container form .form-feed button {
+#account .container form .form-feed button,
+#account .container form .form-feed select,
+#account .container form .form-feed option {
     padding: 10px;
     border-radius: 3px;
     border: 1px solid #828282;

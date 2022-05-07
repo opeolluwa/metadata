@@ -8,19 +8,19 @@ const submitButton = (<HTMLButtonElement>document.querySelector("button[type='su
 
 //parse the value
 type input = string | undefined;
-const username: input = usernameFeed?.value.trim();
-const password: input = passwordFeed?.value.trim();
-const securityQuestion: input = securityQuestionFeed?.value.trim()
-const securityQuestionAnswer: input = securityQuestionAnswerFeed?.value.trim()
+const username: input = usernameFeed.value.trim();
+const password: input = passwordFeed.value.trim();
+const securityQuestion: input = securityQuestionFeed.value.trim()
+const securityQuestionAnswer: input = securityQuestionAnswerFeed.value.trim()
 let errorCount: number = 0;
 
 
 
 
-registrationForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    validateUserInput()
-    const response = await fetch("/auth/users/sign-up", {
+registrationForm.addEventListener("submit",  () => {
+    // event.preventDefault();
+    // validateUserInput()
+  /*   const response = await fetch("/auth/users/sign-up", {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -32,9 +32,9 @@ registrationForm.addEventListener("submit", async (event) => {
         redirect: 'follow', // manual, *follow, error
         referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         body: JSON.stringify({ username, password }) // body data type must match "Content-Type" header
-    });
+    }); */
     console.log({ username, password, securityQuestion, securityQuestionAnswer })
-    console.log(response);
+    // console.log(response);
 })
 
 
