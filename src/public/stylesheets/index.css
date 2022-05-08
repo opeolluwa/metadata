@@ -612,36 +612,116 @@ footer a#opeolluwa {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 100vh;
 }
-#user-account > * {
-  margin: 0;
-  padding: 0;
-}
 #user-account nav {
   grid-column: 1/3;
-  background-color: #7d7d7d;
+  background: #fafafa;
+  padding: 3rem 1.5rem;
   border-radius: 0;
-  display: unset;
+  display: block;
   text-align: unset;
-  border-right: 1px solid gray;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+  border-right: 1px solid #ededed;
+}
+#user-account nav .user-avatar-and-name {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 15px;
+}
+#user-account nav .user-avatar-and-name.name span,
+#user-account nav .user-avatar-and-name.name strong {
+  display: block;
+  color: #7d7d7d;
+}
+#user-account nav .user-avatar-and-name.name span {
+  font-size: 70%;
+}
+#user-account nav h4 {
+  text-transform: uppercase;
+}
+#user-account nav hr.divider {
+  color: transparent;
+  width: 90%;
+  display: flex;
+  opacity: 0.5;
+  margin: 2.75rem auto;
+}
+#user-account nav ul {
+  margin: 0;
+  display: block;
 }
 #user-account nav ul li {
   list-style: none;
-  margin: 0.75rem;
+  margin-bottom: 1.75rem;
+  margin-left: 0.75rem;
+  text-transform: capitalize;
+}
+#user-account nav ul li:first-child {
+  margin-top: 1.25rem;
+}
+#user-account nav ul svg {
+  display: inline-block;
+  margin-right: 0.75rem;
 }
 #user-account nav ul li a {
   color: grey;
   text-decoration: none;
   font-weight: 300;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+#user-account nav ul li a:hover {
+  color: #4158d0;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 300ms;
+}
+#user-account .avatar {
+  border: 1px solid #ededed;
+  min-width: 50px;
+  min-height: 50px;
+}
+#user-account .avatar img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  max-width: 100%;
+  object-fit: fit;
+  border-radius: 50%;
+}
+#user-account a.logout-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #f2f2f2;
+  border: 1px solid transparent;
+  box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  align-self: center;
+  flex-direction: row-reverse;
+  background: #4158d0;
+  border-radius: 5px;
+  justify-content: flex-end;
+  padding: 5px 7.5px;
+  position: relative;
+  bottom: 10px;
 }
 #user-account main {
-  grid-column: 3/11;
+  grid-column: 3/10;
 }
 #user-account aside {
-  background-color: #979797;
-  border-left: 1px solid gray;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
-  grid-column: 11/13;
+  border-left: 1px solid #ededed;
+  grid-column: 10/13;
+  padding: 3rem 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  #user-account {
+    display: block;
+  }
+  #user-account nav, #user-account aside {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -43,7 +43,7 @@ app.get("/images", ContentCategoriesViewsRenderer.images)
 app.get("/svg", ContentCategoriesViewsRenderer.svg)
 
 //register all user account route
-app.get("/accounts", UserAccountContentRenderer.dashboard)
+app.get("/:account", UserAccountContentRenderer.dashboard)
 
 //mount the page rendering to HTTP GET action
 

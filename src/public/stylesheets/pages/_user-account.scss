@@ -2,13 +2,27 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: min(100vh);
-  & > * {
-    margin: 0;
-    padding: 0;
-  }
+  // & > * {
+  //   //spacing reset
+  //   margin: 0;
+  //   padding: 0;
+
+  //   padding-top: 2rem
+  // }
   & {
     @import "./../partials/user-account-navigation";
     @import "./../partials/user-account-main";
     @import "./../partials/user-account-aside";
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #user-account {
+    display: block;
+
+    & nav,
+    & aside {
+      display: none;
+    }
   }
 }

@@ -61,7 +61,7 @@ export class ContentCategoriesViewsRenderer {
 export class UserAccountContentRenderer {
     static dashboard(req: Request, res: Response) {
         //TODO:hh== get the current logged in user
-        // req.params.user ="drizzle"
+        req.params.account ="drizzle"
         res.render("pages/account/dashboard", { title: "user account", layout: "./layouts/user-account-layout" });
     }
 }
