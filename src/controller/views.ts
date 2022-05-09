@@ -62,6 +62,6 @@ export class UserAccountContentRenderer {
     static dashboard(req: Request, res: Response) {
         //TODO:hh== get the current logged in user
         req.params.account ="drizzle"
-        res.render("pages/account/dashboard", { title: "user account", layout: "./layouts/user-account-layout" });
+        /* res.render("pages/account/dashboard", { title: "user account", layout: "./layouts/user-account-layout" }); */
     }
 }

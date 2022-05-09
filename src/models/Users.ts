@@ -3,10 +3,10 @@ import { sequelize } from "../config/database.config"
 
 
 export class User extends Model {
-    toJSON() {
+  /*   toJSON() {
         //dont return the password and id when returning the user object
-        return { ...this.get(), password: undefined, id: undefined };
-    };
+        // return { ...this.get(), password: undefined, id: undefined };
+    }; */
 
 }
 User.init({
@@ -51,7 +51,7 @@ User.init({
     sequelize, // We need to pass the connection instance
     modelName: 'User', // We need to choose the model name
     tableName: "user_information",
-    defaultScope: {
+    /* defaultScope: {
         attributes: { exclude: ['password'] },
-    }
+    } */
 });

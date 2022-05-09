@@ -1,12 +1,16 @@
-import { sequelize } from "./database.config";
-
 // load dependencies
 var express = require("express");
+var Sequelize = require("sequelize");
 var session = require("express-session");
 
 // initalize sequelize with session store
 var SequelizeStore = require("connect-session-sequelize")(session.Store);
 
+// create database, ensure 'sqlite3' in your package.json
+var sequelize = new Sequelize("database", "username", "password", {
+  dialect: "sqlite",
+  storage: "./session.sqlite",
+});
 
 // configure express
 var app = express();
@@ -20,4 +24,4 @@ app.use(
     proxy: true, // if you do SSL outside of node.
   })
 );
-// co
+// continue as normal

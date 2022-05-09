@@ -737,6 +737,14 @@ footer a#opeolluwa {
 #user-account main .header {
   display: none;
 }
+#user-account main h4 + span {
+  display: block;
+  margin-bottom: 2rem;
+  font-size: 85%;
+}
+#user-account main section {
+  margin-top: 2rem;
+}
 @media screen and (max-width: 600px) {
   #user-account main {
     padding: 0;
@@ -762,7 +770,7 @@ footer a#opeolluwa {
     padding: 0 1rem;
   }
   #user-account main h4 {
-    margin-top: 4rem;
+    margin-top: 2.27rem;
   }
   #user-account main section {
     border-radius: 5px;

@@ -3,7 +3,8 @@ import { sequelize } from "../config/database.config";
 import { User } from "../models/Users";
 import bcrypt from "bcrypt"
 import { UserAccountContentRenderer } from "./views";
-
+import greeting from "../lib/greetings"
+import console from "console";
 
 export default class AuthenticationControllers {
     static async signup(req: Request, res: Response) {
@@ -36,8 +37,9 @@ export default class AuthenticationControllers {
 
         //get the payload from the request body and persist the values while checking for errors
         const { username, password, security_question, security_answer, privacy_policy_agreement } = req.body;
-        const value = { username, password, security_question, security_answer, privacy_policy_agreement }
+        const value = { username, password }
 
+        console.log(req.body)
 
         //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
@@ -61,33 +63,39 @@ export default class AuthenticationControllers {
 
 
     static async login(req: Request, res: Response, next: NextFunction) {
+        const { username, password } = req.body
         interface Error {
             username: string,
-            password: string
+            password: string,
+            authentication: string
         }
 
         const error: Error = {
             username: "",
-            password: ""
+            password: "",
+            authentication: ""
         }
-        console.log(req.body)
-        if (!req.body.username) {
-            error.username = "Username is required"
-        }
+        const user = await User.findOne({ where: { username: username.trim() } });
+        const isAuthenticated = await bcrypt.compare(password, user.password);
 
-        if (!req.body.password) {
-            error.password = "password is required"
-        }
 
-        const { username, password } = req.body
+       /*  console.log(password, isAuthenticated) */
+        if (!username) { error.username = "Username is required" }
+        if (!password) { error.password = "password is required" }
+        if (!user) { error.authentication = "invalid username or password" }
+        if (!isAuthenticated) { error.authentication = "invalid username or password" }
         //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
             return res.render("pages/authentication/login-errors", { title: "login to your account", layout: "./layouts/user-authentication-layout", error, value: { username, password } });
         }
 
-        else {
-            res.redirect("/" + username)
+        //redirect to dashboard
+        if (isAuthenticated) {
+            const { username, user_id } = user
+            // Object.assign(req.session, { userIsAuthenticated: user_id })
+            return res.render("pages/account/dashboard", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
         }
+
     }
 
 

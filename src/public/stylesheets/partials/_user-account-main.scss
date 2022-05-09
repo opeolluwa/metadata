@@ -3,6 +3,23 @@ main {
   .header {
     display: none;
   }
+
+  h4 + span {
+    display: block;
+    margin-bottom: 2rem;
+    font-size: 85%;
+  }
+
+  // .with-box-shadow {
+  //   @include box-shadow;
+  // }
+  section {
+    margin-top: 2rem;
+    &.with-shadow {
+      // @include box-shadow;
+    }
+  }
+
   @media screen and (max-width: 600px) {
     padding: 0;
     margin: 0;
@@ -26,7 +43,7 @@ main {
     }
 
     h4 {
-      margin-top: 4rem;
+      margin-top: 2.27rem;
     }
 
     section {
