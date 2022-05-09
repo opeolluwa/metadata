@@ -620,6 +620,7 @@ footer a#opeolluwa {
   display: block;
   text-align: unset;
   border-right: 1px solid #ededed;
+  min-height: 100vh;
 }
 #user-account nav .user-avatar-and-name {
   display: grid;
@@ -700,14 +701,72 @@ footer a#opeolluwa {
   align-self: center;
   flex-direction: row-reverse;
   background: #4158d0;
+  justify-content: center;
   border-radius: 5px;
-  justify-content: flex-end;
-  padding: 5px 7.5px;
+  padding: 7.5px;
   position: relative;
-  bottom: 10px;
+  bottom: 0 !important;
+  margin-top: 4rem;
+  cursor: pointer;
+}
+#user-account a.logout-button svg {
+  display: inline-block;
+  margin: 0 0.75rem;
+  color: #fafafa;
+  max-width: 18px;
+}
+@media screen and (max-width: 600px) {
+  #user-account nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  #user-account nav .user-avatar-and-name {
+    display: flex;
+    flex-direction: column;
+    display: none;
+  }
+  #user-account nav .user-avatar-and-name .name {
+    display: flex;
+    flex-direction: column;
+  }
 }
 #user-account main {
   grid-column: 3/10;
+}
+#user-account main .header {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  #user-account main {
+    padding: 0;
+    margin: 0;
+  }
+  #user-account main .header {
+    display: flex;
+    min-height: 50px;
+    background-color: #4158d0;
+    align-items: center;
+    color: #f2f2f2;
+    justify-content: space-between;
+  }
+  #user-account main .header a {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-weight: 300;
+  }
+  #user-account main .header svg {
+    cursor: pointer;
+  }
+  #user-account main > * {
+    padding: 0 1rem;
+  }
+  #user-account main h4 {
+    margin-top: 4rem;
+  }
+  #user-account main section {
+    border-radius: 5px;
+  }
 }
 #user-account aside {
   border-left: 1px solid #ededed;
@@ -716,6 +775,10 @@ footer a#opeolluwa {
 }
 
 @media screen and (max-width: 600px) {
+  .user-avatar-and-name {
+    display: block;
+  }
+
   #user-account {
     display: block;
   }

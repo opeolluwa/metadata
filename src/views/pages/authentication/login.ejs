@@ -3,15 +3,24 @@
     <h1>Login</h1>
     <p class="sub-hero-text">Welcome Back!</p>
 
-    <form action="" method="post">
+    <form action="/login" method="post">
       <div class="form-feed">
         <label for="username">Username</label>
-        <input type="text" placeholder="enter username" />
+        <input
+          type="text"
+          placeholder="enter username"
+          name="username"
+          id="username"
+        />
       </div>
 
       <div class="form-feed">
         <label for="password">Password</label>
-        <input type="password" placeholder="enter password" />
+        <input
+          type="password"
+          placeholder="enter password"
+          name="password"
+        />
         <span class="error"></span>
         <!---<a href="/forgotten-password" data-guide="forgotten-password">Forgotten password?<a/>-->
       </div>
@@ -21,12 +30,10 @@
       </div>
     </form>
     <div data-guide="login">
-     <span>
-      Don&apos;t an account? <a href="/register">Sign Up</a>
-     </span>
-     <span>
-       <a href="/password-reset">Forgotten Password?</a>
-     </span>
+      <span> Don&apos;t an account? <a href="/register">Sign Up</a> </span>
+      <span>
+        <a href="/password-reset">Forgotten Password?</a>
+      </span>
     </div>
   </div>
   <%- include('./../../partials/account-footer'); %>

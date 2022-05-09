@@ -1,7 +1,8 @@
-import { Request, Response } from "express"
+import { NextFunction, Request, Response } from "express"
 import { sequelize } from "../config/database.config";
 import { User } from "../models/Users";
 import bcrypt from "bcrypt"
+import { UserAccountContentRenderer } from "./views";
 
 
 export default class AuthenticationControllers {
@@ -59,8 +60,34 @@ export default class AuthenticationControllers {
 
 
 
-    static async login(req: Request, res: Response) {
+    static async login(req: Request, res: Response, next: NextFunction) {
+        interface Error {
+            username: string,
+            password: string
+        }
 
+        const error: Error = {
+            username: "",
+            password: ""
+        }
+        console.log(req.body)
+        if (!req.body.username) {
+            error.username = "Username is required"
+        }
+
+        if (!req.body.password) {
+            error.password = "password is required"
+        }
+
+        const { username, password } = req.body
+        //check for errors and send in error report if any
+        if (!Object.values(error).every(e => e === "")) {
+            return res.render("pages/authentication/login-errors", { title: "login to your account", layout: "./layouts/user-authentication-layout", error, value: { username, password } });
+        }
+
+        else {
+            res.redirect("/" + username)
+        }
     }
 
 

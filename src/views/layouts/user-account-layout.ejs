@@ -1,19 +1,13 @@
-
-
 <!DOCTYPE html>
 <html>
   <head>
     <%- include('./../partials/head'); %>
   </head>
   <body id="user-account">
-    <nav>
-      <%- include('./../partials/user-account-navbar'); %>
-    </nav>
-    <main>
-      <%- body %>
+    <nav><%- include('./../partials/user-account-navbar'); %></nav>
+    <main><%- include('./../partials/user-account-main'); %>
+    <%- body %>
     </main>
-    <aside>
-      <%- include('./../partials/user-account-sidebar'); %>
-    </aside>
+    <aside><%- include('./../partials/user-account-sidebar'); %></aside>
   </body>
 </html>
