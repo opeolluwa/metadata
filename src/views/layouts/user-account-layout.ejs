@@ -2,12 +2,29 @@
 <html>
   <head>
     <%- include('./../partials/head'); %>
+    <style>
+      .active {
+        display: block;
+      }
+    </style>
   </head>
   <body id="user-account">
     <nav><%- include('./../partials/user-account-navbar'); %></nav>
-    <main><%- include('./../partials/user-account-main'); %>
-    <%- body %>
+    <main>
+      <%- include('./../partials/user-account-main'); %> <%- body %>
+      <button id="rr"></button>
     </main>
     <aside><%- include('./../partials/user-account-sidebar'); %></aside>
+
+    <script>
+      //get the navigation element
+      const navigationDrawer = document.querySelector("nav");
+      const navDrawerButton = document.querySelector("main .header");
+
+      navDrawerButton.addEventListener("click", () => {
+        alert("hey")
+        navigationDrawer.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>
