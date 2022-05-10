@@ -2,11 +2,9 @@
   <div class="container">
     <h1>Login</h1>
     <p class="sub-hero-text">Welcome Back!</p>
-   
+
     <form action="/login" method="post">
-      <span class="error">
-        <%= error.authentication %>
-      </span>
+      <span class="error"> <%= error.authentication %> </span>
       <div class="form-feed">
         <label for="username">Username</label>
         <input
@@ -42,5 +40,5 @@
       </span>
     </div>
   </div>
-  <%- include('./../../partials/account-footer'); %>
+  <%- include('./../../partials/user-authentication-footer'); %>
 </div>

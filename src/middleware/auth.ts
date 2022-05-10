@@ -1,13 +1,16 @@
 import { Request, Response, NextFunction } from "express";
-
+import { User } from "../models/Users";
 
 export class AuthenticationMiddleware {
-    static confirmAuthenticationStatus(req: Request, res: Response, next: NextFunction) {
-        if (req.session) {
-            next()
+    static async confirmAuthenticationStatus(req: Request, res: Response, next: NextFunction) {
+        // const { user_id, username } = req.session.user;
+        if (!req.session.user) {
+          return  res.redirect("/login")
         }
-        else {
-            return res.render("pages/authentication/login-errors", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "your are not authorized to view the requested resource " + "\n" + "Please login to proceed" }, value: { username, password } });
-        }
+        const { user_id, username } = req.session.user;
+        const user = await User.findOne({ where: { user_id: user_id } });
+        req.user = user;
+        next();
+        return;
     }
 }

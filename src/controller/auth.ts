@@ -3,7 +3,6 @@ import { sequelize } from "../config/database.config";
 import { User } from "../models/Users";
 import bcrypt from "bcrypt"
 import { UserAccountContentRenderer } from "./views";
-import greeting from "../lib/greetings"
 import console from "console";
 
 export default class AuthenticationControllers {
@@ -79,7 +78,7 @@ export default class AuthenticationControllers {
         const isAuthenticated = await bcrypt.compare(password, user.password);
 
 
-       /*  console.log(password, isAuthenticated) */
+        /*  console.log(password, isAuthenticated) */
         if (!username) { error.username = "Username is required" }
         if (!password) { error.password = "password is required" }
         if (!user) { error.authentication = "invalid username or password" }
@@ -92,15 +91,17 @@ export default class AuthenticationControllers {
         //redirect to dashboard
         if (isAuthenticated) {
             const { username, user_id } = user
-            // Object.assign(req.session, { userIsAuthenticated: user_id })
-            return res.render("pages/account/dashboard", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+            req.session.user = { username, user_id };
+            return res.redirect("/dashboard");
         }
 
     }
 
 
-    static async verifyAccount(req: Request, res: Response) {
-
+    static logOut(req: Request, res: Response) {
+        req.session.destroy(() => {
+            return res.redirect("/login")
+        })
     }
 
 }

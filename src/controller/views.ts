@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import greeting from "../lib/greetings"
 
 export class AuthenticationViewsRenderer {
     //signup view engine
@@ -16,7 +17,7 @@ export class AuthenticationViewsRenderer {
         res.render("pages/authentication/set-new-password", { title: "account recovery - set new password", layout: "./layouts/user-authentication-layout" });
     }
 
-  
+
 }
 
 
@@ -60,8 +61,7 @@ export class ContentCategoriesViewsRenderer {
 
 export class UserAccountContentRenderer {
     static dashboard(req: Request, res: Response) {
-        //TODO:hh== get the current logged in user
-        req.params.account ="drizzle"
-        /* res.render("pages/account/dashboard", { title: "user account", layout: "./layouts/user-account-layout" }); */
+        const { username, user_id } = req.session.user;
+        return res.render("pages/account/dashboard", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
     }
 }

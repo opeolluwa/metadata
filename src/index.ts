@@ -4,10 +4,13 @@ import path from "path";
 import expressLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
 import router from "./routes";
-
 import { sequelize } from "./config/database.config";
-import session from "express-session";
+import { User } from "./models/Users";
 import sessionStore from "connect-session-sequelize";
+import session, { Session } from 'express-session';
+declare module 'express-session' { interface Session { user: User; } }
+
+
 
 //global middleware
 dotenv.config();
@@ -36,7 +39,7 @@ app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"))
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     store: store,
     cookie: { secure: false, httpOnly: false, maxAge: (24 * 60 * 60 * 1000) }
 }))
