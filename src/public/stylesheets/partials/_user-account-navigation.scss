@@ -104,25 +104,59 @@ a.logout-button {
     color: $grey-lightened;
     max-width: 18px;
   }
+  display: none;
 }
 
 @media screen and (max-width: 600px) {
   nav {
-    position: absolute;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
     top: 0;
     left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 60px;
+    width: 0vw;
+    color: #f1f1f1;
+    ul {
+      padding-left: 2rem;
+    }
+    a {
+      transition: 0.3s;
+    }
+    a:hover {
+      color: #f1f1f1;
+    }
+
+    h4 {
+      display: none;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 3px;
+      font-size: 36px;
+      margin-left: 50px;
+
+
+    }
+    /*  position: absolute;
+    top: 0;
+    left: 0; */
     .user-avatar-and-name {
       display: flex;
       flex-direction: column;
-      display: none;
+      margin-top: 5rem;
     }
-
-  
     .user-avatar-and-name .name {
       display: flex;
       flex-direction: column;
     }
   }
-
- 
 }

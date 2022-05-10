@@ -708,6 +708,7 @@ footer a#opeolluwa {
   bottom: 0 !important;
   margin-top: 4rem;
   cursor: pointer;
+  display: none;
 }
 #user-account a.logout-button svg {
   display: inline-block;
@@ -717,14 +718,48 @@ footer a#opeolluwa {
 }
 @media screen and (max-width: 600px) {
   #user-account nav {
-    position: absolute;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 5;
     top: 0;
     left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    padding-top: 60px;
+    width: 0vw;
+    color: #f1f1f1;
+    /*  position: absolute;
+    top: 0;
+    left: 0; */
+  }
+  #user-account nav ul {
+    padding-left: 2rem;
+  }
+  #user-account nav a {
+    transition: 0.3s;
+  }
+  #user-account nav a:hover {
+    color: #f1f1f1;
+  }
+  #user-account nav h4 {
+    display: none;
+  }
+  #user-account nav .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 3px;
+    font-size: 36px;
+    margin-left: 50px;
   }
   #user-account nav .user-avatar-and-name {
     display: flex;
     flex-direction: column;
-    display: none;
+    margin-top: 5rem;
   }
   #user-account nav .user-avatar-and-name .name {
     display: flex;
@@ -789,8 +824,9 @@ footer a#opeolluwa {
 
   #user-account {
     display: block;
+    /* & nav, */
   }
-  #user-account nav, #user-account aside {
+  #user-account aside {
     display: none;
   }
 }
