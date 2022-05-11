@@ -38,11 +38,9 @@ export default class AuthenticationControllers {
         const { username, password, security_question, security_answer, privacy_policy_agreement } = req.body;
         const value = { username, password }
 
-        console.log(req.body)
-
         //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
-            return res.render("pages/authentication/sign-up-error", { title: "create account", layout: "./layouts/user-authentication-layout", error, value });
+            return res.render("pages/authentication/sign-up", { title: "create account", layout: "./layouts/user-authentication-layout", error, value });
         }
 
         //else create the user
@@ -60,7 +58,13 @@ export default class AuthenticationControllers {
     }
 
 
-
+    /**
+     * 
+     * @param req {@param username} {@param password}
+     * @param res 
+     * @param next 
+     * @returns 
+     */
     static async login(req: Request, res: Response, next: NextFunction) {
         const { username, password } = req.body
         interface Error {
@@ -85,7 +89,7 @@ export default class AuthenticationControllers {
         if (!isAuthenticated) { error.authentication = "invalid username or password" }
         //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
-            return res.render("pages/authentication/login-errors", { title: "login to your account", layout: "./layouts/user-authentication-layout", error, value: { username, password } });
+            return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error, value: { username, password } });
         }
 
         //redirect to dashboard

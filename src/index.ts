@@ -3,9 +3,10 @@ import dotenv from "dotenv";
 import path from "path";
 import expressLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
-import router from "./routes";
 import { sequelize } from "./config/database.config";
 import { User } from "./models/Users";
+import router from "./routes";
+import resource from "./routes/resource"
 import sessionStore from "connect-session-sequelize";
 import session, { Session } from 'express-session';
 declare module 'express-session' { interface Session { user: User; } }
@@ -48,6 +49,7 @@ store.sync();
 
 // Register all  routes
 app.use(router)
+app.use("/r", resource)
 sequelize.sync().then(() => {
     console.log("connected to database")
 })

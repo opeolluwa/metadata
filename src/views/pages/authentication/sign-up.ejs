@@ -4,6 +4,7 @@
     <p class="sub-hero-text">Create account to begin</p>
 
     <form action="/register" method="POST">
+      <!--if error is found set the error else return the value till all conditions are met-->
       <div class="form-feed">
         <label for="username">Username</label>
         <input
@@ -11,8 +12,9 @@
           placeholder="enter username"
           id="username"
           name="username"
+          value="<%= value.username || ''%>"
         />
-        <span class="error"></span>
+        <span class="error"> <%= error.username %> </span>
       </div>
 
       <div class="form-feed">
@@ -22,20 +24,14 @@
           placeholder="enter password"
           id="password"
           name="password"
+          value="<%= value.password || ''  %>"
         />
-        <span class="error"></span>
+        <span class="error"> <%= error.password %> </span>
       </div>
 
       <div class="form-feed">
         <label for="password">Security Question</label>
-        <!--  <input
-          type="text"
-          name="security_question"
-          value=""
-          id="securityQuestion"
-          placeholder="Set a Security question for account recovery"
-        /> -->
-        <select name="security_question" value="" id="securityQuestion">
+        <select name="security_question">
           <option value="Set a Security question for account recovery" disabled>
             Set a Security question for account recovery
           </option>
@@ -58,7 +54,7 @@
             What high school did you attend?
           </option>
         </select>
-        <span class="error"></span>
+        <span class="error"> <%= error.security_question %> </span>
       </div>
 
       <div class="form-feed">
@@ -68,8 +64,9 @@
           name="security_answer"
           id="securityQuestionAnswer"
           placeholder="Provide answer to the security question"
+          value="<%= value.security_answer || '' %>"
         />
-        <span class="error"></span>
+        <span class="error"> <%= error.security_answer %> </span>
       </div>
 
       <div class="form-control">
@@ -78,6 +75,7 @@
           >I agree to <a href="terms-of-service">Terms of Service</a> and
           <a href="privacy-policy">Privacy Policy</a></span
         >
+        <span class="error"> <%= error.privacy_policy_agreement %> </span>
       </div>
 
       <div class="form-feed">

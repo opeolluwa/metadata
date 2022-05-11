@@ -1,6 +1,6 @@
 import express from "express";
 import AuthenticationControllers from "../controller/auth";
-import { AuthenticationViewsRenderer, ContentCategoriesViewsRenderer, GeneralPagesViewsRenderer, UserAccountContentRenderer } from "../controller/views";
+import { AuthenticationViewsRenderer, GeneralPagesViewsRenderer, UserAccountContentRenderer } from "../controller/views";
 import "../config/passport.config"
 import passport from "passport";
 import { AuthenticationMiddleware } from "../middleware/auth";
@@ -18,13 +18,7 @@ router.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 router.get("/set-new-password", AuthenticationViewsRenderer.setNewPassword)
 router.get("/logout", AuthenticationControllers.logOut)
 
-//resister all resource route
-router.get("/animation", ContentCategoriesViewsRenderer.animation)
-router.get("/icon", ContentCategoriesViewsRenderer.icons)
-router.get("/illustrations", ContentCategoriesViewsRenderer.illustrations)
-router.get("/code-snippets", ContentCategoriesViewsRenderer.codeSnippets)
-router.get("/images", ContentCategoriesViewsRenderer.images)
-router.get("/svg", ContentCategoriesViewsRenderer.svg)
+
 
 //register all user account route
 router.get("/dashboard",

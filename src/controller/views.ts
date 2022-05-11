@@ -4,10 +4,10 @@ import greeting from "../lib/greetings"
 export class AuthenticationViewsRenderer {
     //signup view engine
     static signUp(req: Request, res: Response) {
-        res.render("pages/authentication/sign-up", { title: "create account", layout: "./layouts/user-authentication-layout", script: "sign-up" });
+        res.render("pages/authentication/sign-up", { title: "create account", layout: "./layouts/user-authentication-layout", error: {}, value: {} });
     }
     static login(req: Request, res: Response) {
-        res.render("pages/authentication/login", { title: "login to dashboard", layout: "./layouts/user-authentication-layout" });
+        res.render("pages/authentication/login", { title: "login to dashboard", layout: "./layouts/user-authentication-layout", error: {}, value: {} });
     }
     static passwordReset(req: Request, res: Response) {
         res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm username and security answer", layout: "./layouts/user-authentication-layout" });
@@ -28,40 +28,30 @@ export class GeneralPagesViewsRenderer {
 }
 
 
-export class ContentCategoriesViewsRenderer {
-    //fetch the content and pass it here
-    static animation(req: Request, res: Response) {
-        res.render("pages/resource/animation", { title: "animation", layout: "./layouts/resource-layout", content: "animation", pageTitle: "animation" });
-    }
-
-    static icons(req: Request, res: Response) {
-        res.render("pages/resource/icons", { title: "meta data icons collection", layout: "./layouts/resource-layout", content: "icons", pageTitle: "icons" });
-    }
-
-    static illustrations(req: Request, res: Response) {
-        res.render("pages/resource/illustrations", { title: "meta data illustrations collection", layout: "./layouts/resource-layout", content: "illustrations", pageTitle: "illustrations" });
-    }
-
-    static codeSnippets(req: Request, res: Response) {
-        res.render("pages/resource/code-snippets", { title: "meta data code blocks collections", layout: "./layouts/resource-layout", content: "code blocks", pageTitle: "code snippets" });
-    }
-
-
-    static images(req: Request, res: Response) {
-        res.render("pages/resource/images", { title: "meta data images collection", layout: "./layouts/resource-layout", content: "animation", pageTitle: "free and paid images" });
-    }
-
-
-    static svg(req: Request, res: Response) {
-        res.render("pages/resource/svg", { title: "meta data svg generators", layout: "./layouts/resource-layout", content: "animation", pageTitle: "SVG shapes and background generators" });
-    }
-}
-
-
 
 export class UserAccountContentRenderer {
     static dashboard(req: Request, res: Response) {
         const { username, user_id } = req.session.user;
         return res.render("pages/account/dashboard", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+    }
+}
+
+/**
+ * get the resource category requested from the router parameter
+ * get query the database for the requested resource category
+ * send the file to the view engine for rendering
+ */
+
+export class Resource {
+    static getResourceCategory(req: Request, res: Response) {
+        //get the resource type from the category
+        const resourceCategory: string = req.params.category
+        /**
+         * check if category exists
+         * fetch data from the store if it;s exists
+         * else render 404 page
+         */
+
+        res.render("pages/resource", { title: resourceCategory, layout: "", content: "south carried circle row field north by hunter else return declared valuable express this volume attached various being straight station chose vapor measure observe", category: resourceCategory.replaceAll("-", " ") });
     }
 }
