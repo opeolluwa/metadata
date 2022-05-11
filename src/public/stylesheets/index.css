@@ -708,7 +708,6 @@ footer a#opeolluwa {
   bottom: 0 !important;
   margin-top: 4rem;
   cursor: pointer;
-  display: none;
 }
 #user-account a.logout-button svg {
   display: inline-block;

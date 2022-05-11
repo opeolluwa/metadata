@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- title %></title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@100;200;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./../stylesheets/index.css" />
+  </head>
+  <body>
+    <div id="account">
+      <div class="container">
+        <h1>Welcome!</h1>
+        <p class="sub-hero-text"> <span class="error"><%=error.authentication%></span></p>
+
+        <form action="/login" method="post" style"margin-top:0">
+
+          <div class="form-feed">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              placeholder="enter username"
+              name="username"
+              id="username"
+              value="<%= value.username%>"
+            />
+            <span class="error"> <%= error.username || '' %> </span>
+          </div>
+
+          <div class="form-feed">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              placeholder="enter password"
+              name="password"
+              value="<%= value.password || '' %>"
+            />
+            <span class="error"> <%= error.password %> </span>
+          </div>
+
+          <div class="form-feed">
+            <button type="submit">Login</button>
+          </div>
+        </form>
+        <div data-guide="login">
+          <span> Don&apos;t an account? <a href="/register">Sign Up</a> </span>
+          <span>
+            <a href="/password-reset">Forgotten Password?</a>
+          </span>
+        </div>
+      </div>
+      <%- include('./../../partials/user-authentication-footer'); %>
+    </div>
+  </body>
+</html>

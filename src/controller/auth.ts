@@ -96,7 +96,7 @@ export default class AuthenticationControllers {
         if (isAuthenticated) {
             const { username, user_id } = user
             req.session.user = { username, user_id };
-            return res.redirect("/dashboard");
+            return res.redirect("/u/");
         }
 
     }

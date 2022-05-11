@@ -23,7 +23,25 @@ export class AuthenticationViewsRenderer {
 
 export class GeneralPagesViewsRenderer {
     static indexPage(req: Request, res: Response) {
-        res.render("index", { title: "create account", layout: "./layouts/base-layout" });
+        interface PageInterface {
+            anchor: string,
+            route: string
+        }
+        //fetch all existing category here then destructure in into the categories
+        const categories: PageInterface[] = [
+            { route: "animation", anchor: "Animation" },
+            { route: "css-code-generator", anchor: " CSS Code Generator" },
+            { route: "design-inspiration", anchor: "Design Inspiration" },
+            { route: "icon-libraries", anchor: "Icon libraries" },
+            { route: "images", anchor: "Images" },
+            { route: "javascript-ui-libraries", anchor: "JavaScript UI libraries" },
+            { route: "svg-illustrations-shapes-and-backgrounds", anchor: "svg illustrations,shapes and backgrounds" },
+            { route: "ui-templates-and-patters", anchor: "UI templates &amp; patterns" },
+            { route: "work-arounds", anchor: "collection of Frontend and backend libraries" },
+            { route: "mobile-libraries", anchor: "Mobile application builders and compliers" },
+            { route: "more", anchor: " more ..." },
+        ]
+        res.render("index", { title: "create account", layout: "./layouts/base-layout", categories });
     }
 }
 
@@ -32,7 +50,45 @@ export class GeneralPagesViewsRenderer {
 export class UserAccountContentRenderer {
     static dashboard(req: Request, res: Response) {
         const { username, user_id } = req.session.user;
-        return res.render("pages/account/dashboard", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+        req.params.username = username;
+        return res.render("pages/account/", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+    }
+
+    static home(req: Request, res: Response) {
+        const { username, user_id } = req.session.user;
+        req.params.username = username;
+        return res.render("pages/account/", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+    }
+
+    static profile(req: Request, res: Response) {
+        const { username, user_id } = req.session.user;
+        req.params.username = username;
+        return res.render("pages/account/profile", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+    }
+
+    static activities(req: Request, res: Response) {
+        const { username, user_id } = req.session.user;
+        req.params.username = username;
+        return res.render("pages/account/activities", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+
+    }
+
+    static bookmarks(req: Request, res: Response) {
+        const { username, user_id } = req.session.user;
+        req.params.username = username;
+        return res.render("pages/account/bookmarks", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+    }
+
+    static security(req: Request, res: Response) {
+        const { username, user_id } = req.session.user;
+        req.params.username = username;
+        return res.render("pages/account/bookmarks", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
+    }
+
+    static settings(req: Request, res: Response) {
+        const { username, user_id } = req.session.user;
+        req.params.username = username;
+        return res.render("pages/account/bookmarks", { title: "dashboard", layout: "./layouts/user-account-layout", values: { username, user_id, greeting: greeting.message } });
     }
 }
 

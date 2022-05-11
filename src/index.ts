@@ -7,6 +7,7 @@ import { sequelize } from "./config/database.config";
 import { User } from "./models/Users";
 import router from "./routes";
 import resource from "./routes/resource"
+import userAccount from "./routes/account";
 import sessionStore from "connect-session-sequelize";
 import session, { Session } from 'express-session';
 declare module 'express-session' { interface Session { user: User; } }
@@ -50,6 +51,11 @@ store.sync();
 // Register all  routes
 app.use(router)
 app.use("/r", resource)
+app.use("/u/", userAccount)
+
+
+
+
 sequelize.sync().then(() => {
     console.log("connected to database")
 })
