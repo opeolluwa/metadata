@@ -6,10 +6,14 @@
 
   <main>
     <%- include("./partials/search-form");%>
-    <!--fet all existing category-->
-    <%-
-    include("./partials/resource-list");%>
+    <ul>
+      <% for(const category of categories){ %>
+      <li>
+        <a href="<%='/r/'+category.route  %>"> <%=category.anchor %> </a>
+      </li>
+      <% } %>
+    </ul>
   </main>
   <footer><%- include("./partials/footer"); %></footer>
 </div>
-<script src="/scripts/main.js"></script>
+
