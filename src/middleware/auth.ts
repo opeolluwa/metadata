@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { User } from "../models/Users";
 
 export class AuthenticationMiddleware {
-  static async confirmAuthenticationStatus(req: Request, res: Response, next: NextFunction) {
+  static async confirm(req: Request, res: Response, next: NextFunction) {
     if (!req.session.user) {
       /* return res.redirect("/login") */
       return res.render("pages/error/auth-required", { title: "authentication required", layout: "./layouts/user-authentication-layout", error: { authentication: "please login to view requested resource" }, value: {} });

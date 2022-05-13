@@ -9,10 +9,30 @@
     <script>
       //ref the svg
       const navigationButton = document.getElementById("nav-btn");
+      const navLinks = document.querySelectorAll("nav a");
+      const navigation = document.querySelector("nav");
       const menu = document.getElementById("navigation");
       navigationButton.addEventListener("click", () => {
         navigation.classList.toggle("nav-active");
       });
+
+      window.onscroll = function () {
+        "use strict";
+        if (
+          document.body.scrollTop >= 280 ||
+          document.documentElement.scrollTop >= 280
+        ) {
+          navigation.classList.add("nav-scroll");
+          navLinks.forEach((navLink) => {
+            navLink.classList.add("nav-link-scroll");
+          });
+        } else {
+          navigation.classList.remove("nav-scroll");
+          navLinks.forEach((navLink) => {
+            navLink.classList.remove("nav-link-scroll");
+          });
+        }
+      };
     </script>
   </body>
 </html>

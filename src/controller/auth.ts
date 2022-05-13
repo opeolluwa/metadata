@@ -2,8 +2,6 @@ import { NextFunction, Request, Response } from "express"
 import { sequelize } from "../config/database.config";
 import { User } from "../models/Users";
 import bcrypt from "bcrypt"
-import { UserAccountContentRenderer } from "./views";
-import console from "console";
 
 export default class AuthenticationControllers {
     static async signup(req: Request, res: Response) {

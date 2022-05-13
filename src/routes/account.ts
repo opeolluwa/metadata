@@ -1,13 +1,14 @@
 import express from "express";
 import { AuthenticationMiddleware } from "../middleware/auth";
-import { Resource, UserAccountContentRenderer, } from "../controller/views";
+import { UserAccountViews, } from "../controller/account";
 const router = express.Router()
+
 //resister all resource route dynamically based on the router parameter
-router.get("/", AuthenticationMiddleware.confirmAuthenticationStatus, UserAccountContentRenderer.dashboard)
-router.get("/profile", AuthenticationMiddleware.confirmAuthenticationStatus, UserAccountContentRenderer.profile)
-router.get("/activities", AuthenticationMiddleware.confirmAuthenticationStatus, UserAccountContentRenderer.activities)
-router.get("/bookmarks", AuthenticationMiddleware.confirmAuthenticationStatus, UserAccountContentRenderer.bookmarks)
-router.get("/security", AuthenticationMiddleware.confirmAuthenticationStatus, UserAccountContentRenderer.security)
-router.get("/settings", AuthenticationMiddleware.confirmAuthenticationStatus, UserAccountContentRenderer.settings)
+router.get("/", AuthenticationMiddleware.confirm, UserAccountViews.dashboard)
+router.get("/profile", AuthenticationMiddleware.confirm, UserAccountViews.profile)
+router.get("/activities", AuthenticationMiddleware.confirm, UserAccountViews.activities)
+router.get("/bookmarks", AuthenticationMiddleware.confirm, UserAccountViews.bookmarks)
+router.get("/security", AuthenticationMiddleware.confirm, UserAccountViews.security)
+router.get("/settings", AuthenticationMiddleware.confirm, UserAccountViews.settings)
 
 export default router;

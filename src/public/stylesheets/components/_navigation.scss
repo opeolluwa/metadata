@@ -7,14 +7,16 @@ nav {
   justify-content: space-between;
   align-items: center;
   min-height: 3rem;
+  padding: 5px 3px;
   @include fade-overlay(0, 0, 0, 0.15);
+  transition: all 300ms ease-in-out;
+  background-color: transparent;
   border-radius: 0 0 7px 7px;
   //navigation item
   ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
-
     li {
       margin: 0 $spacing;
     }
@@ -23,18 +25,19 @@ nav {
   a:hover,
   a:visited,
   a:link {
-    @include anchor-regular($weight: 400);
+    text-decoration: none;
+    font-weight: 300;
     padding: 0;
     border: none;
+    color: inherit;
   }
 }
 
 @media screen and (max-width: 600px) {
   nav {
-    padding-top: 1rem;
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: auto auto;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     align-items: center;
     min-height: 3rem;
@@ -44,20 +47,23 @@ nav {
     z-index: 1000;
     border-radius: 0;
     width: 100%;
+    background-image: none;
     svg#navigation-toggle {
       padding: 3px 5px;
       box-sizing: content-box;
       border-radius: 4px;
       font-size: 25px;
-      @include fade-overlay(255, 255, 255, 0.1);
       cursor: pointer;
     }
-    ul.d-desktop-flex {
+    ul {
       transition: 0.5s;
       margin-top: 1rem;
+      border-top: 1px solid grey;
+      width: 100%;
       li {
         margin: 0.75rem 0;
         transition: 0.5s;
+        color: $black;
       }
       & a:hover {
         color: $pink;
@@ -65,4 +71,13 @@ nav {
       }
     }
   }
+}
+
+.nav-scroll {
+  background-color: $white;
+  color: $black;
+}
+
+.nav-link-scroll {
+  color: $black;
 }

@@ -1,3 +1,4 @@
+//dependencies
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import path from "path";
@@ -5,15 +6,16 @@ import expressLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
 import { sequelize } from "./config/database.config";
 import { User } from "./models/Users";
+//routes
 import router from "./routes";
 import resource from "./routes/resource"
-import userAccount from "./routes/account";
+import account from "./routes/account";
 import search from "./routes/search"
+import explore from "./routes/explore"
+//session
 import sessionStore from "connect-session-sequelize";
 import session, { Session } from 'express-session';
 declare module 'express-session' { interface Session { user: User; } }
-
-
 
 //global middleware
 dotenv.config();
@@ -23,7 +25,6 @@ const SequelizeStore = sessionStore(session.Store);
 const store = new SequelizeStore({
     db: sequelize,
 });
-
 
 //register the static files path
 app.use(express.json());
@@ -46,20 +47,22 @@ app.use(session({
     store: store,
     cookie: { secure: false, httpOnly: false, maxAge: (24 * 60 * 60 * 1000) }
 }))
+//session synchronization
 store.sync();
 
-
-// Register all  routes
+//mount   routes
 app.use(router)
 app.use("/r", resource)
-app.use("/u/", userAccount)
+app.use("/u/", account)
 app.use("/search", search)
+app.use("/explore", explore)
 
-
-
+//synchronize database
 sequelize.sync().then(() => {
     console.log("connected to database")
 })
+
+//mount application
 app.listen(port, () => {
     console.log(`⚡️ignition started on http://127.0.0.1:${port}`)
 })
