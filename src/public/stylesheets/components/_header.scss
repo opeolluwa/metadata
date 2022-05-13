@@ -65,9 +65,15 @@ header > * {
 //small screens
 @media screen and (max-width: 600px) {
   header {
-    grid-template-rows: 5px calc(90vh - 9rem - 10px);
+    grid-template-rows: calc(85vh - 20px);
     &#resource-header {
       max-height: 50vh;
+      grid-template-rows: calc(65vh - 20px);
+      h1,
+      h2 {
+        line-height: 56px;
+        font-size: 2.5rem;
+      }
     }
     & > * {
       padding: 0 1.5rem;

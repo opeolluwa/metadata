@@ -1,4 +1,6 @@
 main {
+  padding: $desktop-view-padding;
+
   grid-column: 3 /10;
   .header {
     display: none;

@@ -35,7 +35,10 @@ body {
 .d-block {
   display: block;
 }
-
+.nav-active {
+  display: block;
+  transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1) linear;
+}
 .d-none {
   display: none;
 }
@@ -80,3 +83,4 @@ h1 {
 @import "./components/footer";
 @import "./pages/user-authentication";
 @import "./pages/user-account";
+@import "./components/card";

@@ -1,0 +1,23 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  column-gap: 2.5rem;
+  row-gap: 2.5rem;
+  .card {
+    border: 3px solid $grey-lightened;
+    padding: 3rem 1.25rem;
+    border-radius: 5px;
+
+    box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -9,10 +9,6 @@ nav {
   min-height: 3rem;
   @include fade-overlay(0, 0, 0, 0.15);
   border-radius: 0 0 7px 7px;
-  a#logo {
-    @include anchor-regular($weight: 600);
-    border: 1px solid red;
-  }
   //navigation item
   ul {
     list-style: none;
@@ -35,17 +31,38 @@ nav {
 
 @media screen and (max-width: 600px) {
   nav {
-    display: flex;
+    padding-top: 1rem;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
     justify-content: space-between;
     align-items: center;
     min-height: 3rem;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-radius: 0;
+    width: 100%;
     svg#navigation-toggle {
-      padding:  3px 5px;
+      padding: 3px 5px;
       box-sizing: content-box;
       border-radius: 4px;
       font-size: 25px;
       @include fade-overlay(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+    ul.d-desktop-flex {
+      transition: 0.5s;
+      margin-top: 1rem;
+      li {
+        margin: 0.75rem 0;
+        transition: 0.5s;
+      }
+      & a:hover {
+        color: $pink;
+        transition: 250ms;
+      }
     }
   }
 }

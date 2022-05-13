@@ -5,5 +5,14 @@
   </head>
   <body>
     <%- body %>
+
+    <script>
+      //ref the svg
+      const navigationButton = document.getElementById("nav-btn");
+      const menu = document.getElementById("navigation");
+      navigationButton.addEventListener("click", () => {
+        navigation.classList.toggle("nav-active");
+      });
+    </script>
   </body>
 </html>

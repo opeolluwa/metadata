@@ -16,34 +16,45 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./../stylesheets/index.css" />
-
     <style>
-      .active {
-        display: block;
+      .quote {
+        color: #ffcc70;
       }
-      #rr {
-        display: none;
+      .error {
+        color: #e92929f1;
       }
     </style>
   </head>
-  <body id="user-account">
-    <nav><%- include('./../partials/user-account-navbar'); %></nav>
+  <body>
+    <header id="resource-header">
+      <nav><%- include("./../../partials/navigation");%></nav>
+      <div id="hero">
+        <h1>
+          <% if(!results){ %>
+          <em class="error"
+            >No result found for <span class="quote">&ldquo;</span><%- query
+            %><span class="quote">&rdquo;</span>
+          </em>
+          <% } else{ %> Results for <span class="quote">&ldquo;</span><%- query
+          %><span class="quote">&rdquo;</span>
+          <%} %>
+        </h1>
+      </div>
+    </header>
     <main>
-      <%- include('./../partials/user-account-main'); %> 
-      <%- body %>
-    </main>
-    <aside><%- include('./../partials/user-account-sidebar'); %></aside>
+      <% if(results){ %>
 
-    <script>
-      //get the navigation element
-      const navigationDrawer = document.querySelector("#user-account nav");
-      const navDrawerButton = document.querySelector("main .header");
-      function openNav() {
-        navigationDrawer.style.width = "80%";
-      }
-      function closeNav() {
-        navigationDrawer.style.width = "0";
-      }
-    </script>
+      <div class="card-container">
+        <% for(const result of results){ %>
+        <div class="card">
+          <a href="<%='/r/'+result.route  %>"> <%=result.anchor %> </a>
+        </div>
+        <% } %>
+      </div>
+
+      <% }%>
+    </main>
+
+    <footer><%- include("./../../partials/footer");%></footer>
   </body>
 </html>

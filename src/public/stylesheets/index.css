@@ -32,6 +32,11 @@ body {
   display: block;
 }
 
+.nav-active {
+  display: block;
+  transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1) linear;
+}
+
 .d-none {
   display: none;
 }
@@ -84,12 +89,6 @@ nav {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
   border-radius: 0 0 7px 7px;
 }
-nav a#logo {
-  color: #f2f2f2;
-  text-decoration: none;
-  font-weight: 600;
-  border: 1px solid red;
-}
 nav ul {
   list-style: none;
   display: flex;
@@ -111,10 +110,19 @@ nav a:link {
 
 @media screen and (max-width: 600px) {
   nav {
-    display: flex;
+    padding-top: 1rem;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
     justify-content: space-between;
     align-items: center;
     min-height: 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-radius: 0;
+    width: 100%;
   }
   nav svg#navigation-toggle {
     padding: 3px 5px;
@@ -122,6 +130,19 @@ nav a:link {
     border-radius: 4px;
     font-size: 25px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    cursor: pointer;
+  }
+  nav ul.d-desktop-flex {
+    transition: 0.5s;
+    margin-top: 1rem;
+  }
+  nav ul.d-desktop-flex li {
+    margin: 0.75rem 0;
+    transition: 0.5s;
+  }
+  nav ul.d-desktop-flex a:hover {
+    color: #c850c0;
+    transition: 250ms;
   }
 }
 header {
@@ -191,10 +212,16 @@ header > * {
 
 @media screen and (max-width: 600px) {
   header {
-    grid-template-rows: 5px calc(90vh - 9rem - 10px);
+    grid-template-rows: calc(85vh - 20px);
   }
   header#resource-header {
     max-height: 50vh;
+    grid-template-rows: calc(65vh - 20px);
+  }
+  header#resource-header h1,
+header#resource-header h2 {
+    line-height: 56px;
+    font-size: 2.5rem;
   }
   header > * {
     padding: 0 1.5rem;
@@ -766,6 +793,7 @@ footer a#opeolluwa {
   }
 }
 #user-account main {
+  padding: 0 3.5rem;
   grid-column: 3/10;
 }
 #user-account main .header {
@@ -827,6 +855,28 @@ footer a#opeolluwa {
   }
   #user-account aside {
     display: none;
+  }
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  column-gap: 2.5rem;
+  row-gap: 2.5rem;
+}
+.card-container .card {
+  border: 3px solid #fafafa;
+  padding: 3rem 1.25rem;
+  border-radius: 5px;
+  box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+}
+
+@media screen and (max-width: 600px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
   }
 }
 

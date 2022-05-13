@@ -37,11 +37,11 @@ export class GeneralPagesViewsRenderer {
             { route: "javascript-ui-libraries", anchor: "JavaScript UI libraries" },
             { route: "svg-illustrations-shapes-and-backgrounds", anchor: "svg illustrations,shapes and backgrounds" },
             { route: "ui-templates-and-patters", anchor: "UI templates &amp; patterns" },
-            { route: "work-arounds", anchor: "collection of Frontend and backend libraries" },
+            { route: "work-around", anchor: "collection of Frontend and backend libraries" },
             { route: "mobile-libraries", anchor: "Mobile application builders and compliers" },
             { route: "more", anchor: " more ..." },
         ]
-        res.render("index", { title: "create account", layout: "./layouts/base-layout", categories });
+        res.render("index", { title: "Collection of images, icons, code blocks and illustrations and morefor designers and developers ", layout: "./layouts/base-layout", categories });
     }
 }
 
@@ -108,6 +108,8 @@ export class Resource {
          * else render 404 page
          */
 
-        res.render("pages/resource", { title: resourceCategory, layout: "", content: "south carried circle row field north by hunter else return declared valuable express this volume attached various being straight station chose vapor measure observe", category: resourceCategory.replaceAll("-", " ") });
+        res.render("pages/resource", { title: resourceCategory, layout: "", content: "", category: resourceCategory.replaceAll("-", " ") });
     }
 }
+
+

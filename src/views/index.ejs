@@ -16,7 +16,30 @@
   </header>
 
   <main>
-    <%- include("./partials/search-form");%>
+    <form method="get" action="/search">
+      <input type="search" name="keyword" placeholder="search here ..." />
+      <button type="submit" id="input-button">
+        <span class="d-desktop"> Search </span>
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-search d-mobile"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </span>
+      </button>
+    </form>
+
     <ul>
       <% for(const category of categories){ %>
       <li>
@@ -26,4 +49,33 @@
     </ul>
   </main>
   <footer><%- include("./partials/footer"); %></footer>
+  <script>
+    //ref the search form, input feed and submit button
+    /*  const searchForm = document.getElementById("search-form");
+    const inputFeed = document.querySelector("#search-form input");
+    const submitButton = document.querySelector(
+      "#search-form button[type='submit']"
+    );
+
+    searchForm.addEventListener("submit", (event) => {
+      //prevent default submit action
+      event.preventDefault();
+      /**
+       * get the input value
+       * if none is present, fire an error
+       * else add the query parameter to the route and render
+       *
+
+      const query = inputFeed.value;
+      if (!query) {
+        alert("query may not be empty");
+        return;
+      }
+      const BASE_URL = window.location.href;
+      window.location.replace(
+        BASE_URL + `search`
+      );
+      return;
+    });*/
+  </script>
 </div>
