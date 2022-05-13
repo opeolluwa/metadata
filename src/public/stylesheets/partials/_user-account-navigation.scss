@@ -7,6 +7,9 @@ nav {
   text-align: unset;
   border-right: 1px solid $user-account-border;
   min-height: 100vh;
+  .header {
+    display: none;
+  }
   .user-avatar-and-name {
     display: grid;
     grid-template-columns: 2fr 5fr;
@@ -109,24 +112,26 @@ a.logout-button {
 
 @media screen and (max-width: 600px) {
   nav {
-    height: 100%;
+    height: unset;
     width: 0;
     position: fixed;
     z-index: 5;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: $white;
     overflow-x: hidden;
     transition: 0.5s;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    padding-top: 60px;
-    width: 0vw;
-    color: #f1f1f1;
-    ul {
+    padding-top: 0.25rem;
+    width: 0;
+    color: $black;
+    min-height: unset;
+    ul li {
       padding-left: 2rem;
     }
+
     a {
       transition: 0.3s;
     }
@@ -140,23 +145,31 @@ a.logout-button {
     .close-btn {
       position: absolute;
       top: 10px;
-      right: 3px;
+      right: 5rem;
       font-size: 36px;
       margin-left: 50px;
+      width: 10px;
+      height: 10px;
+      border: 1px solid inherit;
+      color: inherit;
 
-
+      &:hover {
+        color: $black;
+      }
     }
-    /*  position: absolute;
-    top: 0;
-    left: 0; */
+
     .user-avatar-and-name {
-      display: flex;
+      display: none;
       flex-direction: column;
-      margin-top: 5rem;
+      margin-top: 0.5rem;
     }
     .user-avatar-and-name .name {
       display: flex;
       flex-direction: column;
+    }
+
+    a.logout-button {
+      margin: 0 5%;
     }
   }
 }

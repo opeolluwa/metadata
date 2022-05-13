@@ -688,6 +688,9 @@ footer a#opeolluwa {
   border-right: 1px solid #ededed;
   min-height: 100vh;
 }
+#user-account nav .header {
+  display: none;
+}
 #user-account nav .user-avatar-and-name {
   display: grid;
   grid-template-columns: 2fr 5fr;
@@ -783,26 +786,24 @@ footer a#opeolluwa {
 }
 @media screen and (max-width: 600px) {
   #user-account nav {
-    height: 100%;
+    height: unset;
     width: 0;
     position: fixed;
     z-index: 5;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: #f2f2f2;
     overflow-x: hidden;
     transition: 0.5s;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    padding-top: 60px;
-    width: 0vw;
-    color: #f1f1f1;
-    /*  position: absolute;
-    top: 0;
-    left: 0; */
+    padding-top: 0.25rem;
+    width: 0;
+    color: #101010;
+    min-height: unset;
   }
-  #user-account nav ul {
+  #user-account nav ul li {
     padding-left: 2rem;
   }
   #user-account nav a {
@@ -817,18 +818,28 @@ footer a#opeolluwa {
   #user-account nav .close-btn {
     position: absolute;
     top: 10px;
-    right: 3px;
+    right: 5rem;
     font-size: 36px;
     margin-left: 50px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid inherit;
+    color: inherit;
+  }
+  #user-account nav .close-btn:hover {
+    color: #101010;
   }
   #user-account nav .user-avatar-and-name {
-    display: flex;
+    display: none;
     flex-direction: column;
-    margin-top: 5rem;
+    margin-top: 0.5rem;
   }
   #user-account nav .user-avatar-and-name .name {
     display: flex;
     flex-direction: column;
+  }
+  #user-account nav a.logout-button {
+    margin: 0 5%;
   }
 }
 #user-account main {
