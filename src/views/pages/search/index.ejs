@@ -20,7 +20,7 @@
       .quote {
         color: #ffcc70;
       }
-      .error {
+      .quote.error {
         color: #e92929f1;
       }
     </style>
@@ -30,11 +30,12 @@
       <nav><%- include("./../../partials/navigation");%></nav>
       <div id="hero">
         <h1>
-          <% if(!results){ %>
-          <em class="error"
-            >No result found for <span class="quote">&ldquo;</span><%- query
-            %><span class="quote">&rdquo;</span>
-          </em>
+          <% if(!results){ %> No result found for
+          <span class="quote error">&ldquo;</span><%- query %><span
+            class="quote error"
+            >&rdquo;</span
+          >
+
           <% } else{ %> Results for <span class="quote">&ldquo;</span><%- query
           %><span class="quote">&rdquo;</span>
           <%} %>
