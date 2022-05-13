@@ -47,7 +47,7 @@ nav {
     z-index: 1000;
     border-radius: 0;
     width: 100%;
-    background-image: none;
+    transition: all 500ms ease-in-out;
     svg#navigation-toggle {
       padding: 3px 5px;
       box-sizing: content-box;
@@ -55,15 +55,38 @@ nav {
       font-size: 25px;
       cursor: pointer;
     }
-    ul {
+    ul.d-desktop-flex {
+      position: absolute;
+      top: 2rem;
+      left: 0;
+      width: 100%;
+      background-color: inherit;
       transition: 0.5s;
       margin-top: 1rem;
-      border-top: 1px solid grey;
+      border-top: 2px solid transparent;
       width: 100%;
+      padding: inherit;
+      border-bottom: 2px solid $pink;
+      border-radius: 0 0 7px 7px;
+      @include box-shadow;
+      border-image: linear-gradient(
+        43deg,
+        #4158d0 0%,
+        #c850c0 46%,
+        #ffcc70 100%
+      );
+      background-color: inherit !important;
+      z-index: 1200;
+      & * {
+        color: inherit !important;
+      }
       li {
         margin: 0.75rem 0;
         transition: 0.5s;
         color: $black;
+      }
+      & a {
+        color: inherit !important;
       }
       & a:hover {
         color: $pink;
@@ -76,8 +99,13 @@ nav {
 .nav-scroll {
   background-color: $white;
   color: $black;
+  background-image: none;
 }
 
 .nav-link-scroll {
   color: $black;
+}
+
+.overlay {
+  background-image: none;
 }

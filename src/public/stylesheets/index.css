@@ -125,7 +125,7 @@ nav a:link {
     z-index: 1000;
     border-radius: 0;
     width: 100%;
-    background-image: none;
+    transition: all 500ms ease-in-out;
   }
   nav svg#navigation-toggle {
     padding: 3px 5px;
@@ -134,18 +134,38 @@ nav a:link {
     font-size: 25px;
     cursor: pointer;
   }
-  nav ul {
+  nav ul.d-desktop-flex {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    width: 100%;
+    background-color: inherit;
     transition: 0.5s;
     margin-top: 1rem;
-    border-top: 1px solid grey;
+    border-top: 2px solid transparent;
     width: 100%;
+    padding: inherit;
+    border-bottom: 2px solid #c850c0;
+    border-radius: 0 0 7px 7px;
+    box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+    -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+    -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+    border-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+    background-color: inherit !important;
+    z-index: 1200;
   }
-  nav ul li {
+  nav ul.d-desktop-flex * {
+    color: inherit !important;
+  }
+  nav ul.d-desktop-flex li {
     margin: 0.75rem 0;
     transition: 0.5s;
     color: #101010;
   }
-  nav ul a:hover {
+  nav ul.d-desktop-flex a {
+    color: inherit !important;
+  }
+  nav ul.d-desktop-flex a:hover {
     color: #c850c0;
     transition: 250ms;
   }
@@ -153,10 +173,15 @@ nav a:link {
 .nav-scroll {
   background-color: #f2f2f2;
   color: #101010;
+  background-image: none;
 }
 
 .nav-link-scroll {
   color: #101010;
+}
+
+.overlay {
+  background-image: none;
 }
 
 header {
@@ -829,8 +854,9 @@ footer a#opeolluwa {
   #user-account main .header {
     display: flex;
     min-height: 50px;
-    background-color: #4158d0;
     align-items: center;
+    background-color: #4158d0;
+    background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
     color: #f2f2f2;
     justify-content: space-between;
   }

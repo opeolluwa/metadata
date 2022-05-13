@@ -28,8 +28,8 @@ main {
     .header {
       display: flex;
       min-height: 50px;
-      background-color: $blue;
       align-items: center;
+      @include gradient;
       color: $white;
       justify-content: space-between;
       a {
