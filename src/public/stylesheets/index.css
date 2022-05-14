@@ -908,6 +908,15 @@ footer a#opeolluwa {
     display: none;
   }
 }
+.section {
+  box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  border-radius: 5px;
+  margin: 0 1.2rem;
+  padding: 0.75rem 0.25rem;
+}
+
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 300px);
