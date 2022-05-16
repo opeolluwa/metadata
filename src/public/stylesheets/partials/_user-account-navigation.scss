@@ -110,6 +110,9 @@ a.logout-button {
   // display: none;
 }
 
+.close-btn {
+  display: none;
+}
 @media screen and (max-width: 600px) {
   nav {
     height: unset;

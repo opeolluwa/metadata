@@ -3,10 +3,10 @@ import { sequelize } from "../config/database.config"
 
 
 export class User extends Model {
-  /*   toJSON() {
-        //dont return the password and id when returning the user object
-        // return { ...this.get(), password: undefined, id: undefined };
-    }; */
+    /*   toJSON() {
+          //dont return the password and id when returning the user object
+          // return { ...this.get(), password: undefined, id: undefined };
+      }; */
 
 }
 User.init({
@@ -28,18 +28,25 @@ User.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
+
+    firstname: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+
+    status: {
+        type: DataTypes.BOOLEAN,
+        default: false,
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     password: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    security_question: {
-        type: DataTypes.STRING,
-        allowNUll: false
-    },
-    security_answer: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
+
     privacy_policy_agreement: {
         type: DataTypes.BOOLEAN,
         allowNull: false

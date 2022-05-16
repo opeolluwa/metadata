@@ -16,7 +16,22 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./../stylesheets/index.css" />
-
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
     <style>
       .active {
         display: block;
@@ -28,9 +43,18 @@
   </head>
   <body id="user-account">
     <nav><%- include('./../partials/user-account-navbar'); %></nav>
-    <main>
-      <%- include('./../partials/user-account-main'); %> 
-      <%- body %>
+    <main id="app">
+      <v-app>
+        <v-main>
+          <v-container
+            >Hello world
+
+            <v-btn class="mx-2" fab dark small color="primary">
+              <v-icon dark> mdi-minus </v-icon>
+            </v-btn>
+          </v-container>
+        </v-main>
+      </v-app>
     </main>
     <aside><%- include('./../partials/user-account-sidebar'); %></aside>
 
@@ -44,6 +68,16 @@
       function closeNav() {
         navigationDrawer.style.width = "0";
       }
+    </script>
+
+    <!-- vue and vuetify -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        vuetify: new Vuetify(),
+      });
     </script>
   </body>
 </html>

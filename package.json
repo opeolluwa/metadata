@@ -13,7 +13,8 @@
     "watch-sass": "sass --watch src/public/stylesheets/index.scss src/public/stylesheets/index.css",
     "watch-ts": "tsc -w",
     "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\"",
-    "make": "bash install.sh"
+    "make": "bash install.sh",
+    "mongod": "sudo systemctl start mongod"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -25,7 +26,6 @@
     "ab-webshot": "^1.0.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
-    "capture-website": "^2.4.0",
     "concurrently": "^7.1.0",
     "connect-session-sequelize": "^7.1.3",
     "connect-sqlite3": "^0.9.13",
@@ -35,14 +35,8 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
     "express-validator": "^6.14.0",
-    "mongoose": "^6.3.3",
-    "mysql2": "^2.3.3",
     "nodemailer": "^6.7.5",
-    "passport": "^0.5.2",
-    "passport-local": "^1.0.0",
     "sequelize": "^6.19.0",
-    "sequelize-bcrypt": "^1.1.0",
-    "sequelize-joi": "^2.0.1",
     "shelljs": "^0.8.5",
     "sqlite3": "^5.0.6"
   },

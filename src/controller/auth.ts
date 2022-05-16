@@ -17,24 +17,28 @@ export default class AuthenticationControllers {
         const error = {
             username: "",
             password: "",
-            security_question: "",
-            security_answer: "",
+            email: "",
+            firstname: "",
             privacy_policy_agreement: ""
         }
 
+        console.log(req.body)
+        // return;
         //validate the data from the client
-        const user = await User.findOne({ where: { username: req.body.username.trim() } });
+        const emailExists = await User.findOne({ where: { email: req.body.email.trim() } });
+        const usernameExists = await User.findOne({ where: { username: req.body.username.trim() } });
+
         error.username = (!req.body.username) ? "username is required" :
-            (user) ? "username already exist" : "";
+            (usernameExists) ? "username already exist" : "";
         error.password = (!req.body.password || req.body.password.length < 8) ? "password must be at least 8 characters" : error.password;
-        error.security_question = (!req.body.security_question) ? "security question is required" : error.security_question;
-        error.security_answer = (!req.body.security_answer) ? "security answer is required" : error.security_answer;
+        error.email = (!req.body.email) ? "email is required" : (emailExists) ? "a user with the email already exists" : error.email;
+        error.firstname = (!req.body.firstname) ? "firstname is required" : error.firstname;
         error.privacy_policy_agreement = (!req.body.privacy_policy_agreement) ? "privacy policy agreement is required" : error.privacy_policy_agreement;
 
 
         //get the payload from the request body and persist the values while checking for errors
-        const { username, password, security_question, security_answer, privacy_policy_agreement } = req.body;
-        const value = { username, password }
+        const { username, password, email, firstname, privacy_policy_agreement } = req.body;
+        const value = { username, password, email, firstname}
 
         //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
@@ -46,9 +50,9 @@ export default class AuthenticationControllers {
             try {
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(password.trim(), salt);
-                const user = await User.create({ username: username.trim(), password: hash, security_question: security_question.trim(), security_answer: security_answer.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
+                const user = await User.create({ username: username.trim(), password: hash, email: email.trim(), firstname: firstname.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
                 //send in status report on completion
-                return res.render("pages/authentication/sign-up-success", { title: "create account", layout: "./layouts/user-authentication-layout", username });
+                return res.render("pages/authentication/sign-up-success", { title: "create account", layout: "./layouts/user-authentication-layout", firstname });
             } catch (error) {
             }
         }
