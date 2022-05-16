@@ -20,6 +20,7 @@ declare module 'express-session' { interface Session { user: User; } }
 //global middleware
 dotenv.config();
 const app: Express = express();
+const ejs = require("ejs")
 const port = process.env.PORT || 8000;
 const SequelizeStore = sessionStore(session.Store);
 const store = new SequelizeStore({
@@ -35,9 +36,11 @@ app.use("/stylesheets", express.static(path.join(__dirname, "./public/stylesheet
 app.use("/scripts", express.static(path.join(__dirname, "./public/scripts/src")));
 app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
-app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"))
+app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"));
+app.set("/templates", path.join(__dirname, "templates"))
 
 //session initialization
 app.use(session({
@@ -62,6 +65,15 @@ sequelize.sync().then(() => {
     console.log("connected to database")
 })
 
+
+const getTemplate = (template: string) => path.join(__dirname, "templates", `${template}.ejs`)
+
+app.get("/e", (req, res) => {
+    ejs.renderFile(getTemplate("reset"), function (err: any, str: any) {
+        // str => Rendered HTML string
+        res.send(str)
+    });
+})
 //mount application
 app.listen(port, () => {
     console.log(`⚡️ignition started on http://127.0.0.1:${port}`)

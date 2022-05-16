@@ -1,0 +1,159 @@
+//import partials
+@import "./globals/variables";
+@import "./globals/colors";
+@import "./globals/mixins";
+@import "./components/footer";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: "Fira Sans", sans-serif;
+  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+}
+
+body > * {
+  padding: 1.75rem 2rem;
+}
+
+div.rule {
+  display: none;
+}
+
+p {
+  line-height: 20px;
+  font-size: 18px;
+  color: $grey;
+}
+header {
+  h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    line-height: 36px;
+  }
+
+  p:last-child {
+    margin-bottom: 5px;
+  }
+
+  margin: 40px 0 45px;
+}
+
+div.rule {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0;
+  margin: 0;
+}
+main {
+  margin: 40px auto 45px;
+  text-align: center;
+
+  h2 {
+    margin-bottom: 14px;
+  }
+  a.action-button {
+    color: $black;
+    text-decoration: none;
+    font-weight: 400;
+    border: 1px solid transparent;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: $black;
+    color: $white;
+    margin: 14px 0;
+    display: inline-block;
+    max-width: 50%;
+  }
+}
+
+aside,
+aside a {
+  color: $grey;
+}
+p::first-letter,
+aside::first-letter {
+  text-transform: uppercase;
+}
+
+footer {
+background-color: $black;
+    justify-content: space-around;
+  color: $white;
+  img {
+    display: inline-block;
+    width: 12px;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 5px;
+    box-sizing: content-box;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    text-align: center;
+    color: $white;
+    margin-right: 19px;
+  }
+
+  aside {
+    color: $grey;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  p {
+    font-size: 16px;
+  }
+
+  header {
+    h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    margin-bottom: 35px;
+  }
+  main {
+    h2 {
+      font-size: 22px;
+    }
+
+    a.action-button {
+      font-size: smaller;
+      max-width: 90%;
+    }
+  }
+
+  aside,
+  aside a {
+    font-size: 14px;
+  }
+
+  footer {
+  @include gradient;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+    color: $grey-lightened;
+
+    a#opeolluwa,
+    svg {
+      color: $grey-lightened;
+      border-color: $grey-lightened;
+    }
+
+    svg {
+      width: 15px;
+      height: 15px;
+      margin-right: 7px;
+    }
+  }
+}
