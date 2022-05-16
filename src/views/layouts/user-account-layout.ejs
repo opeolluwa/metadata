@@ -28,6 +28,7 @@
       href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
       rel="stylesheet"
     />
+    <link href="./../stylesheets/vuetify.min.css" rel="stylesheet" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
@@ -47,7 +48,7 @@
       <v-app>
         <v-main>
           <v-container
-            >Hello world
+            >Hello world {{ name }} {{ age }}
 
             <v-btn class="mx-2" fab dark small color="primary">
               <v-icon dark> mdi-minus </v-icon>
@@ -70,13 +71,23 @@
       }
     </script>
 
-    <!-- vue and vuetify -->
+    <!-- vue and vuetify  production-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <script>
+
+    <script src="./../scripts/src/vue.js"></script>
+    <script src="./../scripts/src/vuetify.js"></script>
+
+    <script defer>
       new Vue({
         el: "#app",
         vuetify: new Vuetify(),
+        data() {
+          return {
+            name: "drizzle",
+            age: 67,
+          };
+        },
       });
     </script>
   </body>

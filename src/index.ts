@@ -33,7 +33,7 @@ app.use(express.static("public"));
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/stylesheets", express.static(path.join(__dirname, "./public/stylesheets")));
-app.use("/scripts", express.static(path.join(__dirname, "./public/scripts")));
+app.use("/scripts", express.static(path.join(__dirname, "./public/scripts/")));
 app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
