@@ -3,10 +3,8 @@ new Vue({
     vuetify: new Vuetify(),
     data() {
         return {
-            name: "drizzle"
-        }
-    }
+            name: "drizzle",
+            age: 67,
+        };
+    },
 });
-
-
-console.log("hey fool")
