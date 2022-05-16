@@ -47,13 +47,7 @@
     <main id="app">
       <v-app>
         <v-main>
-          <v-container
-            >Hello world {{ name }} {{ age }}
-
-            <v-btn class="mx-2" fab dark small color="primary">
-              <v-icon dark> mdi-minus </v-icon>
-            </v-btn>
-          </v-container>
+          <v-container> <%-body %> </v-container>
         </v-main>
       </v-app>
     </main>
@@ -73,9 +67,11 @@
 
     <!-- vue and vuetify  production-->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.x/dist/vue-router.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
     <script src="./../scripts/lib/vue.js"></script>
+    <script src="./../scripts/lib/vue-router.js"></script>
     <script src="./../scripts/lib/vuetify.js"></script>
     <script src="./../scripts/src/main.js"></script>
   </body>
