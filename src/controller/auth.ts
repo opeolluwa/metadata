@@ -56,12 +56,13 @@ export default class AuthenticationControllers {
                 const hash = bcrypt.hashSync(password.trim(), salt);
                 const user = await User.create({ username: username.trim(), password: hash, email: email.trim(), firstname: firstname.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
 
+        
                 //set the magic link and activation token
                 const activationToken = jwt.sign({ user_id: user.user_id, email: user.email, firstname: user.firstname }, process.env.JWT_SECRET, { expiresIn: "24h" });
                 const magicLink = `${process.env.APP_URL}/activate/${activationToken}`;
-
+                console.log(magicLink)
                 //send the user notification to confirm account setup and redirect to login page on success
-                ejs.renderFile(path.join(__dirname, "./../templates/welcome.ejs"), { firstname: user.firstname,  magicLink }, function (err: any, template: any) {
+                ejs.renderFile(path.join(__dirname, "./../templates/welcome.ejs"), { firstname: user.firstname, magicLink }, function (err: any, template: any) {
                     if (err) {
                         console.log(err);
                     }
@@ -70,13 +71,10 @@ export default class AuthenticationControllers {
                     mailer({ email: user.email, subject: "welcome to meta data", template })
 
                 });
-
-
-
-
                 //send in status report on completion
-                return res.render("pages/authentication/sign-up-success", { title: "create account", layout: "./layouts/user-authentication-layout", firstname });
+                return res.render("pages/authentication/sign-up-success", { title: "verify your account", layout: "./layouts/user-authentication-layout", firstname });
             } catch (error) {
+                console.log(error.message)
             }
         }
 

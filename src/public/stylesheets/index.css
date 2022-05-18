@@ -46,7 +46,7 @@ body {
 }
 
 *[class*=error] {
-  color: #e92929f1 !important;
+  color: rgba(233, 41, 41, 0.9450980392) !important;
 }
 
 h1 {
@@ -251,7 +251,7 @@ header > * {
 
 @media screen and (max-width: 600px) {
   header {
-    grid-template-rows: calc(85vh - 20px);
+    grid-template-rows: calc(95vh - 20px);
   }
   header#resource-header {
     max-height: 50vh;
@@ -541,10 +541,10 @@ footer a#opeolluwa {
   display: inline !important;
 }
 #account .container form .form-feed input.input-error {
-  border: 1px solid #e92929f1;
+  border: 1px solid rgba(233, 41, 41, 0.9450980392);
 }
 #account .container form .form-feed input.no-input-error {
-  border: 1px solid #2e882e;
+  border: 1px solid rgb(46, 136, 46);
 }
 #account .container form .form-control {
   border: transparent;
