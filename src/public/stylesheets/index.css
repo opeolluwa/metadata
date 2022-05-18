@@ -405,6 +405,25 @@ footer a#opeolluwa {
   -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
   line-height: 30px;
 }
+.card-container h4 {
+  line-height: 32px;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.card-container .icon-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+.card-container .icon {
+  color: #7d7d7d;
+  display: flex;
+  align-items: center;
+  margin-right: 10.5px;
+  font-size: 17px;
+  justify-content: space-between;
+}
 
 @media screen and (max-width: 600px) {
   .card-container {
