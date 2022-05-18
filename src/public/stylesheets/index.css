@@ -251,8 +251,10 @@ header > * {
 
 @media screen and (max-width: 600px) {
   header {
-    grid-template-rows: calc(75vh - 20px);
-    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: calc(85vh - 25px);
   }
   header#resource-header {
     max-height: 50vh;
@@ -386,6 +388,34 @@ footer a#opeolluwa {
   text-decoration: underline;
 }
 
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  column-gap: 2.5rem;
+  row-gap: 2.5rem;
+  padding: 15px;
+}
+.card-container .card {
+  border: 3px solid #fafafa;
+  padding: 1.75rem 1.2rem;
+  border-radius: 5px;
+  box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  line-height: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+  }
+  .card-container .card {
+    padding: 1.75rem 1.2rem;
+  }
+}
 #account {
   display: grid;
   min-width: 100%;
@@ -921,31 +951,12 @@ footer a#opeolluwa {
   padding: 0.75rem 0.25rem;
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 300px);
-  justify-content: center;
-  column-gap: 2.5rem;
-  row-gap: 2.5rem;
+#resource-content main {
+  padding: 1.5rem 1rem;
 }
-.card-container .card {
-  border: 3px solid #fafafa;
-  padding: 3rem 1.25rem;
-  border-radius: 5px;
-  box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-  -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-}
-
 @media screen and (max-width: 600px) {
-  .card-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-  }
-  .card-container .card {
-    padding: 1rem 0.25rem;
+  #resource-content main {
+    margin: 2rem 0;
   }
 }
 

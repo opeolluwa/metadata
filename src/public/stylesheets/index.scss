@@ -81,6 +81,9 @@ h1 {
 @import "./components/header";
 @import "./components/main";
 @import "./components/footer";
+@import "./components/card";
+
+//pages
 @import "./pages/user-authentication";
 @import "./pages/user-account";
-@import "./components/card";
+@import "./pages/resources";

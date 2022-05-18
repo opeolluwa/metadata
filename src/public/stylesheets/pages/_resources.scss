@@ -1,27 +1,11 @@
 #resource-content {
-  main {
-    padding: $desktop-view-padding;
-  min-height: 60vh;
-
-    ul {
-      li {
-        margin: 1rem 0;
-        list-style-type: disc;
-        a {
-          @include anchor-regular($black, 400);
-          text-decoration: underline;
-        }
-      }
-    }
+  & main {
+    padding: 1.5rem 1rem;
   }
 
   @media screen and (max-width: 600px) {
     & main {
-      margin: 3rem 0;
-
-      & > * {
-        padding: 0 0.15rem;
-      }
+      margin: 2rem 0;
     }
   }
 }

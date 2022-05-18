@@ -4,14 +4,15 @@
   justify-content: center;
   column-gap: 2.5rem;
   row-gap: 2.5rem;
+  padding: 15px;
   .card {
     border: 3px solid $grey-lightened;
-    padding: 3rem 1.25rem;
+    padding: 1.75rem 1.2rem;
     border-radius: 5px;
-
     box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
     -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
     -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    line-height: 30px;
   }
 }
 
@@ -19,10 +20,9 @@
   .card-container {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
+    padding: 12px;
     .card {
-      padding: 1rem 0.25rem;
+      padding: 1.75rem 1.2rem;
     }
   }
 }
