@@ -62,7 +62,7 @@ export default class AuthenticationControllers {
                 const magicLink = `${process.env.APP_URL}/activate/${activationToken}`;
                 console.log(magicLink)
                 //send the user notification to confirm account setup and redirect to login page on success
-                ejs.renderFile(path.join(__dirname, "./../templates/welcome.ejs"), { firstname: user.firstname, magicLink }, function (err: any, template: any) {
+                ejs.renderFile(path.join(__dirname, "./../templates/verify.ejs"), { firstname: user.firstname, magicLink }, function (err: any, template: any) {
                     if (err) {
                         console.log(err);
                     }
