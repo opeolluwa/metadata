@@ -17,7 +17,6 @@ export class AuthenticationViewsRenderer {
         res.render("pages/authentication/set-new-password", { title: "account recovery - set new password", layout: "./layouts/user-authentication-layout" });
     }
 
-
 }
 
 

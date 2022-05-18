@@ -137,11 +137,8 @@ export default class AuthenticationControllers {
     //confirm user account
     static async activate(req: Request, res: Response) {
         const { token } = req.params;
-        console.log(token)
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const { user_id, email, firstname } = decoded;
-
-        console.log({ user_id, email, firstname })
         const user = await User.findOne({ where: { user_id } });
         if (!user) {
             return res.render("pages/authentication/activation-failed", { title: "activation failed", layout: "./layouts/user-authentication-layout" });
