@@ -15,11 +15,12 @@
     line-height: 30px;
   }
 
-  h4 {
+  h3 {
     line-height: 32px;
     text-transform: capitalize;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
 
   .icon-container {
@@ -39,6 +40,12 @@
   .icon img {
     display: inline-block;
     margin-right: 2px;
+  }
+
+   button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
   }
 }
 
