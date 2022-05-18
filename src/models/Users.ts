@@ -34,7 +34,7 @@ User.init({
         allowNull: false,
     },
 
-    status: {
+    activated: {
         type: DataTypes.BOOLEAN,
         default: false,
     },

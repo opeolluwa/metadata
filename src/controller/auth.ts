@@ -56,7 +56,7 @@ export default class AuthenticationControllers {
                 const hash = bcrypt.hashSync(password.trim(), salt);
                 const user = await User.create({ username: username.trim(), password: hash, email: email.trim(), firstname: firstname.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
 
-        
+
                 //set the magic link and activation token
                 const activationToken = jwt.sign({ user_id: user.user_id, email: user.email, firstname: user.firstname }, process.env.JWT_SECRET, { expiresIn: "24h" });
                 const magicLink = `${process.env.APP_URL}/activate/${activationToken}`;
@@ -113,6 +113,10 @@ export default class AuthenticationControllers {
         //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
             return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error, value: { username, password } });
+        }
+
+        if (!user.activated) {
+            return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "your account has not been verified" }, value: { username, password } });
         }
 
         //redirect to dashboard

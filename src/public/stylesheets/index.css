@@ -251,7 +251,8 @@ header > * {
 
 @media screen and (max-width: 600px) {
   header {
-    grid-template-rows: calc(95vh - 20px);
+    grid-template-rows: calc(75vh - 20px);
+    padding-top: 10vh;
   }
   header#resource-header {
     max-height: 50vh;

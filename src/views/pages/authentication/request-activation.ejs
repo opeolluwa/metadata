@@ -1,0 +1,26 @@
+<div id="account">
+    <div class="container">
+      <h1>Forgotten Password</h1>
+      <p class="sub-hero-text">provide your email to begin.</p>
+  
+      <form action="" method="post">
+        <div class="form-feed">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            placeholder="example@mailer.com"
+            id="email"
+            name="email"
+            value="<%= value.email || ''%>"
+          />
+          <span class="error"> <%= error.email || "" %> </span>
+        </div>
+        <div class="form-feed">
+          <button type="submit">Proceed</button>
+        </div>
+      </form>
+      <div data-guide="sign-up">Back to <a href="/login">Login</a></div>
+    </div>
+    <%- include('./../../partials/user-authentication-footer'); %>
+  </div>
+  
