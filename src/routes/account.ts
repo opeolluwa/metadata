@@ -11,4 +11,5 @@ router.get("/bookmarks", AuthenticationMiddleware.confirm, UserAccountViews.book
 router.get("/security", AuthenticationMiddleware.confirm, UserAccountViews.security)
 router.get("/settings", AuthenticationMiddleware.confirm, UserAccountViews.settings)
 
+
 export default router;

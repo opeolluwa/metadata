@@ -18,6 +18,7 @@ router.post("/login", AuthenticationControllers.login)
 router.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 router.get("/set-new-password", AuthenticationViewsRenderer.setNewPassword)
 router.get("/logout", AuthenticationControllers.logOut)
+router.get("/verify/:token", AuthenticationControllers.activate)
 
 
 

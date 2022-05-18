@@ -46,7 +46,7 @@ body {
 }
 
 *[class*=error] {
-  color: rgba(233, 41, 41, 0.9450980392) !important;
+  color: #e92929f1 !important;
 }
 
 h1 {
@@ -150,8 +150,7 @@ nav a:link {
     box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
     -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
     -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-    -o-border-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
-       border-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+    border-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
     background-color: inherit !important;
     z-index: 1200;
   }
@@ -314,14 +313,6 @@ main form input:hover,
 main form input:focus {
   outline: none;
 }
-main form input::-moz-placeholder {
-  font-family: monospace;
-  color: #7d7d7d;
-}
-main form input:-ms-input-placeholder {
-  font-family: monospace;
-  color: #7d7d7d;
-}
 main form input::placeholder {
   font-family: monospace;
   color: #7d7d7d;
@@ -341,12 +332,6 @@ main form button[type=submit] {
     grid-column: 1/-1;
     border: 1px solid #7d7d7d;
     border-radius: 4px;
-  }
-  main form input::-moz-placeholder {
-    content: "Search here";
-  }
-  main form input:-ms-input-placeholder {
-    content: "Search here";
   }
   main form input::placeholder {
     content: "Search here";
@@ -556,10 +541,10 @@ footer a#opeolluwa {
   display: inline !important;
 }
 #account .container form .form-feed input.input-error {
-  border: 1px solid rgba(233, 41, 41, 0.9450980392);
+  border: 1px solid #e92929f1;
 }
 #account .container form .form-feed input.no-input-error {
-  border: 1px solid rgb(46, 136, 46);
+  border: 1px solid #2e882e;
 }
 #account .container form .form-control {
   border: transparent;
@@ -590,16 +575,6 @@ footer a#opeolluwa {
   display: none;
   font-size: 80%;
   margin: 1px 0;
-}
-#account .container ::-moz-placeholder {
-  text-transform: lowercase;
-  font-size: 75%;
-  color: #7d7d7d;
-}
-#account .container :-ms-input-placeholder {
-  text-transform: lowercase;
-  font-size: 75%;
-  color: #7d7d7d;
 }
 #account .container ::placeholder,
 #account .container option,
@@ -721,8 +696,7 @@ footer a#opeolluwa {
   grid-template-columns: 2fr 5fr;
   align-items: center;
   justify-content: space-between;
-  -moz-column-gap: 15px;
-       column-gap: 15px;
+  column-gap: 15px;
 }
 #user-account nav .user-avatar-and-name.name span,
 #user-account nav .user-avatar-and-name.name strong {
@@ -781,8 +755,7 @@ footer a#opeolluwa {
   width: 50px;
   height: 50px;
   max-width: 100%;
-  -o-object-fit: fit;
-     object-fit: fit;
+  object-fit: fit;
   border-radius: 50%;
 }
 #user-account a.logout-button {
@@ -951,8 +924,7 @@ footer a#opeolluwa {
   display: grid;
   grid-template-columns: repeat(3, 300px);
   justify-content: center;
-  -moz-column-gap: 2.5rem;
-       column-gap: 2.5rem;
+  column-gap: 2.5rem;
   row-gap: 2.5rem;
 }
 .card-container .card {
@@ -974,4 +946,6 @@ footer a#opeolluwa {
   .card-container .card {
     padding: 1rem 0.25rem;
   }
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -38,12 +38,8 @@ export async function mailer(options: Options) {
 }
 
 
-// ejs.renderFile(getTemplate("welcome"), { firstname: "Morenikeji", link:"https://github.com/opeolluwa" }, function (_err: any, template: string) {
+
+// ejs.renderFile("../templates/welcome.ejs", { firstname: "Morenikeji", link: "https://github.com/opeolluwa" },  function (err: any, template: any) {
 //     // str => Rendered HTML string
 //     mailer({ email: "adefemiadeoye@yahoo.com", subject: "welcome to meta data", template })
 // });
-
-ejs.renderFile("../templates/welcome.ejs", { firstname: "Morenikeji", link: "https://github.com/opeolluwa" },  function (err: any, template: any) {
-    // str => Rendered HTML string
-    mailer({ email: "adefemiadeoye@yahoo.com", subject: "welcome to meta data", template })
-});

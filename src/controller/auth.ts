@@ -2,7 +2,11 @@ import { NextFunction, Request, Response } from "express"
 import { sequelize } from "../config/database.config";
 import { User } from "../models/Users";
 import bcrypt from "bcrypt"
+import { mailer } from "../lib/mailer";
 
+const path = require("path");
+const ejs = require("ejs");
+const jwt = require("jsonwebtoken");
 export default class AuthenticationControllers {
     static async signup(req: Request, res: Response) {
         /**
@@ -38,7 +42,7 @@ export default class AuthenticationControllers {
 
         //get the payload from the request body and persist the values while checking for errors
         const { username, password, email, firstname, privacy_policy_agreement } = req.body;
-        const value = { username, password, email, firstname}
+        const value = { username, password, email, firstname }
 
         //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
@@ -51,6 +55,24 @@ export default class AuthenticationControllers {
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(password.trim(), salt);
                 const user = await User.create({ username: username.trim(), password: hash, email: email.trim(), firstname: firstname.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
+
+                //set the magic link and activation token
+                const activationToken = jwt.sign({ user_id: user.user_id, email: user.email, firstname: user.firstname }, process.env.JWT_SECRET, { expiresIn: "24h" });
+                const magicLink = `${process.env.APP_URL}/activate/${activationToken}`;
+
+                //send the user notification to confirm account setup and redirect to login page on success
+                ejs.renderFile(path.join(__dirname, "./../templates/welcome.ejs"), { firstname: user.firstname,  magicLink }, function (err: any, template: any) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    //send the message
+                    mailer({ email: user.email, subject: "welcome to meta data", template })
+
+                });
+
+
+
+
                 //send in status report on completion
                 return res.render("pages/authentication/sign-up-success", { title: "create account", layout: "./layouts/user-authentication-layout", firstname });
             } catch (error) {
@@ -110,4 +132,26 @@ export default class AuthenticationControllers {
         })
     }
 
+
+    //confirm user account
+    static async activate(req: Request, res: Response) {
+        const { token } = req.params;
+        console.log(token)
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const { user_id, email, firstname } = decoded;
+
+        console.log({ user_id, email, firstname })
+        const user = await User.findOne({ where: { user_id } });
+        if (!user) {
+            return res.render("pages/authentication/activation-failed", { title: "activation failed", layout: "./layouts/user-authentication-layout" });
+        }
+        else {
+            try {
+                await user.update({ activated: true });
+                return res.render("pages/authentication/activation-success", { title: "activation success", layout: "./layouts/user-authentication-layout", firstname });
+            } catch (error) {
+                return res.render("pages/authentication/activation-failed", { title: "activation failed", layout: "./layouts/user-authentication-layout" });
+            }
+        }
+    }
 }

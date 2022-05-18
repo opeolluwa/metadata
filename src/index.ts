@@ -66,14 +66,7 @@ sequelize.sync().then(() => {
 })
 
 
-const getTemplate = (template: string) => path.join(__dirname, "templates", `${template}.ejs`)
 
-app.get("/e", (req, res) => {
-    ejs.renderFile(getTemplate("reset"), function (err: any, str: any) {
-        // str => Rendered HTML string
-        res.send(str)
-    });
-})
 //mount application
 app.listen(port, () => {
     console.log(`⚡️ignition started on http://127.0.0.1:${port}`)
