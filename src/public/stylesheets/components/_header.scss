@@ -65,6 +65,7 @@ header > * {
 //small screens
 @media screen and (max-width: 600px) {
   header {
+    
     grid-template-rows: calc(75vh - 20px);
     padding-top: 10vh;
     &#resource-header {

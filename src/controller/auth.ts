@@ -101,9 +101,10 @@ export default class AuthenticationControllers {
             password: "",
             authentication: ""
         }
+
+        //TODO: handle unregistered user trying to login        
         const user = await User.findOne({ where: { username: username.trim() } });
         const isAuthenticated = await bcrypt.compare(password, user.password);
-
 
         /*  console.log(password, isAuthenticated) */
         if (!username) { error.username = "Username is required" }
