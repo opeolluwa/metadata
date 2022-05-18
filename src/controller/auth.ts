@@ -82,6 +82,7 @@ export default class AuthenticationControllers {
 
 
     /**
+        const isAuthenticated = await bcrypt.compare(password, user.password);
      * 
      * @param req {@param username} {@param password}
      * @param res 
@@ -102,10 +103,13 @@ export default class AuthenticationControllers {
             authentication: ""
         }
 
-        //TODO: handle unregistered user trying to login        
         const user = await User.findOne({ where: { username: username.trim() } });
-        const isAuthenticated = await bcrypt.compare(password, user.password);
+        // handle unregistered user trying to login  
+        if (!user) {
+            return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "the account doesn't seem registered with us. \n Please recheck your username " }, value: { username, password } });
+        }
 
+        const isAuthenticated = await bcrypt.compare(password, user.password);
         /*  console.log(password, isAuthenticated) */
         if (!username) { error.username = "Username is required" }
         if (!password) { error.password = "password is required" }
