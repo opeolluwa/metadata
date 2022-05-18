@@ -424,6 +424,10 @@ footer a#opeolluwa {
   font-size: 17px;
   justify-content: space-between;
 }
+.card-container .icon img {
+  display: inline-block;
+  margin-right: 2px;
+}
 
 @media screen and (max-width: 600px) {
   .card-container {
