@@ -19,8 +19,8 @@ export async function mailer(options: Options) {
             // port: 465,
             // secure: true,
             auth: {
-                user: 'drizzle.system.software@gmail.com',
-                pass: 'bzcpxbktaxrlhngc',
+                user: process.env.SMTP_USER ,
+                pass: process.env.SMTP_PASSWORD,
             },
         });
         const message = {

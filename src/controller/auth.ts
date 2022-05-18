@@ -66,6 +66,7 @@ export default class AuthenticationControllers {
                         console.log(err);
                     }
                     //send the message
+                    console.log(template, magicLink)
                     mailer({ email: user.email, subject: "welcome to meta data", template })
 
                 });
