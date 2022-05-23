@@ -1,5 +1,5 @@
 //dependencies
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import path from "path";
 import expressLayouts from "express-ejs-layouts";
@@ -23,6 +23,7 @@ const app: Express = express();
 const ejs = require("ejs")
 const port = process.env.PORT || 8000;
 const SequelizeStore = sessionStore(session.Store);
+export const mongoose = require('mongoose');
 const store = new SequelizeStore({
     db: sequelize,
 });
@@ -53,12 +54,32 @@ app.use(session({
 //session synchronization
 store.sync();
 
+
+mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true }, (err: string) => {
+    if (!err) {
+        console.log('Successfully Established Connection with MongoDB')
+    }
+    else {
+        console.log('Failed to Establish Connection with MongoDB with Error: ' + err)
+    }
+});
+
+
+
 //mount   routes
 app.use(router)
 app.use("/r", resource)
 app.use("/u/", account)
 app.use("/search", search)
 app.use("/explore", explore)
+
+/*
+*add 404 error page to the application
+* to consume invalid url instead of firing application error
+*/
+app.use((req: Request, res: Response) => {
+    res.status(404).render("pages/error/404", { title: "Page not found" })
+})
 
 //synchronize database
 sequelize.sync().then(() => {

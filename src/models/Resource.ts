@@ -1,42 +1,40 @@
-const { Sequelize, DataTypes, Model } = require('sequelize');
-// const sequelize = new Sequelize('sqlite::memory:');
-import { sequelize } from "../config/database.config"
 
-export class Resource extends Model { }
-Resource.init({
-    id: {
-        type: DataTypes.UUID,
-        allowNull: false,
-        primaryKey: true
-    },
-    // Model attributes are defined here
+import mongoose from "mongoose";
+
+const ResourceSchema = new mongoose.Schema({
     name: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: String,
+        required: true,
+        trim: true,
+        lowercase:true
+
     },
-    category: {
-        type: DataTypes.STRING
-        // allowNull defaults to true
+    url: {
+        type: String,
+        required: true,
+        trim: true,
+        lowercase:true
+
     },
     description: {
-        type: DataTypes.TEXT,
-        allowNull: false
+        type: String,
+        required: true,
+        trim: true,
+        lowercase:true,
+    },
+    iconUrl: {
+        type: String,
+        required: true,
+        trim: true,
+        lowercase:true,
+    },
+    meta: {
+        like: [],
+        comment: [{ user: String, comment: String }],
+        clap: []
     },
 
-    resource_url: {
-        type: DataTypes.TEXT,
-        allowNull: false
-    },
-    date_added: {
-        type: DataTypes.DATE,
-        defaultValue: DataTypes.NOW
-    }
-}, {
-    // Other model options go 
-    modelName: "Resource",
-    sequelize, // We need to pass the connection instance
-    tableName: 'resource_information' // We need to choose the model name
 });
 
-// the defined model is the class itself
-console.log(Resource === sequelize.models.Resource); // true
+
+export const Resource = mongoose.model("resource", ResourceSchema)

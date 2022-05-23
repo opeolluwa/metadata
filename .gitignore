@@ -148,7 +148,6 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 sandbox.twig
-sandbox.ts
 sandbox.scss
 index.html
 database/meta-data.sqlite
