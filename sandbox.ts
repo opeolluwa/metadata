@@ -13,7 +13,7 @@ import { User } from "./src/models/User";
 
 const user = new User({
     name: "opeolluwa",
-    email: "adefemiadeoye@yahoo.com"
+    email: "adefemiadeoye@mailer.com"
 })
 
 async function main() {
