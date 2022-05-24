@@ -174,6 +174,9 @@ nav a:link {
   background-color: #f2f2f2;
   color: #101010;
   background-image: none;
+  box-shadow: -3px 15px 28px -10px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -3px 15px 28px -10px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -3px 15px 28px -10px rgba(0, 0, 0, 0.53);
 }
 
 .nav-link-scroll {
@@ -188,7 +191,7 @@ header {
   display: grid;
   grid-template-rows: 10px auto auto;
   padding: 0 !important;
-  min-height: calc(100vh - 5rem);
+  min-height: calc(95vh - 5rem);
   align-content: space-between;
   background-color: #4158d0;
   background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
@@ -200,6 +203,7 @@ header#resource-header {
 }
 header#resource-header h1 {
   text-transform: capitalize;
+  text-align: center !important;
 }
 header #hero {
   display: flex;

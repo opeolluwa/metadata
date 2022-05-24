@@ -100,6 +100,9 @@ nav {
   background-color: $white;
   color: $black;
   background-image: none;
+  box-shadow: -3px 15px 28px -10px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -3px 15px 28px -10px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -3px 15px 28px -10px rgba(0, 0, 0, 0.53);
 }
 
 .nav-link-scroll {
