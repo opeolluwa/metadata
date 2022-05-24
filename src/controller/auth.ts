@@ -212,7 +212,9 @@ export default class AuthenticationControllers {
         //send the reset token and exit
         const otp = otpGenerator.generate(6, { specialChars: false });
         await user.updateOne({ otp });
-        ejs.renderFile(path.join(__dirname, "./../templates/welcome.ejs"), { firstname: user.firstname, token: user.otp }, function (err: any, template: any) {
+        ejs.renderFile(path.join(__dirname, "./../templates/reset.ejs"), {
+            firstname: user.firstname, token: user.otp, BASE_URL: process.env.APP_URL
+        }, function (err: any, template: any) {
             if (err) {
                 console.log(err);
             }
