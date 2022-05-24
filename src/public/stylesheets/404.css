@@ -14,6 +14,12 @@ h1 {
   line-height: 36px;
   font-size: 275%;
 }
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 200%;
+    line-height: 24px;
+  }
+}
 
 p {
   color: #7d7d7d;
@@ -48,7 +54,7 @@ p a {
   .container {
     display: flex;
     flex-direction: column-reverse;
-    height: calc(100vh - 6rem);
+    height: calc(80vh - 6rem);
     padding: 1rem;
   }
 }
