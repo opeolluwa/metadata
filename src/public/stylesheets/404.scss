@@ -35,9 +35,6 @@ p {
   }
 }
 
-svg {
-  max-width: 100%;
-}
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -53,6 +50,7 @@ svg {
     display: flex;
     flex-direction: column-reverse;
     height: calc(100vh - 6rem);
+    padding: 1rem;
   }
 }
 
@@ -71,4 +69,8 @@ a#cta {
   line-height: 30px;
   font-size: 0.9rem;
   display: inline-block;
+  @media screen and (max-width: 600px) {
+    padding: 0.5rem 0.7rem;
+    line-height: 24px;
+  }
 }
