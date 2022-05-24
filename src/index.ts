@@ -5,7 +5,7 @@ import path from "path";
 import expressLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
 import { sequelize } from "./config/database.config";
-import { User } from "./models/Users";
+import { User } from "./models/UserSession";
 //routes
 import router from "./routes";
 import resource from "./routes/resource"
@@ -19,6 +19,7 @@ declare module 'express-session' { interface Session { user: User; } }
 
 //global middleware
 dotenv.config();
+console.log("Parsed environment variables")
 const app: Express = express();
 const ejs = require("ejs")
 const port = process.env.PORT || 8000;
@@ -87,7 +88,7 @@ app.use((req: Request, res: Response) => {
 
 //synchronize database
 sequelize.sync().then(() => {
-    console.log("connected to database")
+    console.log(" Successfully Established Connection with SQLite")
 })
 
 

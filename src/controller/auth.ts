@@ -1,8 +1,9 @@
 import { NextFunction, Request, Response } from "express"
-import { sequelize } from "../config/database.config";
 import { User } from "../models/User";
 import bcrypt from "bcrypt"
 import { mailer } from "../lib/mailer";
+import otpGenerator from "otp-generator"
+
 
 const path = require("path");
 const ejs = require("ejs");
@@ -60,7 +61,7 @@ export default class AuthenticationControllers {
                     email,
                     firstname
                 })
-            
+
                 //save the user information
                 await user.save();
                 //set the magic link and activation token
@@ -72,8 +73,9 @@ export default class AuthenticationControllers {
                     if (err) {
                         console.log(err);
                     }
+
                     //send the message
-                    console.log(template, magicLink)
+                    // console.log(template, magicLink)
                     mailer({ email: user.email, subject: "welcome to meta data", template })
 
                 });
@@ -149,25 +151,75 @@ export default class AuthenticationControllers {
     }
 
 
-    //confirm user account
+    /**
+     * 
+     * 
+     * to activate user account, get the magic link from the request params
+     * decode the magic link,
+     * the decode link contains {@param email} {@param user_id}
+     * get the user with the decoded details and set the activated status in the user model to true
+     * 
+     * send a welcome user to the user afterwards
+     * render a success page after sending the mail
+     * 
+     */
     static async activate(req: Request, res: Response) {
         const { token } = req.params;
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const { user_id, email, firstname } = decoded;
-        console.log(user_id)
-        const user = await User.findOne({ user_id });
-        // console.log(user);
-    
+        const user = await User.findOne({ _id: user_id });
+        console.log(user_id);
         if (!user) {
             return res.render("pages/authentication/activation-failed", { title: "activation failed", layout: "./layouts/user-authentication-layout" });
         }
         else {
             try {
                 await user.updateOne({ activated: true });
+                ejs.renderFile(path.join(__dirname, "./../templates/welcome.ejs"), { firstname: user.firstname, }, function (err: any, template: any) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    //send the message
+                    mailer({ email: user.email, subject: "welcome to meta data", template })
+
+                });
                 return res.render("pages/authentication/activation-success", { title: "activation success", layout: "./layouts/user-authentication-layout", firstname });
+
             } catch (error) {
                 return res.render("pages/authentication/activation-failed", { title: "activation failed", layout: "./layouts/user-authentication-layout" });
             }
         }
+    }
+
+    /**
+     * 
+     * TODO: learn OTP logic
+     * get the user email,
+     * check if it exist
+     * if it does, send an OPT  to the email and ask user to confirm the mail
+     * if the mail is confirmed, call the next controller to set new password
+     */
+    static async passwordReset(req: Request, res: Response) {
+        const { email } = req.body;
+        if (!email) {
+            //TODO: handle bad or invalid email
+            return res.send("invalid email")
+        }
+        const user = await User.findOne({ email })
+        if (!user) {
+            return res.render("pages/error/reset-token", { title: "account recovery", email, layout: "./layouts/user-authentication-layout", });
+        }
+        //send the reset token and exit
+        const otp = otpGenerator.generate(6, { specialChars: false });
+        await user.updateOne({ otp });
+        ejs.renderFile(path.join(__dirname, "./../templates/welcome.ejs"), { firstname: user.firstname, token: user.otp }, function (err: any, template: any) {
+            if (err) {
+                console.log(err);
+            }
+            //send the message
+            mailer({ email: user.email, subject: "Password reset token", template })
+
+        });
+        return res.render("pages/success/reset-token", { title: "account recovery", layout: "./layouts/user-authentication-layout", });
     }
 }

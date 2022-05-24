@@ -66,7 +66,7 @@
                     color: #333333;
                   "
                 >
-                  Hello <%=firstname  %>  ,
+                  Hello <%=firstname %>,
                 </h3>
               </td>
             </tr>
@@ -95,77 +95,22 @@
                     font-size: 16px;
                   "
                 >
-                  Welcome to meta data and thanks for signing up!<br />
-                  You're one step closer to exploring all the meta data!
+                  A password reset was requested on your account. The reset
+                  token is
+                  <strong><%= token %></strong>. Please ignore if it&apos;s a
+                  mistake. <br />
+                  Consider
+                  <a
+                    href="<%=BASE_URL  %>/contact
+                     "
+                    >reaching out to us
+                  </a>
+                  if it&apos;s a security breach.
                 </p>
               </td>
             </tr>
 
-            <tr style="border-collapse: collapse">
-              <td
-                align="left"
-                style="
-                  padding: 0;
-                  margin: 0;
-                  padding-bottom: 10px;
-                  padding-top: 15px;
-                "
-              >
-                <div class="container" style="margin: 0 auto; width: 90%">
-                  <h2
-                    style="
-                      margin: 0;
-                      line-height: 22px;
-                      mso-line-height-rule: exactly;
-                      font-family: 'open sans', 'helvetica neue', helvetica,
-                        arial, sans-serif;
-                      font-size: 18px;
-                      font-style: normal;
-                      font-weight: bold;
-                      color: #333333;
-                      margin-bottom: 0.75rem;
-                    "
-                  >
-                    Next Step
-                  </h2>
-                  <p
-                    style="
-                      margin: 0;
-                      -webkit-text-size-adjust: none;
-                      -ms-text-size-adjust: none;
-                      mso-line-height-rule: exactly;
-                      font-family: 'open sans', 'helvetica neue', helvetica,
-                        arial, sans-serif;
-                      line-height: 24px;
-                      color: #777777;
-                      font-size: 16px;
-                    "
-                  >
-                    Please confirm your <br />email address to get started. The
-                    account activation token is only valid for 24 hours.
-                  </p>
-                  <a
-                    href="<%=magicLink%>"
-                    class="action-button"
-                    style="
-                      color: #101010;
-                      text-decoration: none;
-                      font-weight: 400;
-                      border: 1px solid transparent;
-                      padding: 12px;
-                      border-radius: 5px;
-                      background-color: #101010;
-                      color: #f2f2f2;
-                      margin: 14px 0;
-                      display: inline-block;
-                      max-width: 50%;
-                    "
-                    >Confrim account</a
-                  >
-                </div>
-              </td>
-            </tr>
-
+         
             <tr style="border-collapse: collapse">
               <td
                 style="

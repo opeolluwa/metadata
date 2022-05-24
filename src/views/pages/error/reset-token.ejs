@@ -1,0 +1,19 @@
+<div id="account">
+  <div class="container">
+    <img
+      src="icons/key-yellow.svg"
+      alt="recovery failed"
+      class="success-icon"
+    />
+    <h1>An Error Occurred</h1>
+    <p
+      class="sub-hero-text"
+      style="margin-top: 12px"
+    >
+      It appears the provided email <strong><%= email %> </strong> is not
+      registered with us. Please recheck then
+      <a href="/password-reset">restart</a> the process.
+    </p>
+  </div>
+  <%- include('./../../partials/user-authentication-footer'); %>
+</div>

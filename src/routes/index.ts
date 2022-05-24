@@ -7,12 +7,10 @@ import passport from "passport";
 import { AuthenticationMiddleware } from "../middleware/auth";
 const router = express.Router()
 
-
+//views
 router.get("/", GeneralPagesViewsRenderer.indexPage);
 router.get("/register", AuthenticationViewsRenderer.signUp)
-router.post("/register", AuthenticationControllers.signup)
 router.get("/login", AuthenticationViewsRenderer.login, UserAccountViews.dashboard)
-router.post("/login", AuthenticationControllers.login)
 router.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 router.get("/set-new-password", AuthenticationViewsRenderer.setNewPassword)
 router.get("/logout", AuthenticationControllers.logOut)
@@ -22,10 +20,12 @@ router.get("/privacy-policy", GeneralPagesViewsRenderer.privacyPolicy);
 router.get("/terms-of-use", GeneralPagesViewsRenderer.termsOfUse)
 router.get("/cookie-policy", GeneralPagesViewsRenderer.cookiePolicy)
 
+//controllers
+router.post("/login", AuthenticationControllers.login)
+router.post("/register", AuthenticationControllers.signup)
+router.post("/password-reset", AuthenticationControllers.passwordReset)
+
 
 //register all user account route
 router.get("/dashboard", AuthenticationMiddleware.confirm, UserAccountViews.dashboard)
-
-
-
 export default router;

@@ -1,7 +1,7 @@
 import passport from "passport";
 import passportLocalStrategy from "passport-local"
 import bcrypt from "bcrypt"
-import { User } from "../models/Users";
+import { User } from "../models/User";
 
 //initialize variables
 const LocalStrategy = passportLocalStrategy.Strategy;
@@ -27,9 +27,9 @@ passport.serializeUser(function (user: { user_id: string }, done) {
   done(null, user.user_id);
 });
 
-passport.deserializeUser(function (user_id, done) {
-  User.findByPk(user_id).then(function (user: boolean | Express.User) { done(null, user); });
-});
+// passport.deserializeUser(function (user_id, done) {
+//   User.findByPk(user_id).then(function (user: boolean | Express.User) { done(null, user); });
+// });
 
 
 

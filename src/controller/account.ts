@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import { sequelize } from "../config/database.config";
-import { User } from "../models/Users";
+import { User } from "../models/User";
 import bcrypt from "bcrypt"
 import greeting from "./../lib/greetings"
 

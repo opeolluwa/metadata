@@ -19,13 +19,13 @@ export async function mailer(options: Options) {
             // port: 465,
             // secure: true,
             auth: {
-                user: process.env.SMTP_USER ,
+                user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASSWORD,
             },
         });
         const message = {
-            from: `Opeoluwa from Meta Data <drizzle.system.software@gmail.com>`,
-            replyTo: 'hello@stitchvine.com',
+            from: `Opeoluwa from Meta Data <${String(process.env.SMTP_USER)}>`,
+            replyTo: process.env.SMTP_USER,
             to: options.email,
             subject: options.subject,
             html: options.template,
