@@ -53,7 +53,7 @@ p {
   @media screen and (max-width: 600px) {
     display: flex;
     flex-direction: column-reverse;
-    height: calc(80vh - 6rem);
+    height: calc(100vh - 6rem);
     padding: 1rem;
   }
 }
