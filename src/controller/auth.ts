@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express"
 import { sequelize } from "../config/database.config";
-import { User } from "../models/Users";
+import { User } from "../models/User";
 import bcrypt from "bcrypt"
 import { mailer } from "../lib/mailer";
 
@@ -23,21 +23,20 @@ export default class AuthenticationControllers {
             password: "",
             email: "",
             firstname: "",
-            privacy_policy_agreement: ""
+            // privacy_policy_agreement: ""
         }
-
         console.log(req.body)
         // return;
         //validate the data from the client
-        const emailExists = await User.findOne({ where: { email: req.body.email.trim() } });
-        const usernameExists = await User.findOne({ where: { username: req.body.username.trim() } });
+        const emailExists = await User.findOne({ email: req.body.email.trim() });
+        const usernameExists = await User.findOne({ username: req.body.username.trim() });
 
         error.username = (!req.body.username) ? "username is required" :
             (usernameExists) ? "username already exist" : "";
         error.password = (!req.body.password || req.body.password.length < 8) ? "password must be at least 8 characters" : error.password;
         error.email = (!req.body.email) ? "email is required" : (emailExists) ? "a user with the email already exists" : error.email;
         error.firstname = (!req.body.firstname) ? "firstname is required" : error.firstname;
-        error.privacy_policy_agreement = (!req.body.privacy_policy_agreement) ? "privacy policy agreement is required" : error.privacy_policy_agreement;
+        // error.privacy_policy_agreement = (!req.body.privacy_policy_agreement) ? "privacy policy agreement is required" : error.privacy_policy_agreement;
 
 
         //get the payload from the request body and persist the values while checking for errors
@@ -52,13 +51,20 @@ export default class AuthenticationControllers {
         //else create the user
         else {
             try {
+                //make new user
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(password.trim(), salt);
-                const user = await User.create({ username: username.trim(), password: hash, email: email.trim(), firstname: firstname.trim(), privacy_policy_agreement: privacy_policy_agreement.trim() });
-
-
+                const user = new User({
+                    username,
+                    password: hash,
+                    email,
+                    firstname
+                })
+            
+                //save the user information
+                await user.save();
                 //set the magic link and activation token
-                const activationToken = jwt.sign({ user_id: user.user_id, email: user.email, firstname: user.firstname }, process.env.JWT_SECRET, { expiresIn: "24h" });
+                const activationToken = jwt.sign({ user_id: user._id.toString(), email: user.email, firstname: user.firstname }, process.env.JWT_SECRET, { expiresIn: "24h" });
                 const magicLink = `${process.env.APP_URL}/activate/${activationToken}`;
                 console.log(magicLink)
                 //send the user notification to confirm account setup and redirect to login page on success
@@ -103,13 +109,14 @@ export default class AuthenticationControllers {
             authentication: ""
         }
 
-        const user = await User.findOne({ where: { username: username.trim() } });
+        const user = await User.findOne({ username: username.trim() });
         // handle unregistered user trying to login  
         if (!user) {
             return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "the account doesn't seem registered with us. \n Please recheck your username " }, value: { username, password } });
         }
-
         const isAuthenticated = await bcrypt.compare(password, user.password);
+        // console.log(isAuthenticated, password, user.password)
+
         /*  console.log(password, isAuthenticated) */
         if (!username) { error.username = "Username is required" }
         if (!password) { error.password = "password is required" }
@@ -124,9 +131,10 @@ export default class AuthenticationControllers {
             return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "your account has not been verified" }, value: { username, password } });
         }
 
-        //redirect to dashboard
+        //redirect to dashboard and start a session
         if (isAuthenticated) {
-            const { username, user_id } = user
+            const username = user.username;
+            const user_id = user._id.toString(); //parse user_id
             req.session.user = { username, user_id };
             return res.redirect("/u/");
         }
@@ -146,13 +154,16 @@ export default class AuthenticationControllers {
         const { token } = req.params;
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const { user_id, email, firstname } = decoded;
-        const user = await User.findOne({ where: { user_id } });
+        console.log(user_id)
+        const user = await User.findOne({ user_id });
+        // console.log(user);
+    
         if (!user) {
             return res.render("pages/authentication/activation-failed", { title: "activation failed", layout: "./layouts/user-authentication-layout" });
         }
         else {
             try {
-                await user.update({ activated: true });
+                await user.updateOne({ activated: true });
                 return res.render("pages/authentication/activation-success", { title: "activation success", layout: "./layouts/user-authentication-layout", firstname });
             } catch (error) {
                 return res.render("pages/authentication/activation-failed", { title: "activation failed", layout: "./layouts/user-authentication-layout" });

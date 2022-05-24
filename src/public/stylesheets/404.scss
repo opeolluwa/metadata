@@ -36,7 +36,6 @@ p {
 }
 
 svg {
-  object-fit: contain;
   max-width: 100%;
 }
 .container {
@@ -53,7 +52,7 @@ svg {
   @media screen and (max-width: 600px) {
     display: flex;
     flex-direction: column-reverse;
-    height: 75vh;
+    height: calc(100vh - 6rem);
   }
 }
 

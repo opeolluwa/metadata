@@ -33,7 +33,6 @@ p a {
 }
 
 svg {
-  object-fit: contain;
   max-width: 100%;
 }
 
@@ -53,7 +52,7 @@ svg {
   .container {
     display: flex;
     flex-direction: column-reverse;
-    height: 75vh;
+    height: calc(100vh - 6rem);
   }
 }
 

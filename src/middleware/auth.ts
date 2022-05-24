@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { User } from "../models/Users";
+import { User } from "../models/User";
 
 export class AuthenticationMiddleware {
   static async confirm(req: Request, res: Response, next: NextFunction) {
@@ -7,8 +7,14 @@ export class AuthenticationMiddleware {
       /* return res.redirect("/login") */
       return res.render("pages/error/auth-required", { title: "authentication required", layout: "./layouts/user-authentication-layout", error: { authentication: "please login to view requested resource" }, value: {} });
     }
-    const { user_id, username } = req.session.user;
-    const user = await User.findOne({ where: { user_id: user_id } });
+
+    /**
+     * parse the username and user from session,
+     * find user with the fetched username
+     */
+    const username = req.session.user.username;
+    const user_id = req.session.user.user_id;
+    const user = await User.findOne({ _id: user_id });
     req.params.username = username;
     next();
     return;
