@@ -37,6 +37,9 @@ app.use("/stylesheets", express.static(path.join(__dirname, "./public/stylesheet
 app.use("/scripts", express.static(path.join(__dirname, "./public/scripts/")));
 app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
+app.use("/favicon", express.static(path.join(__dirname, "public/favicon")));
+
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
