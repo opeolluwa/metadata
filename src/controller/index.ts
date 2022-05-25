@@ -10,11 +10,7 @@ export class AuthenticationViewsRenderer {
         res.render("pages/authentication/login", { title: "login to dashboard", layout: "./layouts/user-authentication-layout", error: {}, value: {} });
     }
     static passwordReset(req: Request, res: Response) {
-        res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm username and security answer", layout: "./layouts/user-authentication-layout" });
-    }
-
-    static setNewPassword(req: Request, res: Response) {
-        res.render("pages/authentication/set-new-password", { title: "account recovery - set new password", layout: "./layouts/user-authentication-layout" });
+        res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm email", error: { email: "" }, layout: "./layouts/user-authentication-layout" });
     }
 
 }

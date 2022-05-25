@@ -994,4 +994,65 @@ footer a#opeolluwa {
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#account .otp {
+  display: flex;
+  margin: 1.5rem;
+  column-gap: 3px;
+  justify-content: center;
+  align-items: center;
+}
+#account .otp input {
+  padding: 7.5px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid #7d7d7d;
+}
+#account .otp input:hover,
+#account .otp input:focus {
+  border-color: #4158d0;
+  outline: none;
+  border-width: 2px;
+  transition: all 300ms ease-in-out;
+}
+@media screen and (max-width: 600px) {
+  #account .otp {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+  }
+  #account .otp input {
+    max-width: 30px;
+    max-height: 30px;
+  }
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border-top: 5px solid #4158d0;
+  animation: spin 1300ms ease-in-out infinite;
+  transition: all linear 350ms;
+  margin: 1.75rem auto;
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #4158d0;
+  }
+}
+
 /*# sourceMappingURL=index.css.map */

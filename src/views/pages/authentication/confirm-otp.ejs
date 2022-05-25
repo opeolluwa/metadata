@@ -1,0 +1,129 @@
+<div id="account">
+  <div class="container">
+    <h1>Confirm OTP</h1>
+    <p class="sub-hero-text">
+      Enter the one time password sent to your email to continue
+    </p>
+    <div class="loader"></div>
+    <span class="error"><%=error %> </span>
+    <form action="/login" method="post" style="margin-top: 0">
+      <span class="error" style="text-align: center; font-size: 14px"> </span>
+      <div class="otp">
+        <input
+          type="text"
+          name=""
+          id="otp-input-1"
+          maxlength="1"
+          onkeyup="onKeyUpEvent(1, event)"
+          onfocus="onFocusEvent(1)"
+        />
+        <input
+          type="text"
+          name=""
+          id="otp-input-2"
+          maxlength="1"
+          onkeyup="onKeyUpEvent(2, event)"
+          onfocus="onFocusEvent(2)"
+        />
+        <input
+          type="text"
+          name=""
+          id="otp-input-3"
+          maxlength="1"
+          onkeyup="onKeyUpEvent(3, event)"
+          onfocus="onFocusEvent(3)"
+        />
+        <input
+          type="text"
+          name=""
+          id="otp-input-4"
+          maxlength="1"
+          onkeyup="onKeyUpEvent(4, event)"
+          onfocus="onFocusEvent(4)"
+        />
+        <input
+          type="text"
+          name=""
+          id="otp-input-5"
+          maxlength="1"
+          onkeyup="onKeyUpEvent(5, event)"
+          onfocus="onFocusEvent(5)"
+        />
+        <input
+          type="text"
+          name=""
+          id="otp-input-6"
+          maxlength="1"
+          onkeyup="onKeyUpEvent(6, event)"
+          onfocus="onFocusEvent(6)"
+        />
+      </div>
+    </form>
+    <div data-guide="login">
+      <span>
+        Didn&apos;t get an OTP? <a href="/password-reset">Request new</a>
+      </span>
+      <span> Back to <a href="/login"> login</a> </span>
+    </div>
+  </div>
+  <%- include('./../../partials/user-authentication-footer'); %>
+</div>
+
+<script>
+  //an helper function to get an element
+  function getCodeBoxElement(index) {
+    return document.getElementById("otp-input-" + index);
+  }
+
+  function onKeyUpEvent(index, event) {
+    const eventCode = event.which || event.keyCode;
+
+    //automatically focus the input field till yiu get to the last element
+    if (getCodeBoxElement(index).value.length === 1) {
+      if (index !== 6) {
+        getCodeBoxElement(index + 1).focus();
+      } else {
+        getCodeBoxElement(index).blur();
+        // get the code and submit the form
+        //disable the fields when the otp is submitted then show a loader
+
+        const allField = document.querySelectorAll("input");
+        let otp = "";
+        allField.forEach((field) => {
+          otp += field.value;
+          if (otp.length == 6) {
+            allField.forEach((elem) => {
+              elem.disabled = true;
+              elem.style.backgroundColor = "#f3f3f3";
+            });
+            document.querySelector(".loader").style.display = "block";
+          }
+        });
+        submitCode(otp);
+      }
+    }
+    if (eventCode === 8 && index !== 1) {
+      getCodeBoxElement(index - 1).focus();
+    }
+  }
+  function onFocusEvent(index) {
+    for (item = 1; item < index; item++) {
+      const currentElement = getCodeBoxElement(item);
+      if (!currentElement.value) {
+        currentElement.focus();
+        break;
+      }
+    }
+  }
+
+  async function submitCode(otp) {
+    await fetch("/confirm-otp", {
+      method: "POST",
+      cors: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ otp }),
+    });
+  }
+</script>

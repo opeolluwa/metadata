@@ -15,7 +15,10 @@ import explore from "./routes/explore"
 //session
 import sessionStore from "connect-session-sequelize";
 import session, { Session } from 'express-session';
-declare module 'express-session' { interface Session { user: User; } }
+
+//extend session definition to allow adding values to session
+type AccountRecoveryInterface = string
+declare module 'express-session' { interface Session { user: User, accountRecovery: AccountRecoveryInterface } }
 
 //global middleware
 dotenv.config();

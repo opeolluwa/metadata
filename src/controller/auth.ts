@@ -167,7 +167,10 @@ export default class AuthenticationControllers {
         const { token } = req.params;
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const { user_id, email, firstname } = decoded;
-        const user = await User.findOne({ _id: user_id });
+        // const user = await User.findOne({ _id: user_id });
+        //TODO: check why fetch by user_id is not working
+        const user = await User.findOne({ email });
+
         console.log(user_id);
         if (!user) {
             return res.render("pages/authentication/activation-failed", { title: "activation failed", layout: "./layouts/user-authentication-layout" });
@@ -193,23 +196,32 @@ export default class AuthenticationControllers {
 
     /**
      * 
-     * TODO: learn OTP logic
-     * get the user email,
-     * check if it exist
-     * if it does, send an OPT  to the email and ask user to confirm the mail
-     * if the mail is confirmed, call the next controller to set new password
+     * Get the user email from request body
+     * Check if user exists
+     * 
+     * If user exists, 
+     *      - send otp to the user email
+     *      - save the sent otp in a session
+     *      - render a view asking user to confirm the sent opt
+     * if user does not exist fire an error
      */
     static async passwordReset(req: Request, res: Response) {
         const { email } = req.body;
-        if (!email) {
-            //TODO: handle bad or invalid email
-            return res.send("invalid email")
-        }
         const user = await User.findOne({ email })
+        //fire an error if the mail is invalid 
+        //TODO: check for email validity
+        //TODO move the validation code block to validators
+        if (!email) {
+            return res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm username and security answer", error: { email: "invalid email" }, layout: "./layouts/user-authentication-layout", });
+        }
         if (!user) {
             return res.render("pages/error/reset-token", { title: "account recovery", email, layout: "./layouts/user-authentication-layout", });
         }
-        //send the reset token and exit
+        /**
+         * send the token to email
+         * add user to session
+         * render confirm token view
+         */
         const otp = otpGenerator.generate(6, { specialChars: false });
         await user.updateOne({ otp });
         ejs.renderFile(path.join(__dirname, "./../templates/reset.ejs"), {
@@ -222,6 +234,67 @@ export default class AuthenticationControllers {
             mailer({ email: user.email, subject: "Password reset token", template })
 
         });
-        return res.render("pages/success/reset-token", { title: "account recovery", layout: "./layouts/user-authentication-layout", });
+
+        //start a new session and save the user email to the session then prompt user to confirm otp
+        req.session.accountRecovery = jwt.sign({ otp, email }, process.env.JWT_SECRET, { expiresIn: "24h" })
+        return res.render("pages/authentication/confirm-otp", { title: "account recovery - confirm otp", layout: "./layouts/user-authentication-layout", error: "" });
+    }
+
+
+    /**
+     * 
+     * get the otp from the user, confirm the otp and allow user to set new password, 
+     * do all of this using a session
+     */
+    static async confirmOtp(req: Request, res: Response) {
+        const { otp } = req.body;
+        const { accountRecovery } = req.session;
+
+        //decrypt the otp and compare
+        //TODO: handle expired token and invalid token
+        const decoded = jwt.verify(accountRecovery, process.env.JWT_SECRET);
+        const { email, otp: oneTimePassword } = decoded;
+
+
+        if (otp.trim() !== oneTimePassword.trim()) {
+            return res.render("pages/authentication/confirm-otp", { title: "account recovery - confirm otp", layout: "./layouts/user-authentication-layout", error: "invalid OTP" });
+        }
+        //if no error render set new password page
+        return res.render("pages/authentication/set-new-password", { title: "account recovery - set new password", layout: "./layouts/user-authentication-layout" });
+
+    }
+
+    /**
+     * to set new password, 
+     * get the user email from session
+     * retrieve the user information
+     * destructure the new password payload, validate it, encrypt and store
+     */
+
+    static async setNewPassword(req: Request, res: Response) {
+        const { accountRecovery } = req.session;
+
+        //decrypt the email from the session
+        const decoded = jwt.verify(accountRecovery, process.env.JWT_SECRET);
+        const { email } = decoded;
+
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm username and security answer", error: { email: "an unexpected error occurred. Please restart." }, layout: "./layouts/user-authentication-layout", });
+        }
+
+        //if user
+        try {
+            //TODO: move validation to validators
+            //destructure password 
+            const { password, confirmPassword } = req.body
+            //TODO validate password
+            const salt = bcrypt.genSaltSync(10);
+            const newPassword = bcrypt.hashSync(password.trim(), salt);
+            await user.updateOne({ password: newPassword });
+        }
+        catch (error: any) {
+            console.log(error.message);
+        }
     }
 }
