@@ -225,7 +225,7 @@ export default class AuthenticationControllers {
         const otp = otpGenerator.generate(6, { specialChars: false });
         await user.updateOne({ otp });
         ejs.renderFile(path.join(__dirname, "./../templates/reset.ejs"), {
-            firstname: user.firstname, token: user.otp, BASE_URL: process.env.APP_URL
+            firstname: user.firstname, token: otp, BASE_URL: process.env.APP_URL
         }, function (err: any, template: any) {
             if (err) {
                 console.log(err);
