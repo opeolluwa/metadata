@@ -233,7 +233,7 @@ export default class AuthenticationControllers {
             }
             //send the message
             //TODO REVERt CHANGE BELOW
-            // mailer({ email: user.email, subject: "Password reset token", template })
+            mailer({ email: user.email, subject: "Password reset token", template })
 
         });
 
