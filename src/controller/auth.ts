@@ -205,7 +205,7 @@ export default class AuthenticationControllers {
      *      - render a view asking user to confirm the sent opt
      * if user does not exist fire an error
      */
-    static async passwordReset(req: Request, res: Response) {
+    static async passwordReset(req: Request, res: Response, next: NextFunction) {
         const { email } = req.body;
         const user = await User.findOne({ email })
         //fire an error if the mail is invalid 
@@ -223,6 +223,7 @@ export default class AuthenticationControllers {
          * render confirm token view
          */
         const otp = otpGenerator.generate(6, { specialChars: false });
+        console.log(otp)
         await user.updateOne({ otp });
         ejs.renderFile(path.join(__dirname, "./../templates/reset.ejs"), {
             firstname: user.firstname, token: otp, BASE_URL: process.env.APP_URL
@@ -231,13 +232,15 @@ export default class AuthenticationControllers {
                 console.log(err);
             }
             //send the message
-            mailer({ email: user.email, subject: "Password reset token", template })
+            //TODO REVERt CHANGE BELOW
+            // mailer({ email: user.email, subject: "Password reset token", template })
 
         });
 
         //start a new session and save the user email to the session then prompt user to confirm otp
         req.session.accountRecovery = jwt.sign({ otp, email }, process.env.JWT_SECRET, { expiresIn: "24h" })
         return res.render("pages/authentication/confirm-otp", { title: "account recovery - confirm otp", layout: "./layouts/user-authentication-layout", error: "" });
+        next()
     }
 
 
@@ -249,18 +252,20 @@ export default class AuthenticationControllers {
     static async confirmOtp(req: Request, res: Response) {
         const { otp } = req.body;
         const { accountRecovery } = req.session;
-
+        console.log("in confirm");
+        // return res.send({ error: false, message: "" })
         //decrypt the otp and compare
         //TODO: handle expired token and invalid token
         const decoded = jwt.verify(accountRecovery, process.env.JWT_SECRET);
-        const { email, otp: oneTimePassword } = decoded;
-
+        const { email } = decoded;
+        const user = await User.findOne({ email })
+        const oneTimePassword = await user.otp;
 
         if (otp.trim() !== oneTimePassword.trim()) {
-            return res.render("pages/authentication/confirm-otp", { title: "account recovery - confirm otp", layout: "./layouts/user-authentication-layout", error: "invalid OTP" });
+            return res.send({ error: true, message: "invalid OTP" })
         }
         //if no error render set new password page
-        return res.render("pages/authentication/set-new-password", { title: "account recovery - set new password", layout: "./layouts/user-authentication-layout" });
+        return res.send({ error: false, message: "" })
 
     }
 
@@ -273,11 +278,10 @@ export default class AuthenticationControllers {
 
     static async setNewPassword(req: Request, res: Response) {
         const { accountRecovery } = req.session;
-
         //decrypt the email from the session
         const decoded = jwt.verify(accountRecovery, process.env.JWT_SECRET);
         const { email } = decoded;
-
+        console.log("in sett new")
         const user = await User.findOne({ email });
         if (!user) {
             return res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm username and security answer", error: { email: "an unexpected error occurred. Please restart." }, layout: "./layouts/user-authentication-layout", });
@@ -287,11 +291,14 @@ export default class AuthenticationControllers {
         try {
             //TODO: move validation to validators
             //destructure password 
+            console.log(req.body)
             const { password, confirmPassword } = req.body
+            // console.log(password, confirmPassword)
             //TODO validate password
             const salt = bcrypt.genSaltSync(10);
             const newPassword = bcrypt.hashSync(password.trim(), salt);
             await user.updateOne({ password: newPassword });
+            return res.render("pages/success/account-recovery-success", { title: "account recovery - confirm username and security answer", error: { email: "an unexpected error occurred. Please restart." }, layout: "./layouts/user-authentication-layout", });
         }
         catch (error: any) {
             console.log(error.message);

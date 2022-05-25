@@ -12,6 +12,7 @@ router.get("/", GeneralPagesViewsRenderer.indexPage);
 router.get("/register", AuthenticationViewsRenderer.signUp)
 router.get("/login", AuthenticationViewsRenderer.login, UserAccountViews.dashboard)
 router.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
+router.get("/set-new-password", AuthenticationViewsRenderer.setNewPassword)
 router.get("/logout", AuthenticationControllers.logOut)
 router.get("/activate/:token", AuthenticationControllers.activate)
 router.get("/contact", GeneralPagesViewsRenderer.contact);
@@ -24,6 +25,7 @@ router.post("/login", AuthenticationControllers.login)
 router.post("/register", AuthenticationControllers.signup)
 router.post("/password-reset", AuthenticationControllers.passwordReset)
 router.post("/confirm-otp", AuthenticationControllers.confirmOtp)
+router.post("/set-new-password", AuthenticationControllers.setNewPassword)
 
 
 //register all user account route

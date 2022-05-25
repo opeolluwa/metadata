@@ -99,7 +99,19 @@
             document.querySelector(".loader").style.display = "block";
           }
         });
-        submitCode(otp);
+        submitCode(otp).then((data) => {
+          console.log("in then handler");
+          document.querySelector(".loader").style.display = "none";
+          if (data.error) {
+            document.querySelector(".error").innerText = data.message;
+            window.setTimeout(function () {
+              window.location.href="/password-reset";
+            }, 1200);
+          }
+          window.setTimeout(function () {
+            window.location.replace("/set-new-password");
+          }, 1200);
+        });
       }
     }
     if (eventCode === 8 && index !== 1) {
@@ -117,7 +129,7 @@
   }
 
   async function submitCode(otp) {
-    await fetch("/confirm-otp", {
+    const response = await fetch("/confirm-otp", {
       method: "POST",
       cors: "same-origin",
       headers: {
@@ -125,5 +137,6 @@
       },
       body: JSON.stringify({ otp }),
     });
+    return response.json();
   }
 </script>
