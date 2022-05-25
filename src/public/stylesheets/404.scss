@@ -28,6 +28,7 @@ p {
   font-size: 1.2rem;
   line-height: 24px;
   margin: 1rem 0;
+ 
   a {
     color: $grey;
     text-decoration: 1px solid dotted;
@@ -35,7 +36,7 @@ p {
 
   @media screen and (max-width: 600px) {
     font-size: 1rem;
-    margin: 1.75rem 0;
+    margin:  .65rem 0;
   }
 }
 
