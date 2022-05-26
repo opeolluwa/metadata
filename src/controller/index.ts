@@ -29,16 +29,15 @@ export class GeneralPagesViewsRenderer {
         //fetch all existing category here then destructure in into the categories
         const categories: PageInterface[] = [
             { route: "animation", anchor: "Animation" },
+            { route: "gradient", anchor: "css gradient and patterns" },
             { route: "css-code-generator", anchor: " CSS Code Generator" },
             { route: "design-inspiration", anchor: "Design Inspiration" },
             { route: "icon-libraries", anchor: "Icon libraries" },
             { route: "images", anchor: "Images" },
-            { route: "javascript-ui-libraries", anchor: "JavaScript UI libraries" },
-            { route: "svg-illustrations-shapes-and-backgrounds", anchor: "svg illustrations,shapes and backgrounds" },
-            { route: "ui-templates-and-patters", anchor: "UI templates & patterns" },
-            { route: "work-around", anchor: "collection of Frontend and backend libraries" },
-            { route: "mobile-libraries", anchor: "Mobile application builders and compliers" },
-            { route: "more", anchor: " more ..." },
+            { route: "javascript-ui-library", anchor: "JavaScript UI library" },
+            { route: "svg", anchor: "svg illustrations,shapes and backgrounds" },
+            { route: "workaround", anchor: "collection of Frontend and backend libraries" },
+            { route: "more", anchor: " more ..." }
         ]
         res.render("index", { title: "Collection of images, icons, code blocks and illustrations and morefor designers and developers ", layout: "./layouts/base-layout", categories });
     }
