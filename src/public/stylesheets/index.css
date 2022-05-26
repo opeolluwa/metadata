@@ -24,7 +24,7 @@ body {
   font-size: 1.25rem;
   line-height: 24px;
   font-weight: 400;
-  text-transform: lowercase;
+  text-transform: lowercase !important;
   font-weight: 500;
 }
 
@@ -1016,6 +1016,7 @@ footer a#opeolluwa {
   text-align: center;
   border-radius: 2px;
   border: 1px solid #7d7d7d;
+  text-transform: unset !important;
 }
 #account .otp input:hover,
 #account .otp input:focus {

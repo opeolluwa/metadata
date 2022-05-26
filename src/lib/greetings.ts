@@ -24,9 +24,7 @@ var options = {
         "Show some Monday love",
         "Another fresh start"
     ],
-    tuesday: [
-        "Hello"
-    ],
+  
     wednesday: [
         "Welcome Back"
     ],
@@ -96,7 +94,7 @@ var options = {
         "How did your day go",
         "Bonsoir"
     ],
-    midnignt: [
+    midnight: [
         "You up so late ?",
         "You should probably be in bed",
         "You should probably be in bed by now",
@@ -123,8 +121,6 @@ var options = {
         "Spread da love"
     ],
     other: [
-        "Holla!",
-        "Hello!",
         "Welcome",
         "Howdy?"
     ]
@@ -151,7 +147,7 @@ var greeting = {
                 //if evening : 4:00PM - 8:00PM
                 (hour >= 16 && hour <= 20) ? _r(options.evening) :
                     //if midnight between 1:00AM - 3:00AM
-                    (hour >= 1 && hour <= 3) ? _r(options.midnignt) : '',
+                    (hour >= 1 && hour <= 3) ? _r(options.midnight) : '',
     //SPECIAL OCCASIONS
     occasion: (new_month) ? _r(options.new_month) :
         //christmas

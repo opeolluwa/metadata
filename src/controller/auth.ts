@@ -76,7 +76,7 @@ export default class AuthenticationControllers {
 
                     //send the message
                     // console.log(template, magicLink)
-                    mailer({ email: user.email, subject: "welcome to meta data", template })
+                    mailer({ email: user.email, subject: "confirm email address", template })
 
                 });
                 //send in status report on completion
@@ -212,7 +212,7 @@ export default class AuthenticationControllers {
         //TODO: check for email validity
         //TODO move the validation code block to validators
         if (!email) {
-            return res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm username and security answer", error: { email: "invalid email" }, layout: "./layouts/user-authentication-layout", });
+            return res.render("pages/authentication/forgotten-password", { title: "account recovery - confirm email", error: { email: "invalid email" }, layout: "./layouts/user-authentication-layout", });
         }
         if (!user) {
             return res.render("pages/error/reset-token", { title: "account recovery", email, layout: "./layouts/user-authentication-layout", });
