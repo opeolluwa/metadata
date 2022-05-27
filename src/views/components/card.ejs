@@ -1,19 +1,47 @@
 <div class="card">
-  <h3><%=title %></h3>
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui commodi
-  voluptatum enim molestias repellat dolorem expedita, eveniet suscipit error
-  officiis, alias, omnis voluptatibus laborum fuga! Atque aut officia laborum
-  minus?
+  <h3
+    style="display: flex; align-items: flex-end; justify-content: space-between"
+  >
+    <%=name %>
+    <a href="<%=url  %> ">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-link"
+        style="color: grey; width: 15px"
+      >
+        <path
+          d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+        ></path>
+        <path
+          d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+        ></path></svg
+    ></a>
+  </h3>
+  <%=description %>
 
   <div class="icon-container">
     <button class="icon">
-      <img src="/icons/frown.png" width="18px" /> 3.5k
+      <img src="/icons/frown.png" width="18px" /> <%= meta.like.length >= 1000000 ?
+      (meta.like.length / 1000000).toFixed(1) + "M" : meta.like.length >= 1000 ?
+      (meta.like.length / 1000).toFixed(1) + "k" : Number(meta.like.length)  %>
     </button>
     <button class="icon">
-      <img src="/icons/thumb.png" width="18px" /> 3.5k
+      <img src="/icons/thumb.png" width="18px" /> <%= meta.like.length >= 1000000 ?
+      (meta.like.length / 1000000).toFixed(1) + "M" : meta.like.length >= 1000 ?
+      (meta.like.length / 1000).toFixed(1) + "k" : Number(meta.like.length)  %>
     </button>
     <button class="icon">
-      <img src="/icons/hearts.png" width="18px" /> 1.2k
+      <img src="/icons/hearts.png" width="18px" /> <%= meta.comment.length >= 1000000 ?
+      (meta.comment.length / 1000000).toFixed(1) + "M" : meta.comment.length >= 1000 ?
+      (meta.comment.length / 1000).toFixed(1) + "k" : Number(meta.comment.length)  %>
     </button>
   </div>
 </div>
