@@ -1,5 +1,5 @@
 import axios from "axios"
-import { uploadSnapShot } from "./upload-snapshot";
+// import { uploadSnapShot } from "./upload-snapshot";
 
 
 
@@ -11,7 +11,7 @@ export async function createSnapShot(url: string, fileName:string) {
     params: {},
   }).then(async function (response) {
     // handle success
-   uploadSnapShot(response.data, fileName)
+  //  uploadSnapShot(response.data, fileName)
     // console.log(response.data);
     
     return;
