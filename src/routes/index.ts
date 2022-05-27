@@ -1,7 +1,7 @@
 import express from "express";
-import AuthenticationControllers from "../controller/auth";
+import AuthenticationControllers from "../controller/authentication";
 import { AuthenticationViewsRenderer, GeneralPagesViewsRenderer } from "../controller/";
-import { UserAccountViews } from "./../controller/account"
+import { UserAccountViews } from "../controller/dashboard"
 import "../config/passport.config"
 import passport from "passport";
 import { AuthenticationMiddleware } from "../middleware/auth";

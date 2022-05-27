@@ -42,7 +42,13 @@
     margin-right: 2px;
   }
 
-   button {
+  img.snapshot {
+    object-fit: contain;
+    max-width: 100% !important;
+    margin: 0 !important;
+    max-height: 45%;
+  }
+  button {
     background-color: transparent;
     border: none;
     cursor: pointer;

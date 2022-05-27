@@ -10,20 +10,17 @@ const ResourceSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        lowercase: true
 
     },
     description: {
         type: String,
         required: true,
         trim: true,
-        lowercase: true,
     },
     avatarUrl: {
         type: String,
-        // required: true,
+        required: true,
         trim: true,
-        lowercase: true,
     },
     category: [],
     meta: {

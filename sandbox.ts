@@ -10,30 +10,31 @@ mongoose.connect('mongodb://localhost:27017/metadata', { useNewUrlParser: true }
 
 
 import { User } from "./src/models/User";
+import { Resource } from "./src/models/Resource";
+import { metadata } from "./src/seeders/resouce";
+import console from "console";
 
-const user = new User({
-    name: "opeolluwa",
-    email: "adefemiadeoye@mailer.com"
-})
 
 async function main() {
 
     try {
-        await user.save()
-        console.log("saved")
+        for (const data of metadata) {
+            const meta = new Resource({ ...data })
+            await meta.save()
+            console.log("saved")
+        }
     } catch (error) {
         console.log(error.message)
     }
-
-
-    try {
-        const users = await User.find({})
-        console.log(users)
-    }
-    catch (error) {
-        console.log(error.message)
-        
-    }
 }
+
+// main()
+async function find() {
+    const query = Resource.find();
+    const response = await query.$where("this.category.includes('gradient')")
+    console.log(response)
+}
+
+find()
 
 main()

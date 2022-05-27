@@ -1,6 +1,6 @@
 import express from "express";
 import { AuthenticationMiddleware } from "../middleware/auth";
-import { UserAccountViews, } from "../controller/account";
+import { UserAccountViews, } from "../controller/dashboard";
 const router = express.Router()
 
 //resister all resource route dynamically based on the router parameter

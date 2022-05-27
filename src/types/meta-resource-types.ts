@@ -24,7 +24,7 @@ export interface MetaDataInterface {
     description: string,
     avatarUrl: string,
     category: MetaDataCategory[],
-    meta: {
+    meta?: {
         like?: string[],
         comment?: CommentInterface[],
         clap?: string[]

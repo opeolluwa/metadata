@@ -22,8 +22,8 @@ export class ResourceControllers {
  * send the file to the view engine for rendering
  */
 
- export class ResourceViews {
-    static getResourceCategory(req: Request, res: Response) {
+export class ResourceViews {
+    static async getResourceCategory(req: Request, res: Response) {
         //get the resource type from the category
         const resourceCategory: string = req.params.category
         /**
@@ -32,7 +32,15 @@ export class ResourceControllers {
          * else render 404 page
          */
 
-        res.render("pages/resource", { title: resourceCategory, layout: "", content: "", category: resourceCategory.replaceAll("-", " ") });
+        /**
+         * define a query builder to fetch resource with the requested category
+         * assign the result to a @param content variable
+         * ship of the content to view engine
+         */
+        const query = Resource.find();
+        const response = await query.$where(`this.category.includes('${resourceCategory.replaceAll('-', ' ')}')`)
+        const content = response
+        res.render("pages/resource", { title: resourceCategory, layout: "", content, category: resourceCategory.replaceAll("-", " ") });
     }
 }
 

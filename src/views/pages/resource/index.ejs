@@ -35,8 +35,8 @@
 
         <div class="card-container">
           <% for(item of content) {%>
-          <% const {name, url , description, meta } = item %> 
-          <%- include("./../../components/card",{name, url , description, meta});  %> 
+          <% const {name, url , description, meta,avatarUrl } = item %> 
+          <%- include("./../../components/card",{name, url , description, meta, avatarUrl});  %> 
        <% } %> 
           </div>
       

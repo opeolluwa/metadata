@@ -391,6 +391,7 @@ footer a {
 footer a#opeolluwa {
   color: #101010;
   text-decoration: underline;
+  text-decoration-color: #7d7d7d;
 }
 
 .card-container {
@@ -433,6 +434,12 @@ footer a#opeolluwa {
 .card-container .icon img {
   display: inline-block;
   margin-right: 2px;
+}
+.card-container img.snapshot {
+  object-fit: contain;
+  max-width: 100% !important;
+  margin: 0 !important;
+  max-height: 45%;
 }
 .card-container button {
   background-color: transparent;
