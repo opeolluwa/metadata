@@ -37,10 +37,13 @@ export class ResourceViews {
          * assign the result to a @param content variable
          * ship of the content to view engine
          */
-        const query = Resource.find();
-        const response = await query.$where(`this.category.includes('${resourceCategory.replaceAll('-', ' ')}')`)
+        /*  const query = Resource.find();
+         const response = await query.$where(`this.category.includes('${resourceCategory.replaceAll('-', ' ')}')`) */
+        const response = await Resource.find({ category: {$in:[resourceCategory.replaceAll('-', ' ')]} })
         const content = response
         res.render("pages/resource", { title: resourceCategory, layout: "", content, category: resourceCategory.replaceAll("-", " ") });
+        console.log(response);
+        
     }
 }
 
