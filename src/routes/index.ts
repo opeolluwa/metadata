@@ -5,6 +5,7 @@ import { UserAccountViews } from "../controller/dashboard"
 import "../config/passport.config"
 import passport from "passport";
 import { AuthenticationMiddleware } from "../middleware/auth";
+import { ContactFormViews } from "./../controller/contact";
 const router = express.Router()
 
 //views
@@ -15,7 +16,7 @@ router.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 router.get("/set-new-password", AuthenticationViewsRenderer.setNewPassword)
 router.get("/logout", AuthenticationControllers.logOut)
 router.get("/activate/:token", AuthenticationControllers.activate)
-router.get("/contact", GeneralPagesViewsRenderer.contact);
+router.get("/contact", ContactFormViews.index);
 router.get("/privacy-policy", GeneralPagesViewsRenderer.privacyPolicy);
 router.get("/terms-of-use", GeneralPagesViewsRenderer.termsOfUse)
 router.get("/cookie-policy", GeneralPagesViewsRenderer.cookiePolicy)

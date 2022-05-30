@@ -51,6 +51,7 @@
         }
         input,
         button,
+        textarea,
         select,
         option {
           padding: 12px;
@@ -60,12 +61,15 @@
           font-size: 1rem;
           background-color: transparent;
         }
-        & input {
+        & input,
+        & textarea {
           text-align: unset;
         }
 
         & input:focus,
-        & input:hover {
+        & input:hover,
+        & textarea:hover,
+        & textarea:focus {
           outline: 1px solid transparent;
           transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
         }
@@ -191,6 +195,7 @@
           input,
           button,
           select,
+          textarea,
           option {
             padding: 10px;
             border-radius: 3px;
@@ -198,9 +203,9 @@
             width: 100%;
             font-size: 0.9rem;
           }
-          select, option{
+          select,
+          option {
             font-size: 85%;
-
           }
           input {
             text-align: unset;

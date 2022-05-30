@@ -593,6 +593,7 @@ footer a#opeolluwa {
 }
 #account .container form .form-feed input,
 #account .container form .form-feed button,
+#account .container form .form-feed textarea,
 #account .container form .form-feed select,
 #account .container form .form-feed option {
   padding: 12px;
@@ -602,10 +603,10 @@ footer a#opeolluwa {
   font-size: 1rem;
   background-color: transparent;
 }
-#account .container form .form-feed input {
+#account .container form .form-feed input, #account .container form .form-feed textarea {
   text-align: unset;
 }
-#account .container form .form-feed input:focus, #account .container form .form-feed input:hover {
+#account .container form .form-feed input:focus, #account .container form .form-feed input:hover, #account .container form .form-feed textarea:hover, #account .container form .form-feed textarea:focus {
   outline: 1px solid transparent;
   transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -718,6 +719,7 @@ footer a#opeolluwa {
   #account .container form .form-feed input,
 #account .container form .form-feed button,
 #account .container form .form-feed select,
+#account .container form .form-feed textarea,
 #account .container form .form-feed option {
     padding: 10px;
     border-radius: 3px;
@@ -725,7 +727,8 @@ footer a#opeolluwa {
     width: 100%;
     font-size: 0.9rem;
   }
-  #account .container form .form-feed select, #account .container form .form-feed option {
+  #account .container form .form-feed select,
+#account .container form .form-feed option {
     font-size: 85%;
   }
   #account .container form .form-feed input {

@@ -42,10 +42,7 @@ export class GeneralPagesViewsRenderer {
         res.render("index", { title: "Collection of images, icons, code blocks and illustrations and morefor designers and developers ", layout: "./layouts/base-layout", categories });
     }
 
-    //contact page
-    static async contact(req: Request, res: Response) {
-        res.render("contact", { title: "Contact ", layout: "./layouts/base-layout", });
-    }
+   
 
     static async termsOfUse(req: Request, res: Response) {
         res.render("terms-of-use", { title: "Legal | terms of use ", layout: "./layouts/base-layout", });

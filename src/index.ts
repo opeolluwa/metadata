@@ -12,6 +12,8 @@ import resource from "./routes/resource"
 import account from "./routes/account";
 import search from "./routes/search"
 import explore from "./routes/explore"
+import contact from "./routes/contact"
+
 //session
 import sessionStore from "connect-session-sequelize";
 import session, { Session } from 'express-session';
@@ -78,6 +80,7 @@ mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true }, (err: stri
 app.use(router)
 app.use("/r", resource)
 app.use("/u/", account)
+app.use("/contact", contact)
 app.use("/search", search)
 app.use("/explore", explore)
 
