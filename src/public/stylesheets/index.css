@@ -28,6 +28,10 @@ body {
   font-weight: 500;
 }
 
+.sub-hero-text::first-letter {
+  text-transform: capitalize;
+}
+
 .d-block {
   display: block;
 }
@@ -1072,6 +1076,9 @@ footer a#opeolluwa {
   }
 }
 
+.legal {
+  line-height: 32px;
+}
 .legal h1 {
   line-height: 36px;
   font-size: 1.75rem;

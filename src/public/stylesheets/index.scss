@@ -32,6 +32,9 @@ body {
   text-transform: lowercase !important;
   font-weight: 500;
 }
+.sub-hero-text::first-letter {
+  text-transform: capitalize;
+}
 .d-block {
   display: block;
 }
