@@ -13,6 +13,7 @@
     -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
     -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
     line-height: 30px;
+    position: relative;
   }
 
   h3 {
@@ -27,19 +28,28 @@
     display: flex;
     align-items: center;
     margin-top: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    
   }
   .icon {
     color: $grey;
     display: flex;
     align-items: center;
+
     margin-right: 10.5px;
     font-size: 17px;
-    justify-content: space-between;
+    border: 1px solid rgba(202, 193, 193, 0.3);
+    min-width:30%;
+    padding: 3px;
+    border-radius: 5px;
+ 
   }
 
   .icon img {
     display: inline-block;
     margin-right: 2px;
+    
   }
 
   img.snapshot {

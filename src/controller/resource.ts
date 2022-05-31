@@ -39,10 +39,10 @@ export class ResourceViews {
          */
         /*  const query = Resource.find();
          const response = await query.$where(`this.category.includes('${resourceCategory.replaceAll('-', ' ')}')`) */
-        const response = await Resource.find({ category: {$in:[resourceCategory.replaceAll('-', ' ')]} })
+        const response = await Resource.find({ category: {$in:[resourceCategory.replaceAll('-', ' ').toLowerCase()]} })
         const content = response
         res.render("pages/resource", { title: resourceCategory, layout: "", content, category: resourceCategory.replaceAll("-", " ") });
-        console.log(response);
+        // console.log(response);
         
     }
 }

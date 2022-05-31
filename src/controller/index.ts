@@ -33,8 +33,8 @@ export class GeneralPagesViewsRenderer {
             { route: "css-code-generator", anchor: " CSS Code Generator" },
             { route: "design-inspiration", anchor: "Design Inspiration" },
             { route: "icon-libraries", anchor: "Icon libraries" },
-            { route: "images", anchor: "Images" },
-            { route: "javascript-ui-library", anchor: "JavaScript UI library" },
+            { route: "image", anchor: "Images" },
+            { route: "javascript-ui-libraries", anchor: "JavaScript UI library" },
             { route: "svg", anchor: "svg illustrations,shapes and backgrounds" },
             { route: "workaround", anchor: "collection of Frontend and backend libraries" },
             { route: "more", anchor: " more ..." }

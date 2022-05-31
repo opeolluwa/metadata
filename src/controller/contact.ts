@@ -17,7 +17,9 @@ export class ContactFormController {
             if (err) {
                 console.log(err);
             }
-            mailer({ email: process.env.SMTP_USERNAME, subject: "New Message from Meta User", template })
+            mailer({ email: process.env.SMTP_USER, subject: "New Message from Meta User", template })
+            //TODO: add success message
+            res.redirect("/")
         });
 
     }

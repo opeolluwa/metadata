@@ -410,6 +410,7 @@ footer a#opeolluwa {
   -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
   -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
   line-height: 30px;
+  position: relative;
 }
 .card-container h3 {
   line-height: 32px;
@@ -422,6 +423,8 @@ footer a#opeolluwa {
   display: flex;
   align-items: center;
   margin-top: 1rem;
+  position: absolute;
+  bottom: 1rem;
 }
 .card-container .icon {
   color: #7d7d7d;
@@ -429,7 +432,10 @@ footer a#opeolluwa {
   align-items: center;
   margin-right: 10.5px;
   font-size: 17px;
-  justify-content: space-between;
+  border: 1px solid rgba(202, 193, 193, 0.3);
+  min-width: 30%;
+  padding: 3px;
+  border-radius: 5px;
 }
 .card-container .icon img {
   display: inline-block;
