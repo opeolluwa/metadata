@@ -18,8 +18,9 @@ export class ContactFormController {
                 console.log(err);
             }
             mailer({ email: process.env.SMTP_USER, subject: "New Message from Meta User", template })
-            //TODO: add success message
-            res.redirect("/")
+            res.render("pages/success/contact-form-success", { layout: "./layouts/base-layout", firstname: req.body.firstname, title: "Message successfully sent" })
+
+
         });
 
     }
