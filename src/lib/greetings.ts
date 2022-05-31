@@ -118,7 +118,7 @@ var options = {
     ],
     //TODO: boxing_day: [],
     valentine: [
-        "Spread da love"
+        "Happy Valentine's day"
     ],
     other: [
         "Welcome",
