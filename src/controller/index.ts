@@ -39,6 +39,7 @@ export class GeneralPagesViewsRenderer {
             { route: "workaround", anchor: "collection of Frontend and backend libraries" },
             { route: "more", anchor: " more ..." }
         ]
+        
         res.render("index", { title: "Collection of images, icons, code blocks and illustrations and morefor designers and developers ", layout: "./layouts/base-layout", categories });
     }
 
