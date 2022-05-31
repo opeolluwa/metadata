@@ -1072,4 +1072,22 @@ footer a#opeolluwa {
   }
 }
 
+.legal h1 {
+  line-height: 36px;
+  font-size: 1.75rem;
+  margin: 2.5rem 0 1.5rem;
+}
+.legal h1:first-child {
+  margin-top: unset;
+}
+.legal h2 {
+  font-size: 1.5rem;
+  line-height: 32px;
+  margin-top: 1.75rem;
+}
+.legal p {
+  line-height: 30px;
+  font-size: 1rem;
+}
+
 /*# sourceMappingURL=index.css.map */

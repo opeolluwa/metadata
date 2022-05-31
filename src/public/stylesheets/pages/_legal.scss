@@ -1,0 +1,21 @@
+//for privacy and legal policy
+.legal {
+  h1 {
+    line-height: 36px;
+    font-size: 1.75rem;
+    margin: 2.5rem 0 1.5rem;
+  }
+
+  h1:first-child {
+    margin-top: unset;
+  }
+  h2 {
+    font-size: 1.5rem;
+    line-height: 32px;
+    margin-top: 1.75rem;
+  }
+  p {
+    line-height: 30px;
+    font-size: 1rem;
+  }
+}
