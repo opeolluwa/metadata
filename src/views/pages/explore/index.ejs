@@ -26,11 +26,11 @@
     </header>
     <main>
       <div class="card-container">
-        <%- include("./../../components/card",{title:"a card"});  %> 
-        <%- include("./../../components/card",{title:"a card"});  %> 
-        <%- include("./../../components/card",{title:"a card"});  %> 
-        <%- include("./../../components/card",{title:"a card"});  %> 
-      </div>
+        <% for(item of content) {%>
+        <% const {name, url , description, meta,avatarUrl } = item %> 
+        <%- include("./../../components/card",{name, url , description, meta, avatarUrl});  %> 
+     <% } %> 
+        </div>
     </main>
 
     <footer><%- include("./../../partials/footer");%></footer>

@@ -2,7 +2,7 @@ header {
   display: grid;
   grid-template-rows: 10px auto auto;
   padding: 0 !important;
-  min-height: calc(97vh - 5rem);
+  min-height: calc(100vh - 5rem);
   align-content: space-between;
   @include gradient;
   color: $white;

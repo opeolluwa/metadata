@@ -9,15 +9,15 @@ document.querySelector("#legal-dropdown").addEventListener("click", function () 
 });
 
 //hide dropdown on click outside
-window.addEventListener("click", function (event) {
-    if (!event.target.matches(".with-dropdown")) {
-        var dropdowns = document.getElementsByClassName("dropdown-menu");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains("show")) {
-                openDropdown.classList.remove("show");
-            }
-        }
-    }
-})
+// window.addEventListener("click", function (event) {
+//     if (!event.target.matches(".with-dropdown")) {
+//         var dropdowns = document.getElementsByClassName("dropdown-menu");
+//         var i;
+//         for (i = 0; i < dropdowns.length; i++) {
+//             var openDropdown = dropdowns[i];
+//             if (openDropdown.classList.contains("show")) {
+//                 openDropdown.classList.remove("show");
+//             }
+//         }
+//     }
+// })

@@ -19,6 +19,7 @@ nav {
     justify-content: space-between;
     li {
       margin: 0 $spacing;
+      cursor: pointer;
     }
   }
   a,
@@ -36,6 +37,35 @@ nav {
     display: flex;
     align-items: center;
     column-gap: 3px;
+    position: relative;
+  }
+
+  .dropdown-menu * {
+    display: block;
+    margin: 0.3rem;
+    left: 0.5rem;
+    a {
+      color: $black;
+      font-size: 13px;
+    }
+  }
+
+  .dropdown-menu a:hover,
+  .dropdown-menu a:focus,
+  .dropdown-menu a:active {
+    color: $blue;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    background-color: $white;
+    z-index: 1200;
+    min-height: 4.2rem;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
   }
 }
 
@@ -66,30 +96,34 @@ nav {
       top: 2rem;
       left: 0;
       width: 100%;
-      background-color: inherit;
+      background-color: $white;
       transition: 0.5s;
       margin-top: 1rem;
       border-top: 2px solid transparent;
       width: 100%;
       padding: inherit;
       border-bottom: 2px solid $pink;
-      border-radius: 0 0 7px 7px;
-      @include box-shadow;
+      border-radius: 0 0 3px 3px;
+      box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+      -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+      -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+      border-bottom: 1px solid $grey;
       border-image: linear-gradient(
         43deg,
         #4158d0 0%,
         #c850c0 46%,
         #ffcc70 100%
       );
-      background-color: inherit !important;
+      background-color: $white !important;
       z-index: 1200;
       & * {
-        color: inherit !important;
+        color: $black !important;
       }
       li {
         margin: 0.75rem 0;
         transition: 0.5s;
         color: $black;
+        cursor: pointer;
       }
       & a {
         color: inherit !important;
@@ -117,4 +151,15 @@ nav {
 
 .overlay {
   background-image: none;
+}
+
+.active {
+  display: block;
+}
+
+
+
+.dropdown-menu{
+  display: none;
+  transition: ease 650ms;
 }

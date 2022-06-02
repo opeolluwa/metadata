@@ -103,16 +103,48 @@ nav ul {
 }
 nav ul li {
   margin: 0 7.5px;
+  cursor: pointer;
 }
 nav a,
 nav a:hover,
 nav a:visited,
 nav a:link {
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 400;
   padding: 0;
   border: none;
   color: inherit;
+}
+nav .with-dropdown {
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+  position: relative;
+}
+nav .dropdown-menu * {
+  display: block;
+  margin: 0.3rem;
+  left: 0.5rem;
+}
+nav .dropdown-menu * a {
+  color: #101010;
+  font-size: 13px;
+}
+nav .dropdown-menu a:hover,
+nav .dropdown-menu a:focus,
+nav .dropdown-menu a:active {
+  color: #4158d0;
+}
+nav .dropdown-menu {
+  position: absolute;
+  background-color: #f2f2f2;
+  z-index: 1200;
+  min-height: 4.2rem;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
 }
 
 @media screen and (max-width: 600px) {
@@ -143,28 +175,30 @@ nav a:link {
     top: 2rem;
     left: 0;
     width: 100%;
-    background-color: inherit;
+    background-color: #f2f2f2;
     transition: 0.5s;
     margin-top: 1rem;
     border-top: 2px solid transparent;
     width: 100%;
     padding: inherit;
     border-bottom: 2px solid #c850c0;
-    border-radius: 0 0 7px 7px;
-    box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-    -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-    -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+    border-radius: 0 0 3px 3px;
+    box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    border-bottom: 1px solid #7d7d7d;
     border-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
-    background-color: inherit !important;
+    background-color: #f2f2f2 !important;
     z-index: 1200;
   }
   nav ul.d-desktop-flex * {
-    color: inherit !important;
+    color: #101010 !important;
   }
   nav ul.d-desktop-flex li {
     margin: 0.75rem 0;
     transition: 0.5s;
     color: #101010;
+    cursor: pointer;
   }
   nav ul.d-desktop-flex a {
     color: inherit !important;
@@ -191,11 +225,20 @@ nav a:link {
   background-image: none;
 }
 
+.active {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  transition: ease 650ms;
+}
+
 header {
   display: grid;
   grid-template-rows: 10px auto auto;
   padding: 0 !important;
-  min-height: calc(97vh - 5rem);
+  min-height: calc(100vh - 5rem);
   align-content: space-between;
   background-color: #4158d0;
   background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
@@ -1095,6 +1138,14 @@ footer a#opeolluwa {
 .legal p {
   line-height: 30px;
   font-size: 1rem;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */

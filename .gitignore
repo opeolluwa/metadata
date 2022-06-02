@@ -153,3 +153,6 @@ index.html
 database/meta-data.sqlite
 dist/public/scripts/src
 src/database/database.sqlite
+src/public/scripts/lib/vue-router.js
+src/public/scripts/lib/vue.js
+src/public/scripts/lib/vuetify.js
