@@ -26,10 +26,16 @@ nav {
   a:visited,
   a:link {
     text-decoration: none;
-    font-weight: 300;
+    font-weight: 400;
     padding: 0;
     border: none;
     color: inherit;
+  }
+
+  .with-dropdown {
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
   }
 }
 
