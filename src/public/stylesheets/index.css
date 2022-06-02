@@ -1048,6 +1048,15 @@ footer a#opeolluwa {
   padding: 0.75rem 0.25rem;
 }
 
+.password-input {
+  display: flex !important;
+  align-items: center;
+}
+.password-input i {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
 #resource-content main {
   padding: 1.5rem 1rem;
 }

@@ -27,5 +27,14 @@
   @include box-shadow;
   border-radius: 5px;
   margin: 0 1.2rem;
-  padding: .75rem 0.25rem;
+  padding: 0.75rem 0.25rem;
+}
+
+.password-input {
+  display: flex !important;
+  align-items: center;
+  i {
+    margin-left: -30px;
+    cursor: pointer;
+  }
 }
