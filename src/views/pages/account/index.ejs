@@ -1,1 +1,93 @@
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis ut ipsa itaque, reiciendis nam sit, nobis quaerat aliquid culpa repudiandae, dolor veniam eligendi cumque tempora neque cum facere praesentium eveniet.
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- title %></title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@100;200;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./../stylesheets/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+    <link href="./../stylesheets/vuetify.min.css" rel="stylesheet" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+  </head>
+  <body id="">
+    <div id="user-account">
+      <user-account-navigation></user-account-navigation>
+      <v-app>
+        <v-main>
+          <v-container>
+            <router-view></router-view>
+          </v-container>
+        </v-main>
+      </v-app>
+      <user-account-sidebar></user-account-sidebar>
+    </div>
+
+    <script>
+      //get the navigation element
+      const navigationDrawer = document.querySelector("#user-account nav");
+      const navDrawerButton = document.querySelector("main .header");
+      function openNav() {
+        navigationDrawer.style.width = "100%";
+      }
+      function closeNav() {
+        navigationDrawer.style.width = "0";
+      }
+    </script>
+
+    <!-- vue and vuetify  production-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.x/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+    <script src="./../scripts/lib/vue.js"></script>
+    <script src="./../scripts/lib/vue-router.js"></script>
+    <script src="./../scripts/lib/vuetify.js"></script>
+
+    <script src="./../scripts/components/sidebar.js"></script>
+    <script src="./../scripts/components/navigation.js"></script>
+    <script src="./../scripts/app.js"></script>
+  </body>
+</html>

@@ -11,7 +11,7 @@ const router = express.Router()
 //views
 router.get("/", GeneralPagesViewsRenderer.indexPage);
 router.get("/register", AuthenticationViewsRenderer.signUp)
-router.get("/login", AuthenticationViewsRenderer.login, UserAccountViews.dashboard)
+router.get("/login", AuthenticationViewsRenderer.login, UserAccountViews.render)
 router.get("/password-reset", AuthenticationViewsRenderer.passwordReset)
 router.get("/set-new-password", AuthenticationViewsRenderer.setNewPassword)
 router.get("/logout", AuthenticationControllers.logOut)
@@ -30,5 +30,5 @@ router.post("/set-new-password", AuthenticationControllers.setNewPassword)
 
 
 //register all user account route
-router.get("/dashboard", AuthenticationMiddleware.confirm, UserAccountViews.dashboard)
+router.get("/dashboard", AuthenticationMiddleware.confirm, UserAccountViews.render)
 export default router;
