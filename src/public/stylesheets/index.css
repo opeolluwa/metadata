@@ -1055,11 +1055,11 @@ footer a#opeolluwa {
   cursor: pointer;
 }
 
-#resource-content main {
+#resource-content main, #explore main {
   padding: 1.5rem 1rem;
 }
 @media screen and (max-width: 600px) {
-  #resource-content main {
+  #resource-content main, #explore main {
     margin: 2rem 0;
   }
 }
