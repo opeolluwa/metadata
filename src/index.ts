@@ -39,18 +39,25 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ extended: true }));
+
+//multi page assets static files
 app.use("/stylesheets", express.static(path.join(__dirname, "./public/stylesheets")));
 app.use("/scripts", express.static(path.join(__dirname, "./public/scripts/")));
 app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use("/favicon", express.static(path.join(__dirname, "public/favicon")));
 
+//pwa static files
+app.use("/css", express.static(path.join(__dirname, "./views/pages/account/css")));
+app.use("/js", express.static(path.join(__dirname, "./views/pages/account/js")));
+app.use("/img", express.static(path.join(__dirname, "./views/pages/account/img")));
 
-
+//view engine config
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
 app.set("layout", path.join(__dirname, "views", "layouts", "base-layout"));
 app.set("/templates", path.join(__dirname, "templates"))
+app.use(express.static(path.join(__dirname, "./views/*")));
 
 //session initialization
 app.use(session({
@@ -63,7 +70,7 @@ app.use(session({
 //session synchronization
 store.sync();
 
-
+//mongo db connection
 mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true }, (err: string) => {
     if (!err) {
         console.log('Successfully Established Connection with MongoDB')
