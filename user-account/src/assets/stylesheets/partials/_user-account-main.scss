@@ -1,0 +1,54 @@
+main {
+  padding: $desktop-view-padding;
+  grid-column: 3 /10;
+  .header {
+    display: none;
+  }
+
+  h4 + span {
+    display: block;
+    margin-bottom: 2rem;
+    font-size: 85%;
+  }
+
+  // .with-box-shadow {
+  //   @include box-shadow;
+  // }
+  section {
+    margin-top: 2rem;
+    &.with-shadow {
+      // @include box-shadow;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 0;
+    margin: 0;
+    .header {
+      display: flex;
+      min-height: 50px;
+      align-items: center;
+      // @include gradient;
+      color: $white;
+      justify-content: space-between;
+      a {
+        @include anchor-regular;
+      }
+      svg {
+        cursor: pointer;
+      }
+    }
+
+    & > * {
+      padding: 0 1rem;
+    }
+
+    h4 {
+      margin-top: 2.27rem;
+    }
+
+    section {
+      border-radius: 5px;
+    }
+  }
+}
