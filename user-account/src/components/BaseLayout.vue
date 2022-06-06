@@ -1,68 +1,18 @@
 <template>
-  <div fluid id="app" pad-less class="p-0 m-0 ma-0">
-    <nav>nav</nav>
-    <main><slot></slot></main>
+  <div id="app" class="p-0 m-0 ma-0">
+    <app-navigation></app-navigation>
+    <main ><slot></slot></main>
     <aside>aside</aside>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import AppNavigation from "./AppNavigation.vue";
 
 export default Vue.extend({
-  name: "HelloWorld",
-
-  data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader",
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify",
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify",
-      },
-    ],
-    importantLinks: [
-      {
-        text: "Documentation",
-        href: "https://vuetifyjs.com",
-      },
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com",
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify",
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs",
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify",
-      },
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com/components/api-explorer",
-      },
-      {
-        text: "Select a layout",
-        href: "https://vuetifyjs.com/getting-started/pre-made-layouts",
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions",
-      },
-    ],
-  }),
+  components: { AppNavigation },
+  name: "BaseLayout",
+  data: () => ({}),
 });
 </script>

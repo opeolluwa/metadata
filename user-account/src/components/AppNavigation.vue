@@ -1,5 +1,16 @@
 <template>
   <nav id="app-navigation">
+    <div class="user-image-and-name">
+      <v-avatar color="indigo">
+        <v-icon dark> mdi-account-circle </v-icon>
+      </v-avatar>
+
+      <div class="name">
+        <span class="user-name-surname">Opeoluwa</span>
+        <span class="user-email">Opeoluwa</span>
+      </div>
+    </div>
+
     <ul>
       <li v-for="link in links" :key="link.title">
         <nav-item
@@ -10,6 +21,10 @@
         ></nav-item>
       </li>
     </ul>
+
+    <a href="/logout" class="logout-button">
+      <v-icon right color="#fff">mdi-logout</v-icon> logout</a
+    >
   </nav>
 </template>
 
