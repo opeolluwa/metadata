@@ -37,20 +37,22 @@ export default Vue.extend({
   components: { NavItem },
   data: () => ({
     links: [
-      { icon: "mdi-home-variant-outline", title: "home", component: "home" },
+      { icon: "mdi-home-variant-outline", title: "home", route: "home" },
       {
         icon: "mdi-account-circle-outline",
         title: "profile",
-        component: "profile",
+        route: "profile",
       },
-      { icon: "mdi-post", title: "activities", component: "activities" },
+      { icon: "mdi-post", title: "activities", route: "activities" },
       {
         icon: "mdi-bookmark-outline",
         title: "bookmark",
-        component: "bookmark",
+        route: "bookmark",
       },
-      { icon: "mdi-security", title: "security", component: "security" },
-      { icon: "mdi-cog-outline", title: "settings", component: "settings" },
+      { icon: "mdi-security", title: "security", route: "security" },
+      { icon: "mdi-cog-outline", title: "settings", route: "settings" },
+      { icon: "mdi-step-forward", title: "invite friend", route: "" },
+
     ],
   }),
 });

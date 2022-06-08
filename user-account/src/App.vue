@@ -1,9 +1,7 @@
 <template>
   <v-app id="inspire">
     <base-layout>
-      <v-main>
-        <router-view></router-view>
-      </v-main>
+      <router-view></router-view>
     </base-layout>
   </v-app>
 </template>

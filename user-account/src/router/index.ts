@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/HomeView.vue'
+const Activities = () => import('../views/ActivitiesView.vue')
+const Bookmark = () => import('../views/BookmarkView.vue')
+const Profile = () => import('../views/ProfileView.vue')
+const Security = () => import('../views/SecurityView.vue')
+const Settings = () => import('../views/SettingsView.vue')
+
 
 Vue.use(VueRouter)
 
@@ -8,16 +14,38 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/activities',
+    name: 'activities',
+    component: Activities
+  },
+  {
+    path: '/bookmark',
+    name: 'bookmark',
+    component: Bookmark
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile
+  },
+
+  {
+    path: '/security',
+    name: 'security',
+    component: Security
+  },
+
+  {
+    path: '/settings',
+    name: 'settings',
+    component: Settings
+  },
+
+
+
 ]
 
 const router = new VueRouter({
