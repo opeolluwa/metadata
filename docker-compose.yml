@@ -1,0 +1,20 @@
+version:  "3"
+services: 
+  web: 
+    image:  meta-data
+    ports: 
+      - "3082:3802"
+    environment: 
+      PORT: 3802
+      NODE_ENV:  production
+      APP_URL: 
+      SESSION_SECRET: 
+      JWT_SECRET: 
+      SMTP_USER: 
+      SMTP_PASSWORD:
+      DATABASE_URI:
+      MONGOD: 
+      FILE_SERVER_PUBLIC_KEY:
+      FILE_SERVER_PRIVATE_KEY: 
+      FILE_SERVER_END_POINT: 
+      SNAPSHOT_BASE_URL: 

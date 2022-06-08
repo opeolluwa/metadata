@@ -17,5 +17,5 @@ COPY . .
 
 # build the application
 RUN npm run build
-EXPOSE 8080
-CMD [ "npm", "dist/index.js" ]
+EXPOSE 3082
+CMD  npm start
