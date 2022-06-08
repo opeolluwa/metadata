@@ -11,6 +11,7 @@
               type="search"
               placeholder="search here"
               @keyup.enter="search"
+              append-icon="mdi-magnify"
             ></v-text-field>
           </v-col>
         </v-row>
