@@ -1,6 +1,6 @@
 <template>
   <aside>
-    <v-form>
+    <v-form @submit.prevent="searchFiles">
       <v-container>
         <v-row>
           <v-col cols="12" sm="12" md="12" lg="12" xl="12">
@@ -59,6 +59,12 @@ export default {
     ],
     search: "",
   }),
+
+  methods: {
+    async searchFiles() {
+      console.log(this.search);
+    },
+  },
 };
 </script>
 
