@@ -51,7 +51,7 @@ export default Vue.extend({
       },
       { icon: "mdi-security", title: "security", route: "security" },
       { icon: "mdi-cog-outline", title: "settings", route: "settings" },
-      { icon: "mdi-share", title: "invite friend", route: "" },
+      { icon: "mdi-share-variant", title: "invite friend", route: "" },
 
     ],
   }),
