@@ -149,7 +149,6 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node
 sandbox.twig
 sandbox.scss
-index.html
 database/meta-data.sqlite
 dist/public/scripts/src
 src/database/database.sqlite
