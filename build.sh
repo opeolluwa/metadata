@@ -7,8 +7,6 @@ npm install
 echo "building user-account"
 npm run build
 cd ..
-echo "building user-account"
-npm run build-pwa
 echo "building user-account done"
 echo "building sass"
 npm run build-sass 
