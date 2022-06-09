@@ -8,7 +8,7 @@
     "build-pwa": "cd user-account && npm run build && cd ..",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
     "deploy": "bash deploy.sh",
-    "start": "npm run serve",
+    "start": "ts-node src/index.ts",
     "watch-node": "nodemon src/index.ts",
     "watch-sass": "sass --watch src/public/stylesheets/index.scss src/public/stylesheets/index.css",
     "watch-404": "sass --watch src/public/stylesheets/404.scss src/public/stylesheets/404.css",
