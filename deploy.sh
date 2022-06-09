@@ -40,7 +40,7 @@ echo -e "\e[0;34mdeploy :: ----------------> In Root Directory ...\e[0m"
 #add the changes to commit 
 echo -e "\e[0;34mdeploy :: ----------------> Adding Changes to Git Commit\e[0m"
 git add .
-git commit -m "CHORE -> added pwa static files to the app directory\e[0m"
+git commit -m "CHORE -> added pwa static files to the app directory"
 git push 
 echo -e "\e[0;34mdeploy :: ----------------> Changes successfully pushed to repository\nDeploying application\e[0m"
 git push heroku master
