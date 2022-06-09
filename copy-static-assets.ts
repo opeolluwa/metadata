@@ -1,7 +1,5 @@
 
 import * as shell from "shelljs";
-//copy user account UI to dist directory
-shell.cp("-R", "./account", "dist/views/pages/");
 
 //copy views directory content to dist directory
 shell.cp("-R", "src/public/icons", "dist/public/");
