@@ -8,7 +8,7 @@ echo "in user account ..."
 echo "installing devdepdencies"
 npm install
 echo "building user-account"
-npx vue-cli-service build
+npx @vue-cli-service build
 cd ..
 echo "in root directory ..."
 
