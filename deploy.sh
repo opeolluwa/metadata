@@ -16,7 +16,7 @@ echo -e "\e[0;34mdeploy :: ----------------> In User Progressive Web App Directo
 echo -e "\e[0;34mdeploy :: ----------------> Installing Devdepdencies Fro Progressive Web App\n\e[0m"
 
 #update dev dependencies and dependencies
-npm install
+#npm install
 echo -e "\e[0;34mdeploy :: ----------------> Dependencies successfully Installed\n\e[0m"
 echo -e "\e[0;34mdeploy :: ----------------> Building Static Files\n\e[0m"
 
