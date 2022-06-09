@@ -1,34 +1,39 @@
 #!/bin/bash
-# to build the application,
-# enter the user account dir
-# install dependencies 
-# exit when the dependencies are installed
+
+#check for un commited changes
+set -e
+  echo -n "Checking if there are uncommited changes..."
+  trap 'echo -e "\033[0;31mCHANGED\033[0m"' ERR
+  git diff-index --quiet HEAD --
+  trap - ERR
+  echo -e "\033[0;32m You Have uncommited changes, Commit them to proceed \033[0m"
+  exit 0;
 
 #enter the user account directory
-echo "preparing to deploy"
+echo -e "\e[0;33m Preparing To Deploy"
 cd pwa
-echo "in user progressive web app directory ..."
-echo "installing devdepdencies fro progressive web app"
+echo -e "\e[0;33m In User Progressive Web App Directory ..."
+echo -e "\e[0;33m Installing Devdepdencies Fro Progressive Web App"
 
 #update dev dependencies and dependencies
 npm install
-echo "dependenciessuccessfull installed"
+echo -e "\e[0;33m Dependencies successfully Installed"
 echo "building static files"
 
 #build static files
 npm run build
-echo "static files successfully built"
+echo -e "\e[0;33m Static Files Successfully Built"
 
 #create a folder @param {account} in the src/views/pages 
 #the folder will contain to the built static files
 # once the folder has been created, copy the files recursively [(-r) means recursive]
-echo "copying PWA static files to app directory"
+echo -e "\e[0;33m Copying Pwa Static Files to App Directory"
 mkdir ./../src/views/pages/account
 cp -r ./pwa/* ./../src/views/pages/account
 
-echo "static files copied to app directory"
-echo "in root directory ..."
+echo -e "\e[0;33m Static Files Copied to App Directory"
+echo -e "\e[0;33m In Root Directory ..."
 
 #exit the pwa direcory
-echo "adding changes to git commit"
+echo -e "\e[0;33m Adding Changes to Git Commit"
 git add .
