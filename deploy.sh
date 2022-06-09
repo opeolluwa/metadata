@@ -4,10 +4,10 @@
 
 
 if [ -n "$(git status --porcelain)" ]; then
-    echo -e "\e[0;31m BUILD FAILED!\e[0m\n\nYou Have uncommited changes.\n Commit them to proceed\e[0m";
+    echo -e "\e[0;31m BUILD FAILED!\e[0m\n\nYou Have uncommited changes.\n Commit them to proceed\e[0;m";
     exit 0;
 else
-  echo -e "\e[0;34mdeploy :: ----------------> No Changes found \e[0m";
+  echo -e "\e[0;34mdeploy :: ----------------> No Changes found \e[0;m";
 
 #enter the user account directory
 echo -e "\e[0;34mdeploy :: ----------------> Preparing To Deploy\e[0m"
