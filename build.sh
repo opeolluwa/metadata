@@ -1,10 +1,7 @@
 #!/bin/bash
-echo "preparing to deploy"
-cd user-account
 echo "building user-account"
-npm run build
-cd ..
-echo "build user-account done"
+npm run build-pwa
+echo "building user-account done"
 echo "building sass"
 npm run build-sass 
 echo "building sass done"

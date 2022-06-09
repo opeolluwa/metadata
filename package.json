@@ -2,10 +2,10 @@
   "version": "1.5.0",
   "description": "A collection of web games ",
   "scripts": {
-    "heroku-prebuild": "echo This runs before Heroku installs dependencies.",
+    "heroku-prebuild": "bash prebuild.sh",
     "build-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
     "build-ts": "tsc",
-    "build": "npm run build-sass && npm run build-ts && npm run copy-static-assets",
+    "build": "bash build.sh",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
     "deploy": "git push heroku master",
     "serve": "node dist/index.js",
