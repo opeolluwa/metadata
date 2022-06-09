@@ -159,7 +159,7 @@ src/public/scripts/lib/vuetify.js
 user-account/node_modules
 user-account/account
 account
-src/views/pages/account
 mdi.js
 sample.txt
 pwa/node_modules
+pwa/pwa
