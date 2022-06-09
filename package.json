@@ -1,11 +1,11 @@
 {
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "A collection of web games ",
   "scripts": {
+    "heroku-prebuild": "echo This runs before Heroku installs dependencies.",
     "build-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
     "build-ts": "tsc",
-    "build-pwa":"cd user-account && npm run build && cd ..",
-    "build": "npm run build-sass && npm run build-pwa && npm run build-ts && npm run copy-static-assets",
+    "build": "npm run build-sass && npm run build-ts && npm run copy-static-assets",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
     "deploy": "git push heroku master",
     "serve": "node dist/index.js",
@@ -72,7 +72,7 @@
     "typescript": "^4.6.3"
   },
   "engines": {
-    "node": "18.0.0"
+    "node": "16"
   },
   "name": "meta-data",
   "main": "index.js",
