@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #check for un commited changes
-set -e
-  echo -n "Checking if there are uncommited changes..."
-  trap 'echo -e "\033[0;31mCHANGED\033[0m"' ERR
-  git diff-index --quiet HEAD --
-  trap - ERR
-  echo -e "\033[0;32m You Have uncommited changes, Commit them to proceed \033[0m"
-  exit 0;
+
+
+if [ -n "$(git status --porcelain)" ]; then
+    echo -e "\e[0;31m BUILD FAILED!\n\n\e[0;33m You Have uncommited changes, \n Commit them to proceed";
+    exit 0;
+else
+  echo -e "\e[1;32m No Changes found ";
 
 #enter the user account directory
 echo -e "\e[0;33m Preparing To Deploy"
@@ -37,3 +37,4 @@ echo -e "\e[0;33m In Root Directory ..."
 #exit the pwa direcory
 echo -e "\e[0;33m Adding Changes to Git Commit"
 git add .
+fi
