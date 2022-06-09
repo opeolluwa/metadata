@@ -1,1 +1,0 @@
-npm install twing typeorm express dotenv 

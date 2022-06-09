@@ -156,9 +156,6 @@ src/database/database.sqlite
 src/public/scripts/lib/vue-router.js
 src/public/scripts/lib/vue.js
 src/public/scripts/lib/vuetify.js
-user-account/node_modules
-user-account/account
-account
 mdi.js
 sample.txt
 pwa/node_modules

@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkuser_account"]=self["webpackChunkuser_account"]||[]).push([[983],{6983:function(n,e,u){u.r(e),u.d(e,{default:function(){return h}});var t=function(){var n=this,e=n.$createElement,u=n._self._c||e;return u("v-container")},r=[],c={name:"ProfileView"},l=c,a=u(1001),s=u(3453),i=u.n(s),o=u(247),f=(0,a.Z)(l,t,r,!1,null,null,null),h=f.exports;i()(f,{VContainer:o.Z})}}]);
+//# sourceMappingURL=983.bcd76996.js.map

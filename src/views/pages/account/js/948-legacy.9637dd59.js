@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkuser_account"]=self["webpackChunkuser_account"]||[]).push([[948],{6948:function(n,e,u){u.r(e),u.d(e,{default:function(){return h}});var t=function(){var n=this,e=n.$createElement,u=n._self._c||e;return u("v-container")},r=[],c={name:"SecurityView"},a=c,l=u(1001),s=u(3453),i=u.n(s),o=u(247),f=(0,l.Z)(a,t,r,!1,null,null,null),h=f.exports;i()(f,{VContainer:o.Z})}}]);
+//# sourceMappingURL=948-legacy.9637dd59.js.map
