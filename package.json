@@ -8,7 +8,7 @@
     "build-pwa":"cd user-account && npm run build && cd ..",
     "build": "bash build.sh",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
-    "deploy": "bash build.sh && git push heroku master",
+    "deploy": "git push heroku master",
     "serve": "node dist/index.js",
     "start": "npm run serve",
     "watch-node": "nodemon src/index.ts",
