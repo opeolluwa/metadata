@@ -1,0 +1,15 @@
+header {
+  grid-column: 1 / -1;
+  //use reset to detach for the the styling previously added to all headers
+  height: unset;
+  min-height: unset;
+  background: unset;
+  color: unset;
+  display: unset;
+  position: unset;
+  background-color: red;
+  padding: unset;
+
+  min-height: 3rem;
+  padding: 1rem 0!important;
+}
