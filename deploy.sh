@@ -18,7 +18,7 @@ echo -e "Installing Devdepdencies Fro Progressive Web App\n"
 #update dev dependencies and dependencies
 npm install
 echo -e "Dependencies successfully Installed\n"
-echo "\e'0;34m---------------->Building Static Files\n"
+echo "deploy::\t\e[0;34m---------------->\e[0mBuilding Static Files\n"
 
 #build static files
 npm run build
