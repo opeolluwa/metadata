@@ -2,7 +2,7 @@
   "version": "1.5.0",
   "description": "A collection of web games ",
   "scripts": {
-    "heroku-prebuild": "bash prebuild.sh",
+    "heroku-postbuild": "bash postbuild.sh",
     "build-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
     "build-ts": "tsc",
     "build-pwa":"cd user-account && npm run build && cd ..",

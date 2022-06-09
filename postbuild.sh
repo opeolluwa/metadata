@@ -8,6 +8,8 @@ echo "in user account ..."
 echo "installing devdepdencies"
 npm install
 echo "building user-account"
-#npm run build
+npm run build
 cd ..
-echo "in root directory ..., building sass"
+echo "in root directory ..."
+echo "bundling application"
+npm run copy-static-assets
