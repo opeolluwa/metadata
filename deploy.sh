@@ -18,7 +18,7 @@ echo -e "\e[0;34mdeploy :: ----------------> Installing Devdepdencies Fro Progre
 #update dev dependencies and dependencies
 npm install
 echo -e "\e[0;34mdeploy :: ----------------> Dependencies successfully Installed\n"
-echo "\e[0;34mdeploy :: ----------------> Building Static Files\n"
+echo -e "\e[0;34mdeploy :: ----------------> Building Static Files\n"
 
 #build static files
 npm run build
