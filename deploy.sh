@@ -4,7 +4,7 @@
 
 
 if [ -n "$(git status --porcelain)" ]; then
-    echo -e "\e[0;31m BUILD FAILED!\n\n\e[0;32m You Have uncommited changes, \n Commit them to proceed";
+    echo -e "\e[0;32m BUILD FAILED!\n\n\e[0;32m You Have uncommited changes, \n Commit them to proceed";
     exit 0;
 else
   echo -e "\e[1;32m---------------->No Changes found ";
