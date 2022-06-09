@@ -1,1 +1,0 @@
-echo -e "\e[0;34mdeploy :: ---------------->   \e[0mBuilding Static Files\n"
