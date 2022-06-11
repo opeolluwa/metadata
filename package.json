@@ -1,5 +1,5 @@
 {
-  "version": "1.5.0",
+  "version": "22.06.12",
   "description": "A collection of web games ",
   "scripts": {
     "build-sass": "sass  src/public/stylesheets/index.scss src/public/stylesheets/index.css",

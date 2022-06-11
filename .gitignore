@@ -160,3 +160,4 @@ sample.txt
 pwa/node_modules
 pwa/pwa
 pwa/public/img/icons
+pwa/src/greeting.js

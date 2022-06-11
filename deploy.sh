@@ -43,5 +43,5 @@ git add .
 git commit -m "CHORE -> added pwa static files to the app directory"
 git push 
 echo -e "\e[0;34mdeploy :: ----------------> Changes successfully pushed to repository\nDeploying application\e[0m"
-git push heroku master
+#git push heroku master
 fi
