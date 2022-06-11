@@ -20,11 +20,8 @@
           ></v-img>
         </template>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-app-bar-title class="small">Hi Drizzle</v-app-bar-title>
-        <v-navigation-drawer v-model="drawer">
-        <!--   <app-navigation></app-navigation> -->
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus unde aliquam, qui provident et asperiores laborum, quis quo autem, repudiandae voluptas. Quam ratione dolorem iusto nihil cum quasi asperiores dicta.
-        </v-navigation-drawer>
+        <v-app-bar-title class="small">Meta Data</v-app-bar-title>
+
         <v-spacer></v-spacer>
         <v-btn icon>
           <v-icon>mdi-magnify</v-icon>
@@ -32,33 +29,37 @@
         <v-btn icon>
           <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
-        <template v-slot:extension>
+        <!-- <template v-slot:extension>
           <v-tabs align-with-title>
             <v-tab>New </v-tab>
             <v-tab>Popular</v-tab>
             <v-tab>Bookmark</v-tab>
           </v-tabs>
-        </template>
+        </template> -->
       </v-app-bar>
+
+       <v-navigation-drawer v-model="drawer">
+            <app-navigation></app-navigation>
+        
+        </v-navigation-drawer>
+
       <v-sheet
         id="scrolling-techniques-3"
         class="overflow-y-auto"
         max-height="600"
       >
-        <v-container style="height: 1000px"></v-container>
+        <v-container>
+          <account-header name="Drizzle"></account-header>
+          <slot class="view"></slot>
+        </v-container>
       </v-sheet>
 
-      <v-container>
-        <account-header name="Drizzle"></account-header>
-        <slot class="view"></slot>
-      </v-container>
       <v-bottom-navigation
         app
         grow
         class="d-sm-none"
         shift
         background-color="#fff"
-        
       >
         <v-btn
           v-for="link in links"
