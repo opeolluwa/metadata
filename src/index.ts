@@ -108,7 +108,7 @@ sequelize.sync().then(() => {
 
 //mount application
 app.listen(port, () => {
-    console.log(`⚡️ignition started on http://127.0.0.1:${port}`)
+    console.log(`⚡️ignition started on http://127.0.0.1zz:${port}`)
 })
 
 
