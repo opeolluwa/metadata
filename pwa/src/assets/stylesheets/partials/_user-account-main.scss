@@ -1,5 +1,13 @@
 main {
   padding: $desktop-view-padding;
   grid-column: 3 /10;
-  padding: 3rem 1.5rem;
+  .container {
+    padding: 3rem 1.5rem;
+  }
+  @media screen and(max-width:600px) {
+    .view,
+    .container {
+      margin-top: 75px;
+    }
+  }
 }

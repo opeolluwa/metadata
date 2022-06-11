@@ -21,22 +21,24 @@ body {
   --blue: $blue;
 }
 
-#app {
-  display: grid !important;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: min(100vh);
-  & {
-    @import "./partials/user-account-navigation";
-    @import "./partials/user-account-main";
-    @import "./partials/user-account-aside";
-  }
+// #inspire {
+//   display: grid;
+//   grid-template-columns: repeat(12, 1fr);
+//   grid-template-rows: min(100vh);
+//   & {
+   
+//   }
 
-  @media screen and (max-width: 600px) {
-    display: block;
-    padding: 0;
-    margin: 0;
-    aside {
-      display: none;
-    }
-  }
-}
+//   @media screen and (max-width: 600px) {
+//     display: block;
+//     padding: 0;
+//     margin: 0;
+//     aside {
+//       display: none;
+//     }
+//   }
+// }
+
+@import "./partials/user-account-navigation";
+// @import "./partials/user-account-main";
+// @import "./partials/user-account-aside";

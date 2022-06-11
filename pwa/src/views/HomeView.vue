@@ -1,5 +1,8 @@
 <template>
-  <v-container></v-container>
+  <div>
+    hello africa
+    lllllllll
+  </div>
 </template>
 
 <script>

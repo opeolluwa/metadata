@@ -1,8 +1,9 @@
 <template>
   <div id="app" class="p-0 m-0 ma-0">
-    <app-navigation></app-navigation>
+    <app-navigation class="d-none d-sm-block"></app-navigation>
     <v-main>
       <v-app-bar
+        class="d-sm-none"
         absolute
         color="#4158d0"
         dark
@@ -29,31 +30,19 @@
         <v-btn icon>
           <v-icon>mdi-dots-vertical</v-icon>
         </v-btn>
-        <!-- <template v-slot:extension>
-          <v-tabs align-with-title>
-            <v-tab>New </v-tab>
-            <v-tab>Popular</v-tab>
-            <v-tab>Bookmark</v-tab>
-          </v-tabs>
-        </template> -->
       </v-app-bar>
 
-       <v-navigation-drawer v-model="drawer">
-            <app-navigation></app-navigation>
-        
-        </v-navigation-drawer>
+      <v-navigation-drawer v-model="drawer" absolute class="d-sm-none">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque
+        laudantium, aperiam qui aspernatur ducimus consequuntur optio maxime
+        quasi cupiditate voluptatum, culpa, commodi velit quam amet asperiores
+        et. Accusantium, non inventore.
+      </v-navigation-drawer>
 
-      <v-sheet
-        id="scrolling-techniques-3"
-        class="overflow-y-auto"
-        max-height="600"
-      >
-        <v-container>
-          <account-header name="Drizzle"></account-header>
-          <slot class="view"></slot>
-        </v-container>
-      </v-sheet>
-
+      <v-container>
+        <account-header name="Drizzle"></account-header>
+        <slot class="view"></slot>
+      </v-container>
       <v-bottom-navigation
         app
         grow
