@@ -1,6 +1,6 @@
 {
-  "name": "user-account",
-  "version": "0.1.0",
+  "name": "pwa",
+  "version": "22.06.11",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
