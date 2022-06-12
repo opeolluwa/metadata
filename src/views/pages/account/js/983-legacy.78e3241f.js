@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkpwa"]=self["webpackChunkpwa"]||[]).push([[983],{6983:function(n,e,t){t.r(e),t.d(e,{default:function(){return p}});var r=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("v-container")},u=[],l={name:"ProfileView"},a=l,c=t(1001),i=t(3453),f=t.n(i),s=t(247),o=(0,c.Z)(a,r,u,!1,null,null,null),p=o.exports;f()(o,{VContainer:s.Z})}}]);
-//# sourceMappingURL=983-legacy.78e3241f.js.map

@@ -12,5 +12,6 @@ module.exports = defineConfig({
     display: "fullscreen",
     background_color: "#ffffff"
 
-  }
+  },
+  // publicPath: "/u/"
 })
