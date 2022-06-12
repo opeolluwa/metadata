@@ -9,10 +9,10 @@
       dense
       app
       shrink-on-scroll
-      prominent
       src="https://picsum.photos/1920/1080?random"
       fade-img-on-scroll
       scroll-target="#scrolling-techniques-3"
+      prominent
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -32,7 +32,12 @@
       </v-btn>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" absolute class="d-sm-none">
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      class="d-sm-none"
+      style="z-index: 123456"
+    >
       <!-- <app-navigation></app-navigation> -->
       <v-list-item>
         <v-list-item-content>
@@ -42,7 +47,7 @@
       </v-list-item>
       <v-divider></v-divider>
 
-      <v-list nav>
+      <v-list nav active-class="active-class">
         <template v-for="item in sideNavLinks">
           <template v-if="item.divider">
             <v-divider :key="item.title"></v-divider>
@@ -81,8 +86,8 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main>
-      <router-view></router-view>
+    <v-main class="px-4">
+      <router-view class="mt-4"></router-view>
     </v-main>
     <v-bottom-navigation
       app
@@ -90,13 +95,14 @@
       class="d-sm-none"
       shift
       background-color="#fff"
+      :value="value"
+      color="#4158d0"
     >
       <v-btn
         v-for="link in bottomNavLinks"
         :key="link.title"
-        :to="{ name: link.route }"
-        color="#101010"
-        icon
+        @click="goto(link.route)"
+        text
       >
         <span class="text-capitalize">{{ link.title }}</span>
         <v-icon>{{ link.icon }}</v-icon>
@@ -117,6 +123,7 @@ export default Vue.extend({
   data: () => ({
     drawer: null,
     active: 1,
+    value: null,
     bottomNavLinks: [
       { icon: "mdi-home-variant-outline", title: "home", route: "home" },
       {
@@ -124,7 +131,7 @@ export default Vue.extend({
         title: "bookmark",
         route: "bookmark",
       },
-     
+
       { icon: "mdi-cog-outline", title: "settings", route: "settings" },
       {
         icon: "mdi-account-circle",
@@ -151,6 +158,13 @@ export default Vue.extend({
       { icon: "mdi-cog-outline", title: "settings", route: "settings" },
     ],
   }),
+  methods: {
+    goto(route: string) {
+      this.$router.replace({
+        name: route,
+      });
+    },
+  },
 });
 </script>
 
@@ -167,6 +181,9 @@ export default Vue.extend({
   --green: rgb(46, 136, 46);
   --user-account-border: darken(color: #fafafa, amount: 5);
   --grey-lightened: #fafafa;
+}
+.active-class {
+  color: #4158d0;
 }
 @import "./assets/stylesheets/main.scss";
 </style>
