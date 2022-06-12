@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkuser_account"]=self["webpackChunkuser_account"]||[]).push([[726],{7726:function(n,e,t){t.r(e),t.d(e,{default:function(){return h}});var u=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("v-container")},r=[],c={name:"SettingsView"},a=c,l=t(1001),s=t(3453),i=t.n(s),o=t(247),f=(0,l.Z)(a,u,r,!1,null,null,null),h=f.exports;i()(f,{VContainer:o.Z})}}]);
-//# sourceMappingURL=726-legacy.e0f858db.js.map

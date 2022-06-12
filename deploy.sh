@@ -46,4 +46,6 @@ echo -e "\e[0;34mdeploy :: ----------------> Changes successfully pushed to repo
 git checkout production
 git pull origin master
 git push
+echo -e "\e[0;34mdeploy :: ----------------> Build initialized\e[0m"
+
 fi

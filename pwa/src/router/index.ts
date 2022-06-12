@@ -12,34 +12,34 @@ Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
+    path: '/u',
     name: 'home',
     component: Home
   },
   {
-    path: '/activities',
+    path: '/u/activities',
     name: 'activities',
     component: Activities
   },
   {
-    path: '/bookmark',
+    path: '/u/bookmark',
     name: 'bookmark',
     component: Bookmark
   },
   {
-    path: '/profile',
+    path: '/u/profile',
     name: 'profile',
     component: Profile
   },
 
   {
-    path: '/security',
+    path: '/u/security',
     name: 'security',
     component: Security
   },
 
   {
-    path: '/settings',
+    path: '/u/settings',
     name: 'settings',
     component: Settings
   },

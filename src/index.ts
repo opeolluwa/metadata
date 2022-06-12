@@ -86,7 +86,7 @@ mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true }, (err: stri
 //mount   routes
 app.use(router)
 app.use("/r", resource)
-app.use("/u/", account)
+app.use("/u", account)
 app.use("/contact", contact)
 app.use("/search", search)
 app.use("/explore", explore)
