@@ -19,7 +19,7 @@ const ResourceSchema = new mongoose.Schema({
     },
     avatarUrl: {
         type: String,
-        required: true,
+        // required: true,
         trim: true,
     },
     category: [],

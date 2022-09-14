@@ -8,7 +8,16 @@ export class ResourceControllers {
     }
 
     static async addResource(req: Request, res: Response) {
-        res.send({ message: "successful" })
+        const { name, description, url, category } = req.body
+        try {
+            const resource = new Resource({
+                name, description, url, category
+            })
+            await resource.save()
+            return res.send({ success: true, data: resource, message: "resource successfully added" })
+        } catch (error) {
+            return res.status(500).send({ message: 'internal server error', error })
+        }
     }
 
     static async likeResource(req: Request, res: Response) {
@@ -39,11 +48,11 @@ export class ResourceViews {
          */
         /*  const query = Resource.find();
          const response = await query.$where(`this.category.includes('${resourceCategory.replaceAll('-', ' ')}')`) */
-        const response = await Resource.find({ category: {$in:[resourceCategory.replaceAll('-', ' ').toLowerCase()]} })
+        const response = await Resource.find({ category: { $in: [resourceCategory.replaceAll('-', ' ').toLowerCase()] } })
         const content = response
         res.render("pages/resource", { title: resourceCategory, layout: "", content, category: resourceCategory.replaceAll("-", " ") });
         // console.log(response);
-        
+
     }
 }
 

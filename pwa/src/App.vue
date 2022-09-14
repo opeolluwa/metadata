@@ -3,25 +3,13 @@
     <app-navigation class="d-none d-sm-block"></app-navigation>
     <v-app-bar
       class="d-sm-none"
-      absolute
       color="#4158d0"
       dark
       dense
       app
-      shrink-on-scroll
-      src="https://picsum.photos/1920/1080?random"
-      fade-img-on-scroll
-      scroll-target="#scrolling-techniques-3"
-      prominent
     >
-      <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
-        ></v-img>
-      </template>
+   
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-app-bar-title class="small">Meta Data</v-app-bar-title>
 
       <v-spacer></v-spacer>
       <v-btn icon>
@@ -86,7 +74,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-main class="px-4">
+    <v-main class="px-4 my-7">
       <router-view class="mt-4"></router-view>
     </v-main>
     <v-bottom-navigation
@@ -108,20 +96,20 @@
         <v-icon>{{ link.icon }}</v-icon>
       </v-btn>
     </v-bottom-navigation>
-    <app-aside class="d-none"></app-aside>
+    <!-- <app-aside ></app-aside> -->
   </v-app>
 </template>
 <script lang="ts">
 import Vue from "vue";
 // import AccountHeader from "./components/AccountHeader.vue";
-import AppAside from "./components/AppAside.vue";
+// import AppAside from "./components/AppAside.vue";
 import AppNavigation from "./components/AppNavigation.vue";
 export default Vue.extend({
-  components: { AppNavigation, AppAside /* AccountHeader */ },
+  components: { AppNavigation, /* AppAside  *//* AccountHeader */ },
 
   name: "App",
   data: () => ({
-    drawer: null,
+    drawer: false,
     active: 1,
     value: null,
     bottomNavLinks: [

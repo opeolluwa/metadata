@@ -10,12 +10,12 @@
     "deploy": "bash deploy.sh",
     "start": "node dist/index.js",
     "build":"npm run build-ts && npm run build-sass && npm run build-404 && npm run copy-static-assets",
-    "watch-node": "nodemon src/index.ts",
+    "watch:svr": "nodemon src/index.ts",
     "watch-sass": "sass --watch src/public/stylesheets/index.scss src/public/stylesheets/index.css",
     "watch-404": "sass --watch src/public/stylesheets/404.scss src/public/stylesheets/404.css",
     "watch-ts": "tsc -w",
-    "watch-pwa": "cd pwa && npm run serve",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page,SPA\" -c \"yellow.bold,cyan.bold,green.bold,red.bold,grey\" \"npm run watch-sass\"  \"npm run watch-node\"",
+    "watch:pwa": "cd pwa && npm run serve",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page,SPA\" -c \"yellow.bold,cyan.bold,green.bold,red.bold,grey\" \"npm run watch-sass\"  \"npm run watch:svr\"",
     "make": "bash install.sh"
   },
   "dependencies": {

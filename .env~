@@ -1,0 +1,12 @@
+
+APP_URL=http://127.0.0.1:3802
+SESSION_SECRET=jTqmLQspFHJKkljkYDvRLoBdcxPvcjHbIfFPQfMXtZnlwCrgxrwOvWfNgKhsEhAGtmzyPJiwLJJ1AHIkLxHhTv8nyFZ
+JWT_SECRET=jTqmLQspFHJKkljkYDvRLoBdcxPvcjHbIfFPQfMXtZnlwCrgxrwOvWfNgKhsEhAGtmzyPJiwLJJ1AHIkLxHhTv8nyFZ
+SMTP_USER=drizzle.system.software@gmail.com
+SMTP_PASSWORD=bzcpxbktaxrlhngc
+DATABASE_URI=mongodb://localhost:27017/metadata
+MONGOD=mongodb+srv://opeolluwa:1rEGoxocJ1DXfxBK@medatda.67u2dsv.mongodb.net/?retryWrites=true&w=majority
+FILE_SERVER_PUBLIC_KEY=public_5rTYigQwKz1yPPPsrB+F562KDZ4=
+FILE_SERVER_PRIVATE_KEY=private_f8yqCCCTE7dezAREkNB1H7xq6RQ=
+FILE_SERVER_END_POINT=https://ik.imagekit.io/egkxldi8gs
+SNAPSHOT_BASE_URL=https://v1.nocodeapi.com/opeolluwa/screen/XsafwFbNBDzQTBFT/screenshot?url=
