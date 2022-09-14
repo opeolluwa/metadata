@@ -138,7 +138,7 @@ export default class AuthenticationControllers {
             const username = user.username;
             const user_id = user._id.toString(); //parse user_id
             req.session.user = { username, user_id };
-            return res.redirect("/u/");
+            return res.redirect("/d");
         }
 
     }

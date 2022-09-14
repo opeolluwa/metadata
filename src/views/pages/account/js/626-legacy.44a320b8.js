@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkmeta_data"]=self["webpackChunkmeta_data"]||[]).push([[626],{5626:function(e,n,t){t.r(n),t.d(n,{default:function(){return d}});var a=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("v-container")},u=[],r={name:"ActivitiesView"},i=r,l=t(1001),c=t(3453),s=t.n(c),f=t(9846),o=(0,l.Z)(i,a,u,!1,null,null,null),d=o.exports;s()(o,{VContainer:f.Z})}}]);
-//# sourceMappingURL=626-legacy.44a320b8.js.map

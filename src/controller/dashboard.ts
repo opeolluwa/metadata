@@ -9,7 +9,11 @@ export class UserAccountViews {
     static render(req: Request, res: Response) {
         const { username, user_id } = req.session.user;
         req.params.username = username;
-        return res.sendFile(path.join(__dirname, "./../views/pages/account", "index.html"));
+
+        //the available category
+        const categories = ["animation", "gradient", "css code generator", "design inspiration", "icon libraries", "image", "javascript Ui Library", "svg", "illustration", "workaround"];
+
+        //render the view
+        return res.render("pages/dashboard", { title: "Add Resource ", layout: "", error: {}, value: {}, username, categories });
     }
 }
-

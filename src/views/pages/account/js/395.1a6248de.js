@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkmeta_data"]=self["webpackChunkmeta_data"]||[]).push([[395],{6395:function(e,n,t){t.r(n),t.d(n,{default:function(){return k}});var a=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("v-container")},r=[],u={name:"BookmarkView"},l=u,c=t(1001),i=t(3453),o=t.n(i),s=t(9846),f=(0,c.Z)(l,a,r,!1,null,null,null),k=f.exports;o()(f,{VContainer:s.Z})}}]);
-//# sourceMappingURL=395.1a6248de.js.map

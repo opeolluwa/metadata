@@ -9,7 +9,7 @@ import { User } from "./models/UserSession";
 //routes
 import router from "./routes";
 import resource from "./routes/resource"
-import account from "./routes/account";
+import dashboard from "./routes/dashboard";
 import search from "./routes/search"
 import explore from "./routes/explore"
 import contact from "./routes/contact"
@@ -86,7 +86,7 @@ mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true }, (err: stri
 //mount   routes
 app.use(router)
 app.use("/r", resource)
-app.use("/u", account)
+app.use("/d", dashboard)
 app.use("/contact", contact)
 app.use("/search", search)
 app.use("/explore", explore)

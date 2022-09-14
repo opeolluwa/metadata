@@ -1,0 +1,43 @@
+<div id="account">
+  <div class="container">
+    <h1>Add resource</h1>
+    <p class="sub-hero-text">Hi! <strong style="text-transform: capitalize; text-align: left;"><%=username%></strong>
+      Fill in the details to begin</p>
+
+    <form action="/r" method="post">
+      <span class="error" style="text-align: center; font-size: 14px">
+      </span>
+
+      <!--resource category-->
+      <div class="form-feed">
+        <label for="category" style="vertical-align: baseline">resource Category</label>
+        <select name="category" placeholder="resource category" id="">
+          <option value="" disabled>Select category</option>
+          <% for(const category of categories){ %>
+          <option value="<%=category%>"><%=category%></option>
+          <% } %>
+        </select>
+      </div>
+
+      <div class="form-feed">
+        <label for="name">resource name</label>
+        <input type="name" placeholder="enter name" name="name" value="" required />
+      </div>
+
+      <div class="form-feed">
+        <label for="subject">Resource URL</label>
+        <input type="url" placeholder="https://example.com" name="url" value="" required />
+      </div>
+
+      <div class="form-feed">
+        <label for="description"> resource description</label>
+        <textarea name="description" id="description" cols="30" rows="10" placeholder="description" required></textarea>
+      </div>
+
+      <div class="form-feed">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  <%- include('./../../partials/user-authentication-footer'); %>
+</div>

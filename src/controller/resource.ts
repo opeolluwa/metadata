@@ -8,13 +8,13 @@ export class ResourceControllers {
     }
 
     static async addResource(req: Request, res: Response) {
-        const { name, description, url, category } = req.body
+        const { name, description, url, category } = req.body        
         try {
             const resource = new Resource({
                 name, description, url, category
             })
             await resource.save()
-            return res.send({ success: true, data: resource, message: "resource successfully added" })
+            return res.redirect("/d");
         } catch (error) {
             return res.status(500).send({ message: 'internal server error', error })
         }
