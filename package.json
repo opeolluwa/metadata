@@ -7,7 +7,7 @@
     "build:ts": "tsc",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
     "start": "node dist/index.js",
-    "build":"npm run build:ts && npm run build:sass && npm run build:404 && npm run copy-static-assets",
+    "build": "npm run build:ts && npm run build:sass && npm run build:404 && npm run copy-static-assets",
     "watch:svr": "nodemon src/index.ts",
     "watch:scss": "sass --watch src/public/stylesheets/index.scss src/public/stylesheets/index.css",
     "watch:404": "sass --watch src/public/stylesheets/404.scss src/public/stylesheets/404.css",
@@ -49,7 +49,8 @@
     "sequelize-bcrypt": "^1.1.0",
     "sequelize-joi": "^2.0.1",
     "shelljs": "^0.8.5",
-    "sqlite3": "^5.0.6"
+    "sqlite3": "^5.0.6",
+    "url-validator": "^2.0.3"
   },
   "repository": {
     "type": "git",
@@ -68,7 +69,6 @@
     "ts-node": "^10.8.1",
     "typescript": "^4.6.3"
   },
- 
   "name": "meta-data",
   "main": "index.js",
   "author": "Adeoye Adefemi Opeoluwa <adefemiadeoye@yahoo.com>"

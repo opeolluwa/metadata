@@ -30,3 +30,9 @@ npm run dev
 ```
 
 ## License 
+
+
+## Additional Information 
+1. Run `npm run dev` to start the development server
+2. Run `npm run build` to build the project
+3. Run `npm run start` to start the production server

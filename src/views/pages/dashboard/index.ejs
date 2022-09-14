@@ -1,37 +1,65 @@
 <div id="account">
   <div class="container">
+    <div data-guide="">
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/login">Logout</a>
+        </li>
+
+      </ul>
+    </div>
+
     <h1>Add resource</h1>
-    <p class="sub-hero-text">Hi! <strong style="text-transform: capitalize; text-align: left;"><%=username%></strong>
+    <p class="sub-hero-text">Hi! <strong style="text-transform: capitalize;
+        text-align: left;"><%=username%></strong>
       Fill in the details to begin</p>
 
     <form action="/r" method="post">
       <span class="error" style="text-align: center; font-size: 14px">
       </span>
 
+      <!--feed back -->
+      <% if (serverResponse.isError == true) { %>
+      <span style="display:inline-block; text-align: center;" class="error"><%=serverResponse.message || ''%></span>
+      <% } %>
+      <%  if (serverResponse.isError ==false) { %>
+      <span style="display:inline-block; text-align: center;" class="success"><%=serverResponse.message || ''%></span>
+      <% } %>
+
       <!--resource category-->
       <div class="form-feed">
-        <label for="category" style="vertical-align: baseline">resource Category</label>
+        <label for="category" style="vertical-align: baseline">resource
+          Category</label>
         <select name="category" placeholder="resource category" id="">
-          <option value="" disabled>Select category</option>
+          <option value="select category" disabled>Select category</option>
           <% for(const category of categories){ %>
-          <option value="<%=category%>"><%=category%></option>
+          <option value="<%=value.category || ''%>"><%=category%></option>
           <% } %>
         </select>
+        <span class="error"> <%= error.category %> </span>
       </div>
 
       <div class="form-feed">
         <label for="name">resource name</label>
-        <input type="name" placeholder="enter name" name="name" value="" required />
+        <input type="name" placeholder="enter name" name="name" value="<%= value.name || ''%>" required />
+        <span class="error"> <%= error.name %> </span>
       </div>
 
       <div class="form-feed">
         <label for="subject">Resource URL</label>
-        <input type="url" placeholder="https://example.com" name="url" value="" required />
+        <input type="url" placeholder="https://example.com" name="url" value="<%= value.url || ''%>" required />
+        <span class="error"> <%= error.url %> </span>
       </div>
 
       <div class="form-feed">
         <label for="description"> resource description</label>
-        <textarea name="description" id="description" cols="30" rows="10" placeholder="description" required></textarea>
+        <textarea name="description" value="<%=
+                                value.description || ''%>" id="description" cols="30" rows="10" placeholder="description" required></textarea>
+        <span class="error"> <%= error.description %>
+        </span>
       </div>
 
       <div class="form-feed">
@@ -39,5 +67,28 @@
       </div>
     </form>
   </div>
-  <%- include('./../../partials/user-authentication-footer'); %>
 </div>
+
+<style>
+  ul {
+    display: flex;
+    row-gap: 10px;
+    margin-bottom: 27px;
+    list-style: none;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  ul li a {
+    color: #101010;
+  }
+
+  ul li:first-child {
+    border-right: 2px solid #ccc;
+    margin-right: 7.5px;
+    padding-right: 7.5px;
+  }
+  .success{
+    color: rgb(60, 182, 60);
+  }
+</style>
