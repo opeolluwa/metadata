@@ -30,14 +30,13 @@ export class GeneralPagesViewsRenderer {
         const categories: PageInterface[] = [
             { route: "animation", anchor: "Animation" },
             { route: "gradient", anchor: "css gradient and patterns" },
-            { route: "css-code-generator", anchor: " CSS Code Generator" },
+            { route: "code-generator", anchor: " CSS Code Generator" },
             { route: "design-inspiration", anchor: "Design Inspiration" },
-            { route: "icon-libraries", anchor: "Icon libraries" },
+            { route: "icon", anchor: "Icon libraries" },
             { route: "image", anchor: "Images" },
-            { route: "javascript-ui-libraries", anchor: "JavaScript UI library" },
+            { route: "ui-libraries", anchor: " UI libraries" },
             { route: "svg", anchor: "svg illustrations,shapes and backgrounds" },
-            { route: "workaround", anchor: "collection of Frontend and backend libraries" },
-            { route: "more", anchor: " more ..." }
+            { route: "hacks", anchor: "collection of Frontend and backend libraries, hosting platforms ..." },
         ]
         
         res.render("index", { title: "Collection of images, icons, code blocks and illustrations and morefor designers and developers ", layout: "./layouts/base-layout", categories });
