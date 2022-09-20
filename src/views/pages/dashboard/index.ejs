@@ -1,6 +1,6 @@
 <div id="account">
   <div class="container">
-    <div data-guide="">
+    <div data-guide="" style="display: none;">
       <ul>
         <li>
           <a href="/">Home</a>
@@ -21,7 +21,7 @@
       <span class="error" style="text-align: center; font-size: 14px">
       </span>
 
-      <!--feed back -->
+
       <% if (serverResponse.isError == true) { %>
       <span style="display:inline-block; text-align: center;" class="error"><%=serverResponse.message || ''%></span>
       <% } %>
@@ -33,10 +33,11 @@
       <div class="form-feed">
         <label for="category" style="vertical-align: baseline">resource
           Category</label>
-        <select name="category" placeholder="resource category" id="">
-          <option value="select category" disabled>Select category</option>
+        <select name="category" placeholder="resource category" id="category">
+          <option value="" disabled></option>
+          <option value="">--Please choose an option--</option>
           <% for(const category of categories){ %>
-          <option value="<%=value.category || ''%>"><%=category%></option>
+          <option value="<%= category %>"><%=category%></option>
           <% } %>
         </select>
         <span class="error"> <%= error.category %> </span>
@@ -81,6 +82,7 @@
 
   ul li a {
     color: #101010;
+    font-size: 14px;
   }
 
   ul li:first-child {
@@ -88,7 +90,8 @@
     margin-right: 7.5px;
     padding-right: 7.5px;
   }
-  .success{
+
+  .success {
     color: rgb(60, 182, 60);
   }
 </style>
