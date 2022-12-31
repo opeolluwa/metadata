@@ -8,10 +8,16 @@
 html,
 body {
   font-family: "Fira Sans", sans-serif;
-  font-family: "Nunito", sans-serif;
-  font-family: "Poppins", sans-serif;
-  font-family: "Raleway", sans-serif;
   font-size: 18px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+input {
+  accent-color: #101010;
 }
 
 .d-desktop,
@@ -108,7 +114,7 @@ nav a:hover,
 nav a:visited,
 nav a:link {
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   padding: 0;
   border: none;
   color: inherit;
@@ -202,87 +208,6 @@ nav a:link {
   transition: ease 650ms;
 }
 
-main {
-  padding: 0 3.5rem;
-  margin: 3rem 0;
-}
-main form {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  justify-content: center;
-  align-items: center;
-  margin: 3.5rem 0;
-}
-main form > * {
-  border: 1px solid #4d63d3;
-  border-radius: 0;
-  padding: 10px 5px;
-  min-width: 7rem;
-  text-align: center;
-  text-transform: capitalize;
-  text-align: unset;
-}
-main form input {
-  grid-column: 4/8;
-  border-right: none;
-  border-radius: 4px 0 0 4px;
-  text-align: center;
-  padding: 12px;
-}
-main form input:hover,
-main form input:focus {
-  outline: none;
-}
-main form input::placeholder {
-  font-family: monospace;
-  color: #7d7d7d;
-}
-main form button[type=submit] {
-  grid-column: 8/9;
-  border-left: none;
-  border-radius: 0 4px 4px 0;
-  text-align: center;
-  color: #f2f2f2;
-  background: #4158d0;
-  font-weight: 500;
-  padding: 12px;
-}
-@media screen and (max-width: 600px) {
-  main form input {
-    grid-column: 1/-1;
-    border: 1px solid #7d7d7d;
-    border-radius: 4px;
-  }
-  main form input::placeholder {
-    content: "Search here";
-  }
-  main form button[type=submit] {
-    grid-column: 12/-1;
-    display: none;
-  }
-  main form button[type=submit] svg {
-    font-size: 10px;
-  }
-}
-main ul li {
-  margin: 1rem 0;
-  list-style-type: disc;
-}
-main ul li a {
-  color: #101010;
-  text-decoration: none;
-  font-weight: 400;
-  text-decoration: underline;
-}
-
-@media screen and (max-width: 600px) {
-  main {
-    margin: 3rem 0;
-  }
-  main > * {
-    padding: 0 0.15rem;
-  }
-}
 footer {
   font-size: 80%;
   position: relative;
@@ -290,7 +215,6 @@ footer {
   left: 0;
   display: flex;
   justify-content: center;
-  background-color: ghostwhite;
   color: #171717;
   padding: 7.5px;
   padding: 2rem 0;
@@ -410,8 +334,9 @@ footer a#opeolluwa {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: minmax(100px 35vh) minmax(100px 35vh) 10px;
   row-gap: 1.75rem;
-  background-color: #4158d0;
-  background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
 }
 #account .container {
   grid-column-start: 5;
@@ -420,55 +345,6 @@ footer a#opeolluwa {
   border-radius: 5px;
   padding: inherit;
 }
-#account [data-guide=footer] {
-  grid-row-start: 2;
-  grid-row-end: 3;
-  grid-column-start: 3;
-  grid-column-end: -3;
-  background: transparent;
-  font-size: 80%;
-  color: #f2f2f2;
-}
-#account [data-guide=footer] hr {
-  color: white;
-  width: 50%;
-  display: flex;
-  opacity: 0.5;
-  margin: 0.75rem auto;
-}
-#account [data-guide=footer] > div {
-  text-align: center;
-  margin-top: 0.25rem;
-  color: #d9d9d9;
-}
-#account [data-guide=footer] > div a#opeolluwa {
-  text-decoration: underline;
-}
-#account [data-guide=footer] > div img {
-  max-width: 16px;
-  position: relative;
-  bottom: -5px;
-}
-#account [data-guide=footer] ul {
-  display: block;
-  margin: 1rem 0;
-}
-#account [data-guide=footer] ul li:first-child, #account [data-guide=footer] ul li {
-  list-style: none;
-  margin: 0.25rem 0;
-  text-align: center;
-}
-#account [data-guide=footer] ul li:first-child ::before {
-  display: none;
-}
-#account [data-guide=footer] ul li:nth-child(2) {
-  margin: unset;
-}
-#account [data-guide=footer] a, #account [data-guide=footer] span, #account [data-guide=footer] ul li a {
-  text-decoration: none;
-  color: #f2f2f2;
-  text-transform: capitalize;
-}
 @media screen and (max-width: 600px) {
   #account {
     display: flex;
@@ -476,143 +352,8 @@ footer a#opeolluwa {
     background-color: #fff;
   }
   #account .container {
-    padding: 2rem;
+    padding: 2rem 4rem;
   }
-  #account [data-guide=footer] hr {
-    width: 90%;
-    height: 1px;
-    margin: 5px auto;
-  }
-}
-#account .success-icon {
-  min-width: 100px;
-  max-width: 70%;
-  margin: 2rem auto;
-  display: flex;
-  justify-content: center;
-}
-#account .container {
-  box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-  -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-}
-#account .container h1 {
-  font-size: 1.75rem;
-  text-align: center;
-  font-weight: 300;
-}
-#account .container .sub-hero-text {
-  font-size: 1rem;
-  margin: 0.25rem 0;
-  text-align: center;
-  color: #7d7d7d;
-  text-transform: capitalize;
-}
-#account .container form {
-  margin-top: 3rem;
-  display: block;
-  width: 100%;
-}
-#account .container form .form-feed > *,
-#account .container form .form-feed {
-  display: block;
-  width: 100%;
-}
-#account .container form .form-feed > * span,
-#account .container form .form-feed span {
-  font-size: 80%;
-  color: #7d7d7d;
-  margin-top: 1px;
-}
-#account .container form .form-feed {
-  border-color: transparent;
-  margin: 1.5rem 0;
-}
-#account .container form .form-feed label {
-  margin-bottom: 0.25rem;
-  color: #101010;
-  line-height: 24px;
-  text-transform: uppercase;
-  font-size: 70%;
-}
-#account .container form .form-feed input,
-#account .container form .form-feed button,
-#account .container form .form-feed textarea,
-#account .container form .form-feed select,
-#account .container form .form-feed option {
-  padding: 12px;
-  border-radius: 3px;
-  border: 1px solid gray;
-  width: 100%;
-  font-size: 1rem;
-  background-color: transparent;
-}
-#account .container form .form-feed input, #account .container form .form-feed textarea {
-  text-align: unset;
-}
-#account .container form .form-feed input:focus, #account .container form .form-feed input:hover, #account .container form .form-feed textarea:hover, #account .container form .form-feed textarea:focus {
-  outline: 1px solid transparent;
-  transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-#account .container form .form-feed input[type=checkbox] {
-  display: inline !important;
-}
-#account .container form .form-feed input.input-error {
-  border: 1px solid rgba(233, 41, 41, 0.9450980392);
-}
-#account .container form .form-feed input.no-input-error {
-  border: 1px solid rgb(46, 136, 46);
-}
-#account .container form .form-control {
-  border: transparent;
-  font-size: 80%;
-  width: 100%;
-}
-#account .container form button[type=submit] {
-  background-color: #3149c6;
-  color: #f2f2f2;
-  cursor: pointer;
-}
-#account .container [data-guide=sign-up] {
-  font-size: 80%;
-  text-align: center;
-}
-#account .container [data-guide=login] {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
-  font-size: 80%;
-  margin: 2rem 0 0;
-}
-#account .container [data-guide=forgotten-password] {
-  display: flex;
-  justify-items: flex-end;
-  display: none;
-  font-size: 80%;
-  margin: 1px 0;
-}
-#account .container ::placeholder,
-#account .container option,
-#account .container select {
-  text-transform: lowercase;
-  font-size: 75%;
-  color: #7d7d7d;
-}
-#account .container select,
-#account .container option {
-  color: #101010;
-}
-#account .container [data-guide=login] > span {
-  display: block;
-  margin: 0.25rem 0;
-  text-align: center;
-}
-#account .container [data-guide=login] {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
 }
 @media screen and (max-width: 600px) {
   #account .success-icon {
@@ -690,6 +431,139 @@ footer a#opeolluwa {
     background-color: #3149c6;
     color: #f2f2f2;
   }
+}
+
+#account .success-icon {
+  min-width: 100px;
+  max-width: 70%;
+  margin: 2rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+#account .container {
+  box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+}
+#account .container h1 {
+  font-size: 1.75rem;
+  text-align: center;
+  font-weight: 300;
+}
+#account .container .sub-hero-text {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+  text-align: center;
+  color: #7d7d7d;
+  text-transform: capitalize;
+}
+#account .container [data-guide=sign-up] {
+  font-size: 80%;
+  text-align: center;
+}
+#account .container [data-guide=login] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 80%;
+  margin: 2rem 0 0;
+}
+#account .container [data-guide=forgotten-password] {
+  display: flex;
+  justify-items: flex-end;
+  display: none;
+  font-size: 80%;
+  margin: 1px 0;
+}
+#account .container ::placeholder,
+#account .container option,
+#account .container select {
+  text-transform: lowercase;
+  font-size: 75%;
+  color: #7d7d7d;
+}
+#account .container select,
+#account .container option {
+  color: #101010;
+}
+#account .container [data-guide=login] > span {
+  display: block;
+  margin: 0.25rem 0;
+  text-align: center;
+}
+#account .container [data-guide=login] {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#account .container form {
+  margin-top: 3rem;
+  display: block;
+  width: 100%;
+}
+#account .container form .form-feed > *,
+#account .container form .form-feed {
+  display: block;
+  width: 100%;
+}
+#account .container form .form-feed > * span,
+#account .container form .form-feed span {
+  font-size: 80%;
+  color: #7d7d7d;
+  margin-top: 1px;
+}
+#account .container form .form-feed {
+  border-color: transparent;
+  margin: 1.5rem 0;
+}
+#account .container form .form-feed label {
+  margin-bottom: 0.25rem;
+  color: #101010;
+  line-height: 24px;
+  text-transform: uppercase;
+  font-size: 70%;
+}
+#account .container form .form-feed input,
+#account .container form .form-feed button,
+#account .container form .form-feed textarea,
+#account .container form .form-feed select,
+#account .container form .form-feed option {
+  padding: 12px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  width: 100%;
+  font-size: 1rem;
+  background-color: transparent;
+}
+#account .container form .form-feed input, #account .container form .form-feed textarea {
+  text-align: unset;
+}
+#account .container form .form-feed input:focus, #account .container form .form-feed input:hover, #account .container form .form-feed textarea:hover, #account .container form .form-feed textarea:focus {
+  outline: 1px solid transparent;
+  transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#account .container form .form-feed input[type=checkbox] {
+  display: inline !important;
+}
+#account .container form .form-feed input.input-error {
+  border: 1px solid rgba(233, 41, 41, 0.9450980392);
+}
+#account .container form .form-feed input.no-input-error {
+  border: 1px solid rgb(46, 136, 46);
+}
+#account .container form .form-control {
+  border: transparent;
+  font-size: 80%;
+  width: 100%;
+}
+#account .container form button[type=submit] {
+  background-color: #030303;
+  color: #f2f2f2;
+  cursor: pointer;
 }
 
 #user-account {
@@ -783,9 +657,9 @@ footer a#opeolluwa {
   align-items: center;
   color: #f2f2f2;
   border: 1px solid transparent;
-  box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-  -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
   align-self: center;
   flex-direction: row-reverse;
   background: #4158d0;
@@ -865,7 +739,7 @@ footer a#opeolluwa {
   }
 }
 #user-account main {
-  padding: 0 3.5rem;
+  padding: 100px 3.5rem;
   grid-column: 3/10;
 }
 #user-account main .header {
@@ -929,9 +803,9 @@ footer a#opeolluwa {
   }
 }
 .section {
-  box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-  -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   margin: 0 1.2rem;
   padding: 0.75rem 0.25rem;
@@ -1039,7 +913,9 @@ footer a#opeolluwa {
 }
 
 header > * {
-  padding: 0 3.5rem;
+  padding: 100px 3.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 #hero {
@@ -1048,7 +924,8 @@ header > * {
   justify-content: space-between;
   align-items: center;
   margin-top: 3rem;
-  padding-top: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background-position: bottom left;
   background-clip: border-box;
   background-repeat: no-repeat;
@@ -1100,6 +977,91 @@ header > * {
   display: block;
 }
 
+main {
+  background-color: #f8f8f8;
+  padding: 100px 3.5rem;
+  padding: 100px 3.5rem;
+  margin: 3rem 0;
+}
+main form {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  justify-content: center;
+  align-items: center;
+  margin: 3.5rem 0;
+}
+main form > * {
+  border: 1px solid #181818;
+  border-radius: 0;
+  padding: 10px 5px;
+  min-width: 7rem;
+  text-align: center;
+  text-transform: capitalize;
+  text-align: unset;
+}
+main form input {
+  grid-column: 4/8;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  text-align: center;
+  padding: 12px;
+  min-height: 3rem;
+}
+main form input:hover,
+main form input:focus {
+  outline: none;
+}
+main form input::placeholder {
+  font-family: monospace;
+  color: #7d7d7d;
+}
+main form button[type=submit] {
+  grid-column: 8/9;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  text-align: center;
+  color: #f2f2f2;
+  background: #101010;
+  font-weight: 500;
+  padding: 12px;
+  min-height: 3rem;
+}
+@media screen and (max-width: 600px) {
+  main form input {
+    grid-column: 1/-1;
+    border: 1px solid #7d7d7d;
+    border-radius: 4px;
+  }
+  main form input::placeholder {
+    content: "Search here";
+  }
+  main form button[type=submit] {
+    grid-column: 12/-1;
+    display: none;
+  }
+  main form button[type=submit] svg {
+    font-size: 10px;
+  }
+}
+main ul li {
+  margin: 1rem 0;
+  list-style-type: disc;
+}
+main ul li a {
+  color: #101010;
+  text-decoration: none;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    margin: 3rem 0;
+  }
+  main > * {
+    padding: 0 0.15rem;
+  }
+}
 @media screen and (max-width: 600px) {
   header {
     display: flex;

@@ -1,5 +1,7 @@
 header>* {
     padding: $desktop-view-padding;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 #hero {
@@ -8,7 +10,8 @@ header>* {
     justify-content: space-between;
     align-items: center;
     margin-top: 3rem;
-    padding-top: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     // background-image: url(../../images/hero-background.svg);
     background-position: bottom left;
     background-clip: border-box;
@@ -68,6 +71,37 @@ header>* {
         max-width: 100%;
         object-fit: contain;
         display: block;
+    }
+}
+
+// the main content 
+main {
+    background-color: $grey-lightened;
+    padding: $desktop-view-padding;
+    @import "./../components/search-form";
+    padding: $desktop-view-padding;
+    margin: 3rem 0;
+
+    ul {
+        li {
+            margin: 1rem 0;
+            list-style-type: disc;
+
+            a {
+                @include anchor-regular($black, 400);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    main {
+        margin: 3rem 0;
+
+        &>* {
+            padding: 0 0.15rem;
+        }
     }
 }
 

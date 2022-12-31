@@ -15,7 +15,7 @@
     "watch-404": "sass --watch src/public/stylesheets/404.scss src/public/stylesheets/404.css",
     "watch-ts": "tsc -w",
     "watch-pwa":"cd user-account && npm run serve",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page,SPA\" -c \"yellow.bold,cyan.bold,green.bold,red.bold,grey\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-404\" \"npm run watch-pwa\"", 
+    "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page\" -c \"yellow.bold,cyan.bold,green.bold,red.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-404\" ", 
     "make": "bash install.sh"
   },
   "dependencies": {

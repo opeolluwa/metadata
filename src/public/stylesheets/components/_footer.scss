@@ -5,10 +5,10 @@ footer {
   left: 0;
   display: flex;
   justify-content: center;
-  background-color: ghostwhite;
   color: darken($grey, 40%);
   padding: $spacing;
   padding: 2rem 0;
+
   img,
   a {
     display: inline-block;
