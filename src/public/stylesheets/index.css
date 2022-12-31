@@ -86,14 +86,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  grid-template-columns: repeat(12, 1fr);
   justify-content: space-between;
   align-items: center;
-  min-height: 3rem;
+  min-height: 4.75rem;
   padding: 5px 3px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
   transition: all 300ms ease-in-out;
-  background-color: transparent;
+  background-color: #f8f8f8;
   border-radius: 0 0 7px 7px;
 }
 nav ul {
@@ -110,41 +108,11 @@ nav a:hover,
 nav a:visited,
 nav a:link {
   text-decoration: none;
-  font-weight: 400;
+  font-weight: 500;
   padding: 0;
   border: none;
   color: inherit;
-}
-nav .with-dropdown {
-  display: flex;
-  align-items: center;
-  column-gap: 3px;
-  position: relative;
-}
-nav .dropdown-menu * {
-  display: block;
-  margin: 0.3rem;
-  left: 0.5rem;
-}
-nav .dropdown-menu * a {
-  color: #101010;
-  font-size: 13px;
-}
-nav .dropdown-menu a:hover,
-nav .dropdown-menu a:focus,
-nav .dropdown-menu a:active {
-  color: #4158d0;
-}
-nav .dropdown-menu {
-  position: absolute;
-  background-color: #f2f2f2;
-  z-index: 1200;
-  min-height: 4.2rem;
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-  -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+  font-size: larger;
 }
 
 @media screen and (max-width: 600px) {
@@ -234,109 +202,6 @@ nav .dropdown-menu {
   transition: ease 650ms;
 }
 
-header {
-  display: grid;
-  grid-template-rows: 10px auto auto;
-  padding: 0 !important;
-  min-height: calc(100vh - 5rem);
-  align-content: space-between;
-  background-color: #4158d0;
-  background-image: linear-gradient(43deg, #4158d0 0%, #c850c0 46%, #ffcc70 100%);
-  color: #f2f2f2;
-  position: relative;
-}
-header#resource-header {
-  min-height: 50vh;
-}
-header#resource-header h1 {
-  text-transform: capitalize;
-  text-align: center !important;
-}
-header #hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-}
-header h1 {
-  text-align: center;
-}
-header p {
-  margin: 1.75rem 0;
-  max-width: 40vw;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: #eaeaea;
-}
-header p::first-letter {
-  text-transform: capitalize !important;
-}
-header div#call-to-action {
-  margin-bottom: 3rem;
-  display: flex;
-  justify-content: space-evenly;
-}
-header div#call-to-action a,
-header div#call-to-action a:link,
-header div#call-to-action a:hover,
-header div#call-to-action a:visited {
-  border: 1px solid #f2f2f2;
-  border-radius: 4px;
-  padding: 10px 5px;
-  min-width: 7rem;
-  text-align: center;
-  text-transform: capitalize;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
-  text-decoration: none;
-  color: #f2f2f2;
-  display: block;
-  margin: 0 0.75rem;
-  cursor: pointer;
-}
-
-header > * {
-  padding: 0 3.5rem;
-}
-
-@media screen and (max-width: 600px) {
-  header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-height: calc(85vh - 25px);
-  }
-  header#resource-header {
-    max-height: 50vh;
-    grid-template-rows: calc(65vh - 20px);
-  }
-  header#resource-header h1,
-header#resource-header h2,
-header#resource-header h3 {
-    line-height: 56px;
-    font-size: 2.5rem;
-  }
-  header > * {
-    padding: 0 1.5rem;
-  }
-  header #hero {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    text-transform: capitalize;
-  }
-  header #hero p {
-    max-width: unset;
-    font-size: 105%;
-    line-height: 25px;
-  }
-}
-@media screen and (min-width: 600px) {
-  header ul {
-    display: none;
-  }
-}
 main {
   padding: 0 3.5rem;
   margin: 3rem 0;
@@ -450,7 +315,7 @@ footer a#opeolluwa {
   padding: 15px;
 }
 .card-container .card {
-  border: 3px solid #fafafa;
+  border: 3px solid #f8f8f8;
   padding: 1.75rem 1.2rem;
   border-radius: 5px;
   box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
@@ -508,6 +373,32 @@ footer a#opeolluwa {
   }
   .card-container .card {
     padding: 1.75rem 1.2rem;
+  }
+}
+.btn {
+  height: 50px;
+  width: 100%;
+  left: 0px;
+  border-radius: 8px;
+  padding: 7px 25px 7px 25px;
+  border: 1px solid #7d7d7d;
+  font-size: 16px;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.btn:hover,
+.btn:focus {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    width: 100%;
+    font-size: 14px;
   }
 }
 #account {
@@ -808,7 +699,7 @@ footer a#opeolluwa {
 }
 #user-account nav {
   grid-column: 1/3;
-  background: #fafafa;
+  background: #f8f8f8;
   padding: 3rem 1.5rem;
   border-radius: 0;
   display: block;
@@ -909,7 +800,7 @@ footer a#opeolluwa {
 #user-account a.logout-button svg {
   display: inline-block;
   margin: 0 0.75rem;
-  color: #fafafa;
+  color: #f8f8f8;
   max-width: 18px;
 }
 #user-account .close-btn {
@@ -1147,6 +1038,105 @@ footer a#opeolluwa {
   font-size: 1rem;
 }
 
+header > * {
+  padding: 0 3.5rem;
+}
+
+#hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 20px;
+  background-position: bottom left;
+  background-clip: border-box;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+}
+#hero #hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#hero h1 {
+  line-height: 42px;
+  font-weight: 700;
+}
+#hero p {
+  margin: 1.75rem 0;
+  justify-content: center;
+  line-height: 36px;
+  max-width: 75%;
+}
+#hero #call__to__action {
+  margin-bottom: 3rem;
+  display: flex;
+  column-gap: 15px;
+}
+#hero #call__to__action a {
+  text-decoration: none;
+  display: flex;
+  width: fit-content;
+  border-radius: 3px;
+  color: #101010;
+  cursor: pointer;
+  font-weight: 500;
+}
+#hero #call__to__action a:last-child {
+  background-color: #f8f8f8;
+  color: #101010;
+}
+#hero #call__to__action a:hover {
+  background-color: #f8f8f8;
+  transition: 300ms ease;
+}
+#hero #call__to__action a:last-child:hover {
+  background-color: transparent;
+}
+#hero img {
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: calc(85vh - 25px);
+  }
+  header#resource-header {
+    max-height: 50vh;
+    grid-template-rows: calc(65vh - 20px);
+  }
+  header#resource-header h1,
+header#resource-header h2,
+header#resource-header h3 {
+    line-height: 56px;
+    font-size: 2.5rem;
+  }
+  header > * {
+    padding: 0 1.5rem;
+  }
+  header #hero {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-transform: capitalize;
+  }
+  header #hero p {
+    max-width: unset;
+    font-size: 105%;
+    line-height: 25px;
+  }
+}
+@media screen and (min-width: 600px) {
+  header ul {
+    display: none;
+  }
+}
 .show {
   display: block;
 }

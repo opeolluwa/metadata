@@ -81,18 +81,17 @@ h1 {
 }
 //components
 @import "./components/navigation";
-@import "./components/header";
 @import "./components/main";
 @import "./components/footer";
 @import "./components/card";
-
+@import "./components/button";
 //pages
 @import "./pages/user-authentication";
 @import "./pages/user-account";
 @import "./pages/resources";
 @import "./pages/confirm-otp";
 @import "./pages/legal";
-
+@import "./pages/home";
 
 .show{
   display: block;

@@ -6,18 +6,6 @@
     <form action="/register" method="POST">
       <!--if error is found set the error else return the value till all conditions are met-->
       <div class="form-feed">
-        <label for="firstname">Firstname</label>
-        <input
-          type="text"
-          placeholder="enter firstname"
-          id="firstname"
-          name="firstname"
-          value="<%= value.firstname || ''%>"
-        />
-        <span class="error"> <%= error.firstname %> </span>
-      </div>
-
-      <div class="form-feed">
         <label for="username">Username</label>
         <input
           type="text"
@@ -79,5 +67,4 @@
       Already have an account? <a href="/login">Login</a>
     </div>
   </div>
-  <%- include('./../../partials/user-authentication-footer'); %>
 </div>
