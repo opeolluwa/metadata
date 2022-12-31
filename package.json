@@ -5,7 +5,7 @@
     "build-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
     "build-ts": "tsc",
     "build-pwa":"cd user-account && npm run build && cd ..",
-    "build": "npm run build-sass && npm run build-pwa && npm run build-ts && npm run copy-static-assets",
+    "build": "npm run build-sass &&  npm run build-ts && npm run copy-static-assets",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
     "deploy": "git push heroku master",
     "serve": "node dist/index.js",
