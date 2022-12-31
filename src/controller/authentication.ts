@@ -9,16 +9,27 @@ const path = require("path");
 const ejs = require("ejs");
 const jwt = require("jsonwebtoken");
 export default class AuthenticationControllers {
+    /**
+       * @function signup - crate a new user account
+       * @param {string} username the username of the user
+       * @param {string} email the email of the user
+       * @param {string} password the password of the user
+       * @param {string} securityQuestion the security question of the user
+       * @param {string} securityAnswer the security answer of the user
+       * @returns error or success and render the returned value in a template
+      */
     static async signup(req: Request, res: Response) {
-        /**
-         * @param {string} username the username of the user
-         * @param {string} email the email of the user
-         * @param {string} password the password of the user
-         * @param {string} securityQuestion the security question of the user
-         * @param {string} securityAnswer the security answer of the user
-        */
+        // destruct the payload 
+        const {
+            username,
+            password,
+            email,
+            firstname,
+            privacy_policy_agreement
+        } = req.body;
 
-        //prepare error messages beforehand
+
+        //construct the error messages beforehand
         const error = {
             username: "",
             password: "",
@@ -26,33 +37,36 @@ export default class AuthenticationControllers {
             firstname: "",
             // privacy_policy_agreement: ""
         }
-        console.log(req.body)
-        // return;
+
+
         //validate the data from the client
-        const emailExists = await User.findOne({ email: req.body.email.trim() });
-        const usernameExists = await User.findOne({ username: req.body.username.trim() });
+        const emailExists = await User.findOne({ email: email.trim() });
+        const usernameExists = await User.findOne({ username: username.trim() });
+        if (!username) {
+            error.username = "username is required";
+        }
+        if (!password) {
+            error.password = "password is required";
+        }
+        if (!password && password.length < 8) {
+            error.password = "password must be at least 8 characters";
+        }
+        if (emailExists) {
+            error.email = "a user with the email already exists";
+        }
+        if (!firstname) {
+            error.firstname = "firstname is required";
+        }
 
-        error.username = (!req.body.username) ? "username is required" :
-            (usernameExists) ? "username already exist" : "";
-        error.password = (!req.body.password || req.body.password.length < 8) ? "password must be at least 8 characters" : error.password;
-        error.email = (!req.body.email) ? "email is required" : (emailExists) ? "a user with the email already exists" : error.email;
-        error.firstname = (!req.body.firstname) ? "firstname is required" : error.firstname;
-        // error.privacy_policy_agreement = (!req.body.privacy_policy_agreement) ? "privacy policy agreement is required" : error.privacy_policy_agreement;
-
-
-        //get the payload from the request body and persist the values while checking for errors
-        const { username, password, email, firstname, privacy_policy_agreement } = req.body;
+        //check for errors and send in error report if any back to the user 
         const value = { username, password, email, firstname }
-
-        //check for errors and send in error report if any
         if (!Object.values(error).every(e => e === "")) {
             return res.render("pages/authentication/sign-up", { title: "create account", layout: "./layouts/user-authentication-layout", error, value });
         }
 
-        //else create the user
+        //if no error, create the user record 
         else {
             try {
-                //make new user
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(password.trim(), salt);
                 const user = new User({
@@ -61,8 +75,6 @@ export default class AuthenticationControllers {
                     email,
                     firstname
                 })
-
-                //save the user information
                 await user.save();
                 //set the magic link and activation token
                 const activationToken = jwt.sign({ user_id: user._id.toString(), email: user.email, firstname: user.firstname }, process.env.JWT_SECRET, { expiresIn: "24h" });
@@ -73,7 +85,6 @@ export default class AuthenticationControllers {
                     if (err) {
                         console.log(err);
                     }
-
                     //send the message
                     // console.log(template, magicLink)
                     mailer({ email: user.email, subject: "confirm email address", template })
@@ -82,6 +93,7 @@ export default class AuthenticationControllers {
                 //send in status report on completion
                 return res.render("pages/authentication/sign-up-success", { title: "verify your account", layout: "./layouts/user-authentication-layout", firstname });
             } catch (error) {
+                // to do handle error here
                 console.log(error.message)
             }
         }

@@ -13,10 +13,16 @@
 html,
 body {
   font-family: "Fira Sans", sans-serif;
-  font-family: "Nunito", sans-serif;
-  font-family: "Poppins", sans-serif;
-  font-family: "Raleway", sans-serif;
   font-size: 18px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+input {
+  accent-color: $black
 }
 
 //classes
@@ -25,6 +31,7 @@ body {
 .d-desktop-flex {
   display: none;
 }
+
 .sub-hero-text {
   font-size: 1.25rem;
   line-height: 24px;
@@ -32,16 +39,20 @@ body {
   text-transform: lowercase !important;
   font-weight: 500;
 }
+
 .sub-hero-text::first-letter {
   text-transform: capitalize;
 }
+
 .d-block {
   display: block;
 }
+
 .nav-active {
   display: block;
   transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1) linear;
 }
+
 .d-none {
   display: none;
 }
@@ -49,13 +60,16 @@ body {
 .text-center {
   text-align: center !important;
 }
+
 *[class*="error"] {
   color: $red !important;
 }
+
 h1 {
   line-height: 36px;
   font-size: 2.75rem;
 }
+
 @media screen and (max-width: 600px) {
   .d-mobile {
     display: unset;
@@ -66,6 +80,7 @@ h1 {
   .d-desktop {
     display: block;
   }
+
   .d-desktop-flex {
     display: flex;
   }
@@ -75,29 +90,29 @@ h1 {
   main {
     grid-column: 1/-1;
   }
+
   nav {
     display: none;
   }
 }
+
 //components
 @import "./components/navigation";
-@import "./components/header";
-@import "./components/main";
 @import "./components/footer";
 @import "./components/card";
-
+@import "./components/button";
 //pages
 @import "./pages/user-authentication";
 @import "./pages/user-account";
 @import "./pages/resources";
 @import "./pages/confirm-otp";
 @import "./pages/legal";
+@import "./pages/home";
 
-
-.show{
+.show {
   display: block;
 }
 
-.hide{
+.hide {
   display: none;
 }

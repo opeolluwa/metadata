@@ -1,16 +1,23 @@
 <div id="home-page">
   <header>
     <nav><%- include("./partials/navigation");%></nav>
+    <!--hero text-->
     <div id="hero">
-      <h1>Meta Data</h1>
-      <p class="sub-hero-text">
-        A collection of open source and closed source images, code snippets,
-        repositories, templates and more for designers, web and hybrid
-        application developers!
-      </p>
-      <div id="call-to-action">
-        <a href="/explore">Explore</a>
-        <a href="/login">Add Yours</a>
+      <div id="hero__text">
+        <h1>Meta Data</h1>
+        <p class="sub-hero-text">
+          A collection of free and paid images, code snippets,
+          repositories, templates and more for designers,
+          software developers!
+        </p>
+        <div id="call__to__action">
+          <a href="/explore" class="btn">Explore</a>
+          <a href="/login" class="btn">Add Yours</a>
+        </div>
+      </div>
+      <!-- hero image -->
+      <div>
+        <img src="/images/hero-illustration.svg" alt="hero">
       </div>
     </div>
   </header>
@@ -21,18 +28,9 @@
       <button type="submit" id="input-button">
         <span class="d-desktop"> Search </span>
         <span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-search d-mobile"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-search d-mobile">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
@@ -42,15 +40,17 @@
 
     <ul>
       <% for(const category of categories){ %>
-      <li>
-        <a href="<%='/r/'+category.route  %>"> <%=category.anchor %> </a>
-      </li>
-      <% } %>
+        <li>
+          <a href="<%='/r/'+category.route  %>">
+            <%=category.anchor %>
+          </a>
+        </li>
+        <% } %>
     </ul>
   </main>
   <footer><%- include("./partials/footer"); %></footer>
   <script>
     //ref the search form, input feed and submit button
-    
+
   </script>
 </div>

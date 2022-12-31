@@ -1,11 +1,9 @@
 @mixin gradient {
   background-color: #4158d0;
-  background-image: linear-gradient(
-    43deg,
-    #4158d0 0%,
-    #c850c0 46%,
-    #ffcc70 100%
-  );
+  background-image: linear-gradient(43deg,
+      #4158d0 0%,
+      #c850c0 46%,
+      #ffcc70 100%);
 }
 
 @mixin anchor-regular($color: $white, $weight: 300) {
@@ -25,11 +23,9 @@
 
 //generate fade overlay background
 @mixin fade-overlay($red, $green, $blue, $transparency: 0.35) {
-  background-image: linear-gradient(
-    to right,
-    rgba($red, $green, $blue, $transparency),
-    rgba($red, $green, $blue, $transparency)
-  );
+  background-image: linear-gradient(to right,
+      rgba($red, $green, $blue, $transparency),
+      rgba($red, $green, $blue, $transparency));
 }
 
 //for user account login logout and password reset
@@ -42,6 +38,9 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: minmax(100px 35vh) minmax(100px 35vh) 10px;
   row-gap: 1.75rem;
+  align-items: center;
+  justify-content: center;
+
   & .container {
     grid-column-start: 5;
     grid-column-end: 9;
@@ -50,60 +49,6 @@
     padding: inherit;
   }
 
-  & [data-guide="footer"] {
-    grid-row-start: 2;
-    grid-row-end: 3;
-    grid-column-start: 3;
-    grid-column-end: -3;
-    background: transparent;
-    font-size: 80%;
-    color: $white;
-    & hr {
-      color: lighten($white, 50%);
-      width: 50%;
-      display: flex;
-      opacity: 0.5;
-      margin: 0.75rem auto;
-    }
-    & > div {
-      text-align: center;
-      margin-top: 0.25rem;
-      color: darken($white, 10%);
-
-      a#opeolluwa {
-        text-decoration: underline;
-      }
-      img {
-        max-width: 16px;
-        position: relative;
-        bottom: -5px;
-      }
-    }
-    & ul {
-      display: block;
-      margin: 1rem 0;
-    }
-    & ul li:first-child,
-    & ul li {
-      list-style: none;
-      margin: 0.25rem 0;
-      text-align: center;
-    }
-    & ul li:first-child ::before {
-      display: none;
-    }
-    & ul li:nth-child(2) {
-      margin: unset;
-    }
-
-    & a,
-    & span,
-    & ul li a {
-      text-decoration: none;
-      color: $white;
-      text-transform: capitalize;
-    }
-  }
 
   //mobile devices
   @media screen and (max-width: 600px) {
@@ -111,15 +56,9 @@
       display: flex;
       flex-direction: column;
       background-color: #fff;
+
       .container {
-        padding: 2rem;
-      }
-      [data-guide="footer"] {
-        & hr {
-          width: 90%;
-          height: 1px;
-          margin: 5px auto;
-        }
+        padding: 2rem 4rem;
       }
     }
   }
@@ -136,7 +75,7 @@
 
 //for shadow effect on  box models
 @mixin box-shadow {
-  box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-  -webkit-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
-  -moz-box-shadow: -3px 19px 32px -10px rgba(0, 0, 0, 0.53);
+  box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: -3px 19px 32px -7px rgba(0, 0, 0, 0.3);
 }

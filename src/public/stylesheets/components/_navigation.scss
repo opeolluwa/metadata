@@ -3,25 +3,26 @@ nav {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  grid-template-columns: repeat(12, 1fr);
   justify-content: space-between;
   align-items: center;
-  min-height: 3rem;
+  min-height: 4.75rem;
   padding: 5px 3px;
-  @include fade-overlay(0, 0, 0, 0.15);
   transition: all 300ms ease-in-out;
-  background-color: transparent;
+  background-color: $grey-lightened;
   border-radius: 0 0 7px 7px;
+
   //navigation item
   ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
+
     li {
       margin: 0 $spacing;
       cursor: pointer;
     }
   }
+
   a,
   a:hover,
   a:visited,
@@ -31,41 +32,7 @@ nav {
     padding: 0;
     border: none;
     color: inherit;
-  }
-
-  .with-dropdown {
-    display: flex;
-    align-items: center;
-    column-gap: 3px;
-    position: relative;
-  }
-
-  .dropdown-menu * {
-    display: block;
-    margin: 0.3rem;
-    left: 0.5rem;
-    a {
-      color: $black;
-      font-size: 13px;
-    }
-  }
-
-  .dropdown-menu a:hover,
-  .dropdown-menu a:focus,
-  .dropdown-menu a:active {
-    color: $blue;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    background-color: $white;
-    z-index: 1200;
-    min-height: 4.2rem;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-    -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-    -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
+    font-size: larger;
   }
 }
 
@@ -84,6 +51,7 @@ nav {
     border-radius: 0;
     width: 100%;
     transition: all 500ms ease-in-out;
+
     svg#navigation-toggle {
       padding: 3px 5px;
       box-sizing: content-box;
@@ -91,6 +59,7 @@ nav {
       font-size: 25px;
       cursor: pointer;
     }
+
     ul.d-desktop-flex {
       position: absolute;
       top: 2rem;
@@ -108,26 +77,28 @@ nav {
       -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
       -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
       border-bottom: 1px solid $grey;
-      border-image: linear-gradient(
-        43deg,
-        #4158d0 0%,
-        #c850c0 46%,
-        #ffcc70 100%
-      );
+      border-image: linear-gradient(43deg,
+          #4158d0 0%,
+          #c850c0 46%,
+          #ffcc70 100%);
       background-color: $white !important;
       z-index: 1200;
+
       & * {
         color: $black !important;
       }
+
       li {
         margin: 0.75rem 0;
         transition: 0.5s;
         color: $black;
         cursor: pointer;
       }
+
       & a {
         color: inherit !important;
       }
+
       & a:hover {
         color: $pink;
         transition: 250ms;
@@ -159,7 +130,7 @@ nav {
 
 
 
-.dropdown-menu{
+.dropdown-menu {
   display: none;
   transition: ease 650ms;
 }
