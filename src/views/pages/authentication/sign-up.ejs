@@ -1,44 +1,54 @@
-<div id="account">
+<div class="auth__page">
   <div class="container">
-    <h1>Sign Up</h1>
-    <p class="sub-hero-text">Create account to begin</p>
+    <!--div one of two-->
+    <div>
+      <!-- <img src="/images/undraw_authentication_fsn5.svg" alt="authentication" /> -->
+    </div>
+    <!--two of to-->
 
-    <form action="/register" method="POST">
-      <!--if error is found set the error else return the value till all conditions are met-->
-      <div class="form-feed">
-        <label for="username">Username</label>
-        <input type="text" placeholder="enter username" id="username" name="username"
-          value="<%= value.username || ''%>" />
-        <span class="error">
-          <%= error.username %>
-        </span>
-      </div>
+    <div>
+      <h1>Sign Up</h1>
+      <p class="sub-hero-text">Create account to begin</p>
 
-      <div class="form-feed">
-        <label for="email">Email</label>
-        <input type="email" placeholder="example@mailer.com" id="email" name="email" value="<%= value.email || ''%>" />
-        <span class="error">
-          <%= error.email %>
-        </span>
-      </div>
-
-      <div class="form-feed">
-        <label for="password">Password</label>
-        <div class="password-input">
-          <input type="password" placeholder="enter password" name="password" value="<%= value.password || '' %>" />
-          <i class="bi bi-eye-slash" id="togglePassword"></i>
+      <form action="/register" method="POST">
+        <!--if error is found set the error else return the value till all conditions are met-->
+        <div class="form-feed">
+          <label for="username">Username</label>
+          <input type="text" placeholder="enter username" id="username" name="username"
+            value="<%= value.username || ''%>" />
+          <span class="error">
+            <%= error.username %>
+          </span>
         </div>
 
-        <span class="error">
-          <%= error.password %>
-        </span>
+        <div class="form-feed">
+          <label for="email">Email</label>
+          <input type="email" placeholder="example@mailer.com" id="email" name="email"
+            value="<%= value.email || ''%>" />
+          <span class="error">
+            <%= error.email %>
+          </span>
+        </div>
+
+        <div class="form-feed">
+          <label for="password">Password</label>
+          <div class="password-input">
+            <input type="password" placeholder="enter password" name="password" value="<%= value.password || '' %>" />
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+          </div>
+
+          <span class="error">
+            <%= error.password %>
+          </span>
+        </div>
+        <div class="form-feed">
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
+      <div data-guide="sign-up">
+        Already have an account? <a href="/login">Login</a>
       </div>
-      <div class="form-feed">
-        <button type="submit">Sign Up</button>
-      </div>
-    </form>
-    <div data-guide="sign-up">
-      Already have an account? <a href="/login">Login</a>
     </div>
+
   </div>
 </div>

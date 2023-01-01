@@ -3,10 +3,9 @@ import { User } from "../models/User";
 import bcrypt from "bcrypt"
 import { mailer } from "../lib/mailer";
 import otpGenerator from "otp-generator"
+import ejs from "ejs";
+import path from "path";
 
-
-const path = require("path");
-const ejs = require("ejs");
 const jwt = require("jsonwebtoken");
 export default class AuthenticationControllers {
     /**

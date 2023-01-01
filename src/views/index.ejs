@@ -1,18 +1,17 @@
 <div id="home-page">
+  <nav><%- include("./partials/navigation");%></nav>
+
   <header>
-    <nav><%- include("./partials/navigation");%></nav>
     <!--hero text-->
     <div id="hero">
       <div id="hero__text">
         <h1>Meta Data</h1>
         <p class="sub-hero-text">
-          A collection of free and paid images, code snippets,
-          repositories, templates and more for designers,
-          software developers!
+          A collection of open source resources for designers and developers to
+          help you build the next generation of software.
         </p>
         <div id="call__to__action">
-          <a href="/explore" class="btn">Explore</a>
-          <a href="/login" class="btn">Add Yours</a>
+          <a href="/login" class="btn"><span>Add Yours</span><i class="bi bi-caret-right-fill"></i></a>
         </div>
       </div>
       <!-- hero image -->
@@ -23,30 +22,62 @@
   </header>
 
   <main>
-    <form method="get" action="/search">
-      <input type="search" name="keyword" placeholder="search here ..." />
-      <button type="submit" id="input-button">
-        <span class="d-desktop"> Search </span>
-        <span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-search d-mobile">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </span>
-      </button>
-    </form>
+    <!--one of three -->
+    <div id="about">
+      <div id="categories">
+        <div class="category">
+          <i class="bi bi-image"></i>
+          <h3>Images and Icons </h3>
+          <p>
+            A wide variety of high-quality graphics to choose from, all available for use in your personal or commercial
+            projects.
+          </p>
+        </div>
+        <div class="category">
+          <i class="bi bi-palette"></i>
+          <h3>Design Inspirations</h3>
+          <p>
+            A collection of free and paid images, code snippets,
+            repositories, templates and more for designers,
+            software developers!
+          </p>
+        </div>
 
-    <ul>
-      <% for(const category of categories){ %>
-        <li>
-          <a href="<%='/r/'+category.route  %>">
-            <%=category.anchor %>
-          </a>
-        </li>
-        <% } %>
-    </ul>
+        <div class="category">
+          <i class="bi bi-cpu"></i>
+          <h3>Code blocks and deployment</h3>
+          <p>
+            Varieties of servers to help you smoothly and efficiently deploy your applications and websites.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--content: two of three-->
+    <div class="d-none" id="some">
+      <form method="get" action="/search">
+        <input type="search" name="keyword" placeholder="search here ..." />
+        <button type="submit" id="input-button">
+          <span class="d-desktop"> Search </span>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-search d-mobile">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+        </button>
+      </form>
+      <ul>
+        <% for(const category of categories){ %>
+          <li>
+            <a href="<%='/r/'+category.route  %>">
+              <%=category.anchor %>
+            </a>
+          </li>
+          <% } %>
+      </ul>
+    </div>
   </main>
   <footer><%- include("./partials/footer"); %></footer>
   <script>

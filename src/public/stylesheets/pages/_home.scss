@@ -1,7 +1,7 @@
 header>* {
     padding: $desktop-view-padding;
-    padding-top: 0;
-    padding-bottom: 0;
+    // padding-top: 0;
+    // padding-bottom: 0;
 }
 
 #hero {
@@ -9,9 +9,9 @@ header>* {
     grid-template-columns: 1.2fr 1fr;
     justify-content: space-between;
     align-items: center;
-    margin-top: 3rem;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    background: $gradient-bg;
+    padding: 40px unset;
+    color: $white;
     // background-image: url(../../images/hero-background.svg);
     background-position: bottom left;
     background-clip: border-box;
@@ -34,36 +34,47 @@ header>* {
         justify-content: center;
         line-height: 36px;
         max-width: 75%;
+        font-weight: 400;
+        text-align: center;
     }
 
     //call to action
     #call__to__action {
         margin-bottom: 3rem;
         display: flex;
-        column-gap: 15px;
+        align-items: center;
+        background-color: $white;
+        border-radius: 2.5rem;
+        min-width: 200px;
+        padding: .25rem 1.2rem;
+        justify-content: center;
 
         a {
             text-decoration: none;
             display: flex;
-            width: fit-content;
-            border-radius: 3px;
             color: $black;
             cursor: pointer;
             font-weight: 500;
-        }
-
-        a:last-child {
-            background-color: $grey-lightened;
-            color: $black;
-        }
-
-        a:hover {
-            background-color: $grey-lightened;
             transition: 300ms ease;
+            border: none;
         }
 
-        a:last-child:hover {
-            background-color: transparent;
+
+
+    }
+
+    #call__to__action:hover {
+        background-color: $black;
+        color: $white;
+        text-decoration: none;
+
+        span {
+            color: $white;
+        }
+
+        i {
+            margin-left: 0.5rem;
+            color: $wine;
         }
     }
 
@@ -74,36 +85,7 @@ header>* {
     }
 }
 
-// the main content 
-main {
-    background-color: $grey-lightened;
-    padding: $desktop-view-padding;
-    @import "./../components/search-form";
-    padding: $desktop-view-padding;
-    margin: 3rem 0;
 
-    ul {
-        li {
-            margin: 1rem 0;
-            list-style-type: disc;
-
-            a {
-                @include anchor-regular($black, 400);
-                text-decoration: underline;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {
-    main {
-        margin: 3rem 0;
-
-        &>* {
-            padding: 0 0.15rem;
-        }
-    }
-}
 
 //small screens
 @media screen and (max-width: 600px) {
@@ -149,6 +131,119 @@ main {
     header {
         ul {
             display: none;
+        }
+    }
+}
+
+
+
+// the main content 
+main {
+    #about {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 1200px;
+        flex-direction: column;
+        padding: $desktop-view-padding;
+        padding-top: 60px;
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            line-height: 36px;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 24px;
+            margin: 0.5rem 1rem;
+            text-align: center;
+        }
+    }
+
+    #categories {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        max-width: 1200px;
+        flex-direction: row;
+    }
+
+
+    #categories .category {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    #categories .category h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 36px
+    }
+
+    #categories .category p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 28px;
+        margin: 0.5rem 0;
+        padding: .25rem .75rem;
+        color: $grey
+    }
+
+
+    #categories .category .bi {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+
+    #categories .category:first-child i {
+        color: $wine;
+    }
+
+    #categories .category:nth-child(2) i {
+        color: $orange;
+    }
+
+    #categories .category:last-child i {
+        color: $purple-light;
+    }
+
+    @import "./../components/search-form";
+    padding: $desktop-view-padding;
+
+
+    ul {
+        li {
+            margin: 1rem 0;
+            list-style-type: disc;
+
+            a {
+                @include anchor-regular($black, 400);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    #some {
+        background-color: $grey-lightened;
+        padding: 1rem 0;
+        margin: 0 ;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    main {
+        &>* {
+            padding: 0 0.15rem;
         }
     }
 }
