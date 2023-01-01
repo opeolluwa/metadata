@@ -1,14 +1,17 @@
 $black: #101010;
 $grey: #7d7d7d;
-$grey-lightened:#f8f8f8;
+$grey-lightened: #f8f8f8;
 $white: #f2f2f2;
 $blue: #4158d0;
 $pink: #c850c0;
 $yellow: #ffcc70;
 $red: #e92929f1;
+$wine: #a91f5a;
+$purple: #361f4c;
+$orange: #f26114;
+$purple-light:#6f215d;
 $green: rgb(46, 136, 46);
-$user-account-border: darken(
-  $color: #fafafa,
-  $amount: 5,
-);
+$user-account-border: darken($color: #fafafa,
+    $amount: 5,
+  );
 // $grey-lightened: #fafafa;

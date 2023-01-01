@@ -1,49 +1,47 @@
-<div id="account">
+<div class="auth__page">
   <div class="container">
-    <h1>Login</h1>
-    <p class="sub-hero-text">Welcome Back!</p>
+    <!--one of two -->
+    <div></div>
+    <!--content: two of two-->
+    <div>
+      <h1>Welcome Back!</h1>
+      <p class="sub-hero-text">Login to continue</p>
 
-    <form action="/login" method="post">
-      <span class="error" style="text-align: center; font-size: 14px">
-        <%= error.authentication %>
-      </span>
-      <div class="form-feed">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          placeholder="enter username"
-          name="username"
-          id="username"
-          value="<%= value.username%>"
-        />
-        <span class="error"> <%= error.username || '' %> </span>
-      </div>
-
-      <div class="form-feed">
-        <label for="password">Password</label>
-        <div class="password-input">
-          <input
-            type="password"
-            placeholder="enter password"
-            name="password"
-            value="<%= value.password || '' %>"
-          />
-          <i class="bi bi-eye-slash" id="togglePassword"></i>
+      <form action="/login" method="post">
+        <span class="error" style="text-align: center; font-size: 14px">
+          <%= error.authentication %>
+        </span>
+        <div class="form-feed">
+          <label for="username">Username</label>
+          <input type="text" placeholder="enter username" name="username" id="username" value="<%= value.username%>" />
+          <span class="error">
+            <%= error.username || '' %>
+          </span>
         </div>
-        <span class="error"> <%= error.password %> </span>
-      </div>
 
-      <div class="form-feed">
-        <button type="submit">Login</button>
+
+        <div class="form-feed">
+          <label for="username">Password</label>
+          <div class="password-input">
+            <input type="text" placeholder="enter password" name="password" id="password"
+              value="<%= value.password%>" />
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+          </div>
+          <span class="error">
+            <%= error.password || '' %>
+          </span>
+        </div>
+
+        <div class="form-feed">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+      <div data-guide="login">
+        <span> Don&apos;t an account? <a href="/register">Sign Up</a> </span>
+        <span>
+          <a href="/password-reset">Forgotten Password?</a>
+        </span>
       </div>
-    </form>
-    <div data-guide="login">
-      <span> Don&apos;t an account? <a href="/register">Sign Up</a> </span>
-      <span>
-        <a href="/password-reset">Forgotten Password?</a>
-      </span>
     </div>
   </div>
 </div>
-
-

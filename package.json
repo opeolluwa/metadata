@@ -4,7 +4,7 @@
   "scripts": {
     "build-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
     "build-ts": "tsc",
-    "build-pwa":"cd user-account && npm run build && cd ..",
+    "build-pwa": "cd user-account && npm run build && cd ..",
     "build": "npm run build-sass &&  npm run build-ts && npm run copy-static-assets",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
     "deploy": "git push heroku master",
@@ -14,16 +14,18 @@
     "watch-sass": "sass --watch src/public/stylesheets/index.scss src/public/stylesheets/index.css",
     "watch-404": "sass --watch src/public/stylesheets/404.scss src/public/stylesheets/404.css",
     "watch-ts": "tsc -w",
-    "watch-pwa":"cd user-account && npm run serve",
-    "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page\" -c \"yellow.bold,cyan.bold,green.bold,red.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-404\" ", 
-    "make": "bash install.sh"
+    "watch-pwa": "cd user-account && npm run serve",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page\" -c \"yellow.bold,cyan.bold,green.bold,red.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-404\" ",
+    "db:migrate": "npx typeorm-ts-node-esm migration:run  -d src/config/database-config.ts",
+    "db:revert": "npx typeorm-ts-node-esm migration:revert -d src/config/database-config.ts"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/body-parser": "^1.19.2",
     "@types/connect-sqlite3": "^0.9.1",
+    "@types/ejs": "^3.1.1",
     "@types/express-session": "^1.17.4",
-    "@types/jsonwebtoken": "^8.5.8",
+    "@types/jsonwebtoken": "^8.5.9",
     "@types/otp-generator": "^4.0.0",
     "@types/passport": "^1.0.7",
     "@types/shelljs": "^0.8.11",
@@ -48,11 +50,14 @@
     "otp-generator": "^4.0.0",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
+    "pg": "^8.8.0",
+    "reflect-metadata": "^0.1.13",
     "sequelize": "^6.19.0",
     "sequelize-bcrypt": "^1.1.0",
     "sequelize-joi": "^2.0.1",
     "shelljs": "^0.8.5",
     "sqlite3": "^5.0.6",
+    "typeorm": "^0.3.11",
     "url-validator": "^2.0.3"
   },
   "repository": {

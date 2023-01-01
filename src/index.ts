@@ -71,14 +71,14 @@ app.use(session({
 store.sync();
 
 //mongo db connection
-mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true }, (err: string) => {
+/*mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true }, (err: string) => {
     if (!err) {
         console.log('Successfully Established Connection with MongoDB')
     }
     else {
         console.log('Failed to Establish Connection with MongoDB with Error: ' + err)
     }
-});
+});*/
 
 
 
@@ -100,9 +100,9 @@ app.use((req: Request, res: Response) => {
 })
 
 //synchronize database
-sequelize.sync().then(() => {
-    console.log(" Successfully Established Connection with SQLite")
-})
+// sequelize.sync().then(() => {
+//     console.log(" Successfully Established Connection with SQLite")
+// })
 
 
 
