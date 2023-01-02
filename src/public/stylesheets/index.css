@@ -336,14 +336,6 @@ footer a#opeolluwa {
     font-size: 14px;
   }
 }
-#account .success-icon {
-  min-width: 100px;
-  max-width: 70%;
-  margin: 2rem auto;
-  display: flex;
-  justify-content: center;
-}
-
 .auth__page .container h1 {
   font-size: 1.75rem;
   font-weight: 300;
@@ -479,246 +471,79 @@ footer a#opeolluwa {
   margin-bottom: 30px;
 }
 
-/*#account {
-  @include auth-layout;
-  @include gradient;
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-align: left;
+  }
 
-  //for successful registration icon
-  & .success-icon {
-    min-width: 100px;
-    max-width: 70%;
-    margin: 2rem auto;
-    display: flex;
+  .sub-hero-text {
+    font-size: 0.95rem;
+    margin: 0.25rem 0;
+    color: #7d7d7d;
+    text-transform: capitalize;
+  }
+
+  .auth__page .container {
+    display: block;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "bg" "form";
     justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
 
-  & .container {
-    @include box-shadow;
-
-    h1 {
-      font-size: 1.75rem;
-      text-align: center;
-      font-weight: 300;
-    }
-
-    .sub-hero-text {
-      font-size: 1rem;
-      margin: 0.25rem 0;
-      text-align: center;
-      color: $grey;
-      text-transform: capitalize;
-    }
-
-    form {
-      margin-top: 3rem;
-      display: block;
-      width: 100%;
-
-      .form-feed>*,
-      .form-feed {
-        display: block;
-        width: 100%;
-
-        span {
-          font-size: 80%;
-          color: $grey;
-          margin-top: 1px;
-        }
-      }
-
-      .form-feed {
-        border-color: transparent;
-        margin: 1.5rem 0;
-
-        label {
-          margin-bottom: 0.25rem;
-          color: $black;
-          line-height: 24px;
-          text-transform: uppercase;
-          font-size: 70%;
-        }
-
-        input,
-        button,
-        select,
-        option {
-          padding: 12px;
-          border-radius: 3px;
-          border: 1px solid gray;
-          width: 100%;
-          font-size: 1rem;
-          background-color: transparent;
-        }
-
-        & input {
-          text-align: unset;
-        }
-
-        & input:focus,
-        & input:hover {
-          outline: 1px solid transparent;
-          transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
-        }
-
-        & input[type="checkbox"] {
-          display: inline !important;
-        }
-
-        & input.input-error {
-          border: 1px solid $red;
-        }
-
-        & input.no-input-error {
-          border: 1px solid $green;
-        }
-      }
-
-      .form-control {
-        border: transparent;
-        font-size: 80%;
-        width: 100%;
-      }
-
-      button[type="submit"] {
-        background-color: darken($blue, 5%);
-        color: $white;
-        cursor: pointer;
-      }
-    }
-
-    [data-guide="sign-up"] {
-      font-size: 80%;
-      text-align: center;
-    }
-
-    [data-guide="login"] {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      text-align: center;
-      font-size: 80%;
-      margin: 2rem 0 0;
-    }
-
-    [data-guide="forgotten-password"] {
-      display: flex;
-      justify-items: flex-end;
-      display: none;
-      font-size: 80%;
-      margin: 1px 0;
-    }
-
-    ::placeholder,
-    option,
-    select {
-      text-transform: lowercase;
-      font-size: 75%;
-      color: $grey;
-    }
-
-    & [data-guide="login"]>span {
-      display: block;
-      margin: 0.25rem 0;
-      text-align: center;
-    }
-
-    & [data-guide="login"] {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-    }
+  .auth__page .container > div:first-child {
+    display: none;
   }
 
-  @media screen and (max-width: 600px) {
-
-    //for successful registration icon
-    & .success-icon {
-      min-width: 100px;
-      max-width: 50%;
-      margin: 1rem auto;
-      display: flex;
-      justify-content: center;
-    }
-
-    & {
-      padding: 3rem 1.25rem;
-    }
-
-    & .container {
-      padding: inherit;
-
-      & [data-guide="login"] {
-        display: block;
-        text-align: unset;
-      }
-
-      & [data-guide="login"]>span {
-        display: block;
-        margin: 0.45rem 0;
-      }
-
-      h1 {
-        font-size: 1.25rem;
-        font-weight: 400;
-      }
-
-      p.sub-hero-text {
-        font-size: 85%;
-        margin: 0 0;
-      }
-
-      form {
-        margin-top: 2rem;
-        display: block;
-        width: 100%;
-
-        .form-feed {
-          border-color: transparent;
-          margin: 1.5rem 0;
-
-          label {
-            margin-bottom: 0;
-            color: $black;
-            line-height: 26px;
-            text-transform: uppercase;
-            font-size: 70%;
-          }
-
-          input,
-          button,
-          select,
-          option {
-            padding: 10px;
-            border-radius: 3px;
-            border: 1px solid lighten($grey, 2%);
-            width: 100%;
-            font-size: 0.9rem;
-          }
-
-          input {
-            text-align: unset;
-          }
-
-          & input[type="checkbox"] {
-            display: inline !important;
-          }
-        }
-
-        .form-control {
-          border: transparent;
-          font-size: 70%;
-          width: 100%;
-        }
-
-        button[type="submit"] {
-          background-color: darken($blue, 5%);
-          color: $white;
-        }
-      }
-    }
+  .auth__page .container > div:last-child {
+    padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    place-content: center;
+    min-height: 90vh;
   }
-}*/
+
+  .auth__page .container > div:last-child h1 + small.error {
+    margin-bottom: 35px;
+  }
+
+  .auth__page .container div:last-child form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 10px;
+    column-gap: 15px;
+    margin-top: 2.75rem;
+  }
+  .auth__page .container div:last-child form .form-feed {
+    display: block;
+    min-width: fit-content;
+    width: unset;
+    margin: 15px 0;
+  }
+  .auth__page .container div:last-child form .form-feed span {
+    font-size: 80%;
+    color: #7d7d7d;
+    margin-top: 1px;
+  }
+}
+.password-input {
+  display: flex !important;
+  align-items: center;
+}
+.password-input i {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
 #account {
   display: flex;
   min-height: 100vh;
@@ -801,6 +626,20 @@ li a {
   padding: 40px 60px;
 }
 
+@media screen and (max-width: 768px) {
+  #account {
+    display: block;
+  }
+
+  #account .header,
+#account .container {
+    padding: 0 20px;
+  }
+
+  #account aside {
+    display: none;
+  }
+}
 #resource-content main, #explore main {
   padding: 1.5rem 1rem;
 }
