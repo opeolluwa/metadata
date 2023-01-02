@@ -5,8 +5,12 @@ import { mailer } from "../lib/mailer";
 import otpGenerator from "otp-generator"
 import ejs from "ejs";
 import path from "path";
-
+import { UserInformation as UserModel } from "../models/UserInformation";
+import { dataSource } from "../config/database.config";
+import { uuid } from 'uuidv4';
 const jwt = require("jsonwebtoken");
+const UserInformation = dataSource.getRepository(UserModel);
+
 export default class AuthenticationControllers {
     /**
        * @function signup - crate a new user account
@@ -23,8 +27,6 @@ export default class AuthenticationControllers {
             username,
             password,
             email,
-            firstname,
-            privacy_policy_agreement
         } = req.body;
 
 
@@ -33,16 +35,17 @@ export default class AuthenticationControllers {
             username: "",
             password: "",
             email: "",
-            firstname: "",
-            // privacy_policy_agreement: ""
         }
 
 
         //validate the data from the client
-        const emailExists = await User.findOne({ email: email.trim() });
-        const usernameExists = await User.findOne({ username: username.trim() });
+        const emailExists = await UserInformation.findOneBy({ email: email.trim() });
+        const usernameExists = await UserInformation.findOneBy({ username: username.trim() });
         if (!username) {
             error.username = "username is required";
+        }
+        if (usernameExists) {
+            error.username = "username has been taken";
         }
         if (!password) {
             error.password = "password is required";
@@ -53,12 +56,9 @@ export default class AuthenticationControllers {
         if (emailExists) {
             error.email = "a user with the email already exists";
         }
-        if (!firstname) {
-            error.firstname = "firstname is required";
-        }
 
         //check for errors and send in error report if any back to the user 
-        const value = { username, password, email, firstname }
+        const value = { username, password, email }
         if (!Object.values(error).every(e => e === "")) {
             return res.render("pages/authentication/sign-up", { title: "create account", layout: "./layouts/user-authentication-layout", error, value });
         }
@@ -68,29 +68,34 @@ export default class AuthenticationControllers {
             try {
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(password.trim(), salt);
-                const user = new User({
-                    username,
-                    password: hash,
-                    email,
-                    firstname
-                })
-                await user.save();
+                const user = new UserModel()
+                user.email = email.trim();
+                user.id = uuid();
+                user.password = hash;
+                user.username = username.trim()
+                user.accountStatus = "unverified";
+                await UserInformation.save(user);
+
                 //set the magic link and activation token
-                const activationToken = jwt.sign({ user_id: user._id.toString(), email: user.email, firstname: user.firstname }, process.env.JWT_SECRET, { expiresIn: "24h" });
+                const activationToken = jwt.sign({
+                    user_id: user.id.toString(), email: user.email
+                }, process.env.JWT_SECRET, { expiresIn: "24h" });
+
                 const magicLink = `${process.env.APP_URL}/activate/${activationToken}`;
                 console.log(magicLink)
+
                 //send the user notification to confirm account setup and redirect to login page on success
-                ejs.renderFile(path.join(__dirname, "./../templates/verify.ejs"), { firstname: user.firstname, magicLink }, function (err: any, template: any) {
+                ejs.renderFile(path.join(__dirname, "./../templates/verify.ejs"), { firstname: user.username, magicLink }, function (err: any, template: any) {
                     if (err) {
                         console.log(err);
                     }
                     //send the message
-                    // console.log(template, magicLink)
-                    mailer({ email: user.email, subject: "confirm email address", template })
+                    console.log(magicLink)
+                    // mailer({ email: user.email, subject: "confirm email address", template })
 
                 });
                 //send in status report on completion
-                return res.render("pages/authentication/sign-up-success", { title: "verify your account", layout: "./layouts/user-authentication-layout", firstname });
+                return res.render("pages/authentication/sign-up-success", { title: "verify your account", layout: "./layouts/user-authentication-layout", firstname: username });
             } catch (error) {
                 // to do handle error here
                 console.log(error.message)
