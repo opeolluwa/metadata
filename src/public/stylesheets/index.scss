@@ -61,6 +61,10 @@ input {
   text-align: center !important;
 }
 
+.grey-text {
+  color: $grey;
+}
+
 *[class*="error"] {
   color: $red !important;
 }

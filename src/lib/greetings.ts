@@ -1,37 +1,35 @@
 /*
-Greeting.js@0.1.0
+Greeting.js@0.1.8
 Author : Adeoye Adefemi Opeoluwa
 Github : https://github.com/opeolluwa
 */
 //Get the Day from Client Machine
-var _d = new Date();
-var day = _d.getDay();
-var hour = _d.getHours();
-var new_month = (_d.getDate() == 1);
-var christmas = ((_d.getMonth() == 11) && (_d.getDate() == 25));
-var valentine = ((_d.getMonth() == 1) && (_d.getDate() == 14));
-var message;
+const _d = new Date();
+const day = _d.getDay();
+const hour = _d.getHours();
+const new_month = _d.getDate() == 1;
+const christmas = _d.getMonth() == 11 && _d.getDate() == 25;
+const valentine = _d.getMonth() == 1 && _d.getDate() == 14;
+// let message;
 // an Util Function to Get Random Items in This Case, Greeting Options
-function _r(array: string | any[]) {
-    var index = Math.round(Math.random() * (array.length - 1));
+function _r(array: string[]) {
+    const index = Math.round(Math.random() * (array.length - 1));
     return array[index];
 }
 //COLLECTION OF POSSIBLE VALUES
-var options = {
+const options = {
     monday: [
         "Hello Monday!",
         "Monday is here!",
         "Show some Monday love",
-        "Another fresh start"
+        "Another fresh start",
     ],
-  
-    wednesday: [
-        "Welcome Back"
-    ],
+    tuesday: ["Hello"],
+    wednesday: ["Welcome Back"],
     thursday: [
         "#TBT",
         "Throwback Thursday😋",
-        "Time for throwbabk",
+        "Time for throwback",
         "let's do some throwback",
         "Hectic week, huh? ",
     ],
@@ -42,7 +40,8 @@ var options = {
         "How has the week been?",
         "Thank God It's Friday",
         "It's weekend",
-        "Hello", "Weekend is near",
+        "Hello",
+        "Weekend is near",
     ],
     saturday: [
         "You deserve some break",
@@ -51,7 +50,7 @@ var options = {
         "#Owanbe Saturday😋",
         "Still indoor? Hangout!",
         "You deserve a great time",
-        "How about some treats?"
+        "How about some treats?",
     ],
     sunday: [
         "Happy New Week!",
@@ -63,19 +62,17 @@ var options = {
     morning: [
         "Blessed morning",
         "Good Morning",
-        "Bonjour!",
         "Trust you slept well",
         "Beautiful morning",
         "A new day",
-        "Have a fruitful day"
+        "Have a fruitful day",
     ],
     day_break: [
-        "How is your day going?",
-        "How has the day been?",
+        "How is your day going",
+        "How has the day being",
         "A fresh morning, huh?",
         "How's the weather?",
-        "How's the weather outside?",
-        "Howdy?"
+        "Howdy?",
     ],
     afternoon: [
         "Good afternoon!",
@@ -86,77 +83,103 @@ var options = {
         "How is your day going",
         "How has the day been",
         "How's the weather?",
-        "Howdy?"
+        "Howdy?",
     ],
-    evening: [
-        "Good evening",
-        "How was your day",
-        "How did your day go",
-        "Bonsoir"
-    ],
+    evening: ["Good evening", "How was your day", "How did your day go"],
     midnight: [
         "You up so late ?",
         "You should probably be in bed",
         "You should probably be in bed by now",
         "Surprised to see you up so late",
-        "Up so early huh ?",
-        "Hi there!",
-        "Aren't you sleeping?"
+        "Up so early, huh?",
+        "Up so early?",
+        "Working Late",
+        "Aren't you sleeping?",
     ],
     //--------------------------------Special Occasion--------------------
     new_month: [
         "Happy new month!",
         "Blessed new Month",
         "Have a Happy new month!",
-        "It's a new month!"
+        "It's a new month!",
     ],
-    new_year: [
-        "Happy new year"
-    ],
-    christmas: [
-        "Merry Christmas"
-    ],
+    new_year: ["Happy new year", "Happy Holidays"],
+    christmas: ["Merry Christmas", "Season greetings"],
     //TODO: boxing_day: [],
-    valentine: [
-        "Happy Valentine's day"
-    ],
-    other: [
-        "Welcome",
-        "Howdy?"
-    ]
+    valentine: ["It's Valentine", "Happy Valentine"],
+    other: ["Holla!", "Hello!", "Welcome", "Howdy?", "Ciao!"],
 };
-var greeting = {
-    //If Sunday 
-    day: (day == 0) ? _r(options.sunday) :
-        //if monday
-        (day == 1) ? _r(options.monday) :
-            //if thursday
-            (day == 4) ? _r(options.thursday) :
-                //if friday 
-                (day == 5) ? _r(options.friday) :
-                    //if saturday
-                    (day == 6) ? _r(options.saturday) :
-                        '',
-    //GREET BY HOUR: MORNING NIGHT, AFTERNOON & EVENING
-    //If between 8:00am & 10:00am
-    time: (hour >= 6 && hour <= 8) ? _r(options.morning) :
-        //if between 8:00AM & 10:00AM
-        (hour >= 8 && hour <= 10) ? _r(options.day_break) :
-            //if afternoon 12:00PM - 3:00PM
-            (hour >= 12 && hour <= 15) ? _r(options.afternoon) :
-                //if evening : 4:00PM - 8:00PM
-                (hour >= 16 && hour <= 20) ? _r(options.evening) :
-                    //if midnight between 1:00AM - 3:00AM
-                    (hour >= 1 && hour <= 3) ? _r(options.midnight) : '',
-    //SPECIAL OCCASIONS
-    occasion: (new_month) ? _r(options.new_month) :
-        //christmas
-        (christmas) ? _r(options.christmas) :
-            //valentine
-            (valentine) ? _r(options.valentine) : '',
-    other: _r(options.other)
+//greetings = greetings
+const greetings = {
+    time: "",
+    other: "",
+    occasion: "",
+    day: "",
 };
-// set message in ths o
-message = greeting.occasion || greeting.time || greeting.day || greeting.other;
-// console.log(message)
-export  default { message };
+//HANDLE DAY PROCESSING
+switch (day) {
+    //If Sunday
+    case 0:
+        greetings.day = _r(options.sunday);
+        break;
+    case 1:
+        //If Monday
+        greetings.day = _r(options.monday);
+        break;
+    //If Thursday
+    case 4:
+        greetings.day = _r(options.thursday);
+        break;
+    //If Friday
+    case 5:
+        greetings.day = _r(options.friday);
+        break;
+    //If Saturday
+    case 6:
+        greetings.day = _r(options.saturday);
+        break;
+    default:
+        greetings.day = "";
+        break;
+}
+//HANDLE TIME PROCESSING :: GREET BY HOUR: MORNING NIGHT, AFTERNOON & EVENING
+// switch (hour) {
+//If between 6:00am & 8:00am
+if (Number(hour) >= 6 && Number(hour) <= 8) {
+    greetings.time = _r(options.morning);
+}
+//if between 8:00AM & 10:00AM
+else if (hour >= 8 && hour <= 10) {
+    greetings.time = _r(options.day_break);
+}
+//if afternoon 12:00PM - 3:00PM
+else if (hour >= 12 && hour <= 15) {
+    greetings.time = _r(options.afternoon);
+}
+//if evening : 4:00PM - 8:00PM
+else if (hour >= 16 && hour <= 20) {
+    greetings.time = _r(options.evening);
+}
+//if midnight between 1:00AM - 3:00AM
+else if (hour >= 1 && hour <= 3) {
+    greetings.time = _r(options.midnight);
+} else {
+    greetings.time = "";
+}
+// HANDLE SPECIAL OCCASIONS
+greetings.occasion = new_month
+    ? _r(options.new_month)
+    : //christmas
+    christmas
+        ? _r(options.christmas)
+        : //valentine
+        valentine
+            ? _r(options.valentine)
+            : "";
+//HANDLE EXCEPTION
+greetings.other = _r(options.other);
+// set in message and export
+const message =
+    greetings.occasion || greetings.time || greetings.day || greetings.other;
+// console.log(message);
+export default message as String;

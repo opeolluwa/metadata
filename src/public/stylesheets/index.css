@@ -55,6 +55,10 @@ input {
   text-align: center !important;
 }
 
+.grey-text {
+  color: #7d7d7d;
+}
+
 *[class*=error] {
   color: rgba(233, 41, 41, 0.9450980392) !important;
 }
@@ -141,7 +145,7 @@ nav svg {
     justify-content: space-between;
     align-items: center;
     min-height: 3rem;
-    padding: 0 20px;
+    padding: 15px 20px;
     width: 100%;
     transition: all 500ms ease-in-out;
   }
@@ -224,6 +228,10 @@ footer {
   color: #171717;
   padding: 7.5px;
   padding: 2rem 0;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  column-gap: 35px;
 }
 footer img,
 footer a {
@@ -234,6 +242,31 @@ footer a#opeolluwa {
   color: #101010;
   text-decoration: underline;
   text-decoration-color: #7d7d7d;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+  margin-top: 0.5rem;
+  display: none;
+}
+ul a {
+  color: #101010 !important;
+  text-decoration: none;
+}
+ul li a {
+  font-weight: 400 !important;
+  font-size: 19px !important;
+}
+
+.bi-heart-fill {
+  color: rgba(233, 41, 41, 0.9450980392);
+  display: inline-block;
+  margin: 0 3px;
 }
 
 .card-container {
@@ -338,7 +371,6 @@ footer a#opeolluwa {
 .auth__page .container .sub-hero-text {
   font-size: 1rem;
   margin: 0.25rem 0;
-  color: #7d7d7d;
   text-transform: capitalize;
 }
 .auth__page .container [data-guide] {
@@ -475,7 +507,6 @@ footer a#opeolluwa {
   .sub-hero-text {
     font-size: 0.95rem;
     margin: 0.25rem 0;
-    color: #7d7d7d;
     text-transform: capitalize;
   }
 
@@ -606,7 +637,7 @@ footer a#opeolluwa {
   column-gap: 15px;
 }
 
-a {
+#account a {
   color: #101010 !important;
   text-decoration: none;
 }
@@ -620,18 +651,52 @@ li a {
   padding: 40px 60px;
 }
 
+.bi-list {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   #account {
     display: block;
+    margin: 0;
+    padding: 0;
   }
 
-  #account .header,
-#account .container {
-    padding: 0 20px;
+  .bi-list {
+    display: block;
+  }
+
+  #account main .header {
+    padding: 15px 20px;
+    margin-bottom: 1.75rem;
+  }
+
+  #account main .header .nav {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+  }
+
+  #account main .header .bi {
+    margin-left: 10px;
+  }
+
+  #account main .container {
+    padding: 15px 20px;
+  }
+
+  .container .greeting {
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+  }
+
+  .greeting small {
+    font-size: 1rem;
   }
 
   #account aside {
     display: none;
+    padding: 0;
   }
 }
 #resource-content main, #explore main {
@@ -786,14 +851,12 @@ header > * {
     max-height: 50vh;
     grid-template-rows: calc(65vh - 20px);
   }
-  header#resource-header h1,
-header#resource-header h2,
-header#resource-header h3 {
-    line-height: 56px;
-    font-size: 2.5rem;
-  }
   header > * {
     padding: 0 1.5rem;
+  }
+  header h1 {
+    font-size: 2.5rem;
+    line-height: 36px;
   }
   header #hero {
     display: flex;
@@ -803,16 +866,15 @@ header#resource-header h3 {
   }
   header #hero p {
     max-width: unset;
-    font-size: 105%;
-    line-height: 25px;
+    font-size: 1.2rem;
+    line-height: 36px;
+  }
+  header #hero #call__to__action {
+    margin-top: 1.32rem;
   }
 
   #hero {
     min-height: 65vh;
-  }
-
-  #hero__text {
-    color: #f2f2f2;
   }
 }
 @media screen and (min-width: 600px) {
@@ -965,6 +1027,16 @@ main #some {
 }
 
 @media screen and (max-width: 600px) {
+  main {
+    padding: 0;
+  }
+  main #about {
+    padding: 0 1.5rem;
+  }
+  main #categories {
+    padding: 0 1.5rem;
+  }
+
   #about #categories {
     flex-direction: column;
   }
@@ -972,6 +1044,36 @@ main #some {
   #about .category {
     padding: 0;
     width: unset;
+    margin-top: 65px;
+  }
+
+  #about .category:first-child {
+    margin-top: 75px;
+  }
+
+  #about .category:last-child {
+    margin-bottom: 75px;
+  }
+
+  #about .category h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  #about .category p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  #categories .category .bi {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
 }
 .show {

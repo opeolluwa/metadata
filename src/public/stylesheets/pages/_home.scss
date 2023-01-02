@@ -97,17 +97,15 @@ header>* {
         &#resource-header {
             max-height: 50vh;
             grid-template-rows: calc(65vh - 20px);
-
-            h1,
-            h2,
-            h3 {
-                line-height: 56px;
-                font-size: 2.5rem;
-            }
         }
 
         &>* {
             padding: 0 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 36px;
         }
 
         & #hero {
@@ -118,8 +116,12 @@ header>* {
 
             p {
                 max-width: unset;
-                font-size: 105%;
-                line-height: 25px;
+                font-size: 1.2rem;
+                line-height: 36px;
+            }
+
+            #call__to__action {
+                margin-top: 1.32rem;
             }
         }
     }
@@ -127,10 +129,6 @@ header>* {
     #hero {
         min-height: calc(65vh);
 
-    }
-
-    #hero__text {
-        color: $white;
     }
 }
 
@@ -249,6 +247,18 @@ main {
 }
 
 @media screen and (max-width: 600px) {
+    main {
+        padding: 0;
+
+        #about {
+            padding: 0 1.5rem;
+        }
+
+        #categories {
+            padding: 0 1.5rem;
+        }
+    }
+
     #about #categories {
         flex-direction: column;
     }
@@ -256,5 +266,35 @@ main {
     #about .category {
         padding: 0;
         width: unset;
+        margin-top: 65px;
+    }
+
+    #about .category:first-child {
+        margin-top: 75px;
+    }
+
+    #about .category:last-child {
+        margin-bottom: 75px;
+    }
+
+    #about .category h2 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 36px;
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    #about .category p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 24px;
+        margin: 0.5rem 1rem;
+        text-align: center;
+    }
+
+    #categories .category .bi {
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
 }

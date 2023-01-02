@@ -51,6 +51,7 @@
   /* Make it scrollable */
   overflow: auto;
   padding: 0 !important;
+  
 }
 
 #account main .header {
@@ -72,7 +73,7 @@
   column-gap: 15px;
 }
 
-a {
+#account a {
   color: $black !important;
   text-decoration: none;
 }
@@ -86,19 +87,53 @@ li a {
   padding: 40px 60px;
 }
 
+.bi-list {
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
   #account {
     display: block;
+    margin: 0;
+    padding: 0;
   }
 
-  #account .header,
-  #account .container {
+  .bi-list {
+    display: block;
+  }
+
+  #account main .header {
     padding: $mobile-view-padding ;
+    margin-bottom: 1.75rem;
+  }
+
+  #account main .header .nav {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+  }
+
+  #account main .header .bi {
+    margin-left: 10px;
+  }
+
+  #account main .container {
+    padding: $mobile-view-padding ;
+  }
+
+  .container .greeting {
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+    
+  }
+
+  .greeting small {
+    font-size: 1rem;
   }
 
   #account aside {
     display: none;
+    padding: 0;
   }
 
 }
