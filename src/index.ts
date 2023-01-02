@@ -116,7 +116,7 @@ app.listen(port, async () => {
         }).finally(() => {
             console.log(`Ignition started on http://localhost:${port}`);
         })
-    // await snapshot("test")
+    await snapshot("test-dribbble")
 });
 
 
