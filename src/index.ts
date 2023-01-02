@@ -18,6 +18,7 @@ import contact from "./routes/contact"
 //session
 import sessionStore from "connect-session-sequelize";
 import session, { Session } from 'express-session';
+import { snapshot } from "./lib/create-snapshot";
 
 //extend session definition to allow adding values to session
 type AccountRecoveryInterface = string
@@ -102,12 +103,6 @@ app.use((req: Request, res: Response) => {
     res.status(404).render("pages/error/404", { title: "Page not found" })
 })
 
-//synchronize database
-// sequelize.sync().then(() => {
-//     console.log(" Successfully Established Connection with SQLite")
-// })
-
-
 
 //mount application
 app.listen(port, async () => {
@@ -121,6 +116,7 @@ app.listen(port, async () => {
         }).finally(() => {
             console.log(`Ignition started on http://localhost:${port}`);
         })
+    await snapshot("test-dribbble")
 });
 
 

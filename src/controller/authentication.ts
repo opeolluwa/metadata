@@ -8,6 +8,7 @@ import path from "path";
 import { UserInformation as UserModel } from "../models/UserInformation";
 import { dataSource } from "../config/database.config";
 import { uuid } from 'uuidv4';
+import { hideEmailCharacters } from "../lib/hide-email-characters";
 const jwt = require("jsonwebtoken");
 const UserInformation = dataSource.getRepository(UserModel);
 
@@ -82,7 +83,6 @@ export default class AuthenticationControllers {
                 }, process.env.JWT_SECRET, { expiresIn: "24h" });
 
                 const magicLink = `${process.env.APP_URL}/activate/${activationToken}`;
-                console.log(magicLink)
 
                 //send the user notification to confirm account setup and redirect to login page on success
                 ejs.renderFile(path.join(__dirname, "./../templates/verify.ejs"), { firstname: user.username, magicLink }, function (err: any, template: any) {
@@ -95,7 +95,7 @@ export default class AuthenticationControllers {
 
                 });
                 //send in status report on completion
-                return res.render("pages/authentication/sign-up-success", { title: "verify your account", layout: "./layouts/user-authentication-layout", firstname: username });
+                return res.render("pages/authentication/sign-up-success", { title: "verify your account", layout: "./layouts/user-authentication-layout", email: hideEmailCharacters(email.trim()) });
             } catch (error) {
                 // to do handle error here
                 console.log(error.message)
@@ -115,6 +115,8 @@ export default class AuthenticationControllers {
      */
     static async login(req: Request, res: Response, next: NextFunction) {
         const { username, password } = req.body
+        // console.log({ ...req.body });
+
         interface Error {
             username: string,
             password: string,
@@ -127,34 +129,41 @@ export default class AuthenticationControllers {
             authentication: ""
         }
 
-        const user = await User.findOne({ username: username.trim() });
-        // handle unregistered user trying to login  
-        if (!user) {
-            return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "the account doesn't seem registered with us. \n Please recheck your username " }, value: { username, password } });
-        }
-        const isAuthenticated = await bcrypt.compare(password, user.password);
-        // console.log(isAuthenticated, password, user.password)
+        try {
+            const user = await UserInformation
+                .createQueryBuilder("user")
+                .where("user.username = :username", { username })
+                .addSelect("user.password")
+                .getOne()
 
-        /*  console.log(password, isAuthenticated) */
-        if (!username) { error.username = "Username is required" }
-        if (!password) { error.password = "password is required" }
-        if (!user) { error.authentication = "invalid username or password" }
-        if (!isAuthenticated) { error.authentication = "invalid username or password" }
-        //check for errors and send in error report if any
-        if (!Object.values(error).every(e => e === "")) {
-            return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error, value: { username, password } });
-        }
+            // handle unregistered user trying to login  
+            if (!user) {
+                return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "the account doesn't seem registered with us. \n Please recheck your username " }, value: { username, password } });
+            }
+            const isAuthenticated = await bcrypt.compare(password, user.password);
+            if (!username) { error.username = "Username is required" }
+            if (!password) { error.password = "password is required" }
+            if (!user) { error.authentication = "invalid username or password" }
+            if (!isAuthenticated) { error.authentication = "invalid username or password" }
+            //check for errors and send in error report if any
+            if (!Object.values(error).every(e => e === "")) {
+                return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error, value: { username, password } });
+            }
 
-        if (!user.activated) {
-            return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "your account has not been verified" }, value: { username, password } });
-        }
+            /*  if (!user.activated) {
+                 return res.render("pages/authentication/login", { title: "login to your account", layout: "./layouts/user-authentication-layout", error: { authentication: "your account has not been verified" }, value: { username, password } });
+             } */
 
-        //redirect to dashboard and start a session
-        if (isAuthenticated) {
-            const username = user.username;
-            const user_id = user._id.toString(); //parse user_id
-            req.session.user = { username, user_id };
-            return res.redirect("/d");
+            //redirect to dashboard and start a session
+            if (isAuthenticated) {
+                const username = user.username;
+                const user_id = user.id.toString(); //parse user_id
+                req.session.user = { username, user_id };
+                return res.redirect("/d");
+            }
+        } catch (error) {
+            console.log(error.message);
+
         }
 
     }
