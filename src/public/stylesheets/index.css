@@ -863,7 +863,7 @@ header > * {
     justify-content: center;
     align-content: center;
     text-transform: capitalize;
-    padding-top: 3.5rem;
+    padding-top: 4.5rem;
   }
   header #hero p {
     max-width: unset;
