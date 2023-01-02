@@ -8,6 +8,10 @@ footer {
   color: darken($grey, 40%);
   padding: $spacing;
   padding: 2rem 0;
+  background-color: $grey-lightened;
+  display: flex;
+  align-items: center;
+  column-gap: 35px;
 
   img,
   a {
@@ -20,4 +24,31 @@ footer {
     text-decoration: underline;
     text-decoration-color: $grey;
   }
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+  margin-top: .5rem;
+  display: none;
+
+  a {
+    color: $black !important;
+    text-decoration: none;
+  }
+
+  li a {
+    font-weight: 400 !important;
+    font-size: 19px !important;
+  }
+}
+
+.bi-heart-fill {
+  color: $red;
+  display: inline-block;
+  margin: 0 3px;
 }

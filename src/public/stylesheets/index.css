@@ -228,6 +228,10 @@ footer {
   color: #171717;
   padding: 7.5px;
   padding: 2rem 0;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  column-gap: 35px;
 }
 footer img,
 footer a {
@@ -238,6 +242,31 @@ footer a#opeolluwa {
   color: #101010;
   text-decoration: underline;
   text-decoration-color: #7d7d7d;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 15px;
+  margin-top: 0.5rem;
+  display: none;
+}
+ul a {
+  color: #101010 !important;
+  text-decoration: none;
+}
+ul li a {
+  font-weight: 400 !important;
+  font-size: 19px !important;
+}
+
+.bi-heart-fill {
+  color: rgba(233, 41, 41, 0.9450980392);
+  display: inline-block;
+  margin: 0 3px;
 }
 
 .card-container {
