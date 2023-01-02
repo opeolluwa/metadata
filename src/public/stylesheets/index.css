@@ -55,6 +55,10 @@ input {
   text-align: center !important;
 }
 
+.grey-text {
+  color: #7d7d7d;
+}
+
 *[class*=error] {
   color: rgba(233, 41, 41, 0.9450980392) !important;
 }
@@ -141,7 +145,7 @@ nav svg {
     justify-content: space-between;
     align-items: center;
     min-height: 3rem;
-    padding: 0 20px;
+    padding: 15px 20px;
     width: 100%;
     transition: all 500ms ease-in-out;
   }
@@ -604,7 +608,7 @@ footer a#opeolluwa {
   column-gap: 15px;
 }
 
-a {
+#account a {
   color: #101010 !important;
   text-decoration: none;
 }
@@ -618,18 +622,52 @@ li a {
   padding: 40px 60px;
 }
 
+.bi-list {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   #account {
     display: block;
+    margin: 0;
+    padding: 0;
   }
 
-  #account .header,
-#account .container {
-    padding: 0 20px;
+  .bi-list {
+    display: block;
+  }
+
+  #account main .header {
+    padding: 15px 20px;
+    margin-bottom: 1.75rem;
+  }
+
+  #account main .header .nav {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+  }
+
+  #account main .header .bi {
+    margin-left: 10px;
+  }
+
+  #account main .container {
+    padding: 15px 20px;
+  }
+
+  .container .greeting {
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+  }
+
+  .greeting small {
+    font-size: 1rem;
   }
 
   #account aside {
     display: none;
+    padding: 0;
   }
 }
 #resource-content main, #explore main {
