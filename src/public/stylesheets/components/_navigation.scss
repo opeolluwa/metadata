@@ -44,7 +44,7 @@ nav {
 
   }
 
-  svg{
+  svg {
     font-size: 30px;
     cursor: pointer;
     color: #a91f5a;
@@ -59,11 +59,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     min-height: 3rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    border-radius: 0;
+    padding: $mobile-view-padding;
     width: 100%;
     transition: all 500ms ease-in-out;
 
@@ -91,11 +87,6 @@ nav {
       box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
       -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
       -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-      border-bottom: 1px solid $grey;
-      border-image: linear-gradient(43deg,
-          #4158d0 0%,
-          #c850c0 46%,
-          #ffcc70 100%);
       background-color: $white !important;
       z-index: 1200;
 
