@@ -843,7 +843,7 @@ header > * {
 
 @media screen and (max-width: 746px) {
   header {
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: center;
   }
@@ -859,18 +859,19 @@ header > * {
     line-height: 36px;
   }
   header #hero {
-    display: flex;
+    display: block;
     justify-content: center;
     align-content: center;
     text-transform: capitalize;
+    padding-top: 4.5rem;
   }
   header #hero p {
     max-width: unset;
     font-size: 1.2rem;
-    line-height: 36px;
+    line-height: 32px;
   }
   header #hero #call__to__action {
-    margin-top: 1.32rem;
+    margin-top: -0.2rem;
   }
 
   #hero {
