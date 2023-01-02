@@ -1,16 +1,26 @@
-<div id="account">
+<div class="auth__page">
   <div class="container">
-    <img
-      src="icons/next-step.png"
-      alt="registration successful"
-      class="success-icon"
-    />
-    <h1>You&apos;re Almost There</h1>
- 
-    <p class="sub-hero-text" style="margin-top: 12px">
-      An email containing account verification instruction has been sent to the your email, check your inbox to proceed.
-      
-    </p>
-    
+    <div>
+      <img src="/images/confirm-email.svg" alt="confirm email">
+    </div>
+
+    <div>
+      <h1>You&apos;re Almost There</h1>
+
+      <p class="sub-hero-text" style="margin-top: 12px">
+        We emailed <%=email%> account activation instructions. <br> Please Check your inbox to proceed
+
+      </p>
+      <div data-guide="" style="margin-top: 3rem;">
+        <span>
+          Didn&apos;t get the token? <a href="/resend-token">Request new</a>
+        </span>
+        <span>
+          Already have an account? <a href="/login">Login</a>
+        </span>
+      </div>
+    </div>
+
+
   </div>
 </div>

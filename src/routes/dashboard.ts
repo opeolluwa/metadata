@@ -4,5 +4,5 @@ import { UserAccountViews, } from "../controller/dashboard";
 const router = express.Router()
 
 //resister all resource route dynamically based on the router parameter
-router.get("/", AuthenticationMiddleware.confirm, UserAccountViews.render)
+router.get("/", /*AuthenticationMiddleware.confirm,*/ UserAccountViews.render)
 export default router;

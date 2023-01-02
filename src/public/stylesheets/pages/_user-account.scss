@@ -1,40 +1,86 @@
-#user-account {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: min(100vh);
-  & {
-    @import "./../partials/user-account-navigation";
-    @import "./../partials/user-account-main";
-    @import "./../partials/user-account-aside";
-  }
+#account {
+  display: flex;
+  min-height: 100vh;
 }
 
-@media screen and (max-width: 600px) {
-  .user-avatar-and-name {
-    display: block;
+#account aside {
+  width: 25%;
+  background-color: $purple;
+  background: $gradient-bg;
+  padding: 40px 30px;
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
   }
-  #user-account {
-    display: block;
 
-    /* & nav, */
-    & aside {
-      display: none;
-    }
-  }
-}
-
-.section {
-  @include box-shadow;
-  border-radius: 5px;
-  margin: 0 1.2rem;
-  padding: 0.75rem 0.25rem;
-}
-
-.password-input {
-  display: flex !important;
-  align-items: center;
-  i {
-    margin-left: -30px;
+  li {
+    margin: 0 $spacing;
     cursor: pointer;
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+
   }
+
+  a,
+  a:hover,
+  a:visited,
+  a:link {
+    text-decoration: none;
+    padding: 0;
+    border: none;
+    color: inherit;
+    font-size: 28px;
+  }
+
+  li a {
+    color: $white !important;
+    font-weight: 400 !important;
+    font-size: 19px !important;
+
+  }
+}
+
+#account main {
+  /* Take the remaining width */
+  flex: 1;
+  /* Make it scrollable */
+  overflow: auto;
+  padding: 0 !important;
+}
+
+#account main .header {
+  padding: 20px 60px;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  background-color: $grey-lightened;
+}
+
+#account  .nav {
+  list-style: none !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 15px;
+}
+a {
+  color: $black !important;
+  text-decoration: none;
+}
+
+li a {
+  font-weight: 400 !important;
+  font-size: 19px !important;
+}
+
+#account main .container {
+  padding: 40px 60px;
 }

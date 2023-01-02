@@ -1,97 +1,68 @@
 <div id="account">
-  <div class="container">
-    <div data-guide="" style="display: none;">
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/login">Logout</a>
-        </li>
+  <!-- Sidebar -->
+  <aside class="sidebar__sidebar">
+    <ul>
+      <li>
+        <a href="">
+          <i class="bi bi-house"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="bi bi-person-circle"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="bi bi-bell
+            "></i>
+          <span>Notifications</span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="bi bi-gear "></i>
+          <span>Settings</span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
 
-      </ul>
-    </div>
-
-    <h1>Add resource</h1>
-    <p class="sub-hero-text">Hi! <strong style="text-transform: capitalize;
-        text-align: left;"><%=username%></strong>
-      Fill in the details to begin</p>
-
-    <form action="/r" method="post">
-      <span class="error" style="text-align: center; font-size: 14px">
+  <!-- Main -->
+  <main>
+    <div class="header">
+      <div class="nav">
+        <a href="/d">Meta Data</a>
+      </div>
+     <div>
+      <span>
+        <a href="">
+          <i class="bi bi-bell
+                  "></i>
+        </a>
+      </span>
+      <span>
+        <a href="">
+          <i class="bi bi-gear"></i>
+        </a>
+      </span>
+      <span>
+        <a href="">
+          <i class="bi bi-person-circle"></i>
+        </a>
       </span>
 
-
-      <% if (serverResponse.isError == true) { %>
-      <span style="display:inline-block; text-align: center;" class="error"><%=serverResponse.message || ''%></span>
-      <% } %>
-      <%  if (serverResponse.isError ==false) { %>
-      <span style="display:inline-block; text-align: center;" class="success"><%=serverResponse.message || ''%></span>
-      <% } %>
-
-      <!--resource category-->
-      <div class="form-feed">
-        <label for="category" style="vertical-align: baseline">resource
-          Category</label>
-        <select name="category" placeholder="resource category" id="category">
-          <option value="" disabled></option>
-          <option value="">--Please choose an option--</option>
-          <% for(const category of categories){ %>
-          <option value="<%= category %>"><%=category%></option>
-          <% } %>
-        </select>
-        <span class="error"> <%= error.category %> </span>
-      </div>
-
-      <div class="form-feed">
-        <label for="name">resource name</label>
-        <input type="name" placeholder="enter name" name="name" value="<%= value.name || ''%>" required />
-        <span class="error"> <%= error.name %> </span>
-      </div>
-
-      <div class="form-feed">
-        <label for="subject">Resource URL</label>
-        <input type="url" placeholder="https://example.com" name="url" value="<%= value.url || ''%>" required />
-        <span class="error"> <%= error.url %> </span>
-      </div>
-
-      <div class="form-feed">
-        <label for="description"> resource description</label>
-        <textarea name="description" value="<%=
-                                value.description || ''%>" id="description" cols="30" rows="10" placeholder="description" required></textarea>
-        <span class="error"> <%= error.description %>
-        </span>
-      </div>
-
-      <div class="form-feed">
-        <button type="submit">Submit</button>
-      </div>
-    </form>
-  </div>
+     </div>
+    </div>
+    <div class="container">
+    </div>
+  </main>
 </div>
-
-<style>
-  ul {
-    display: flex;
-    row-gap: 10px;
-    margin-bottom: 27px;
-    list-style: none;
-    justify-content: flex-end;
-    align-items: flex-end;
-  }
-
-  ul li a {
-    color: #101010;
-    font-size: 14px;
-  }
-
-  ul li:first-child {
-    border-right: 2px solid #ccc;
-    margin-right: 7.5px;
-    padding-right: 7.5px;
-  }
-
-  .success {
-    color: rgb(60, 182, 60);
-  }
-</style>
