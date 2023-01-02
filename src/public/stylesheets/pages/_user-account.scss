@@ -63,7 +63,7 @@
   background-color: $grey-lightened;
 }
 
-#account  .nav {
+#account .nav {
   list-style: none !important;
   display: flex;
   flex-direction: row;
@@ -71,6 +71,7 @@
   align-items: center;
   column-gap: 15px;
 }
+
 a {
   color: $black !important;
   text-decoration: none;
@@ -83,4 +84,21 @@ li a {
 
 #account main .container {
   padding: 40px 60px;
+}
+
+
+@media screen and (max-width: 768px) {
+  #account {
+    display: block;
+  }
+
+  #account .header,
+  #account .container {
+    padding: $mobile-view-padding ;
+  }
+
+  #account aside {
+    display: none;
+  }
+
 }
