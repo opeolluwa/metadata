@@ -131,7 +131,7 @@
 .auth__page>.container {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1.3fr 1fr;
   column-gap: 100px;
   grid-template-rows: 1fr;
   grid-template-areas: "bg form";
@@ -145,6 +145,23 @@
   background: $gradient-bg;
   background-size: cover;
   background-position: center center;
+  padding: .35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: bg;
+}
+
+.auth__page .container>div:first-child img {
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+
+
+}
+
+.auth__page .container>div:first-child img.fit__image {
+  max-width: 70%;
 }
 
 .auth__page .container>div:last-child {

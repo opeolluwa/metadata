@@ -7,7 +7,7 @@ export enum UserAccountStatus {
     DEACTIVATED = "deactivated",
 }
 
-@Entity("user_information")
+@Entity("metadata_user_information")
 export class UserInformation {
     @PrimaryGeneratedColumn("uuid")
     id: string | undefined
@@ -21,18 +21,7 @@ export class UserInformation {
     @Column({ type: "varchar", select: false })
     password: string | undefined
 
-    
-    @Column({
-        type: "enum",
-        enum: UserAccountStatus,
-        default: UserAccountStatus.UNVERIFIED,
-    })
-    status: string | undefined
 
-    //the user profile picture
-    @Column({ type: "varchar" })
-    avatar: string | undefined
-
-    @Column({ type: "varchar", default: "" })
-    otpId!: string
+    @Column({ type: "varchar", default: "unverified" })
+    accountStatus: string | undefined
 }

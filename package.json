@@ -16,8 +16,8 @@
     "watch-ts": "tsc -w",
     "watch-pwa": "cd user-account && npm run serve",
     "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page\" -c \"yellow.bold,cyan.bold,green.bold,red.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-404\" ",
-    "db:migrate": "npx typeorm-ts-node-esm migration:run  -d src/config/database-config.ts",
-    "db:revert": "npx typeorm-ts-node-esm migration:revert -d src/config/database-config.ts"
+    "db:migrate": "npx typeorm-ts-node-esm migration:run  -d src/config/database.config.ts",
+    "db:revert": "npx typeorm-ts-node-esm migration:revert -d src/config/database.config.ts"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -26,9 +26,11 @@
     "@types/ejs": "^3.1.1",
     "@types/express-session": "^1.17.4",
     "@types/jsonwebtoken": "^8.5.9",
+    "@types/morgan": "^1.9.4",
     "@types/otp-generator": "^4.0.0",
     "@types/passport": "^1.0.7",
     "@types/shelljs": "^0.8.11",
+    "@types/uuid": "^9.0.0",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
@@ -42,9 +44,11 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
     "express-validator": "^6.14.0",
+    "helmet": "^6.0.1",
     "imagekit": "^3.2.5",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.3",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.3",
     "nodemailer": "^6.7.5",
     "otp-generator": "^4.0.0",
@@ -58,7 +62,9 @@
     "shelljs": "^0.8.5",
     "sqlite3": "^5.0.6",
     "typeorm": "^0.3.11",
-    "url-validator": "^2.0.3"
+    "url-validator": "^2.0.3",
+    "uuid": "^9.0.0",
+    "uuidv4": "^6.2.13"
   },
   "repository": {
     "type": "git",

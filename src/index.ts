@@ -4,7 +4,9 @@ import dotenv from "dotenv";
 import path from "path";
 import expressLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
-import { sequelize } from "./config/database.config";
+import morgan from "morgan";
+import helmet from "helmet";
+import { dataSource, sequelize } from "./config/database.config";
 import { User } from "./models/UserSession";
 //routes
 import router from "./routes";
@@ -13,7 +15,6 @@ import dashboard from "./routes/dashboard";
 import search from "./routes/search"
 import explore from "./routes/explore"
 import contact from "./routes/contact"
-
 //session
 import sessionStore from "connect-session-sequelize";
 import session, { Session } from 'express-session';
@@ -39,6 +40,8 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(expressLayouts);
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+app.use(helmet());
 
 //multi page assets static files
 app.use("/stylesheets", express.static(path.join(__dirname, "./public/stylesheets")));
@@ -107,10 +110,18 @@ app.use((req: Request, res: Response) => {
 
 
 //mount application
-app.listen(port, () => {
-    console.log(`⚡️ignition started on http://127.0.0.1:${port}`)
-})
-
+app.listen(port, async () => {
+    await dataSource
+        .initialize()
+        .then(() => {
+            console.log("Data Source has been initialized successfully.")
+        })
+        .catch((err) => {
+            console.error("Error during Data Source initialization:", err)
+        }).finally(() => {
+            console.log(`Ignition started on http://localhost:${port}`);
+        })
+});
 
 
 

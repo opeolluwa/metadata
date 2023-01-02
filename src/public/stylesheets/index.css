@@ -73,7 +73,6 @@ h1 {
   .d-desktop {
     display: block;
   }
-
   .d-desktop-flex {
     display: flex;
   }
@@ -82,7 +81,6 @@ h1 {
   main {
     grid-column: 1/-1;
   }
-
   nav {
     display: none;
   }
@@ -437,7 +435,7 @@ footer a#opeolluwa {
 .auth__page > .container {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1.3fr 1fr;
   column-gap: 100px;
   grid-template-rows: 1fr;
   grid-template-areas: "bg form";
@@ -450,6 +448,21 @@ footer a#opeolluwa {
   background: linear-gradient(to left bottom, #f26114, #d83343, #a91f5a, #6f215d, #361f4c);
   background-size: cover;
   background-position: center center;
+  padding: 0.35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: bg;
+}
+
+.auth__page .container > div:first-child img {
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.auth__page .container > div:first-child img.fit__image {
+  max-width: 70%;
 }
 
 .auth__page .container > div:last-child {
@@ -931,7 +944,6 @@ footer a#opeolluwa {
   .user-avatar-and-name {
     display: block;
   }
-
   #user-account {
     display: block;
     /* & nav, */
@@ -1112,8 +1124,8 @@ header > * {
     grid-template-rows: calc(65vh - 20px);
   }
   header#resource-header h1,
-header#resource-header h2,
-header#resource-header h3 {
+  header#resource-header h2,
+  header#resource-header h3 {
     line-height: 56px;
     font-size: 2.5rem;
   }
