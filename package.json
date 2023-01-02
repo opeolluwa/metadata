@@ -55,6 +55,7 @@
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "pg": "^8.8.0",
+    "puppeteer": "^19.4.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.19.0",
     "sequelize-bcrypt": "^1.1.0",
