@@ -113,7 +113,7 @@ h1 {
 @import "./pages/home";
 
 .show {
-  display: block;
+  display: block!important;
 }
 
 .hide {

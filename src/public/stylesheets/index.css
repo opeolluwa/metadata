@@ -156,38 +156,46 @@ nav svg {
     font-size: 25px;
     cursor: pointer;
   }
-  nav ul.d-desktop-flex {
-    position: absolute;
-    top: 2rem;
+  nav #navigation {
+    position: fixed;
+    top: 0;
     left: 0;
+    z-index: 1700;
+    background-color: rgba(0, 0, 0, 0.53);
     width: 100%;
-    background-color: #f2f2f2;
-    transition: 0.5s;
-    margin-top: 1rem;
-    border-top: 2px solid transparent;
-    width: 100%;
-    padding: inherit;
-    border-bottom: 2px solid #c850c0;
-    border-radius: 0 0 3px 3px;
-    box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-    -webkit-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-    -moz-box-shadow: -3px 5px 16px -10px rgba(0, 0, 0, 0.53);
-    background-color: #f2f2f2 !important;
-    z-index: 1200;
+    height: 100vh;
+    display: none;
   }
-  nav ul.d-desktop-flex * {
+  nav #navigation ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-top: 0.75rem;
+    padding-left: 1rem;
+    background-color: #f2f2f2;
+    width: 60%;
+    height: 100vh;
+  }
+  nav #navigation ul * {
     color: #101010 !important;
   }
-  nav ul.d-desktop-flex li {
+  nav #navigation ul h2 {
+    padding-bottom: 1.3rem;
+  }
+  nav #navigation ul li {
     margin: 0.75rem 0;
     transition: 0.5s;
     color: #101010;
     cursor: pointer;
   }
-  nav ul.d-desktop-flex a {
+  nav #navigation ul a {
     color: inherit !important;
   }
-  nav ul.d-desktop-flex a:hover {
+  nav #navigation ul a:hover {
     color: #c850c0;
     transition: 250ms;
   }
@@ -1078,7 +1086,7 @@ main #some {
   }
 }
 .show {
-  display: block;
+  display: block !important;
 }
 
 .hide {
