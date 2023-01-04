@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./../partials/head'); %>
+</head>
+
+<body>
+    <div id="account">
+        <!-- Sidebar -->
+        <aside class="sidebar__sidebar">
+            <ul>
+                <li>
+                    <a href="/d">
+                        <i class="bi bi-house"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/d/profile">
+                        <i class="bi bi-person-circle"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/d/notifications">
+                        <i class="bi bi-bell
+            "></i>
+                        <span>Notifications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/d/add-resource">
+                        <i class="bi bi-gear "></i>
+                        <span>Add resource</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/d/settings">
+                        <i class="bi bi-gear "></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="bi bi-box-arrow-right"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <main>
+            <div class="header ">
+                <div class="nav d-mobile">
+                    <svg id="navigation-toggle" class="bi-list" xmlns="http://www.w3.org/2000/svg" width="24"
+                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                    <a href="/d">Meta Data</a>
+                </div>
+                <div>
+                    <span>
+                        <a href="/d/notifications">
+                            <i class="bi bi-bell"></i>
+                        </a>
+                    </span>
+                    <!--  <span>
+          <a href="">
+            <i class="bi bi-gear"></i>
+          </a>
+        </span> -->
+                    <span>
+                        <a href="/d/account">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                    </span>
+                </div>
+            </div>
+         <div class="container">
+            <%-body%>
+         </div>
+        </main>
+    </div>
+    <script src="./../scripts/main.js"></script>
+</body>
+
+</html>

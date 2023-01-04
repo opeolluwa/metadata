@@ -24,10 +24,9 @@ const options = {
         "Show some Monday love",
         "Another fresh start",
     ],
-    tuesday: ["Hello"],
+    tuesday: ["Welcome BAck"],
     wednesday: ["Welcome Back"],
     thursday: [
-        "#TBT",
         "Throwback Thursday😋",
         "Time for throwback",
         "let's do some throwback",
@@ -40,14 +39,12 @@ const options = {
         "How has the week been?",
         "Thank God It's Friday",
         "It's weekend",
-        "Hello",
         "Weekend is near",
     ],
     saturday: [
         "You deserve some break",
         "Take timeout, enjoy",
         "Hangout! It's saturday",
-        "#Owanbe Saturday😋",
         "Still indoor? Hangout!",
         "You deserve a great time",
         "How about some treats?",
@@ -107,7 +104,7 @@ const options = {
     christmas: ["Merry Christmas", "Season greetings"],
     //TODO: boxing_day: [],
     valentine: ["It's Valentine", "Happy Valentine"],
-    other: ["Holla!", "Hello!", "Welcome", "Howdy?", "Ciao!"],
+    other: ["Welcome", "Howdy?", "Ciao!"],
 };
 //greetings = greetings
 const greetings = {
