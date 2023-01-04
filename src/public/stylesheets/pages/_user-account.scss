@@ -3,8 +3,8 @@
   min-height: 100vh;
 }
 
-#account > *{
-  padding-top: 60px!important;
+#account>* {
+  padding-top: 60px !important;
 }
 
 #account aside {
@@ -45,7 +45,7 @@
     border: none;
     color: inherit;
     font-size: 28px;
-    text-align: left!important;
+    text-align: left !important;
   }
 
   li a {
@@ -81,7 +81,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  // align-items: center;
   column-gap: 15px;
 }
 
@@ -117,6 +116,13 @@ li a {
   #account main .header {
     padding: $mobile-view-padding ;
     margin-bottom: 1.75rem;
+    display: flex;
+    background: $purple;
+
+    &,
+    a {
+      color: $white !important;
+    }
   }
 
   #account main .header .nav {
