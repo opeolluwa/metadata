@@ -131,11 +131,6 @@ nav li a {
   font-weight: 400 !important;
   font-size: 19px !important;
 }
-nav svg {
-  font-size: 30px;
-  cursor: pointer;
-  color: #a91f5a;
-}
 
 @media screen and (max-width: 600px) {
   nav {
@@ -252,7 +247,7 @@ footer a#opeolluwa {
   text-decoration-color: #7d7d7d;
 }
 
-ul {
+footer ul {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -262,11 +257,11 @@ ul {
   margin-top: 0.5rem;
   display: none;
 }
-ul a {
+footer ul a {
   color: #101010 !important;
   text-decoration: none;
 }
-ul li a {
+footer ul li a {
   font-weight: 400 !important;
   font-size: 19px !important;
 }
@@ -582,24 +577,33 @@ ul li a {
   min-height: 100vh;
 }
 
+#account > * {
+  padding-top: 60px !important;
+}
+
 #account aside {
-  width: 25%;
-  background-color: #361f4c;
-  background: linear-gradient(to left bottom, #f26114, #d83343, #a91f5a, #6f215d, #361f4c);
+  width: 20%;
+  background-color: #f8f8f8;
+  color: #101010;
   padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 #account aside ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  justify-content: flex-start;
+}
+#account aside .bi {
+  display: none;
 }
 #account aside li {
   margin: 0 7.5px;
   cursor: pointer;
   margin-bottom: 35px;
   display: flex;
-  align-items: center;
   column-gap: 15px;
 }
 #account aside a,
@@ -611,9 +615,10 @@ ul li a {
   border: none;
   color: inherit;
   font-size: 28px;
+  text-align: left !important;
 }
 #account aside li a {
-  color: #f2f2f2 !important;
+  color: #101010 !important;
   font-weight: 400 !important;
   font-size: 19px !important;
 }
@@ -634,6 +639,7 @@ ul li a {
   align-items: center;
   border-bottom: 1px solid #ccc;
   background-color: #f8f8f8;
+  display: none;
 }
 
 #account .nav {
@@ -641,7 +647,6 @@ ul li a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   column-gap: 15px;
 }
 
