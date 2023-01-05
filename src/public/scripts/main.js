@@ -1,16 +1,22 @@
-const navigation = document.querySelector("#navigation");
-navigation.addEventListener("click", (e) => {
+document.querySelector("#navigation")?.addEventListener("click", (e) => {
     e.stopPropagation();
     navigation.classList.toggle("show");
     // alert("fool")
 });
 
 //show navigation
-document.querySelector("#nav-btn").addEventListener("click", function () {
-    document.querySelector("#navigation").classList.toggle("show");
+document.querySelector("#nav-btn")?.addEventListener("click", function () {
+    document.querySelector("#navigation")?.classList.toggle("show");
 });
 
 
+document.querySelector("#nav-btn")?.addEventListener("click", function () {
+    document.querySelector("#account aside")?.classList.toggle("show");
+});
+
+document.querySelector("#account aside")?.addEventListener("click", function () {
+    document.querySelector("#account aside")?.classList.toggle("show");
+});
 //show account dropdown
 document.querySelector("#account-dropdown").addEventListener("click", function () {
     document.querySelector("#account-dropdown div.dropdown-menu").classList.toggle("show");

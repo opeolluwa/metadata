@@ -103,6 +103,33 @@ li a {
 }
 
 @media screen and (max-width: 768px) {
+  .header svg{
+    cursor: pointer;
+  }
+  #account aside {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1700;
+    background-color: rgba(0, 0, 0, 0.53);
+    height: 100vh;
+    padding: 0 !important;
+    display: none;
+    cursor: pointer;
+  }
+
+  #account aside ul {
+    background-color: $white;
+    margin: 0;
+    position: relative;
+    top: 0;
+    height: inherit;
+    width: 70%;
+    padding-top: 2rem;
+    padding-left: 1rem;
+  }
+
   #account {
     display: block;
     margin: 0;
@@ -149,9 +176,6 @@ li a {
     font-size: 1rem;
   }
 
-  #account aside {
-    display: none;
-    padding: 0;
-  }
+
 
 }
