@@ -1,4 +1,4 @@
-form {
+form#search-resource {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   justify-content: center;
@@ -43,7 +43,7 @@ form {
 }
 
 @media screen and (max-width: 600px) {
-  form {
+  form#search-resource {
     input {
       grid-column: 1 / -1;
       border: 1px solid $grey;

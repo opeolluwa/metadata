@@ -161,3 +161,6 @@ pwa/node_modules
 pwa/pwa
 pwa/public/img/icons
 pwa/src/greeting.js
+src/database/*
+
+src/database/database.sqlite
