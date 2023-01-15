@@ -10,12 +10,13 @@
     "deploy": "git push heroku master",
     "serve": "node dist/index.js",
     "start": "npm run serve",
+    "style:tailwind": "npx tailwindcss -i ./src/public/stylesheets/tailwind-input.css -o ./src/public/stylesheets/tailwind-output.css --watch",
     "watch-node": "nodemon src/index.ts",
     "watch-sass": "sass --watch src/public/stylesheets/index.scss src/public/stylesheets/index.css",
     "watch-404": "sass --watch src/public/stylesheets/404.scss src/public/stylesheets/404.css",
     "watch-ts": "tsc -w",
     "watch-pwa": "cd user-account && npm run serve",
-    "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page\" -c \"yellow.bold,cyan.bold,green.bold,red.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-404\" ",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page,Tailwind\" -c \"yellow.bold,cyan.bold,green.bold,red.bold,blue\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-404\" \"npm run style:tailwind\" ",
     "db:migrate": "npx typeorm-ts-node-esm migration:run  -d src/config/database.config.ts",
     "db:revert": "npx typeorm-ts-node-esm migration:revert -d src/config/database.config.ts"
   },
@@ -76,6 +77,7 @@
   "license": "MIT",
   "homepage": "",
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
     "@types/express": "^4.17.13",
     "@types/express-ejs-layouts": "^2.5.0",
     "@types/node": "^17.0.27",

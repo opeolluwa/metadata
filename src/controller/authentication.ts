@@ -75,7 +75,7 @@ export default class AuthenticationControllers {
                 user.password = hash;
                 user.username = username.trim()
                 user.accountStatus = "unverified";
-                await UserInformation.save(user);
+               await UserInformation.save(user);
 
                 //set the magic link and activation token
                 const activationToken = jwt.sign({
