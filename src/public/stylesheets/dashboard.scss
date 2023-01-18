@@ -237,7 +237,7 @@ li a {
         padding: $mobile-view-padding ;
         margin-bottom: 1.75rem;
         display: flex;
-        background: $gradient-bg;
+        background: lighten($color: $purple, $amount: .75);
 
         &,
         a {

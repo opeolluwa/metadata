@@ -188,6 +188,7 @@ button[type="submit"] {
 @import "./pages/resources";
 @import "./pages/confirm-otp";
 @import "./pages/home";
+@import "./dashboard";
 
 .show {
   display: block !important;
@@ -196,3 +197,5 @@ button[type="submit"] {
 .hide {
   display: none;
 }
+
+// @import url(tailwind.css);
