@@ -51,10 +51,6 @@ app.use("/icons", express.static(path.join(__dirname, "public/icons")));
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 app.use("/favicon", express.static(path.join(__dirname, "public/favicon")));
 
-//pwa static files
-app.use("/css", express.static(path.join(__dirname, "./views/pages/account/css")));
-app.use("/js", express.static(path.join(__dirname, "./views/pages/account/js")));
-app.use("/img", express.static(path.join(__dirname, "./views/pages/account/img")));
 
 //view engine config
 app.set("view engine", "ejs");
@@ -91,7 +87,7 @@ store.sync();
 app.use(router)
 app.use("/r", resource)
 app.use("/d", dashboard)
-app.use("/contact", contact)
+app.use("/contact", explore)
 app.use("/search", search)
 app.use("/explore", explore)
 

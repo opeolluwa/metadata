@@ -16,7 +16,7 @@
     "watch-404": "sass --watch src/public/stylesheets/404.scss src/public/stylesheets/404.css",
     "watch-ts": "tsc -w",
     "watch-pwa": "cd user-account && npm run serve",
-    "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Typescript,Node,Error Page,Tailwind\" -c \"yellow.bold,cyan.bold,green.bold,red.bold,blue\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run watch-node\" \"npm run watch-404\" \"npm run style:tailwind\" ",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Node,Tailwind\" -c \"yellow.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-node\" \"npm run style:tailwind\" ",
     "db:migrate": "npx typeorm-ts-node-esm migration:run  -d src/config/database.config.ts",
     "db:revert": "npx typeorm-ts-node-esm migration:revert -d src/config/database.config.ts"
   },
@@ -84,6 +84,7 @@
     "@types/passport-local": "^1.0.34",
     "sass": "^1.51.0",
     "sequelize-cli": "^6.4.1",
+    "tailwindcss": "^3.2.4",
     "ts-node": "^10.8.1",
     "typescript": "^4.6.3"
   },
