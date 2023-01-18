@@ -1,19 +1,32 @@
-<form action="/">
+<h3>
+    Add Resource
+</h3>
+<!-- <p class="sub-hero-text">
+    provide resource details to continue
+</p> -->
+<form action="/d/add-resource" method="post">
     <div class="form-feed">
         <label for="resource-name" class="block">Resource name</label>
-        <input type="text" placeholder="Resource Name" class="rounded text-pink-500" />
-    </div>
-    
-    
-    
-    <div class="form-feed">
-        <label for="resource-name" class="block">Resource ULR</label>
-        <input type="url" placeholder="Resource URL" class="rounded text-pink-500" />
-    </div>
-    
-    <div class="form-feed">
-        <label for="resource-name" class="block ">Resource Description</label>
-        <input type="text" placeholder="Resource Description" class="rounded text-pink-500" />
+        <input type="text" name="name" value="" placeholder="Resource Name" />
     </div>
 
+    <div class="form-feed">
+        <label for="resource-name" class="block">Resource ULR</label>
+        <input type="url" name="url" value="" placeholder="Resource URL" />
+    </div>
+
+    <div class="form-feed">
+        <label for="resource-name" class="block">Resource Category</label>
+        <input type="url" name=category placeholder="Resource Category" value="" />
+    </div>
+
+    <div class="form-feed">
+        <label for="resource-name" class="block ">Resource Description</label>
+        <textarea type="text" placeholder="Resource Description" name="description" value=""
+            class="rounded text-pink-500" rows="5"></textarea>
+    </div>
+    <button class="btn" type="submit">
+        <span class=""> Add Resource </span>
+        <i class="bi bi-caret-right-fill"></i>
+    </button>
 </form>

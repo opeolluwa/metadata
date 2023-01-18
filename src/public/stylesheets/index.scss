@@ -19,6 +19,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
+  // min-height: 100vh!important;
 }
 
 input {
@@ -100,82 +101,82 @@ h1 {
   }
 }
 
- // .form-feed>*,
- .form-feed {
-   display: block;
-   min-width: fit-content;
-   width: 65%;
+// .form-feed>*,
+.form-feed {
+  display: block;
+  min-width: fit-content;
+  width: 65%;
 
-   span {
-     font-size: 80%;
-     color: $grey;
-     margin-top: 1px;
-   }
- }
+  span {
+    font-size: 80%;
+    color: $grey;
+    margin-top: 1px;
+  }
+}
 
- .form-feed {
-   border-color: transparent;
-   margin: 1.5rem 0;
+.form-feed {
+  border-color: transparent;
+  margin: 1.5rem 0;
 
-   label {
-     margin-bottom: 0.25rem;
-     color: $black;
-     line-height: 24px;
-     text-transform: uppercase;
-     font-size: 70%;
-   }
+  label {
+    margin-bottom: 0.25rem;
+    color: $black;
+    line-height: 24px;
+    text-transform: uppercase;
+    font-size: 70%;
+  }
 
-   input,
-   button,
-   textarea,
-   select,
-   option {
-     padding: 12px;
-     border-radius: 3px;
-     border: 1px solid gray;
-     width: 100%;
-     font-size: 1rem;
-     background-color: transparent;
-   }
+  input,
+  button,
+  textarea,
+  select,
+  option {
+    padding: 12px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    width: 100%;
+    font-size: 1rem;
+    background-color: transparent;
+  }
 
-   & input,
-   & textarea {
-     text-align: unset;
-   }
+  & input,
+  & textarea {
+    text-align: unset;
+  }
 
-   & input:focus,
-   & input:hover,
-   & textarea:hover,
-   & textarea:focus {
-     outline: 1px solid transparent;
-     transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
-   }
+  & input:focus,
+  & input:hover,
+  & textarea:hover,
+  & textarea:focus {
+    outline: 1px solid transparent;
+    transition: 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 
-   & input[type="checkbox"] {
-     display: inline !important;
-   }
+  & input[type="checkbox"] {
+    display: inline !important;
+  }
 
-   & input.input-error {
-     border: 1px solid $red;
-   }
+  & input.input-error {
+    border: 1px solid $red;
+  }
 
-   & input.no-input-error {
-     border: 1px solid $green;
-   }
- }
+  & input.no-input-error {
+    border: 1px solid $green;
+  }
+}
 
- .form-control {
-   border: transparent;
-   font-size: 80%;
-   width: 65%;
- }
+.form-control {
+  border: transparent;
+  font-size: 80%;
+  width: 65%;
+}
 
- button[type="submit"] {
-   background-color: darken($black, 5%);
-   color: $white;
-   cursor: pointer;
- }
- 
+button[type="submit"] {
+  background-color: darken($black, 5%);
+  color: $white;
+  cursor: pointer;
+}
+
 //components
 @import "./components/navigation";
 @import "./components/footer";
@@ -187,11 +188,14 @@ h1 {
 @import "./pages/resources";
 @import "./pages/confirm-otp";
 @import "./pages/home";
+@import "./dashboard";
 
 .show {
-  display: block!important;
+  display: block !important;
 }
 
 .hide {
   display: none;
 }
+
+// @import url(tailwind.css);

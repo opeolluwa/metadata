@@ -1182,6 +1182,259 @@ main #some {
     margin-bottom: 1rem;
   }
 }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 18px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+input {
+  accent-color: #101010;
+}
+
+.d-desktop,
+.d-mobile,
+.d-desktop-flex {
+  display: none;
+}
+
+.sub-hero-text {
+  font-size: 1.25rem;
+  line-height: 24px;
+  font-weight: 400;
+  text-transform: lowercase !important;
+  font-weight: 500;
+}
+
+.sub-hero-text::first-letter {
+  text-transform: capitalize;
+}
+
+.d-block {
+  display: block;
+}
+
+.nav-active {
+  display: block;
+  transition: 300ms cubic-bezier(0.165, 0.84, 0.44, 1) linear;
+}
+
+.d-none {
+  display: none;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.grey-text {
+  color: #7d7d7d;
+}
+
+*[class*=error] {
+  color: rgba(233, 41, 41, 0.9450980392) !important;
+}
+
+h1 {
+  line-height: 36px;
+  font-size: 2.75rem;
+}
+
+@media screen and (max-width: 600px) {
+  .d-mobile {
+    display: unset;
+  }
+}
+@media screen and (min-width: 600px) {
+  .d-desktop {
+    display: block;
+  }
+
+  .d-desktop-flex {
+    display: flex;
+  }
+}
+#account {
+  display: flex;
+  min-height: 100vh;
+}
+
+#account > * {
+  padding-top: 60px !important;
+}
+
+#account aside {
+  width: 20%;
+  background-color: #f8f8f8;
+  color: #101010;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#account aside ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#account aside .bi {
+  display: none;
+}
+#account aside li {
+  margin: 0 7.5px;
+  cursor: pointer;
+  margin-bottom: 35px;
+  display: flex;
+  column-gap: 15px;
+}
+#account aside a,
+#account aside a:hover,
+#account aside a:visited,
+#account aside a:link {
+  text-decoration: none;
+  padding: 0;
+  border: none;
+  color: inherit;
+  font-size: 28px;
+  text-align: left !important;
+}
+#account aside li a {
+  color: #101010 !important;
+  font-weight: 400 !important;
+  font-size: 19px !important;
+}
+
+#account main {
+  /* Take the remaining width */
+  flex: 1;
+  /* Make it scrollable */
+  overflow: auto;
+  padding: 0 !important;
+}
+
+#account main .header {
+  padding: 20px 60px;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  background-color: #f8f8f8;
+  display: none;
+}
+
+#account .nav {
+  list-style: none !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 15px;
+}
+
+#account a {
+  color: #101010 !important;
+  text-decoration: none;
+}
+
+li a {
+  font-weight: 400 !important;
+  font-size: 19px !important;
+}
+
+#account main .container {
+  padding: 40px 60px;
+}
+
+.bi-list {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .header svg {
+    cursor: pointer;
+  }
+
+  #account aside {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1700;
+    background-color: rgba(0, 0, 0, 0.53);
+    height: 100vh;
+    padding: 0 !important;
+    display: none;
+    cursor: pointer;
+  }
+
+  #account aside ul {
+    background-color: #f2f2f2;
+    margin: 0;
+    position: relative;
+    top: 0;
+    height: inherit;
+    width: 70%;
+    padding-top: 2rem;
+    padding-left: 1rem;
+  }
+
+  #account {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .bi-list {
+    display: block;
+  }
+
+  #account main .header {
+    padding: 15px 20px;
+    margin-bottom: 1.75rem;
+    display: flex;
+    background: #38204f;
+  }
+  #account main .header,
+#account main .header a {
+    color: #f2f2f2 !important;
+  }
+
+  #account main .header .nav {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+  }
+
+  #account main .header .bi {
+    margin-left: 10px;
+  }
+
+  #account main .container {
+    padding: 15px 20px;
+  }
+
+  .container .greeting {
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+  }
+
+  .greeting small {
+    font-size: 1rem;
+  }
+}
 .show {
   display: block !important;
 }
