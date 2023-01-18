@@ -1,21 +1,16 @@
 {
-  "version": "22.06.12",
+  "version": "23.01.18",
   "description": "A collection of web games ",
   "scripts": {
     "build-sass": "sass src/public/stylesheets/index.scss dist/public/stylesheets/index.css",
     "build-ts": "tsc",
-    "build-pwa": "cd user-account && npm run build && cd ..",
     "build": "npm run build-sass &&  npm run build-ts && npm run copy-static-assets",
     "copy-static-assets": "npx ts-node copy-static-assets.ts",
-    "deploy": "git push heroku master",
-    "serve": "node dist/index.js",
-    "start": "npm run serve",
+    "start": "node dist/index.js",
     "style:tailwind": "postcss ./src/public/stylesheets/tailwind/index.css -o ./src/public/stylesheets/tailwind.css --watch",
     "style:sass": "sass --watch src/public/stylesheets/index.scss src/public/stylesheets/index.css",
     "watch-node": "nodemon src/index.ts",
     "watch-404": "sass --watch src/public/stylesheets/404.scss src/public/stylesheets/404.css",
-    "watch-ts": "tsc -w",
-    "watch-pwa": "cd user-account && npm run serve",
     "dev": "concurrently -k -p \"[{name}]\" -n \"Sass,Node,Tailwind\" -c \"red.bold,green.bold,blue.bold\" \"npm run style:sass\" \"npm run watch-node\" \"npm run style:tailwind\" ",
     "db:migrate": "npx typeorm-ts-node-esm migration:run  -d src/config/database.config.ts",
     "db:revert": "npx typeorm-ts-node-esm migration:revert -d src/config/database.config.ts"
@@ -48,11 +43,9 @@
     "express-session": "^1.17.2",
     "express-validator": "^6.14.0",
     "helmet": "^6.0.1",
-    "imagekit": "^3.2.5",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.3",
     "morgan": "^1.10.0",
-    "mysql2": "^2.3.3",
     "nodemailer": "^6.7.5",
     "otp-generator": "^4.0.0",
     "passport": "^0.5.2",
@@ -69,7 +62,6 @@
     "sqlite3": "^5.0.6",
     "typeorm": "^0.3.11",
     "url-validator": "^2.0.3",
-    "uuid": "^9.0.0",
     "uuidv4": "^6.2.13"
   },
   "repository": {
@@ -91,7 +83,7 @@
     "ts-node": "^10.8.1",
     "typescript": "^4.6.3"
   },
-  "name": "meta-data",
+  "name": "metadata",
   "main": "index.js",
   "author": "Adeoye Adefemi Opeoluwa <adefemiadeoye@yahoo.com>"
 }
